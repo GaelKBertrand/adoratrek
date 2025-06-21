@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Adora Treks</title>
+        <link rel="icon" href="img/favicon.png" type="image/png">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet"> 
+
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading Adora Hospitality Treks</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Topbar Start -->
+        <div class="container-fluid bg-primary px-5 d-none d-lg-block">
+            <div class="row gx-0">
+                <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                    <div class="d-inline-flex align-items-center" style="height: 45px;">
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://x.com/Adorabooking/"><i class="fab fa-twitter fw-normal"></i></a>
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.facebook.com/adorahospitality"><i class="fab fa-facebook-f fw-normal"></i></a>
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.linkedin.com/company/adora-hospitality-solutions/"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.instagram.com/adorahospitality/"><i class="fab fa-instagram fw-normal"></i></a>
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="https://www.youtube.com/@AdoraHospitality"><i class="fab fa-youtube fw-normal"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center text-lg-end">
+                    <div class="d-inline-flex align-items-center" style="height: 45px;">
+                        <!--
+                        <a href="#"><small class="me-3 text-light"><i class="fa fa-user me-2"></i>Register</small></a>
+                        <a href="#"><small class="me-3 text-light"><i class="fa fa-sign-in-alt me-2"></i>Login</small></a>
+
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-toggle text-light" data-bs-toggle="dropdown"><small><i class="fa fa-home me-2"></i> My Dashboard</small></a>
+                            <div class="dropdown-menu rounded">
+                                <a href="#" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> My Profile</a>
+                                <a href="#" class="dropdown-item"><i class="fas fa-comment-alt me-2"></i> Inbox</a>
+                                <a href="#" class="dropdown-item"><i class="fas fa-bell me-2"></i> Notifications</a>
+                                <a href="#" class="dropdown-item"><i class="fas fa-cog me-2"></i> Account Settings</a>
+                                <a href="#" class="dropdown-item"><i class="fas fa-power-off me-2"></i> Log Out</a>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Topbar End -->
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-fluid position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+                <a href="index.html" class="navbar-brand p-0">
+                    <!--<h1 class="m-0"><i class="fa fa-map-marker-alt me-3"></i>Travela</h1>-->
+                    <img src="img/logo.png" alt="Logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                        <a href="index.html" class="nav-item nav-link active">Home</a>
+                        <!--
+                        <a href="about.html" class="nav-item nav-link">About</a> -->
+                        <a href="packages.html" class="nav-item nav-link"> Trek Packages</a>
+                        <a href="services.html" class="nav-item nav-link">Other Services</a>
+                        <a href="https://insider.adorahospitality.com/" class="nav-item nav-link">Blog & Updates</a>
+                        <!--
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                            <div class="dropdown-menu m-0">
+                                <a href="destination.html" class="dropdown-item">Destination</a>
+                                <a href="tour.html" class="dropdown-item">Explore Tour</a>
+                                <a href="booking.html" class="dropdown-item">Travel Booking</a>
+                                <a href="gallery.html" class="dropdown-item">Our Gallery</a>
+                                <a href="guides.html" class="dropdown-item">Travel Guides</a>
+                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                                <a href="404.html" class="dropdown-item">404 Page</a>
+                            </div>
+                        </div>
+                        -->
+                        <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+                    </div>
+                    <!--
+                    <a href="https://adorahospitality.com/booking-app/index.html" class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Book Adventures Now</a>
+                -->
+                </div>
+            </nav>
+
+            
+<body>
+
+<!-- Header Section (Adora Hospitality Style) -->
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="main-header">
+<div class="container mx-auto px-6 py-4 flex justify-between items-center">
+<!-- Logo -->
+<a class="text-3xl font-extrabold text-white font-poppins" href="#">Adora</a>
+<!-- Desktop Navigation -->
+<nav class="hidden lg:flex items-center space-x-6 text-sm">
+<a class="text-white hover:text-blue-300 transition uppercase font-semibold" href="#">Home</a>
+<a class="text-white hover:text-blue-300 transition uppercase font-semibold" href="#">About</a>
+<a class="text-white hover:text-blue-300 transition uppercase font-semibold" href="#">Treks</a>
+<a class="text-white hover:text-blue-300 transition uppercase font-semibold" href="#">Contact</a>
+</nav>
+<div class="hidden lg:flex items-center space-x-4">
+<a class="text-white hover:text-blue-300" href="#"><i class="fab fa-facebook-f"></i></a>
+<a class="text-white hover:text-blue-300" href="#"><i class="fab fa-twitter"></i></a>
+<a class="text-white hover:text-blue-300" href="#"><i class="fab fa-instagram"></i></a>
+<button class="text-white hover:text-blue-300"><i class="fas fa-search"></i></button>
+</div>
+<!-- Mobile Menu Button -->
+<button class="lg:hidden text-white text-2xl" id="mobile-menu-button">
+<i class="fas fa-bars"></i>
+</button>
+</div>
+<!-- Mobile Menu -->
+<div class="hidden lg:hidden bg-gray-800/95 backdrop-blur-sm" id="mobile-menu">
+<a class="block text-white py-3 px-6 hover:bg-gray-700" href="#">Home</a>
+<a class="block text-white py-3 px-6 hover:bg-gray-700" href="#">About</a>
+<a class="block text-white py-3 px-6 hover:bg-gray-700" href="#">Treks</a>
+<a class="block text-white py-3 px-6 hover:bg-gray-700" href="#">Contact</a>
+</div>
+</header>
+<main class="pt-16">
+<!-- Hero Section (Bikat Style) -->
+<section class="hero-bg h-[50vh] flex items-end justify-start relative p-6 md:p-12">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+<div class="relative text-white z-10 max-w-3xl">
+<h1 class="text-3xl md:text-5xl font-bold font-poppins shadow-text">Dzo Jongo with Markha Valley Trek</h1>
+<div class="flex items-center space-x-4 mt-3 text-sm md:text-base">
+<div class="flex items-center"><i class="fas fa-tag mr-2"></i><span>Mountaineering</span></div>
+<div class="flex items-center"><i class="fas fa-map-marker-alt mr-2"></i><span>Ladakh</span></div>
+</div>
+</div>
+</section>
+<!-- Main Content Area (Bikat Style) -->
+<div class="container mx-auto p-4 md:p-6 lg:p-8">
+<div class="lg:flex lg:space-x-8">
+<!-- Left Column: Tabs and Content -->
+<div class="lg:w-2/3">
+<!-- Tab Navigation -->
+<div class="sticky top-[72px] bg-gray-100 z-30" id="tab-nav-container">
+<div class="bg-white rounded-t-lg shadow-md overflow-x-auto">
+<nav class="flex border-b" id="tabs">
+<button class="tab-button flex-shrink-0 py-3 px-4 font-semibold text-gray-600 hover:text-blue-500 text-sm md:text-base tab-active" data-target="itinerary"><i class="fas fa-list-ul mr-2 hidden md:inline"></i>Itinerary</button>
+<button class="tab-button flex-shrink-0 py-3 px-4 font-semibold text-gray-600 hover:text-blue-500 text-sm md:text-base" data-target="dates"><i class="fas fa-calendar-check mr-2 hidden md:inline"></i>Dates &amp; Cost</button>
+<button class="tab-button flex-shrink-0 py-3 px-4 font-semibold text-gray-600 hover:text-blue-500 text-sm md:text-base" data-target="why-us"><i class="fas fa-users mr-2 hidden md:inline"></i>Why with us?</button>
+<button class="tab-button flex-shrink-0 py-3 px-4 font-semibold text-gray-600 hover:text-blue-500 text-sm md:text-base" data-target="faq"><i class="fas fa-question-circle mr-2 hidden md:inline"></i>FAQ</button>
+<button class="tab-button flex-shrink-0 py-3 px-4 font-semibold text-gray-600 hover:text-blue-500 text-sm md:text-base" data-target="essentials"><i class="fas fa-briefcase mr-2 hidden md:inline"></i>Essentials</button>
+<button class="tab-button flex-shrink-0 py-3 px-4 font-semibold text-gray-600 hover:text-blue-500 text-sm md:text-base" data-target="photos"><i class="fas fa-camera mr-2 hidden md:inline"></i>Photos</button>
+</nav>
+</div>
+</div>
+<!-- Tab Content Panels -->
+<div class="bg-white p-4 md:p-6 rounded-b-lg shadow-md min-h-screen">
+<!-- Itinerary Content -->
+<div class="tab-content" id="itinerary" style="display: block;">
+<div class="space-y-10">
+<!-- Day 1 -->
+<div class="flex space-x-4">
+<div class="itinerary-day-number">01</div>
+<div class="border-l-2 border-dotted border-gray-300 pl-6 flex-1">
+<h3 class="font-bold text-xl font-poppins text-gray-800 -mt-3">Arrival in Leh</h3>
+<div class="text-sm text-gray-500 mt-1"><strong>Altitude:</strong> 3,500 m</div>
+<p class="mt-4">Fly into Leh, the capital of Ladakh. The high altitude requires immediate acclimatization. We will transfer you to your hotel. Spend the day resting to allow your body to adjust. This is critical for a safe and enjoyable trek. In the evening, you can take a light stroll through Leh's main bazaar.</p>
+<div class="mt-4 p-4 bg-blue-50 border-l-4 border-blue-400 text-blue-800 text-sm rounded-r-lg">
+<p><strong>Highlights:</strong> Arriving in a high-altitude desert city, first views of the Stok range.</p>
+</div>
+</div>
+</div>
+<!-- All other 12 days would follow this same detailed structure -->
+<div class="flex space-x-4">
+<div class="itinerary-day-number">10</div>
+<div class="border-l-2 border-dotted border-gray-300 pl-6 flex-1">
+<h3 class="font-bold text-xl font-poppins text-red-600 -mt-3">Summit Day! Ascent of Dzo Jongo (6,250 m)</h3>
+<div class="text-sm text-gray-500 mt-1"><strong>Altitude:</strong> 6,250 m | <strong>Trek:</strong> 10-12 hours</div>
+<p class="mt-4">The ultimate challenge. We start post-midnight, navigating by headlamp. The initial section is over moraine, followed by a glacier crossing where we will be roped-up for safety. The climb is physically demanding and mentally challenging. The final ascent to the summit ridge rewards you with breathtaking 360-degree views. After soaking in the achievement, we descend carefully back to base camp.</p>
+<div class="mt-4 p-4 bg-red-50 border-l-4 border-red-500 text-red-800 text-sm rounded-r-lg">
+<p><strong>Highlights:</strong> Unparalleled views of Kang Yatse, Stok Kangri, and distant giants like K2 (on a clear day).</p>
+</div>
+<div class="mt-4">
+<img alt="Altitude graph for Day 10" class="rounded-lg shadow-sm w-full" onerror="this.style.display='none'" src="https://www.bikatadventures.com/images/itinerary-graph/dzo-jongo-trek-ladakh-day10.jpg"/>
+</div>
+</div>
+</div>
+<div class="flex space-x-4">
+<div class="itinerary-day-number">13</div>
+<div class="border-l-2 border-dotted border-gray-300 pl-6 flex-1">
+<h3 class="font-bold text-xl font-poppins text-gray-800 -mt-3">Departure from Leh</h3>
+<p class="mt-4">After breakfast, check out from the hotel. We will drop you at the airport for your flight back home, filled with memories of an incredible adventure.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Dates & Cost Content -->
+<div class="tab-content" id="dates">
+<h2 class="text-2xl font-bold mb-4 font-poppins">Dates &amp; Cost</h2>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-gray-200">
+<th class="p-3 font-semibold">Start Date</th>
+<th class="p-3 font-semibold">End Date</th>
+<th class="p-3 font-semibold">Cost</th>
+<th class="p-3 font-semibold">Status</th>
+<th class="p-3 font-semibold"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b">
+<td class="p-3">03 Aug 2024</td>
+<td class="p-3">15 Aug 2024</td>
+<td class="p-3">₹ 42,550</td>
+<td class="p-3"><span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Filling Fast</span></td>
+<td class="p-3"><button class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm">Book</button></td>
+</tr>
+<tr class="border-b">
+<td class="p-3">17 Aug 2024</td>
+<td class="p-3">29 Aug 2024</td>
+<td class="p-3">₹ 42,550</td>
+<td class="p-3"><span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">Almost Full</span></td>
+<td class="p-3"><button class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm">Book</button></td>
+</tr>
+<tr class="border-b">
+<td class="p-3">01 Sep 2024</td>
+<td class="p-3">13 Sep 2024</td>
+<td class="p-3">₹ 42,550</td>
+<td class="p-3"><span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">Full</span></td>
+<td class="p-3"><button class="bg-gray-400 text-white px-4 py-2 rounded-lg text-sm cursor-not-allowed">Full</button></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Why With Us Content -->
+<div class="tab-content" id="why-us">
+<h2 class="text-2xl font-bold mb-6 font-poppins">Why with us?</h2>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="flex items-start space-x-4">
+<i class="fas fa-shield-alt text-3xl text-blue-500 mt-1"></i>
+<div>
+<h4 class="font-bold text-lg">Safety First</h4>
+<p class="text-gray-600 mt-1">Certified guides, high-quality gear, and comprehensive safety protocols including emergency oxygen.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<i class="fas fa-users-cog text-3xl text-blue-500 mt-1"></i>
+<div>
+<h4 class="font-bold text-lg">Expert Local Teams</h4>
+<p class="text-gray-600 mt-1">Experienced local trek leaders and support staff who know the terrain inside out.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<i class="fas fa-leaf text-3xl text-blue-500 mt-1"></i>
+<div>
+<h4 class="font-bold text-lg">Responsible Travel</h4>
+<p class="text-gray-600 mt-1">We practice 'Leave No Trace' principles and work to support local communities.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<i class="fas fa-utensils text-3xl text-blue-500 mt-1"></i>
+<div>
+<h4 class="font-bold text-lg">Nutritious Food</h4>
+<p class="text-gray-600 mt-1">Freshly prepared, wholesome, and delicious meals to keep you energized on the trail.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- FAQ Content -->
+<div class="tab-content" id="faq">
+<h2 class="text-2xl font-bold mb-6 font-poppins">Frequently Asked Questions</h2>
+<div class="space-y-4" id="faq-container">
+<!-- FAQ Item 1 -->
+<div class="border rounded-lg">
+<div class="faq-question p-4 flex justify-between items-center">
+<h4 class="font-semibold">What level of fitness is required?</h4>
+<i class="fas fa-chevron-down faq-icon"></i>
+</div>
+<div class="faq-answer px-4 border-t border-gray-200 text-gray-600">
+                                         This is a difficult trek (rated 7/10). You need excellent cardiovascular endurance. We recommend being able to run 10km in 60 minutes and having prior experience of at least one multi-day Himalayan trek.
+                                     </div>
+</div>
+<!-- FAQ Item 2 -->
+<div class="border rounded-lg">
+<div class="faq-question p-4 flex justify-between items-center">
+<h4 class="font-semibold">What about Acute Mountain Sickness (AMS)?</h4>
+<i class="fas fa-chevron-down faq-icon"></i>
+</div>
+<div class="faq-answer px-4 border-t border-gray-200 text-gray-600">
+                                        AMS is a genuine risk. Our itinerary is designed for gradual acclimatization. Our trek leaders are trained to identify and manage AMS symptoms. We carry emergency oxygen and have evacuation protocols in place. It's crucial you stay hydrated and communicate any discomfort to your guide immediately.
+                                     </div>
+</div>
+</div>
+</div>
+<!-- Essentials Content -->
+<div class="tab-content" id="essentials">
+<h2 class="text-2xl font-bold mb-6 font-poppins">Trek Essentials</h2>
+<!-- ... content for essentials ... -->
+<p>A comprehensive list of trekking gear, clothing, and documents will be provided here.</p>
+</div>
+<!-- Photos Content -->
+<div class="tab-content" id="photos">
+<h2 class="text-2xl font-bold mb-6 font-poppins">Photo Gallery</h2>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+<img class="rounded-lg shadow-md hover:opacity-80 transition cursor-pointer" src="https://placehold.co/600x400/3B82F6/FFFFFF?text=View+1"/>
+<img class="rounded-lg shadow-md hover:opacity-80 transition cursor-pointer" src="https://placehold.co/600x400/10B981/FFFFFF?text=View+2"/>
+<img class="rounded-lg shadow-md hover:opacity-80 transition cursor-pointer" src="https://placehold.co/600x400/F59E0B/FFFFFF?text=View+3"/>
+<img class="rounded-lg shadow-md hover:opacity-80 transition cursor-pointer" src="https://placehold.co/600x400/EF4444/FFFFFF?text=View+4"/>
+<img class="rounded-lg shadow-md hover:opacity-80 transition cursor-pointer" src="https://placehold.co/600x400/8B5CF6/FFFFFF?text=View+5"/>
+<img class="rounded-lg shadow-md hover:opacity-80 transition cursor-pointer" src="https://placehold.co/600x400/6366F1/FFFFFF?text=View+6"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Sticky Sidebar -->
+<div class="lg:w-1/3 mt-8 lg:mt-0">
+<div class="sticky-sidebar bg-white rounded-lg shadow-xl p-6">
+<div class="flex justify-between items-center">
+<div>
+<p class="text-sm text-gray-500">Starting from</p>
+<p class="text-3xl font-bold text-gray-800 font-poppins">₹ 42,550</p>
+<p class="text-sm text-gray-500">per person + 5% GST</p>
+</div>
+<div class="text-center">
+<div class="bg-blue-500 text-white font-bold text-xl rounded-md w-16 h-12 flex items-center justify-center">7/10</div>
+<p class="text-xs font-semibold mt-1">Difficulty</p>
+</div>
+</div>
+<button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-lg mt-6 text-lg transition duration-300 shadow-lg hover:shadow-xl">Book Now</button>
+<a class="w-full block text-center bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 rounded-lg mt-3 transition duration-300" href="#">Enquire Now</a>
+<div class="mt-8 border-t pt-6">
+<h4 class="font-bold text-lg font-poppins">Quick Facts</h4>
+<ul class="mt-4 space-y-4 text-gray-600">
+<li class="flex items-center"><i class="fas fa-calendar-alt w-6 text-center text-blue-500 mr-3"></i> 13 Days / 12 Nights</li>
+<li class="flex items-center"><i class="fas fa-chart-area w-6 text-center text-blue-500 mr-3"></i> 6,250 M Max Altitude</li>
+<li class="flex items-center"><i class="fas fa-route w-6 text-center text-blue-500 mr-3"></i> 85 KM Trek Distance</li>
+<li class="flex items-center"><i class="fas fa-tachometer-alt w-6 text-center text-blue-500 mr-3"></i> Grade: Difficult</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Section (Adora Hospitality Style) -->
+<footer class="bg-gray-800 text-white mt-12" id="contact">
+<div class="container mx-auto py-16 px-6">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+<div>
+<h4 class="text-2xl font-extrabold mb-4 font-poppins">Adora</h4>
+<p class="text-gray-400">The world is a book and those who do not travel read only one page.</p>
+<div class="flex space-x-4 mt-6">
+<a class="text-gray-400 hover:text-white" href="#"><i class="fab fa-facebook-f"></i></a>
+<a class="text-gray-400 hover:text-white" href="#"><i class="fab fa-twitter"></i></a>
+<a class="text-gray-400 hover:text-white" href="#"><i class="fab fa-instagram"></i></a>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4 font-poppins">Quick Links</h4>
+<ul class="space-y-2">
+<li><a class="text-gray-400 hover:text-white" href="#">Home</a></li>
+<li><a class="text-gray-400 hover:text-white" href="#">About Us</a></li>
+<li><a class="text-gray-400 hover:text-white" href="#">Our Team</a></li>
+<li><a class="text-gray-400 hover:text-white" href="#">News</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4 font-poppins">Treks</h4>
+<ul class="space-y-2">
+<li><a class="text-gray-400 hover:text-white" href="#">Everest Base Camp</a></li>
+<li><a class="text-gray-400 hover:text-white" href="#">Annapurna Circuit</a></li>
+<li><a class="text-gray-400 hover:text-white" href="#">Stok Kangri</a></li>
+<li><a class="text-gray-400 hover:text-white" href="#">Goecha La Trek</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4 font-poppins">Contact Info</h4>
+<ul class="space-y-3 text-gray-400">
+<li class="flex items-start"><i class="fas fa-map-marker-alt w-5 mr-3 mt-1"></i><span>Himalayan HQ,<br/>India</span></li>
+<li class="flex items-start"><i class="fas fa-envelope w-5 mr-3 mt-1"></i><span>contact@adora.com</span></li>
+<li class="flex items-start"><i class="fas fa-phone w-5 mr-3 mt-1"></i><span>+91 98765 43210</span></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-700">
+<div class="container mx-auto py-4 px-6 text-center text-gray-500 text-sm">
+                © 2024 Adora Treks. All Rights Reserved. (Clone for Educational Purposes)
+            </div>
+</div>
+</footer>
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // --- Adora Header Scroll Effect ---
+            const header = document.getElementById('main-header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('header-scrolled');
+                } else {
+                    header.classList.remove('header-scrolled');
+                }
+            });
+
+            // --- Mobile Menu Toggle ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // --- Bikat Content Tab Switching ---
+            const tabs = document.getElementById('tabs');
+            const tabButtons = tabs.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabs.addEventListener('click', (e) => {
+                const clickedButton = e.target.closest('.tab-button');
+                if (!clickedButton) return;
+
+                // Remove active styles from all buttons
+                tabButtons.forEach(button => {
+                    button.classList.remove('tab-active');
+                });
+
+                // Add active style to clicked button
+                clickedButton.classList.add('tab-active');
+
+                // Hide all content panels
+                tabContents.forEach(content => {
+                    content.style.display = 'none';
+                });
+
+                // Show the target content panel
+                const targetId = clickedButton.dataset.target;
+                const targetContent = document.getElementById(targetId);
+                if (targetContent) {
+                    targetContent.style.display = 'block';
+                }
+            });
+
+            // --- FAQ Accordion Functionality ---
+            const faqContainer = document.getElementById('faq-container');
+            if(faqContainer) {
+                faqContainer.addEventListener('click', (e) => {
+                    const question = e.target.closest('.faq-question');
+                    if(!question) return;
+
+                    const answer = question.nextElementSibling;
+                    const icon = question.querySelector('.faq-icon');
+
+                    answer.classList.toggle('open');
+                    icon.classList.toggle('rotate-180');
+                });
+            }
+        });
+    </script>
+
+<!-- Testimonial Start -->
+        <div class="container-fluid testimonial py-5">
+            <div class="container py-5">
+                <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+                    <h5 class="section-title px-3">Testimonial</h5>
+                    <h1 class="mb-0">Our Clients Say!!!</h1>
+                </div>
+                <div class="testimonial-carousel owl-carousel">
+                    <div class="testimonial-item text-center rounded pb-4">
+                        <div class="testimonial-comment bg-light rounded p-4">
+                            <p class="text-center mb-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis nostrum cupiditate, eligendi repellendus saepe illum earum architecto dicta quisquam quasi porro officiis. Vero reiciendis,
+                            </p>
+                        </div>
+                        <div class="testimonial-img p-1">
+                            <img src="img/testimonial-1.jpg" class="img-fluid rounded-circle" alt="Image">
+                        </div>
+                        <div style="margin-top: -35px;">
+                            <h5 class="mb-0">John Abraham</h5>
+                            <p class="mb-0">New York, USA</p>
+                            <div class="d-flex justify-content-center">
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item text-center rounded pb-4">
+                        <div class="testimonial-comment bg-light rounded p-4">
+                            <p class="text-center mb-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis nostrum cupiditate, eligendi repellendus saepe illum earum architecto dicta quisquam quasi porro officiis. Vero reiciendis,
+                            </p>
+                        </div>
+                        <div class="testimonial-img p-1">
+                            <img src="img/testimonial-2.jpg" class="img-fluid rounded-circle" alt="Image">
+                        </div>
+                        <div style="margin-top: -35px;">
+                            <h5 class="mb-0">John Abraham</h5>
+                            <p class="mb-0">New York, USA</p>
+                            <div class="d-flex justify-content-center">
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item text-center rounded pb-4">
+                        <div class="testimonial-comment bg-light rounded p-4">
+                            <p class="text-center mb-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis nostrum cupiditate, eligendi repellendus saepe illum earum architecto dicta quisquam quasi porro officiis. Vero reiciendis,
+                            </p>
+                        </div>
+                        <div class="testimonial-img p-1">
+                            <img src="img/testimonial-3.jpg" class="img-fluid rounded-circle" alt="Image">
+                        </div>
+                        <div style="margin-top: -35px;">
+                            <h5 class="mb-0">John Abraham</h5>
+                            <p class="mb-0">New York, USA</p>
+                            <div class="d-flex justify-content-center">
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item text-center rounded pb-4">
+                        <div class="testimonial-comment bg-light rounded p-4">
+                            <p class="text-center mb-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis nostrum cupiditate, eligendi repellendus saepe illum earum architecto dicta quisquam quasi porro officiis. Vero reiciendis,
+                            </p>
+                        </div>
+                        <div class="testimonial-img p-1">
+                            <img src="img/testimonial-4.jpg" class="img-fluid rounded-circle" alt="Image">
+                        </div>
+                        <div style="margin-top: -35px;">
+                            <h5 class="mb-0">John Abraham</h5>
+                            <p class="mb-0">New York, USA</p>
+                            <div class="d-flex justify-content-center">
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+
+        <!-- Subscribe Start -->
+        <div class="container-fluid subscribe py-5">
+            <div class="container text-center py-5">
+                <div class="mx-auto text-center" style="max-width: 900px;">
+                    <h5 class="subscribe-title px-3">Subscribe</h5>
+                    <h1 class="text-white mb-4">Our Newsletter</h1>
+                    <p class="text-white mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore nam, architecto doloremque velit explicabo? Voluptate sunt eveniet fuga eligendi! Expedita laudantium fugiat corrupti eum cum repellat a laborum quasi.
+                    </p>
+                    <div class="position-relative mx-auto">
+                        <input class="form-control border-primary rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                        <button type="button" class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Subscribe End -->
+
+        <!-- Footer Start -->
+        <div class="container-fluid footer py-5">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="mb-4 text-white">Get In Touch</h4>
+                            <a href=""><i class="fas fa-home me-2"></i> Manali, Old Manali, Manu Temple Road, Himachal Pradesh,175131</a>
+                            <a href=""><i class="fas fa-envelope me-2"></i> info@adorahospitality.com</a>
+                            <a href=""><i class="fas fa-phone me-2"></i> +91 7807111209</a>
+                            <a href=""><i class="fas fa-phone me-2"></i> +91 7807111208</a>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-share fa-2x text-white me-2"></i>
+                                <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://www.facebook.com/adorahospitality"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://x.com/Adorabooking/"><i class="fab fa-twitter"></i></a>
+                                <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://www.instagram.com/adorahospitality/"><i class="fab fa-instagram"></i></a>
+                                <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://www.linkedin.com/company/adora-hospitality-solutions/"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="mb-4 text-white">Company</h4>
+                            <a href="https://adorahospitality.com/about"><i class="fas fa-angle-right me-2"></i> About</a>
+                            <!--<a href=""><i class="fas fa-angle-right me-2"></i> Careers</a>-->
+                            <a href="https://insider.adorahospitality.com"><i class="fas fa-angle-right me-2"></i> Blog</a>
+                            <!--<a href=""><i class="fas fa-angle-right me-2"></i> Press</a>
+                            <a href=""><i class="fas fa-angle-right me-2"></i> Gift Cards</a>
+                            <a href=""><i class="fas fa-angle-right me-2"></i> Magazine</a>
+                            -->
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="mb-4 text-white">Support</h4>
+                            <a href=""><i class="fas fa-angle-right me-2"></i> Contact</a>
+                            <a href=""><i class="fas fa-angle-right me-2"></i> Legal Notice</a>
+                            <a href=""><i class="fas fa-angle-right me-2"></i> Privacy Policy</a>
+                            <a href=""><i class="fas fa-angle-right me-2"></i> Terms and Conditions</a>
+                            <!--<a href=""><i class="fas fa-angle-right me-2"></i> Sitemap</a>
+                            <a href=""><i class="fas fa-angle-right me-2"></i> Cookie policy</a> -->
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <!--<div class="footer-item">
+                            <div class="row gy-3 gx-2 mb-4">
+                                <div class="col-xl-6">
+                                    <form>
+                                        <div class="form-floating">
+                                            <select class="form-select bg-dark border" id="select1">
+                                                <option value="1">Arabic</option>
+                                                <option value="2">German</option>
+                                                <option value="3">Greek</option>
+                                                <option value="3">New York</option>
+                                            </select>
+                                            <label for="select1">English</label>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-xl-6">
+                                    <form>
+                                        <div class="form-floating">
+                                            <select class="form-select bg-dark border" id="select1">
+                                                <option value="1">USD</option>
+                                                <option value="2">EUR</option>
+                                                <option value="3">INR</option>
+                                                <option value="3">GBP</option>
+                                            </select>
+                                            <label for="select1">$</label>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>-->
+                            <h4 class="text-white mb-3">Accepted Payments</h4>
+                            <div class="footer-bank-card">
+                                <a href="#" class="text-white me-2"><i class="fab fa-cc-amex fa-2x"></i></a>
+                                <a href="#" class="text-white me-2"><i class="fab fa-cc-visa fa-2x"></i></a>
+                                <a href="#" class="text-white me-2"><i class="fas fa-credit-card fa-2x"></i></a>
+                                <a href="#" class="text-white me-2"><i class="fab fa-cc-mastercard fa-2x"></i></a>
+                                <!--<a href="#" class="text-white me-2"><i class="fab fa-cc-paypal fa-2x"></i></a>
+                                <a href="#" class="text-white"><i class="fab fa-cc-discover fa-2x"></i></a>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+        
+        <!-- Copyright Start -->
+        <div class="container-fluid copyright text-body py-4">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-md-6 text-center text-md-end mb-md-0">
+                        <i class="fas fa-copyright me-2"></i><a class="text-white" href="https://adorahospitality.com">Adora Hospitality</a>, All right reserved.
+                    </div>
+                    <div class="col-md-6 text-center text-md-start">
+                        <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
+                        <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
+                        <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
+                        Designed By <a class="text-white" href="https://mimperio.tech">Mimperio.tech</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright End -->
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square back-to-top"><i class="fa fa-arrow-up"></i></a>   
+
+        
+        <!-- JavaScript Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="lib/lightbox/js/lightbox.min.js"></script>
+        
+
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+    </body>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="lib/lightbox/js/lightbox.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
