@@ -648,6 +648,37 @@
 
         <script>
 
+
+            // --- Bikat Content Tab Switching ---
+            const tabs = document.getElementById('tabs');
+            const tabButtons = tabs.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabs.addEventListener('click', (e) => {
+                const clickedButton = e.target.closest('.tab-button');
+                if (!clickedButton) return;
+
+                // Remove active styles from all buttons
+                tabButtons.forEach(button => {
+                    button.classList.remove('tab-active');
+                });
+
+                // Add active style to clicked button
+                clickedButton.classList.add('tab-active');
+
+                // Hide all content panels
+                tabContents.forEach(content => {
+                    content.style.display = 'none';
+                });
+
+                // Show the target content panel
+                const targetId = clickedButton.dataset.target;
+                const targetContent = document.getElementById(targetId);
+                if (targetContent) {
+                    targetContent.style.display = 'block';
+                }
+            });
+
             // --- FAQ Accordion Functionality ---
             const faqContainer = document.getElementById('faq-container');
             if(faqContainer) {
