@@ -27,12 +27,30 @@
         <link href="css/style.css" rel="stylesheet">
 
         <style>
-            .hero-bg {
-                position: relative;
-                overflow: hidden;
+            /* General */
+            .main-content-section {
+                padding-top: 0;
             }
 
-            .hero-bg::before {
+            .font-poppins {
+                font-family: 'Poppins', sans-serif;
+            }
+
+            /* Hero Section */
+            .hero-section {
+                height: 50vh;
+                display: flex;
+                align-items: flex-end;
+                justify-content: flex-start;
+                position: relative;
+                padding: 1.5rem; /* p-6 */
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                z-index: 1; /* Ensure content is above overlay */
+            }
+
+            .hero-section::before {
                 content: '';
                 position: absolute;
                 top: 0;
@@ -43,88 +61,526 @@
                 z-index: 5;
             }
 
-            .font-poppins {
-                font-family: 'Poppins', sans-serif;
+            .hero-content {
+                position: relative;
+                color: #fff;
+                z-index: 10; /* Ensure text is above overlay */
+                max-width: 48rem; /* max-w-3xl */
             }
 
-            .shadow-text {
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            .hero-title {
+                font-size: 2.25rem; /* text-3xl */
+                line-height: 2.5rem; /* leading-9 */
+                font-weight: 700; /* font-bold */
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* shadow-text */
             }
 
-            .tab-button.tab-active {
-                border-bottom: 3px solid #007bff; /* Primary blue for active tab */
-                color: #007bff;
+            .hero-meta {
+                display: flex;
+                align-items: center;
+                margin-top: 0.75rem; /* mt-3 */
+                font-size: 0.875rem; /* text-sm */
             }
 
-            .tab-content {
-                display: none;
+            .hero-meta div {
+                display: flex;
+                align-items: center;
+                margin-right: 1rem; /* space-x-4 */
+            }
+
+            .hero-meta i {
+                margin-right: 0.5rem; /* mr-2 */
+            }
+
+            @media (min-width: 768px) { /* md breakpoint */
+                .hero-section {
+                    padding: 3rem; /* md:p-12 */
+                }
+                .hero-title {
+                    font-size: 3rem; /* md:text-5xl */
+                    line-height: 1;
+                }
+                .hero-meta {
+                    font-size: 1rem; /* md:text-base */
+                }
+            }
+
+
+            /* Main Content Area */
+            .content-container {
+                max-width: 1200px; /* Equivalent to container mx-auto */
+                margin-left: auto;
+                margin-right: auto;
+                padding: 1rem; /* p-4 */
+            }
+            @media (min-width: 768px) { /* md breakpoint */
+                .content-container {
+                    padding: 1.5rem; /* md:p-6 */
+                }
+            }
+            @media (min-width: 992px) { /* lg breakpoint */
+                .content-container {
+                    padding: 2rem; /* lg:p-8 */
+                }
+                .content-flex-container {
+                    display: flex;
+                    gap: 2rem; /* lg:space-x-8 */
+                }
+                .left-column {
+                    width: 66.666667%; /* lg:w-2/3 */
+                }
+                .right-column {
+                    width: 33.333333%; /* lg:w-1/3 */
+                    margin-top: 0; /* lg:mt-0 */
+                }
+            }
+
+
+            /* Tab Navigation */
+            .tab-nav-wrapper {
+                position: sticky;
+                top: 72px; /* sticky top-[72px] - adjust based on your actual navbar height */
+                background-color: #f3f4f6; /* bg-gray-100 */
+                z-index: 30;
+                padding: 1rem; /* p-4 */
+                border-top-left-radius: 0.5rem; /* rounded-t-lg */
+                border-top-right-radius: 0.5rem; /* rounded-t-lg */
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+            }
+            .tab-nav-inner {
+                 overflow-x: auto;
+            }
+
+            .return-button {
+                display: inline-block;
+                background-color: #3b82f6; /* bg-blue-500 */
+                color: #fff;
+                font-weight: 600; /* font-semibold */
+                padding: 0.5rem 1rem; /* py-2 px-4 */
+                border-radius: 0.5rem; /* rounded-lg */
+                transition: background-color 0.3s ease;
+                margin-bottom: 1rem; /* mb-4 */
+            }
+            .return-button:hover {
+                background-color: #2563eb; /* hover:bg-blue-600 */
+                color: #fff;
+                text-decoration: none;
+            }
+
+            .tab-buttons-nav {
+                display: flex;
+                border-bottom: 1px solid #e5e7eb; /* border-b */
+            }
+
+            .tab-button {
+                flex-shrink: 0;
+                padding: 0.75rem 1rem; /* py-3 px-4 */
+                font-weight: 600; /* font-semibold */
+                color: #4b5563; /* text-gray-600 */
+                transition: color 0.3s ease;
+                border-bottom: 3px solid transparent; /* default state */
+                background-color: transparent;
+                border-top-right-radius: 0;
+                border-top-left-radius: 0;
+            }
+            .tab-button:hover {
+                color: #3b82f6; /* hover:text-blue-500 */
+                text-decoration: none;
+            }
+            .tab-button.active-tab {
+                border-color: #3b82f6; /* border-blue-500 */
+                color: #3b82f6;
+            }
+            .tab-button i {
+                margin-right: 0.5rem; /* mr-2 */
+            }
+            @media (max-width: 767px) { /* hide icons on small screens */
+                .tab-button i.hidden-md {
+                    display: none;
+                }
+            }
+
+
+            /* Tab Content Panels */
+            .tab-content-panel {
+                background-color: #fff;
+                padding: 1rem; /* p-4 */
+                border-bottom-left-radius: 0.5rem; /* rounded-b-lg */
+                border-bottom-right-radius: 0.5rem; /* rounded-b-lg */
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+                min-height: 100vh;
+                display: none; /* Hidden by default */
+            }
+            .tab-content-panel.active {
+                display: block;
+            }
+            @media (min-width: 768px) { /* md breakpoint */
+                .tab-content-panel {
+                    padding: 1.5rem; /* md:p-6 */
+                }
+            }
+
+            /* Itinerary Styling */
+            .itinerary-item {
+                display: flex;
+                margin-bottom: 2.5rem; /* space-y-10 effect */
             }
 
             .itinerary-day-number {
-                font-size: 2.5rem; /* Larger font size for day number */
+                font-size: 2.5rem;
                 font-weight: bold;
-                color: #e0e0e0; /* Light grey color */
+                color: #e0e0e0;
                 line-height: 1;
                 position: relative;
-                top: -5px; /* Adjust vertical alignment */
-                min-width: 40px; /* Ensure consistent width */
+                top: -5px;
+                min-width: 40px;
                 text-align: center;
+                flex-shrink: 0; /* Prevent shrinking */
             }
 
-            /* Custom styles for FAQ accordion */
+            .itinerary-details {
+                border-left: 2px dotted #d1d5db; /* border-l-2 border-dotted border-gray-300 */
+                padding-left: 1.5rem; /* pl-6 */
+                flex-grow: 1;
+            }
+
+            .itinerary-details h3 {
+                font-weight: 700; /* font-bold */
+                font-size: 1.25rem; /* text-xl */
+                color: #1f2937; /* text-gray-800 */
+                margin-top: -0.75rem; /* -mt-3 */
+            }
+            .itinerary-details h3.summit-day {
+                color: #dc2626; /* text-red-600 */
+            }
+
+            .itinerary-meta {
+                font-size: 0.875rem; /* text-sm */
+                color: #6b7280; /* text-gray-500 */
+                margin-top: 0.25rem; /* mt-1 */
+            }
+
+            .itinerary-description {
+                margin-top: 1rem; /* mt-4 */
+            }
+
+            .itinerary-highlight {
+                margin-top: 1rem; /* mt-4 */
+                padding: 1rem; /* p-4 */
+                background-color: #eff6ff; /* bg-blue-50 */
+                border-left: 4px solid #60a5fa; /* border-l-4 border-blue-400 */
+                color: #1e40af; /* text-blue-800 */
+                font-size: 0.875rem; /* text-sm */
+                border-top-right-radius: 0.25rem; /* rounded-r-lg */
+                border-bottom-right-radius: 0.25rem; /* rounded-r-lg */
+            }
+            .itinerary-highlight.summit-highlight {
+                background-color: #fee2e2; /* bg-red-50 */
+                border-color: #ef4444; /* border-red-500 */
+                color: #991b1b; /* text-red-800 */
+            }
+
+            .itinerary-image {
+                margin-top: 1rem; /* mt-4 */
+                border-radius: 0.5rem; /* rounded-lg */
+                box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+                width: 100%;
+                height: auto;
+            }
+
+            /* Dates & Cost Table */
+            .table-responsive-custom {
+                overflow-x: auto;
+            }
+            .data-table {
+                width: 100%;
+                text-align: left;
+                border-collapse: collapse;
+            }
+            .data-table thead tr {
+                background-color: #e5e7eb; /* bg-gray-200 */
+            }
+            .data-table th,
+            .data-table td {
+                padding: 0.75rem; /* p-3 */
+                font-weight: 600; /* font-semibold */
+            }
+            .data-table tbody tr {
+                border-bottom: 1px solid #e5e7eb; /* border-b */
+            }
+            .status-tag {
+                padding: 0.25rem 0.5rem; /* px-2 py-1 */
+                border-radius: 9999px; /* rounded-full */
+                font-size: 0.75rem; /* text-xs */
+            }
+            .status-available {
+                background-color: #d1fae5; /* bg-green-100 */
+                color: #10b981; /* text-green-800 */
+            }
+            .status-limited {
+                background-color: #fef9c3; /* bg-yellow-100 */
+                color: #f59e0b; /* text-yellow-800 */
+            }
+            .status-full {
+                background-color: #fee2e2; /* bg-red-100 */
+                color: #dc2626; /* text-red-800 */
+            }
+            .book-button {
+                background-color: #3b82f6; /* bg-blue-500 */
+                color: #fff;
+                padding: 0.5rem 1rem; /* px-4 py-2 */
+                border-radius: 0.5rem; /* rounded-lg */
+                font-size: 0.875rem; /* text-sm */
+                border: none;
+                cursor: pointer;
+            }
+            .book-button:hover {
+                background-color: #2563eb; /* hover:bg-blue-600 */
+            }
+            .book-button.disabled {
+                background-color: #9ca3af; /* bg-gray-400 */
+                cursor: not-allowed;
+            }
+
+            .table-info-text {
+                margin-top: 1rem; /* mt-4 */
+                font-size: 0.875rem; /* text-sm */
+                color: #4b5563; /* text-gray-600 */
+            }
+            .table-info-text + .table-info-text { /* for mt-2 effect */
+                margin-top: 0.5rem;
+            }
+
+            /* Why With Us Section */
+            .why-us-grid {
+                display: grid;
+                gap: 2rem; /* gap-8 */
+            }
+            @media (min-width: 768px) { /* md breakpoint */
+                .why-us-grid {
+                    grid-template-columns: repeat(2, minmax(0, 1fr)); /* md:grid-cols-2 */
+                }
+            }
+
+            .why-us-item {
+                display: flex;
+                align-items: flex-start;
+            }
+            .why-us-item i {
+                font-size: 2rem; /* text-3xl */
+                color: #3b82f6; /* text-blue-500 */
+                margin-top: 0.25rem; /* mt-1 */
+                margin-right: 1rem; /* space-x-4 effect */
+                flex-shrink: 0;
+            }
+            .why-us-item h4 {
+                font-weight: 700; /* font-bold */
+                font-size: 1.125rem; /* text-lg */
+            }
+            .why-us-item p {
+                color: #4b5563; /* text-gray-600 */
+                margin-top: 0.25rem; /* mt-1 */
+            }
+
+            /* FAQ Section */
+            .faq-container-list {
+                margin-top: 1rem; /* space-y-4 */
+            }
+            .faq-item {
+                border: 1px solid #d1d5db; /* border */
+                border-radius: 0.5rem; /* rounded-lg */
+                margin-bottom: 1rem; /* space-y-4 */
+            }
+            .faq-question {
+                padding: 1rem; /* p-4 */
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                cursor: pointer;
+            }
+            .faq-question h4 {
+                font-weight: 600; /* font-semibold */
+            }
+            .faq-icon {
+                transition: transform 0.3s ease-out;
+            }
+            .faq-icon.rotated {
+                transform: rotate(180deg);
+            }
             .faq-answer {
                 max-height: 0;
                 overflow: hidden;
                 transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-                padding-top: 0;
-                padding-bottom: 0;
+                padding-left: 1rem;
+                padding-right: 1rem;
+                border-top: 1px solid #e5e7eb; /* border-t border-gray-200 */
+                color: #4b5563; /* text-gray-600 */
             }
-
             .faq-answer.open {
-                max-height: 300px; /* Adjust as needed for content */
+                max-height: 300px; /* Adjust as needed */
                 padding-top: 1rem;
                 padding-bottom: 1rem;
             }
 
-            .faq-icon {
-                transition: transform 0.3s ease-out;
+            /* Essentials Section */
+            .essentials-list {
+                list-style-type: disc;
+                list-style-position: inside;
+                margin-top: 1.5rem; /* mb-6 */
+            }
+            .essentials-list li {
+                margin-bottom: 0.5rem; /* space-y-2 */
+                color: #4b5563; /* text-gray-600 */
             }
 
-            .faq-icon.rotate {
-                transform: rotate(180deg);
+            /* Photos Section */
+            .photo-gallery-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr)); /* grid-cols-2 */
+                gap: 1rem; /* gap-4 */
             }
-
-            /* Tailwind-like utility classes that might be missing in default setup */
-            .sticky-sidebar {
-                top: 72px; /* Adjust based on navbar height if sticky */
-            }
-        </style>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script>
-            tailwind.config = {
-                theme: {
-                    extend: {
-                        fontFamily: {
-                            poppins: ['Poppins', 'sans-serif'],
-                        },
-                        colors: {
-                            blue: {
-                                50: '#eff6ff',
-                                100: '#dbeafe',
-                                200: '#bfdbfe',
-                                300: '#93c5fd',
-                                400: '#60a5fa',
-                                500: '#3b82f6',
-                                600: '#2563eb',
-                                700: '#1d4ed8',
-                                800: '#1e40af',
-                                900: '#1e3a8a',
-                            },
-                        }
-                    }
+            @media (min-width: 768px) { /* md breakpoint */
+                .photo-gallery-grid {
+                    grid-template-columns: repeat(3, minmax(0, 1fr)); /* md:grid-cols-3 */
                 }
             }
-        </script>
+            .photo-gallery-grid img {
+                border-radius: 0.5rem; /* rounded-lg */
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+                transition: opacity 0.3s ease;
+                cursor: pointer;
+                width: 100%;
+                height: auto;
+            }
+            .photo-gallery-grid img:hover {
+                opacity: 0.8;
+            }
+
+
+            /* Sticky Sidebar */
+            .sticky-sidebar-wrapper {
+                position: sticky;
+                top: 72px; /* Adjust based on navbar height */
+                background-color: #fff;
+                border-radius: 0.5rem; /* rounded-lg */
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); /* shadow-xl */
+                padding: 1.5rem; /* p-6 */
+            }
+
+            .sidebar-price-difficulty {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .sidebar-price-difficulty .price-info p {
+                margin-bottom: 0;
+            }
+            .sidebar-price-difficulty .price-label {
+                font-size: 0.875rem; /* text-sm */
+                color: #6b7280; /* text-gray-500 */
+            }
+            .sidebar-price-difficulty .main-price {
+                font-size: 1.875rem; /* text-3xl */
+                font-weight: 700; /* font-bold */
+                color: #1f2937; /* text-gray-800 */
+            }
+            .sidebar-price-difficulty .b2b-price {
+                font-size: 0.875rem; /* text-sm */
+                color: #6b7280; /* text-gray-500 */
+            }
+
+            .difficulty-score {
+                text-align: center;
+            }
+            .difficulty-score-box {
+                background-color: #3b82f6; /* bg-blue-500 */
+                color: #fff;
+                font-weight: 700; /* font-bold */
+                font-size: 1.25rem; /* text-xl */
+                border-radius: 0.375rem; /* rounded-md */
+                width: 4rem; /* w-16 */
+                height: 3rem; /* h-12 */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .difficulty-score p {
+                font-size: 0.75rem; /* text-xs */
+                font-weight: 600; /* font-semibold */
+                margin-top: 0.25rem; /* mt-1 */
+            }
+
+            .sidebar-button {
+                width: 100%;
+                color: #fff;
+                font-weight: 700; /* font-bold */
+                padding: 0.75rem 1rem; /* py-3 */
+                border-radius: 0.5rem; /* rounded-lg */
+                margin-top: 1.5rem; /* mt-6 or mt-3 */
+                transition: background-color 0.3s ease, box-shadow 0.3s ease;
+                border: none;
+                text-align: center;
+                display: block; /* Ensure it takes full width */
+                text-decoration: none;
+            }
+            .sidebar-button.book-now {
+                background-color: #3b82f6; /* bg-blue-500 */
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            }
+            .sidebar-button.book-now:hover {
+                background-color: #2563eb; /* hover:bg-blue-600 */
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); /* hover:shadow-xl */
+            }
+            .sidebar-button.enquire-now {
+                background-color: #e5e7eb; /* bg-gray-200 */
+                color: #1f2937; /* text-gray-800 */
+            }
+            .sidebar-button.enquire-now:hover {
+                background-color: #d1d5db; /* hover:bg-gray-300 */
+            }
+
+            .quick-facts-section {
+                margin-top: 2rem; /* mt-8 */
+                border-top: 1px solid #e5e7eb; /* border-t pt-6 */
+                padding-top: 1.5rem;
+            }
+            .quick-facts-list {
+                margin-top: 1rem; /* mt-4 */
+            }
+            .quick-facts-list li {
+                display: flex;
+                align-items: center;
+                margin-bottom: 1rem; /* space-y-4 */
+                color: #4b5563; /* text-gray-600 */
+            }
+            .quick-facts-list li i {
+                width: 1.5rem; /* w-6 */
+                text-align: center;
+                color: #3b82f6; /* text-blue-500 */
+                margin-right: 0.75rem; /* mr-3 */
+            }
+
+            .organizer-info {
+                margin-top: 1rem; /* mt-4 */
+            }
+            .organizer-info p {
+                color: #4b5563; /* text-gray-600 */
+                margin-bottom: 0.25rem; /* mt-1 */
+            }
+            .organizer-info i {
+                margin-right: 0.5rem; /* mr-2 */
+            }
+
+            /* Responsive Adjustments (from original prompt's Tailwind) */
+            @media (max-width: 991.98px) { /* Equivalent to lg:mt-0 for right column */
+                .right-column {
+                    margin-top: 2rem; /* Default margin-top if not lg */
+                }
+            }
+
+        </style>
     </head>
 
     <body>
@@ -171,320 +627,318 @@
                     </div>
             </nav>
         </div>
-        <main class="pt-0">
-            <section class="hero-bg h-[50vh] flex items-end justify-start relative p-6 md:p-12"
-                style="background-image: url('https://www.bikatadventures.com/images/itinerary/DzoJongo-new/dzojongobanner-new-min.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-                <div class="relative text-white z-10 max-w-3xl">
-                    <h1 class="text-3xl md:text-5xl font-bold font-poppins shadow-text">Shrikhand Mahadev Trek</h1>
-                    <div class="flex items-center space-x-4 mt-3 text-sm md:text-base">
-                        <div class="flex items-center"><i class="fas fa-tag mr-2"></i><span>Pilgrimage & High-Altitude Trek</span></div>
-                        <div class="flex items-center"><i class="fas fa-map-marker-alt mr-2"></i><span>Himachal Pradesh</span></div>
+        <main class="main-content-section">
+            <section class="hero-section"
+                style="background-image: url('https://www.bikatadventures.com/images/itinerary/DzoJongo-new/dzojongobanner-new-min.jpg');">
+                <div class="hero-content">
+                    <h1 class="hero-title font-poppins">Shrikhand Mahadev Trek</h1>
+                    <div class="hero-meta">
+                        <div><i class="fas fa-tag"></i><span>Pilgrimage & High-Altitude Trek</span></div>
+                        <div><i class="fas fa-map-marker-alt"></i><span>Himachal Pradesh</span></div>
                     </div>
                 </div>
             </section>
 
-            <div class="container mx-auto p-4 md:p-6 lg:p-8">
-                <div class="lg:flex lg:space-x-8">
+            <div class="content-container">
+                <div class="content-flex-container">
 
-                    <div class="lg:w-2/3">
+                    <div class="left-column">
 
-                        <div id="tab-nav-container" class="sticky top-[72px] bg-gray-100 z-30">
-                            <div class="bg-white rounded-t-lg shadow-md overflow-x-auto p-4">
+                        <div id="tab-nav-container" class="tab-nav-wrapper">
+                            <div class="tab-nav-inner">
                                 <div class="mb-4">
-                                    <a href="../packages.html" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition"> Return to list of treks</a>
+                                    <a href="../packages.html" class="return-button"> Return to list of treks</a>
                                 </div>
-                                <nav id="tabs" class="flex border-b">
-                                    <button data-target="itinerary" class="tab-button flex-shrink-0 py-3 px-4 font-semibold text-gray-600 hover:text-blue-500 text-sm md:text-base tab-active"><i class="fas fa-list-ul mr-2 hidden md:inline"></i>Itinerary</button>
-                                    <button data-target="dates" class="tab-button flex-shrink-0 py-3 px-4 font-semibold text-gray-600 hover:text-blue-500 text-sm md:text-base"><i class="fas fa-calendar-check mr-2 hidden md:inline"></i>Dates & Cost</button>
-                                    <button data-target="why-us" class="tab-button flex-shrink-0 py-3 px-4 font-semibold text-gray-600 hover:text-blue-500 text-sm md:text-base"><i class="fas fa-users mr-2 hidden md:inline"></i>Why with us?</button>
-                                    <button data-target="faq" class="tab-button flex-shrink-0 py-3 px-4 font-semibold text-gray-600 hover:text-blue-500 text-sm md:text-base"><i class="fas fa-question-circle mr-2 hidden md:inline"></i>FAQ</button>
-                                    <button data-target="essentials" class="tab-button flex-shrink-0 py-3 px-4 font-semibold text-gray-600 hover:text-blue-500 text-sm md:text-base"><i class="fas fa-briefcase mr-2 hidden md:inline"></i>Essentials</button>
-                                    <button data-target="photos" class="tab-button flex-shrink-0 py-3 px-4 font-semibold text-gray-600 hover:text-blue-500 text-sm md:text-base"><i class="fas fa-camera mr-2 hidden md:inline"></i>Photos</button>
+                                <nav id="tabs" class="tab-buttons-nav">
+                                    <button data-target="itinerary" class="tab-button active-tab"><i class="fas fa-list-ul mr-2 hidden-md"></i>Itinerary</button>
+                                    <button data-target="dates" class="tab-button"><i class="fas fa-calendar-check mr-2 hidden-md"></i>Dates & Cost</button>
+                                    <button data-target="why-us" class="tab-button"><i class="fas fa-users mr-2 hidden-md"></i>Why with us?</button>
+                                    <button data-target="faq" class="tab-button"><i class="fas fa-question-circle mr-2 hidden-md"></i>FAQ</button>
+                                    <button data-target="essentials" class="tab-button"><i class="fas fa-briefcase mr-2 hidden-md"></i>Essentials</button>
+                                    <button data-target="photos" class="tab-button"><i class="fas fa-camera mr-2 hidden-md"></i>Photos</button>
                                 </nav>
                             </div>
                         </div>
 
-                        <div class="bg-white p-4 md:p-6 rounded-b-lg shadow-md min-h-screen">
-                            <div id="itinerary" class="tab-content" style="display: block;">
-                               <div class="space-y-10">
-                                    <div class="flex space-x-4">
-                                        <div class="itinerary-day-number">01</div>
-                                        <div class="border-l-2 border-dotted border-gray-300 pl-6 flex-1">
-                                            <h3 class="font-bold text-xl font-poppins text-gray-800 -mt-3">Arrival at Manali / Nirmand</h3>
-                                            <div class="text-sm text-gray-500 mt-1"><strong>Altitude:</strong> 2,050 m (Manali) / 1,190 m (Nirmand)</div>
-                                            <p class="mt-4">Arrive at Manali (or directly to Nirmand if arranged). Meet the trek leader, complete paperwork and gear checks. Travel to Jaon village by road. Brief orientation about high-altitude pilgrimage and safety protocols.</p>
-                                            <div class="mt-4 p-4 bg-blue-50 border-l-4 border-blue-400 text-blue-800 text-sm rounded-r-lg">
-                                                <p><strong>Highlights:</strong> Introduction to local culture, final gear check, preparatory acclimatization briefing.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex space-x-4">
-                                        <div class="itinerary-day-number">02</div>
-                                        <div class="border-l-2 border-dotted border-gray-300 pl-6 flex-1">
-                                            <h3 class="font-bold text-xl font-poppins text-gray-800 -mt-3">Jaon to Singhaad</h3>
-                                            <div class="text-sm text-gray-500 mt-1"><strong>Altitude Gain:</strong> From ~1,900 m to ~2,600 m | <strong>Distance:</strong> ~8 km</div>
-                                            <p class="mt-4">Start trek from Jaon through forested trails to Singhaad base camp. Free meal (langar) available. Early rest to aid acclimatization.</p>
-                                            <div class="mt-4 p-4 bg-blue-50 border-l-4 border-blue-400 text-blue-800 text-sm rounded-r-lg">
-                                                <p><strong>Highlights:</strong> Lush deodar forests, first views of high ridges.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex space-x-4">
-                                        <div class="itinerary-day-number">03</div>
-                                        <div class="border-l-2 border-dotted border-gray-300 pl-6 flex-1">
-                                            <h3 class="font-bold text-xl font-poppins text-gray-800 -mt-3">Singhaad to Thaachru</h3>
-                                            <div class="text-sm text-gray-500 mt-1"><strong>Altitude Gain:</strong> From ~2,600 m to ~3,200 m | <strong>Distance:</strong> ~12 km</div>
-                                            <p class="mt-4">A steep uphill stretch known locally as 'Dandi-Dhaar'. Trek through a continuous incline; stops at scenic spots. Camp at Thaachru.</p>
-                                            <div class="mt-4 p-4 bg-blue-50 border-l-4 border-blue-400 text-blue-800 text-sm rounded-r-lg">
-                                                <p><strong>Highlights:</strong> Dramatic elevation gain, panoramic views of valleys below.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex space-x-4">
-                                        <div class="itinerary-day-number">04</div>
-                                        <div class="border-l-2 border-dotted border-gray-300 pl-6 flex-1">
-                                            <h3 class="font-bold text-xl font-poppins text-gray-800 -mt-3">Kali Ghati to Bheem Talai</h3>
-                                            <div class="text-sm text-gray-500 mt-1"><strong>Altitude Gain:</strong> To ~3,500 m | <strong>Distance:</strong> ~6 km</div>
-                                            <p class="mt-4">Trek through forests and meadows to Kali Ghati, believed to be the abode of Goddess Kali. If weather is clear, glimpses of the Shivalingam at distance appear.</p>
-                                            <div class="mt-4 p-4 bg-blue-50 border-l-4 border-blue-400 text-blue-800 text-sm rounded-r-lg">
-                                                <p><strong>Highlights:</strong> Sacred site, spiritual atmosphere, view of distant peak.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex space-x-4">
-                                        <div class="itinerary-day-number">05</div>
-                                        <div class="border-l-2 border-dotted border-gray-300 pl-6 flex-1">
-                                            <h3 class="font-bold text-xl font-poppins text-gray-800 -mt-3">Bheem Talai to Parvati Bagh</h3>
-                                            <div class="text-sm text-gray-500 mt-1"><strong>Altitude Variable:</strong> Around ~3,300–3,400 m | <strong>Distance:</strong> ~5 km</div>
-                                            <p class="mt-4">Descend slightly to Bheem Talai. This camp offers rest before further ascent. Terrain becomes rocky; stay alert.</p>
-                                            <div class="mt-4 p-4 bg-blue-50 border-l-4 border-blue-400 text-blue-800 text-sm rounded-r-lg">
-                                                <p><strong>Highlights:</strong> Rest stop with terrain variety.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex space-x-4">
-                                        <div class="itinerary-day-number">06</div>
-                                        <div class="border-l-2 border-dotted border-gray-300 pl-6 flex-1">
-                                            <h3 class="font-bold text-xl font-poppins text-gray-800 -mt-3">Parvati Bagh to Bheem Dwar</h3>
-                                            <div class="text-sm text-gray-500 mt-1"><strong>Altitude Gain:</strong> To ~4,000 m | <strong>Distance:</strong> ~6 km</div>
-                                            <p class="mt-4">Ascend to Parvati Bagh, a lush meadow said to be planted by Goddess Parvati. Camp and rest; enjoy alpine flowers like Brahma Kamal if in season.</p>
-                                            <div class="mt-4 p-4 bg-blue-50 border-l-4 border-blue-400 text-blue-800 text-sm rounded-r-lg">
-                                                <p><strong>Highlights:</strong> Meadow camping, rich flora, spiritual vibes.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex space-x-4">
-                                        <div class="itinerary-day-number">07</div>
-                                        <div class="border-l-2 border-dotted border-gray-300 pl-6 flex-1">
-                                            <h3 class="font-bold text-xl font-poppins text-red-600 -mt-3">Summit Day: Bheem Dwar to Shrikhand Mahadev Peak (Nain Sarovar & Shivalingam)</h3>
-                                            <div class="text-sm text-gray-500 mt-1"><strong>Altitude:</strong> ~5,660 m | <strong>Trek Duration:</strong> 8–10 hours round trip</div>
-                                            <p class="mt-4">Pre-dawn start. Trek to Nain Sarovar (holy lake) around ~5,300 m, then the final rocky ascent to the Shivalingam at ~5,660 m (18,570 ft). Spend time in pilgrimage rituals at the peak. Descend carefully back to Parvati Bagh or Bheem Talai based on timing and conditions.</p>
-                                            <div class="mt-4 p-4 bg-red-50 border-l-4 border-red-500 text-red-800 text-sm rounded-r-lg">
-                                                <p><strong>Highlights:</strong> Holy lake dip, Shivalingam worship at summit, panoramic Himalayan views.</p>
-                                            </div>
-                                            <div class="mt-4">
-                                                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Shrikhand_Mahadev_peak_view.jpg" alt="Shrikhand Mahadev Peak view" class="rounded-lg shadow-sm w-full" onerror="this.style.display='none'">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex space-x-4">
-                                        <div class="itinerary-day-number">08</div>
-                                        <div class="border-l-2 border-dotted border-gray-300 pl-6 flex-1">
-                                            <h3 class="font-bold text-xl font-poppins text-gray-800 -mt-3">Descent to Jaon / Base</h3>
-                                            <div class="text-sm text-gray-500 mt-1"><strong>Distance:</strong> Long descent over varied terrain | <strong>Altitude:</strong> From high camps down to Jaon</div>
-                                            <p class="mt-4">Descend through camps (Parvati Bagh  Bheem Talai  Kali Ghati  Thaachru  Singhaad  Jaon). Each stage involves long walking hours; maintain steady pace to avoid strain.</p>
-                                            <div class="mt-4 p-4 bg-blue-50 border-l-4 border-blue-400 text-blue-800 text-sm rounded-r-lg">
-                                                <p><strong>Highlights:</strong> Final views, farewell to mountains, sense of accomplishment.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex space-x-4">
-                                        <div class="itinerary-day-number">09</div>
-                                        <div class="border-l-2 border-dotted border-gray-300 pl-6 flex-1">
-                                            <h3 class="font-bold text-xl font-poppins text-gray-800 -mt-3">Return & Departure</h3>
-                                            <p class="mt-4">Transfer from Jaon back to Manali or onward destination. Debrief, share feedback, and depart with memories of a transformative pilgrimage.</p>
-                                            <div class="mt-4 p-4 bg-blue-50 border-l-4 border-blue-400 text-blue-800 text-sm rounded-r-lg">
-                                                <p><strong>Highlights:</strong> Celebration of completion, local refreshments, group photo.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                               </div>
-                            </div>
-
-                            <div id="dates" class="tab-content">
-                                <h2 class="text-2xl font-bold mb-4 font-poppins">Dates & Cost</h2>
-                                <div class="overflow-x-auto">
-                                    <table class="w-full text-left border-collapse">
-                                        <thead>
-                                            <tr class="bg-gray-200">
-                                                <th class="p-3 font-semibold">Start Date</th>
-                                                <th class="p-3 font-semibold">End Date</th>
-                                                <th class="p-3 font-semibold">Cost (Per Person)</th>
-                                                <th class="p-3 font-semibold">Status</th>
-                                                <th class="p-3 font-semibold"></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr class="border-b">
-                                                <td class="p-3">01 Jul 2025</td>
-                                                <td class="p-3">09 Jul 2025</td>
-                                                <td class="p-3"> 28,800</td>
-                                                <td class="p-3"><span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Available</span></td>
-                                                <td class="p-3"><button class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm">Book</button></td>
-                                            </tr>
-                                            <tr class="border-b">
-                                                <td class="p-3">15 Jul 2025</td>
-                                                <td class="p-3">23 Jul 2025</td>
-                                                <td class="p-3"> 28,800</td>
-                                                <td class="p-3"><span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Available</span></td>
-                                                <td class="p-3"><button class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm">Book</button></td>
-                                            </tr>
-                                            <tr class="border-b">
-                                                <td class="p-3">01 Aug 2025</td>
-                                                <td class="p-3">09 Aug 2025</td>
-                                                <td class="p-3"> 28,800</td>
-                                                <td class="p-3"><span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">Limited Seats</span></td>
-                                                <td class="p-3"><button class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm">Book</button></td>
-                                            </tr>
-                                            <tr class="border-b">
-                                                <td class="p-3">15 Aug 2025</td>
-                                                <td class="p-3">23 Aug 2025</td>
-                                                <td class="p-3"> 28,800</td>
-                                                <td class="p-3"><span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">Full</span></td>
-                                                <td class="p-3"><button class="bg-gray-400 text-white px-4 py-2 rounded-lg text-sm cursor-not-allowed">Full</button></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <p class="mt-4 text-sm text-gray-600">Minimum 5 people, maximum 20 people per departure.</p>
-                                <p class="mt-2 text-sm text-gray-600">Client Price:  28,800 | B2B Price:  24,000</p>
-                            </div>
-
-                            <div id="why-us" class="tab-content">
-                                <h2 class="text-2xl font-bold mb-6 font-poppins">Why with us?</h2>
-                                <div class="grid md:grid-cols-2 gap-8">
-                                    <div class="flex items-start space-x-4">
-                                        <i class="fas fa-shield-alt text-3xl text-blue-500 mt-1"></i>
-                                        <div>
-                                            <h4 class="font-bold text-lg">Safety & Guidance</h4>
-                                            <p class="text-gray-600 mt-1">Certified guides familiar with Shrikhand Mahadev route, with emergency protocols and necessary high-altitude gear.</p>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-start space-x-4">
-                                        <i class="fas fa-users-cog text-3xl text-blue-500 mt-1"></i>
-                                        <div>
-                                            <h4 class="font-bold text-lg">Local Expertise</h4>
-                                            <p class="text-gray-600 mt-1">Experienced support staff from Himachal region ensuring authentic cultural insights and smooth logistics.</p>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-start space-x-4">
-                                        <i class="fas fa-leaf text-3xl text-blue-500 mt-1"></i>
-                                        <div>
-                                            <h4 class="font-bold text-lg">Responsible Trekking</h4>
-                                            <p class="text-gray-600 mt-1">We follow Leave No Trace principles and arrange eco-friendly camps; support local communities along the route.</p>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-start space-x-4">
-                                        <i class="fas fa-utensils text-3xl text-blue-500 mt-1"></i>
-                                        <div>
-                                            <h4 class="font-bold text-lg">Nutritious Meals</h4>
-                                            <p class="text-gray-600 mt-1">Freshly prepared vegetarian and non-vegetarian options where possible, including local Himachali dishes to fuel your pilgrimage.</p>
+                        <div class="tab-content-panel active" id="itinerary">
+                           <div class="space-y-10">
+                                <div class="itinerary-item">
+                                    <div class="itinerary-day-number">01</div>
+                                    <div class="itinerary-details">
+                                        <h3 class="font-poppins">Arrival at Manali / Nirmand</h3>
+                                        <div class="itinerary-meta"><strong>Altitude:</strong> 2,050 m (Manali) / 1,190 m (Nirmand)</div>
+                                        <p class="itinerary-description">Arrive at Manali (or directly to Nirmand if arranged). Meet the trek leader, complete paperwork and gear checks. Travel to Jaon village by road. Brief orientation about high-altitude pilgrimage and safety protocols.</p>
+                                        <div class="itinerary-highlight">
+                                            <p><strong>Highlights:</strong> Introduction to local culture, final gear check, preparatory acclimatization briefing.</p>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                                <div class="itinerary-item">
+                                    <div class="itinerary-day-number">02</div>
+                                    <div class="itinerary-details">
+                                        <h3 class="font-poppins">Jaon to Singhaad</h3>
+                                        <div class="itinerary-meta"><strong>Altitude Gain:</strong> From ~1,900 m to ~2,600 m | <strong>Distance:</strong> ~8 km</div>
+                                        <p class="itinerary-description">Start trek from Jaon through forested trails to Singhaad base camp. Free meal (langar) available. Early rest to aid acclimatization.</p>
+                                        <div class="itinerary-highlight">
+                                            <p><strong>Highlights:</strong> Lush deodar forests, first views of high ridges.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="itinerary-item">
+                                    <div class="itinerary-day-number">03</div>
+                                    <div class="itinerary-details">
+                                        <h3 class="font-poppins">Singhaad to Thaachru</h3>
+                                        <div class="itinerary-meta"><strong>Altitude Gain:</strong> From ~2,600 m to ~3,200 m | <strong>Distance:</strong> ~12 km</div>
+                                        <p class="itinerary-description">A steep uphill stretch known locally as 'Dandi-Dhaar'. Trek through a continuous incline; stops at scenic spots. Camp at Thaachru.</p>
+                                        <div class="itinerary-highlight">
+                                            <p><strong>Highlights:</strong> Dramatic elevation gain, panoramic views of valleys below.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="itinerary-item">
+                                    <div class="itinerary-day-number">04</div>
+                                    <div class="itinerary-details">
+                                        <h3 class="font-poppins">Kali Ghati to Bheem Talai</h3>
+                                        <div class="itinerary-meta"><strong>Altitude Gain:</strong> To ~3,500 m | <strong>Distance:</strong> ~6 km</div>
+                                        <p class="itinerary-description">Trek through forests and meadows to Kali Ghati, believed to be the abode of Goddess Kali. If weather is clear, glimpses of the Shivalingam at distance appear.</p>
+                                        <div class="itinerary-highlight">
+                                            <p><strong>Highlights:</strong> Sacred site, spiritual atmosphere, view of distant peak.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="itinerary-item">
+                                    <div class="itinerary-day-number">05</div>
+                                    <div class="itinerary-details">
+                                        <h3 class="font-poppins">Bheem Talai to Parvati Bagh</h3>
+                                        <div class="itinerary-meta"><strong>Altitude Variable:</strong> Around ~3,300–3,400 m | <strong>Distance:</strong> ~5 km</div>
+                                        <p class="itinerary-description">Descend slightly to Bheem Talai. This camp offers rest before further ascent. Terrain becomes rocky; stay alert.</p>
+                                        <div class="itinerary-highlight">
+                                            <p><strong>Highlights:</strong> Rest stop with terrain variety.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="itinerary-item">
+                                    <div class="itinerary-day-number">06</div>
+                                    <div class="itinerary-details">
+                                        <h3 class="font-poppins">Parvati Bagh to Bheem Dwar</h3>
+                                        <div class="itinerary-meta"><strong>Altitude Gain:</strong> To ~4,000 m | <strong>Distance:</strong> ~6 km</div>
+                                        <p class="itinerary-description">Ascend to Parvati Bagh, a lush meadow said to be planted by Goddess Parvati. Camp and rest; enjoy alpine flowers like Brahma Kamal if in season.</p>
+                                        <div class="itinerary-highlight">
+                                            <p><strong>Highlights:</strong> Meadow camping, rich flora, spiritual vibes.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="itinerary-item">
+                                    <div class="itinerary-day-number">07</div>
+                                    <div class="itinerary-details">
+                                        <h3 class="font-poppins summit-day">Summit Day: Bheem Dwar to Shrikhand Mahadev Peak (Nain Sarovar & Shivalingam)</h3>
+                                        <div class="itinerary-meta"><strong>Altitude:</strong> ~5,660 m | <strong>Trek Duration:</strong> 8–10 hours round trip</div>
+                                        <p class="itinerary-description">Pre-dawn start. Trek to Nain Sarovar (holy lake) around ~5,300 m, then the final rocky ascent to the Shivalingam at ~5,660 m (18,570 ft). Spend time in pilgrimage rituals at the peak. Descend carefully back to Parvati Bagh or Bheem Talai based on timing and conditions.</p>
+                                        <div class="itinerary-highlight summit-highlight">
+                                            <p><strong>Highlights:</strong> Holy lake dip, Shivalingam worship at summit, panoramic Himalayan views.</p>
+                                        </div>
+                                        <div class="mt-4">
+                                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Shrikhand_Mahadev_peak_view.jpg" alt="Shrikhand Mahadev Peak view" class="itinerary-image" onerror="this.style.display='none'">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="itinerary-item">
+                                    <div class="itinerary-day-number">08</div>
+                                    <div class="itinerary-details">
+                                        <h3 class="font-poppins">Descent to Jaon / Base</h3>
+                                        <div class="itinerary-meta"><strong>Distance:</strong> Long descent over varied terrain | <strong>Altitude:</strong> From high camps down to Jaon</div>
+                                        <p class="itinerary-description">Descend through camps (Parvati Bagh  Bheem Talai  Kali Ghati  Thaachru  Singhaad  Jaon). Each stage involves long walking hours; maintain steady pace to avoid strain.</p>
+                                        <div class="itinerary-highlight">
+                                            <p><strong>Highlights:</strong> Final views, farewell to mountains, sense of accomplishment.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="itinerary-item">
+                                    <div class="itinerary-day-number">09</div>
+                                    <div class="itinerary-details">
+                                        <h3 class="font-poppins">Return & Departure</h3>
+                                        <p class="itinerary-description">Transfer from Jaon back to Manali or onward destination. Debrief, share feedback, and depart with memories of a transformative pilgrimage.</p>
+                                        <div class="itinerary-highlight">
+                                            <p><strong>Highlights:</strong> Celebration of completion, local refreshments, group photo.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                           </div>
+                        </div>
 
-                            <div id="faq" class="tab-content">
-                                 <h2 class="text-2xl font-bold mb-6 font-poppins">Frequently Asked Questions</h2>
-                                 <div class="space-y-4" id="faq-container">
-                                     <div class="border rounded-lg">
-                                         <div class="faq-question p-4 flex justify-between items-center cursor-pointer">
-                                             <h4 class="font-semibold">What level of fitness is required?</h4>
-                                             <i class="fas fa-chevron-down faq-icon"></i>
-                                         </div>
-                                         <div class="faq-answer px-4 border-t border-gray-200 text-gray-600">
-                                             This is a strenuous high-altitude trek requiring very good cardiovascular endurance. Prior multi-day trekking experience above 3,500 m is strongly recommended.
-                                         </div>
+                        <div class="tab-content-panel" id="dates">
+                            <h2 class="text-2xl font-bold mb-4 font-poppins">Dates & Cost</h2>
+                            <div class="table-responsive-custom">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
+                                            <th>Cost (Per Person)</th>
+                                            <th>Status</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>01 Jul 2025</td>
+                                            <td>09 Jul 2025</td>
+                                            <td> 28,800</td>
+                                            <td><span class="status-tag status-available">Available</span></td>
+                                            <td><button class="book-button">Book</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>15 Jul 2025</td>
+                                            <td>23 Jul 2025</td>
+                                            <td> 28,800</td>
+                                            <td><span class="status-tag status-available">Available</span></td>
+                                            <td><button class="book-button">Book</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01 Aug 2025</td>
+                                            <td>09 Aug 2025</td>
+                                            <td> 28,800</td>
+                                            <td><span class="status-tag status-limited">Limited Seats</span></td>
+                                            <td><button class="book-button">Book</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>15 Aug 2025</td>
+                                            <td>23 Aug 2025</td>
+                                            <td> 28,800</td>
+                                            <td><span class="status-tag status-full">Full</span></td>
+                                            <td><button class="book-button disabled">Full</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="table-info-text">Minimum 5 people, maximum 20 people per departure.</p>
+                            <p class="table-info-text">Client Price:  28,800 | B2B Price:  24,000</p>
+                        </div>
+
+                        <div class="tab-content-panel" id="why-us">
+                            <h2 class="text-2xl font-bold mb-4 font-poppins">Why with us?</h2>
+                            <div class="why-us-grid">
+                                <div class="why-us-item">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <div>
+                                        <h4>Safety & Guidance</h4>
+                                        <p>Certified guides familiar with Shrikhand Mahadev route, with emergency protocols and necessary high-altitude gear.</p>
+                                    </div>
+                                </div>
+                                <div class="why-us-item">
+                                    <i class="fas fa-users-cog"></i>
+                                    <div>
+                                        <h4>Local Expertise</h4>
+                                        <p>Experienced support staff from Himachal region ensuring authentic cultural insights and smooth logistics.</p>
+                                    </div>
+                                </div>
+                                <div class="why-us-item">
+                                    <i class="fas fa-leaf"></i>
+                                    <div>
+                                        <h4>Responsible Trekking</h4>
+                                        <p>We follow Leave No Trace principles and arrange eco-friendly camps; support local communities along the route.</p>
+                                    </div>
+                                </div>
+                                <div class="why-us-item">
+                                    <i class="fas fa-utensils"></i>
+                                    <div>
+                                        <h4>Nutritious Meals</h4>
+                                        <p>Freshly prepared vegetarian and non-vegetarian options where possible, including local Himachali dishes to fuel your pilgrimage.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content-panel" id="faq">
+                             <h2 class="text-2xl font-bold mb-4 font-poppins">Frequently Asked Questions</h2>
+                             <div class="faq-container-list">
+                                 <div class="faq-item">
+                                     <div class="faq-question">
+                                         <h4>What level of fitness is required?</h4>
+                                         <i class="fas fa-chevron-down faq-icon"></i>
                                      </div>
-                                     <div class="border rounded-lg">
-                                         <div class="faq-question p-4 flex justify-between items-center cursor-pointer">
-                                             <h4 class="font-semibold">What about Acute Mountain Sickness (AMS)?</h4>
-                                             <i class="fas fa-chevron-down faq-icon"></i>
-                                         </div>
-                                         <div class="faq-answer px-4 border-t border-gray-200 text-gray-600">
-                                            AMS is a real risk on this route. Our itinerary allows gradual acclimatization; guides monitor symptoms closely. Emergency oxygen and evacuation plan are in place. Stay hydrated and report any discomfort immediately.
-                                         </div>
-                                     </div>
-                                     <div class="border rounded-lg">
-                                         <div class="faq-question p-4 flex justify-between items-center cursor-pointer">
-                                             <h4 class="font-semibold">What is included?</h4>
-                                             <i class="fas fa-chevron-down faq-icon"></i>
-                                         </div>
-                                         <div class="faq-answer px-4 border-t border-gray-200 text-gray-600">
-                                            All camping equipment, tents, sleeping bags, cooked meals during trek, local permits, guide and porter support. Transport from Manali/Nirmand to trailhead and back is included.
-                                         </div>
+                                     <div class="faq-answer">
+                                         This is a strenuous high-altitude trek requiring very good cardiovascular endurance. Prior multi-day trekking experience above 3,500 m is strongly recommended.
                                      </div>
                                  </div>
-                            </div>
-
-                            <div id="essentials" class="tab-content">
-                                <h2 class="text-2xl font-bold mb-6 font-poppins">Trek Essentials</h2>
-                                <ul class="list-disc list-inside space-y-2 text-gray-600">
-                                    <li>Warm layers (down jacket, thermal wear) suitable for sub-zero nights.</li>
-                                    <li>Sturdy trekking boots, gaiters, and trekking poles.</li>
-                                    <li>Daypack with rain cover, water bottles, and hydration system.</li>
-                                    <li>Personal medication, first-aid kit, sunscreen, sunglasses.</li>
-                                    <li>Headlamp with spare batteries, power bank, camera.</li>
-                                    <li>Permits and ID proofs (will be arranged but keep copies).</li>
-                                    <li>Minimum 5 people, maximum 20 people per group.</li>
-                                </ul>
-                            </div>
-
-                            <div id="photos" class="tab-content">
-                                <h2 class="text-2xl font-bold mb-6 font-poppins">Photo Gallery</h2>
-                                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                                    <img src="https://source.unsplash.com/featured/?shrikhad-mahadev,himachal" alt="Shrikhand Mahadev Trek View 1" class="rounded-lg shadow-md hover:opacity-80 transition cursor-pointer">
-                                    <img src="https://source.unsplash.com/featured/?shrikhad-mahadev,lake" alt="Nain Sarovar Lake" class="rounded-lg shadow-md hover:opacity-80 transition cursor-pointer">
-                                    <img src="https://source.unsplash.com/featured/?shrikhad-mahadev,forest" alt="Forest Trail" class="rounded-lg shadow-md hover:opacity-80 transition cursor-pointer">
-                                    <img src="https://source.unsplash.com/featured/?shrikhad-mahadev,meadow" alt="Parvati Bagh Meadow" class="rounded-lg shadow-md hover:opacity-80 transition cursor-pointer">
-                                    <img src="https://source.unsplash.com/featured/?shrikhad-mahadev,summit" alt="Summit Shivalingam" class="rounded-lg shadow-md hover:opacity-80 transition cursor-pointer">
-                                    <img src="https://source.unsplash.com/featured/?shrikhad-mahadev,camper" alt="Camping at High Altitude" class="rounded-lg shadow-md hover:opacity-80 transition cursor-pointer">
-                                </div>
-                            </div>
-
+                                 <div class="faq-item">
+                                     <div class="faq-question">
+                                         <h4>What about Acute Mountain Sickness (AMS)?</h4>
+                                         <i class="fas fa-chevron-down faq-icon"></i>
+                                     </div>
+                                     <div class="faq-answer">
+                                        AMS is a real risk on this route. Our itinerary allows gradual acclimatization; guides monitor symptoms closely. Emergency oxygen and evacuation plan are in place. Stay hydrated and report any discomfort immediately.
+                                     </div>
+                                 </div>
+                                 <div class="faq-item">
+                                     <div class="faq-question">
+                                         <h4>What is included?</h4>
+                                         <i class="fas fa-chevron-down faq-icon"></i>
+                                     </div>
+                                     <div class="faq-answer">
+                                        All camping equipment, tents, sleeping bags, cooked meals during trek, local permits, guide and porter support. Transport from Manali/Nirmand to trailhead and back is included.
+                                     </div>
+                                 </div>
+                             </div>
                         </div>
+
+                        <div class="tab-content-panel" id="essentials">
+                            <h2 class="text-2xl font-bold mb-4 font-poppins">Trek Essentials</h2>
+                            <ul class="essentials-list">
+                                <li>Warm layers (down jacket, thermal wear) suitable for sub-zero nights.</li>
+                                <li>Sturdy trekking boots, gaiters, and trekking poles.</li>
+                                <li>Daypack with rain cover, water bottles, and hydration system.</li>
+                                <li>Personal medication, first-aid kit, sunscreen, sunglasses.</li>
+                                <li>Headlamp with spare batteries, power bank, camera.</li>
+                                <li>Permits and ID proofs (will be arranged but keep copies).</li>
+                                <li>Minimum 5 people, maximum 20 people per group.</li>
+                            </ul>
+                        </div>
+
+                        <div class="tab-content-panel" id="photos">
+                            <h2 class="text-2xl font-bold mb-4 font-poppins">Photo Gallery</h2>
+                            <div class="photo-gallery-grid">
+                                <img src="https://source.unsplash.com/featured/?shrikhad-mahadev,himachal" alt="Shrikhand Mahadev Trek View 1">
+                                <img src="https://source.unsplash.com/featured/?shrikhad-mahadev,lake" alt="Nain Sarovar Lake">
+                                <img src="https://source.unsplash.com/featured/?shrikhad-mahadev,forest" alt="Forest Trail">
+                                <img src="https://source.unsplash.com/featured/?shrikhad-mahadev,meadow" alt="Parvati Bagh Meadow">
+                                <img src="https://source.unsplash.com/featured/?shrikhad-mahadev,summit" alt="Summit Shivalingam">
+                                <img src="https://source.unsplash.com/featured/?shrikhad-mahadev,camper" alt="Camping at High Altitude">
+                            </div>
+                        </div>
+
                     </div>
 
-                    <div class="lg:w-1/3 mt-8 lg:mt-0">
-                        <div class="sticky-sidebar bg-white rounded-lg shadow-xl p-6">
-                            <div class="flex justify-between items-center">
-                                <div>
-                                    <p class="text-sm text-gray-500">Client Price</p>
-                                    <p class="text-3xl font-bold text-gray-800 font-poppins"> 28,800</p>
-                                    <p class="text-sm text-gray-500">B2B:  24,000</p>
+                    <div class="right-column">
+                        <div class="sticky-sidebar-wrapper">
+                            <div class="sidebar-price-difficulty">
+                                <div class="price-info">
+                                    <p class="price-label">Client Price</p>
+                                    <p class="main-price font-poppins"> 28,800</p>
+                                    <p class="b2b-price">B2B:  24,000</p>
                                 </div>
-                                <div class="text-center">
-                                    <div class="bg-blue-500 text-white font-bold text-xl rounded-md w-16 h-12 flex items-center justify-center">9/10</div>
-                                    <p class="text-xs font-semibold mt-1">Difficulty</p>
+                                <div class="difficulty-score">
+                                    <div class="difficulty-score-box">9/10</div>
+                                    <p>Difficulty</p>
                                 </div>
                             </div>
-                            <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-lg mt-6 text-lg transition duration-300 shadow-lg hover:shadow-xl">Book Now</button>
-                            <a href="../contact.html" class="w-full block text-center bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 rounded-lg mt-3 transition duration-300">Enquire Now</a>
+                            <button class="sidebar-button book-now">Book Now</button>
+                            <a href="../contact.html" class="sidebar-button enquire-now">Enquire Now</a>
 
-                            <div class="mt-8 border-t pt-6">
+                            <div class="quick-facts-section">
                                 <h4 class="font-bold text-lg font-poppins">Quick Facts</h4>
-                                <ul class="mt-4 space-y-4 text-gray-600">
-                                    <li class="flex items-center"><i class="fas fa-calendar-alt w-6 text-center text-blue-500 mr-3"></i> 9 Days / 8 Nights</li>
-                                    <li class="flex items-center"><i class="fas fa-chart-area w-6 text-center text-blue-500 mr-3"></i> Max Altitude: ~5,660 m (18,570 ft)</li>
-                                    <li class="flex items-center"><i class="fas fa-route w-6 text-center text-blue-500 mr-3"></i> Trek Distance: ~32 km one-way</li>
-                                    <li class="flex items-center"><i class="fas fa-tachometer-alt w-6 text-center text-blue-500 mr-3"></i> Grade: Strenuous / Difficult</li>
-                                    <li class="flex items-center"><i class="fas fa-users w-6 text-center text-blue-500 mr-3"></i> Group Size: Min 5, Max 20</li>
+                                <ul class="quick-facts-list">
+                                    <li><i class="fas fa-calendar-alt"></i> 9 Days / 8 Nights</li>
+                                    <li><i class="fas fa-chart-area"></i> Max Altitude: ~5,660 m (18,570 ft)</li>
+                                    <li><i class="fas fa-route"></i> Trek Distance: ~32 km one-way</li>
+                                    <li><i class="fas fa-tachometer-alt"></i> Grade: Strenuous / Difficult</li>
+                                    <li><i class="fas fa-users"></i> Group Size: Min 5, Max 20</li>
                                 </ul>
-                                <div class="mt-4">
+                                <div class="organizer-info">
                                     <h4 class="font-bold text-lg font-poppins">Organizer</h4>
-                                    <p class="text-gray-600 mt-1">Tribal Routes</p>
-                                    <p class="text-gray-600 mt-1"><i class="fas fa-phone mr-2"></i>+91 7807111209</p>
-                                    <p class="text-600 mt-1"><i class="fas fa-envelope mr-2"></i>info@adorahospitality.com</p>
+                                    <p>Tribal Routes</p>
+                                    <p><i class="fas fa-phone"></i>+91 7807111209</p>
+                                    <p><i class="fas fa-envelope"></i>info@adorahospitality.com</p>
                                 </div>
                             </div>
                         </div>
@@ -586,20 +1040,20 @@
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 const tabButtons = document.querySelectorAll('.tab-button');
-                const tabContents = document.querySelectorAll('.tab-content');
+                const tabContents = document.querySelectorAll('.tab-content-panel');
 
                 tabButtons.forEach(button => {
                     button.addEventListener('click', () => {
                         // Remove active class from all buttons and hide all content
-                        tabButtons.forEach(btn => btn.classList.remove('tab-active'));
-                        tabContents.forEach(content => content.style.display = 'none');
+                        tabButtons.forEach(btn => btn.classList.remove('active-tab'));
+                        tabContents.forEach(content => content.classList.remove('active'));
 
                         // Add active class to the clicked button
-                        button.classList.add('tab-active');
+                        button.classList.add('active-tab');
 
                         // Show the corresponding content
                         const targetId = button.dataset.target;
-                        document.getElementById(targetId).style.display = 'block';
+                        document.getElementById(targetId).classList.add('active');
                     });
                 });
 
@@ -612,7 +1066,7 @@
                         const icon = question.querySelector('.faq-icon');
 
                         answer.classList.toggle('open');
-                        icon.classList.toggle('rotate');
+                        icon.classList.toggle('rotated');
                     });
                 });
             });
