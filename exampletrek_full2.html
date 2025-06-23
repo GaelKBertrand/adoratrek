@@ -16,13 +16,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet">
-    <!-- Google Fonts (from tobeadapted.rtf - Poppins for specific content sections) -->
+    <!-- Google Fonts (Poppins for specific content sections, from tobeadapted.rtf) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet (Original) -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Font Awesome for Icons (newer version from tobeadapted.rtf - for integrated content icons) -->
+    <!-- Font Awesome for Icons (newer version for integrated content icons, from tobeadapted.rtf) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 
@@ -36,24 +36,25 @@
     <!-- Template Stylesheet (Original) -->
     <link href="css/style.css" rel="stylesheet">
 
-    <!-- Custom Styles for the Integrated Content (from tobeadapted.rtf, adapted to fit) -->
+    <!-- Custom Styles for the Integrated Content (from tobeadapted.rtf, carefully adapted) -->
     <style>
         /* Base font-family from original file */
         body {
             font-family: 'Roboto', sans-serif;
-            /* background-color from tobeadapted.rtf, if desired for the main body */
-            /* background-color: #4931e1; */
+            /* Explicitly ensuring no background color from the RTF document overrides your original setup */
+            background-color: transparent;
         }
         /* Poppins for headings in the new content */
         h1, h2, h3, h4, h5, h6, .font-poppins {
             font-family: 'Poppins', sans-serif;
         }
 
-        /* Hero section background from tobeadapted.rtf */
+        /* Hero section background - Now explicitly using a local placeholder image without gradient */
         .hero-bg {
-            background-image: url('https://www.bikatadventures.com/images/itinerary/DzoJongo-new/dzojongobanner-new-min.jpg');
+            background-image: url('img/trek-banner.jpg'); /* Please ensure you have 'trek-banner.jpg' in your img/ folder */
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat; /* Ensure the image doesn't repeat */
         }
         .shadow-text {
             text-shadow: 2px 2px 4px rgba(38, 96, 117, 0.7);
@@ -141,9 +142,10 @@
     </div>
     <!-- Topbar End -->
 
-    <!-- Navbar & Hero Start (Original Navbar) -->
+    <!-- Navbar & Hero Start (Original Navbar - No Modifications) -->
     <div class="container-fluid position-relative p-0">
-        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0 bg-dark navbar-dark">
+        <!-- Reverted navbar to exactly your original code without added classes -->
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
             <a href="index.html" class="navbar-brand p-0">
                 <img src="img/logo.png" alt="Logo">
             </a>
@@ -168,7 +170,7 @@
     <main class="pt-0">
         <!-- Hero Section (Shrikhand Mahadev) -->
         <section class="hero-bg h-[50vh] flex items-end justify-start relative p-6 md:p-12">
-            <!-- The gradient overlay div has been removed entirely -->
+            <!-- The gradient overlay div has been removed entirely to show the background image clearly -->
             <div class="relative text-white z-10 max-w-3xl">
                 <h1 class="text-3xl md:text-5xl font-bold font-poppins shadow-text">Shrikhand Mahadev Trek</h1>
                 <div class="flex items-center space-x-4 mt-3 text-sm md:text-base">
