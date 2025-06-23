@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8">
+    <title>Adora Treks</title>
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Tailwind CSS CDN (Necessary for the integrated content's styling) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Web Fonts (Original for the overall site) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet">
+    <!-- Google Fonts (from tobeadapted.rtf - Poppins for specific content sections) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet (Original) -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Font Awesome for Icons (newer version from tobeadapted.rtf - for integrated content icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+    <!-- Libraries Stylesheet (Original) -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet (Original) -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet (Original) -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Custom Styles for the Integrated Content (from tobeadapted.rtf, adapted to fit) -->
+    <style>
+        /* Base font-family from original file */
+        body {
+            font-family: 'Roboto', sans-serif;
+            /* background-color from tobeadapted.rtf, if desired for the main body */
+            /* background-color: #4931e1; */
+        }
+        /* Poppins for headings in the new content */
+        h1, h2, h3, h4, h5, h6, .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Hero section background from tobeadapted.rtf */
+        .hero-bg {
+            background-image: url('https://www.bikatadventures.com/images/itinerary/DzoJongo-new/dzojongobanner-new-min.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .shadow-text {
+            text-shadow: 2px 2px 4px rgba(38, 96, 117, 0.7);
+        }
+
+        /* Styles for the content tabs */
+        .tab-button {
+            transition: all 0.3s ease;
+        }
+        .tab-active {
+            border-bottom: 3px solid #3b82f6;
+            color: #3b82f6;
+            background-color: #eff6ff;
+        }
+        .tab-content {
+            display: none;
+        }
+
+        /* Styling for the itinerary section */
+        .itinerary-day-number {
+            font-size: clamp(3rem, 10vw, 5rem);
+            font-weight: 700;
+            color: #e5e7eb; /* gray-200 */
+            line-height: 1;
+        }
+        .sticky-sidebar {
+            position: sticky;
+            top: 100px; /* Adjust based on original header height */
+            align-self: flex-start; /* Important for sticky to work in flexbox */
+        }
+
+        /* FAQ Accordion Styles */
+        .faq-question {
+            cursor: pointer;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        .faq-answer.open {
+            max-height: 500px; /* Or a larger value */
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        .faq-icon.rotate-180 {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Spinner Start (Original) -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading Adora Hospitality Treks</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Topbar Start (Original) -->
+    <div class="container-fluid bg-primary px-5 d-none d-lg-block">
+        <div class="row gx-0">
+            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://x.com/Adorabooking/"><i class="fab fa-twitter fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.facebook.com/adorahospitality"><i class="fab fa-facebook-f fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.linkedin.com/company/adora-hospitality-solutions/"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.instagram.com/adorahospitality/"><i class="fab fa-instagram fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="https://www.youtube.com/@AdoraHospitality"><i class="fab fa-youtube fw-normal"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <!-- Original commented out code was here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+    <!-- Navbar & Hero Start (Original Navbar) -->
+    <div class="container-fluid position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+            <a href="index.html" class="navbar-brand p-0">
+                <img src="img/logo.png" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="packages.html" class="nav-item nav-link"> Trek Packages</a>
+                    <a href="services.html" class="nav-item nav-link">Other Services</a>
+                    <a href="https://insider.adorahospitality.com/" class="nav-item nav-link">Blog & Updates</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+                </div>
+                <!-- Original commented out button -->
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar & Hero End -->
+
+    <!-- Main Content Area (FROM tobeadapted.rtf) -->
+    <main class="pt-16">
+        <!-- Hero Section (Shrikhand Mahadev) -->
+        <section class="hero-bg h-[50vh] flex items-end justify-start relative p-6 md:p-12">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="relative text-white z-10 max-w-3xl">
+                <h1 class="text-3xl md:text-5xl font-bold font-poppins shadow-text">Shrikhand Mahadev Trek</h1>
+                <div class="flex items-center space-x-4 mt-3 text-sm md:text-base">
+                    <div class="flex items-center"><i class="fas fa-tag mr-2"></i><span>Pilgrimage & High-Altitude Trek</span></div>
+                    <div class="flex items-center"><i class="fas fa-map-marker-alt mr-2"></i><span>Himachal Pradesh</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Area with Tabs and Sidebar -->
+        <div class="container mx-auto p-4 md:p-6 lg:p-8">
+            <div class="lg:flex lg:space-x-8">
+
+                <!-- Left Column: Tabs and Content -->
+                <div class="lg:w-2/3">
+
+                    <!-- Small box with “Return to list of treks” button and Tab Navigation -->
+                    <div id="tab-nav-container" class="sticky top-[72px] bg-gray-100 z-30">
+                        <div class="bg-white rounded-t-lg shadow-md overflow-x-auto p-4">
+                            <!-- Return to list button -->
+                            <div class="mb-4">
+                                <a href="packages.html" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition"> Return to list of treks</a>
+                            </div>
+                            <nav id="tabs" class="flex border-b">
+                                <button data-target="itinerary" class="tab-button flex-shrink-0 py-3 px-4 font-semibold text-gray-600 hover:text-blue-500 text-sm md:text-base tab-active"><i class="fas fa-list-ul mr-2 hidden md:inline"></i>Itinerary</button>
+                                <button data-target="dates" class="tab-button flex-shrink-0 py-3 px-4 font-semibold text-gray-600 hover:text-blue-500 text-sm md:text-base"><i class="fas fa-calendar-check mr-2 hidden md:inline"></i>Dates & Cost</button>
+                                <button data-target="why-us" class="tab-button flex-shrink-0 py-3 px-4 font-semibold text-gray-600 hover:text-blue-500 text-sm md:text-base"><i class="fas fa-users mr-2 hidden md:inline"></i>Why with us?</button>
+                                <button data-target="faq" class="tab-button flex-shrink-0 py-3 px-4 font-semibold text-gray-600 hover:text-blue-500 text-sm md:text-base"><i class="fas fa-question-circle mr-2 hidden md:inline"></i>FAQ</button>
+                                <button data-target="essentials" class="tab-button flex-shrink-0 py-3 px-4 font-semibold text-gray-600 hover:text-blue-500 text-sm md:text-base"><i class="fas fa-briefcase mr-2 hidden md:inline"></i>Essentials</button>
+                                <button data-target="photos" class="tab-button flex-shrink-0 py-3 px-4 font-semibold text-gray-600 hover:text-blue-500 text-sm md:text-base"><i class="fas fa-camera mr-2 hidden md:inline"></i>Photos</button>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <!-- Tab Content Panels -->
+                    <div class="bg-white p-4 md:p-6 rounded-b-lg shadow-md min-h-screen">
+                        <!-- Itinerary Content -->
+                        <div id="itinerary" class="tab-content" style="display: block;">
+                           <div class="space-y-10">
+                                <!-- Day 1 -->
+                                <div class="flex space-x-4">
+                                    <div class="itinerary-day-number">01</div>
+                                    <div class="border-l-2 border-dotted border-gray-300 pl-6 flex-1">
+                                        <h3 class="font-bold text-xl font-poppins text-gray-800 -mt-3">Arrival at Manali / Nirmand</h3>
+                                        <div class="text-sm text-gray-500 mt-1"><strong>Altitude:</strong> 2,050 m (Manali) / 1,190 m (Nirmand)</div>
+                                        <p class="mt-4">Arrive at Manali (or directly to Nirmand if arranged). Meet the trek leader, complete paperwork and gear checks. Travel to Jaon village by road. Brief orientation about high-altitude pilgrimage and safety protocols.</p>
+                                        <div class="mt-4 p-4 bg-blue-50 border-l-4 border-blue-400 text-blue-800 text-sm rounded-r-lg">
+                                            <p><strong>Highlights:</strong> Introduction to local culture, final gear check, preparatory acclimatization briefing.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Day 2 -->
+                                <div class="flex space-x-4">
+                                    <div class="itinerary-day-number">02</div>
+                                    <div class="border-l-2 border-dotted border-gray-300 pl-6 flex-1">
+                                        <h3 class="font-bold text-xl font-poppins text-gray-800 -mt-3">Jaon to Singhaad</h3>
+                                        <div class="text-sm text-gray-500 mt-1"><strong>Altitude Gain:</strong> From ~1,900 m to ~2,600 m | <strong>Distance:</strong> ~8 km</div>
+                                        <p class="mt-4">Start trek from Jaon through forested trails to Singhaad base camp. Free meal (langar) available. Early rest to aid acclimatization.</p>
+                                        <div class="mt-4 p-4 bg-blue-50 border-l-4 border-blue-400 text-blue-800 text-sm rounded-r-lg">
+                                            <p><strong>Highlights:</strong> Lush deodar forests, first views of high ridges.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Day 3 -->
+                                <div class="flex space-x-4">
+                                    <div class="itinerary-day-number">03</div>
+                                    <div class="border-l-2 border-dotted border-gray-300 pl-6 flex-1">
+                                        <h3 class="font-bold text-xl font-poppins text-gray-800 -mt-3">Singhaad to Thaachru</h3>
+                                        <div class="text-sm text-gray-500 mt-1"><strong>Altitude Gain:</strong> From ~2,600 m to ~3,200 m | <strong>Distance:</strong> ~12 km</div>
+                                        <p class="mt-4">A steep uphill stretch known locally as 'Dandi-Dhaar'. Trek through a continuous incline; stops at scenic spots. Camp at Thaachru.</p>
+                                        <div class="mt-4 p-4 bg-blue-50 border-l-4 border-blue-400 text-blue-800 text-sm rounded-r-lg">
+                                            <p><strong>Highlights:</strong> Dramatic elevation gain, panoramic views of valleys below.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Day 4 -->
+                                <div class="flex space-x-4">
+                                    <div class="itinerary-day-number">04</div>
+                                    <div class="border-l-2 border-dotted border-gray-300 pl-6 flex-1">
+                                        <h3 class="font-bold text-xl font-poppins text-gray-800 -mt-3">Kali Ghati to Bheem Talai</h3>
+                                        <div class="text-sm text-gray-500 mt-1"><strong>Altitude Gain:</strong> To ~3,500 m | <strong>Distance:</strong> ~6 km</div>
+                                        <p class="mt-4">Trek through forests and meadows to Kali Ghati, believed to be the abode of Goddess Kali. If weather is clear, glimpses of the Shivalingam at distance appear.</p>
+                                        <div class="mt-4 p-4 bg-blue-50 border-l-4 border-blue-400 text-blue-800 text-sm rounded-r-lg">
+                                            <p><strong>Highlights:</strong> Sacred site, spiritual atmosphere, view of distant peak.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Day 5 -->
+                                <div class="flex space-x-4">
+                                    <div class="itinerary-day-number">05</div>
+                                    <div class="border-l-2 border-dotted border-gray-300 pl-6 flex-1">
+                                        <h3 class="font-bold text-xl font-poppins text-gray-800 -mt-3">Bheem Talai to Parvati Bagh</h3>
+                                        <div class="text-sm text-gray-500 mt-1"><strong>Altitude Variable:</strong> Around ~3,300–3,400 m | <strong>Distance:</strong> ~5 km</div>
+                                        <p class="mt-4">Descend slightly to Bheem Talai. This camp offers rest before further ascent. Terrain becomes rocky; stay alert.</p>
+                                        <div class="mt-4 p-4 bg-blue-50 border-l-4 border-blue-400 text-blue-800 text-sm rounded-r-lg">
+                                            <p><strong>Highlights:</strong> Rest stop with terrain variety.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Day 6 -->
+                                <div class="flex space-x-4">
+                                    <div class="itinerary-day-number">06</div>
+                                    <div class="border-l-2 border-dotted border-gray-300 pl-6 flex-1">
+                                        <h3 class="font-bold text-xl font-poppins text-gray-800 -mt-3">Parvati Bagh to Bheem Dwar</h3>
+                                        <div class="text-sm text-gray-500 mt-1"><strong>Altitude Gain:</strong> To ~4,000 m | <strong>Distance:</strong> ~6 km</div>
+                                        <p class="mt-4">Ascend to Parvati Bagh, a lush meadow said to be planted by Goddess Parvati. Camp and rest; enjoy alpine flowers like Brahma Kamal if in season.</p>
+                                        <div class="mt-4 p-4 bg-blue-50 border-l-4 border-blue-400 text-blue-800 text-sm rounded-r-lg">
+                                            <p><strong>Highlights:</strong> Meadow camping, rich flora, spiritual vibes.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Day 7 -->
+                                <div class="flex space-x-4">
+                                    <div class="itinerary-day-number">07</div>
+                                    <div class="border-l-2 border-dotted border-gray-300 pl-6 flex-1">
+                                        <h3 class="font-bold text-xl font-poppins text-red-600 -mt-3">Summit Day: Bheem Dwar to Shrikhand Mahadev Peak (Nain Sarovar & Shivalingam)</h3>
+                                        <div class="text-sm text-gray-500 mt-1"><strong>Altitude:</strong> ~5,660 m | <strong>Trek Duration:</strong> 8–10 hours round trip</div>
+                                        <p class="mt-4">Pre-dawn start. Trek to Nain Sarovar (holy lake) around ~5,300 m, then the final rocky ascent to the Shivalingam at ~5,660 m (18,570 ft). Spend time in pilgrimage rituals at the peak. Descend carefully back to Parvati Bagh or Bheem Talai based on timing and conditions.</p>
+                                        <div class="mt-4 p-4 bg-red-50 border-l-4 border-red-500 text-red-800 text-sm rounded-r-lg">
+                                            <p><strong>Highlights:</strong> Holy lake dip, Shivalingam worship at summit, panoramic Himalayan views.</p>
+                                        </div>
+                                        <div class="mt-4">
+                                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Shrikhand_Mahadev_peak_view.jpg" alt="Shrikhand Mahadev Peak view" class="rounded-lg shadow-sm w-full" onerror="this.style.display='none'">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Day 8 -->
+                                <div class="flex space-x-4">
+                                    <div class="itinerary-day-number">08</div>
+                                    <div class="border-l-2 border-dotted border-gray-300 pl-6 flex-1">
+                                        <h3 class="font-bold text-xl font-poppins text-gray-800 -mt-3">Descent to Jaon / Base</h3>
+                                        <div class="text-sm text-gray-500 mt-1"><strong>Distance:</strong> Long descent over varied terrain | <strong>Altitude:</strong> From high camps down to Jaon</div>
+                                        <p class="mt-4">Descend through camps (Parvati Bagh  Bheem Talai  Kali Ghati  Thaachru  Singhaad  Jaon). Each stage involves long walking hours; maintain steady pace to avoid strain.</p>
+                                        <div class="mt-4 p-4 bg-blue-50 border-l-4 border-blue-400 text-blue-800 text-sm rounded-r-lg">
+                                            <p><strong>Highlights:</strong> Final views, farewell to mountains, sense of accomplishment.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Day 9 -->
+                                <div class="flex space-x-4">
+                                    <div class="itinerary-day-number">09</div>
+                                    <div class="border-l-2 border-dotted border-gray-300 pl-6 flex-1">
+                                        <h3 class="font-bold text-xl font-poppins text-gray-800 -mt-3">Return & Departure</h3>
+                                        <p class="mt-4">Transfer from Jaon back to Manali or onward destination. Debrief, share feedback, and depart with memories of a transformative pilgrimage.</p>
+                                        <div class="mt-4 p-4 bg-blue-50 border-l-4 border-blue-400 text-blue-800 text-sm rounded-r-lg">
+                                            <p><strong>Highlights:</strong> Celebration of completion, local refreshments, group photo.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                           </div>
+                        </div>
+
+                        <!-- Dates & Cost Content -->
+                        <div id="dates" class="tab-content">
+                            <h2 class="text-2xl font-bold mb-4 font-poppins">Dates & Cost</h2>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left border-collapse">
+                                    <thead>
+                                        <tr class="bg-gray-200">
+                                            <th class="p-3 font-semibold">Start Date</th>
+                                            <th class="p-3 font-semibold">End Date</th>
+                                            <th class="p-3 font-semibold">Cost (Per Person)</th>
+                                            <th class="p-3 font-semibold">Status</th>
+                                            <th class="p-3 font-semibold"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Example departure slots; update as needed -->
+                                        <tr class="border-b">
+                                            <td class="p-3">01 Jul 2025</td>
+                                            <td class="p-3">09 Jul 2025</td>
+                                            <td class="p-3"> 28,800</td>
+                                            <td class="p-3"><span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Available</span></td>
+                                            <td class="p-3"><button class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm">Book</button></td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="p-3">15 Jul 2025</td>
+                                            <td class="p-3">23 Jul 2025</td>
+                                            <td class="p-3"> 28,800</td>
+                                            <td class="p-3"><span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Available</span></td>
+                                            <td class="p-3"><button class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm">Book</button></td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="p-3">01 Aug 2025</td>
+                                            <td class="p-3">09 Aug 2025</td>
+                                            <td class="p-3"> 28,800</td>
+                                            <td class="p-3"><span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">Limited Seats</span></td>
+                                            <td class="p-3"><button class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm">Book</button></td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="p-3">15 Aug 2025</td>
+                                            <td class="p-3">23 Aug 2025</td>
+                                            <td class="p-3"> 28,800</td>
+                                            <td class="p-3"><span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">Full</span></td>
+                                            <td class="p-3"><button class="bg-gray-400 text-white px-4 py-2 rounded-lg text-sm cursor-not-allowed">Full</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="mt-4 text-sm text-gray-600">Minimum 5 people, maximum 20 people per departure.</p>
+                            <p class="mt-2 text-sm text-gray-600">Client Price:  28,800 | B2B Price:  24,000</p>
+                        </div>
+
+                        <!-- Why With Us Content -->
+                        <div id="why-us" class="tab-content">
+                            <h2 class="text-2xl font-bold mb-6 font-poppins">Why with us?</h2>
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div class="flex items-start space-x-4">
+                                    <i class="fas fa-shield-alt text-3xl text-blue-500 mt-1"></i>
+                                    <div>
+                                        <h4 class="font-bold text-lg">Safety & Guidance</h4>
+                                        <p class="text-gray-600 mt-1">Certified guides familiar with Shrikhand Mahadev route, with emergency protocols and necessary high-altitude gear.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <i class="fas fa-users-cog text-3xl text-blue-500 mt-1"></i>
+                                    <div>
+                                        <h4 class="font-bold text-lg">Local Expertise</h4>
+                                        <p class="text-gray-600 mt-1">Experienced support staff from Himachal region ensuring authentic cultural insights and smooth logistics.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <i class="fas fa-leaf text-3xl text-blue-500 mt-1"></i>
+                                    <div>
+                                        <h4 class="font-bold text-lg">Responsible Trekking</h4>
+                                        <p class="text-gray-600 mt-1">We follow Leave No Trace principles and arrange eco-friendly camps; support local communities along the route.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <i class="fas fa-utensils text-3xl text-blue-500 mt-1"></i>
+                                    <div>
+                                        <h4 class="font-bold text-lg">Nutritious Meals</h4>
+                                        <p class="text-gray-600 mt-1">Freshly prepared vegetarian and non-vegetarian options where possible, including local Himachali dishes to fuel your pilgrimage.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Content -->
+                        <div id="faq" class="tab-content">
+                             <h2 class="text-2xl font-bold mb-6 font-poppins">Frequently Asked Questions</h2>
+                             <div class="space-y-4" id="faq-container">
+                                 <!-- FAQ Item 1 -->
+                                 <div class="border rounded-lg">
+                                     <div class="faq-question p-4 flex justify-between items-center">
+                                         <h4 class="font-semibold">What level of fitness is required?</h4>
+                                         <i class="fas fa-chevron-down faq-icon"></i>
+                                     </div>
+                                     <div class="faq-answer px-4 border-t border-gray-200 text-gray-600">
+                                         This is a strenuous high-altitude trek requiring very good cardiovascular endurance. Prior multi-day trekking experience above 3,500 m is strongly recommended.
+                                     </div>
+                                 </div>
+                                 <!-- FAQ Item 2 -->
+                                  <div class="border rounded-lg">
+                                     <div class="faq-question p-4 flex justify-between items-center">
+                                         <h4 class="font-semibold">What about Acute Mountain Sickness (AMS)?</h4>
+                                         <i class="fas fa-chevron-down faq-icon"></i>
+                                     </div>
+                                     <div class="faq-answer px-4 border-t border-gray-200 text-gray-600">
+                                        AMS is a real risk on this route. Our itinerary allows gradual acclimatization; guides monitor symptoms closely. Emergency oxygen and evacuation plan are in place. Stay hydrated and report any discomfort immediately.
+                                     </div>
+                                 </div>
+                                 <!-- FAQ Item 3 -->
+                                 <div class="border rounded-lg">
+                                     <div class="faq-question p-4 flex justify-between items-center">
+                                         <h4 class="font-semibold">What is included?</h4>
+                                         <i class="fas fa-chevron-down faq-icon"></i>
+                                     </div>
+                                     <div class="faq-answer px-4 border-t border-gray-200 text-gray-600">
+                                        All camping equipment, tents, sleeping bags, cooked meals during trek, local permits, guide and porter support. Transport from Manali/Nirmand to trailhead and back is included.
+                                     </div>
+                                 </div>
+                             </div>
+                        </div>
+
+                        <!-- Essentials Content -->
+                        <div id="essentials" class="tab-content">
+                            <h2 class="text-2xl font-bold mb-6 font-poppins">Trek Essentials</h2>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                <li>Warm layers (down jacket, thermal wear) suitable for sub-zero nights.</li>
+                                <li>Sturdy trekking boots, gaiters, and trekking poles.</li>
+                                <li>Daypack with rain cover, water bottles, and hydration system.</li>
+                                <li>Personal medication, first-aid kit, sunscreen, sunglasses.</li>
+                                <li>Headlamp with spare batteries, power bank, camera.</li>
+                                <li>Permits and ID proofs (will be arranged but keep copies).</li>
+                                <li>Minimum 5 people, maximum 20 people per group.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Photos Content -->
+                        <div id="photos" class="tab-content">
+                            <h2 class="text-2xl font-bold mb-6 font-poppins">Photo Gallery</h2>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                <img src="https://source.unsplash.com/featured/?shrikhad-mahadev,himachal" alt="Shrikhand Mahadev Trek View 1" class="rounded-lg shadow-md hover:opacity-80 transition cursor-pointer">
+                                <img src="https://source.unsplash.com/featured/?shrikhad-mahadev,lake" alt="Nain Sarovar Lake" class="rounded-lg shadow-md hover:opacity-80 transition cursor-pointer">
+                                <img src="https://source.unsplash.com/featured/?shrikhad-mahadev,forest" alt="Forest Trail" class="rounded-lg shadow-md hover:opacity-80 transition cursor-pointer">
+                                <img src="https://source.unsplash.com/featured/?shrikhad-mahadev,meadow" alt="Parvati Bagh Meadow" class="rounded-lg shadow-md hover:opacity-80 transition cursor-pointer">
+                                <img src="https://source.unsplash.com/featured/?shrikhad-mahadev,summit" alt="Summit Shivalingam" class="rounded-lg shadow-md hover:opacity-80 transition cursor-pointer">
+                                <img src="https://source.unsplash.com/featured/?shrikhad-mahadev,camper" alt="Camping at High Altitude" class="rounded-lg shadow-md hover:opacity-80 transition cursor-pointer">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Right Column: Sticky Sidebar -->
+                <div class="lg:w-1/3 mt-8 lg:mt-0">
+                    <div class="sticky-sidebar bg-white rounded-lg shadow-xl p-6">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="text-sm text-gray-500">Client Price</p>
+                                <p class="text-3xl font-bold text-gray-800 font-poppins"> 28,800</p>
+                                <p class="text-sm text-gray-500">B2B:  24,000</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="bg-blue-500 text-white font-bold text-xl rounded-md w-16 h-12 flex items-center justify-center">9/10</div>
+                                <p class="text-xs font-semibold mt-1">Difficulty</p>
+                            </div>
+                        </div>
+                        <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-lg mt-6 text-lg transition duration-300 shadow-lg hover:shadow-xl">Book Now</button>
+                        <a href="contact.html" class="w-full block text-center bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 rounded-lg mt-3 transition duration-300">Enquire Now</a>
+
+                        <div class="mt-8 border-t pt-6">
+                            <h4 class="font-bold text-lg font-poppins">Quick Facts</h4>
+                            <ul class="mt-4 space-y-4 text-gray-600">
+                                <li class="flex items-center"><i class="fas fa-calendar-alt w-6 text-center text-blue-500 mr-3"></i> 9 Days / 8 Nights</li>
+                                <li class="flex items-center"><i class="fas fa-chart-area w-6 text-center text-blue-500 mr-3"></i> Max Altitude: ~5,660 m (18,570 ft)</li>
+                                <li class="flex items-center"><i class="fas fa-route w-6 text-center text-blue-500 mr-3"></i> Trek Distance: ~32 km one-way</li>
+                                <li class="flex items-center"><i class="fas fa-tachometer-alt w-6 text-center text-blue-500 mr-3"></i> Grade: Strenuous / Difficult</li>
+                                <li class="flex items-center"><i class="fas fa-users w-6 text-center text-blue-500 mr-3"></i> Group Size: Min 5, Max 20</li>
+                            </ul>
+                            <div class="mt-4">
+                                <h4 class="font-bold text-lg font-poppins">Organizer</h4>
+                                <p class="text-gray-600 mt-1">Tribal Routes</p>
+                                <p class="text-gray-600 mt-1"><i class="fas fa-phone mr-2"></i>+91 7807111209</p>
+                                <p class="text-gray-600 mt-1"><i class="fas fa-envelope mr-2"></i>info@adorahospitality.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Subscribe Start (Original) -->
+    <div class="container-fluid subscribe py-5">
+        <div class="container text-center py-5">
+            <div class="mx-auto text-center" style="max-width: 900px;">
+                <h5 class="subscribe-title px-3">Subscribe</h5>
+                <h1 class="text-white mb-4">Our Newsletter</h1>
+                <p class="text-white mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore nam, architecto doloremque velit explicabo? Voluptate sunt eveniet fuga eligendi! Expedita laudantium fugiat corrupti eum cum repellat a laborum quasi.
+                </p>
+                <div class="position-relative mx-auto">
+                    <input class="form-control border-primary rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                    <button type="button" class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Subscribe End -->
+
+    <!-- Footer Start (Original) -->
+    <div class="container-fluid footer py-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="mb-4 text-white">Get In Touch</h4>
+                        <a href=""><i class="fas fa-home me-2"></i> Manali, Old Manali, Manu Temple Road, Himachal Pradesh,175131</a>
+                        <a href=""><i class="fas fa-envelope me-2"></i> info@adorahospitality.com</a>
+                        <a href=""><i class="fas fa-phone me-2"></i> +91 7807111209</a>
+                        <a href=""><i class="fas fa-phone me-2"></i> +91 7807111208</a>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-share fa-2x text-white me-2"></i>
+                            <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://www.facebook.com/adorahospitality"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://x.com/Adorabooking/"><i class="fab fa-twitter"></i></a>
+                            <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://www.instagram.com/adorahospitality/"><i class="fab fa-instagram"></i></a>
+                            <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://www.linkedin.com/company/adora-hospitality-solutions/"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="mb-4 text-white">Company</h4>
+                        <a href="https://adorahospitality.com/about"><i class="fas fa-angle-right me-2"></i> About</a>
+                        <a href="https://insider.adorahospitality.com"><i class="fas fa-angle-right me-2"></i> Blog</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="mb-4 text-white">Support</h4>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Contact</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Legal Notice</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Privacy Policy</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Terms and Conditions</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <h4 class="text-white mb-3">Accepted Payments</h4>
+                    <div class="footer-bank-card">
+                        <a href="#" class="text-white me-2"><i class="fab fa-cc-amex fa-2x"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-cc-visa fa-2x"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fas fa-credit-card fa-2x"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-cc-mastercard fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Copyright Start (Original) -->
+    <div class="container-fluid copyright text-body py-4">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-6 text-center text-md-end mb-md-0">
+                    <i class="fas fa-copyright me-2"></i><a class="text-white" href="https://adorahospitality.com">Adora Hospitality</a>, All right reserved.
+                </div>
+                <div class="col-md-6 text-center text-md-start">
+                    Designed By <a class="text-white" href="https://mimperio.tech">Mimperio.tech</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+    <!-- Back to Top (Original) -->
+    <a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries (Original) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript (Original) -->
+    <script src="js/main.js"></script>
+
+    <!-- Adapted JavaScript for new content (from tobeadapted.rtf) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- Bikat Content Tab Switching ---
+            const tabs = document.getElementById('tabs');
+            if (tabs) {
+                const tabButtons = tabs.querySelectorAll('.tab-button');
+                const tabContents = document.querySelectorAll('.tab-content');
+
+                tabs.addEventListener('click', (e) => {
+                    const clickedButton = e.target.closest('.tab-button');
+                    if (!clickedButton) return;
+
+                    // Remove active styles from all buttons
+                    tabButtons.forEach(button => {
+                        button.classList.remove('tab-active');
+                    });
+
+                    // Add active style to clicked button
+                    clickedButton.classList.add('tab-active');
+
+                    // Hide all content panels
+                    tabContents.forEach(content => {
+                        content.style.display = 'none';
+                    });
+
+                    // Show the target content panel
+                    const targetId = clickedButton.dataset.target;
+                    const targetContent = document.getElementById(targetId);
+                    if (targetContent) {
+                        targetContent.style.display = 'block';
+                    }
+                });
+            }
+
+            // --- FAQ Accordion Functionality ---
+            const faqContainer = document.getElementById('faq-container');
+            if(faqContainer) {
+                faqContainer.addEventListener('click', (e) => {
+                    const question = e.target.closest('.faq-question');
+                    if(!question) return;
+
+                    const answer = question.nextElementSibling;
+                    const icon = question.querySelector('.faq-icon');
+
+                    answer.classList.toggle('open');
+                    icon.classList.toggle('rotate-180');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
