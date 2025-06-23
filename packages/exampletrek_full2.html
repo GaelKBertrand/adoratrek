@@ -180,7 +180,6 @@
         </div>
         <!-- Navbar & Hero End -->
 
-
     <!-- Main Content Area (FROM tobeadapted.rtf) -->
     <main class="pt-0">
         <!-- Hero Section (Shrikhand Mahadev) -->
@@ -616,13 +615,20 @@
     <!-- Back to Top (Original) -->
     <a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square back-to-top"><i class="fa fa-arrow-up"></i></a>
 
-    <!-- JavaScript Libraries (Original) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../lib/easing/easing.min.js"></script>
-    <script src="../lib/waypoints/waypoints.min.js"></script>
-    <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="../lib/lightbox/js/lightbox.min.js"></script>
+   <!-- JavaScript Libraries -->
+        <script>
+            let path = window.location.pathname;
+            if (path.endsWith(".html")) {
+              let newPath = path.replace(".html", "");
+              window.history.replaceState(null, null, newPath + window.location.search + window.location.hash);
+            }
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="lib/lightbox/js/lightbox.min.js"></script>
 
     <!-- Template Javascript (Original) -->
     <script src="../js/main.js"></script>
