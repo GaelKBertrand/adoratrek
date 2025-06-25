@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Adora Treks | Friendship Peak Trek</title>
+    <link rel="icon" href="/img/favicon.png" type="image/png">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Friendship Peak Trek, Himachal Pradesh, India, high altitude trek, Adora Treks" name="keywords">
+    <meta content="Discover the spiritual and challenging Friendship Peak Trek with Adora Treks. Detailed itinerary, costs, and essentials for your adventure." name="description">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="/css/style.css" rel="stylesheet">
+
+    <!-- Custom CSS for Shrikhand Mahadev Page (Mimicking Tailwind-like styles) -->
+    <style>
+        /* General */
+        .main-content-section {
+            padding-top: 8rem; /* Increased padding-top to create more space below the fixed navbar */
+            /* Updated to a darker blue gradient */
+            background: linear-gradient(to right, #1a2a6c, #1f4068, #162a5c);
+            color: #ffffff; /* All text in this section will be white */
+        }
+
+        .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Hero Section (if re-added, currently just for download info) */
+        .hero-section {
+            height: 65vh;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            position: relative;
+            padding: 1.5rem;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+            z-index: 5;
+        }
+
+        .background-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            filter: brightness(0.8);
+        }
+
+        .hero-content {
+            position: relative;
+            color: #fff;
+            z-index: 10;
+            max-width: 48rem;
+        }
+
+        .hero-title {
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            color: #ffffff; /* Changed to white for readability on dark gradient */
+        }
+
+        /* Ensure paragraph text is also white in this section */
+        .main-content-section p {
+            color: #ffffff;
+        }
+
+        .hero-meta {
+            display: flex;
+            align-items: center;
+            margin-top: 0.75rem;
+            font-size: 0.875rem;
+        }
+
+        .hero-meta div {
+            display: flex;
+            align-items: center;
+            margin-right: 1rem;
+        }
+
+        .hero-meta i {
+            margin-right: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero-section {
+                padding: 3rem;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+                line-height: 1;
+            }
+
+            .hero-meta {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .background-video {
+                display: none;
+            }
+        }
+
+
+        /* Main Content Area */
+        .content-container {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 1rem;
+            margin-top: 0; /* Removed previous margin-top as it's now handled by .main-content-section's padding-top */
+        }
+
+        @media (min-width: 768px) {
+            .content-container {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .content-container {
+                display: flex;
+                gap: 2rem;
+            }
+
+            .left-column {
+                width: 66.666667%;
+            }
+
+            .right-column {
+                width: 33.333333%;
+                margin-top: 0;
+            }
+        }
+
+        /* Download Button Specific Styles */
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            background-color: #17a2b8; /* A nice blue-green for download */
+            color: #fff;
+            border-radius: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-download:hover {
+            background-color: #138496;
+            transform: translateY(-2px);
+            color: #fff; /* Ensure text color remains white on hover */
+        }
+
+        .btn-download i {
+            margin-right: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+
+        /* Tab Navigation */
+        .tab-nav-wrapper {
+            position: sticky;
+            top: 72px;
+            background-color: #f3f4f6;
+            z-index: 30;
+            padding: 1rem;
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .tab-nav-inner {
+            overflow-x: auto;
+        }
+
+        .return-button {
+            display: inline-block;
+            background-color: #3b82f6;
+            color: #fff;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .return-button:hover {
+            background-color: #2563eb;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .tab-buttons-nav {
+            display: flex;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .tab-button {
+            flex-shrink: 0;
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+            color: #4b5563;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            border: none;
+            background-color: transparent;
+            border-radius: 0;
+        }
+
+        .tab-button:hover {
+            color: #3b82f6;
+            text-decoration: none;
+            background-color: #e0f2f7;
+            border-radius: 0.25rem 0.25rem 0 0;
+        }
+
+        .tab-button.active-tab {
+            color: #3b82f6;
+            background-color: #e6f7ff;
+            border-bottom: 3px solid #3b82f6;
+            border-radius: 0.25rem 0.25rem 0 0;
+        }
+
+        .tab-button i {
+            margin-right: 0.5rem;
+        }
+
+        @media (max-width: 767px) {
+            .tab-button i.hidden-md {
+                display: none;
+            }
+        }
+
+
+        /* Tab Content Panels */
+        .tab-content-panel {
+            background-color: #fff;
+            padding: 1rem;
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            min-height: 100vh;
+            display: none;
+        }
+
+        .tab-content-panel.active {
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            .tab-content-panel {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Itinerary Styling */
+        .itinerary-item {
+            display: flex;
+            margin-bottom: 2.5rem;
+        }
+
+        .itinerary-day-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #e0e0e0;
+            line-height: 1;
+            position: relative;
+            top: -5px;
+            min-width: 40px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .itinerary-details {
+            border-left: 2px dotted #d1d5db;
+            padding-left: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .itinerary-details h3 {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #1f2937;
+            margin-top: -0.75rem;
+        }
+
+        .itinerary-details h3.summit-day {
+            color: #dc2626;
+        }
+
+        .itinerary-meta {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+
+        .itinerary-description {
+            margin-top: 1rem;
+        }
+
+        .itinerary-highlight {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #eff6ff;
+            border-left: 4px solid #60a5fa;
+            color: #1e40af;
+            font-size: 0.875rem;
+            border-top-right-radius: 0.25rem;
+            border-bottom-right-radius: 0.25rem;
+        }
+
+        .itinerary-highlight.summit-highlight {
+            background-color: #fee2e2;
+            border-color: #ef4444;
+            color: #991b1b;
+        }
+
+        .itinerary-image {
+            margin-top: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            width: 100%;
+            height: auto;
+        }
+
+        /* Dates & Cost Table */
+        .table-responsive-custom {
+            overflow-x: auto;
+        }
+
+        .data-table {
+            width: 100%;
+            text-align: left;
+            border-collapse: collapse;
+        }
+
+        .data-table thead tr {
+            background-color: #e5e7eb;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 0.75rem;
+            font-weight: 600;
+        }
+
+        .data-table tbody tr {
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .status-tag {
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+        }
+
+        .status-available {
+            background-color: #d1fae5;
+            color: #10b981;
+        }
+
+        .status-limited {
+            background-color: #fef9c3;
+            color: #f59e0b;
+        }
+
+        .status-full {
+            background-color: #fee2e2;
+            color: #dc2626;
+        }
+
+        .book-button {
+            background-color: #3b82f6;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .book-button:hover {
+            background-color: #2563eb;
+        }
+
+        .book-button.disabled {
+            background-color: #9ca3af;
+            cursor: not-allowed;
+        }
+
+        .table-info-text {
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: #4b5563;
+        }
+
+        .table-info-text+.table-info-text {
+            margin-top: 0.5rem;
+        }
+
+        /* Why With Us Section */
+        .why-us-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .why-us-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        .why-us-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .why-us-item i {
+            font-size: 2rem;
+            color: #3b82f6;
+            margin-top: 0.25rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .why-us-item h4 {
+            font-weight: 700;
+            font-size: 1.125rem;
+        }
+
+        .why-us-item p {
+            color: #4b5563;
+            margin-top: 0.25rem;
+        }
+
+        /* FAQ Section */
+        .faq-container-list {
+            margin-top: 1rem;
+        }
+
+        .faq-item {
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .faq-question {
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-question h4 {
+            font-weight: 600;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease-out;
+        }
+
+        .faq-icon.rotated {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            border-top: 1px solid #e5e7eb;
+            color: #4b5563;
+        }
+
+        .faq-answer.open {
+            max-height: 300px;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        /* Essentials Section */
+        .essentials-list {
+            list-style-type: disc;
+            list-style-position: inside;
+            margin-top: 1.5rem;
+        }
+
+        .essentials-list li {
+            margin-bottom: 0.5rem;
+            color: #4b5563;
+        }
+
+        /* Photos Section */
+        .photo-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .photo-gallery-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        .photo-gallery-grid img {
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+            width: 100%;
+            height: auto;
+        }
+
+        .photo-gallery-grid img:hover {
+            opacity: 0.8;
+        }
+
+        /* Map Section */
+        .map-container {
+            position: relative;
+            overflow: hidden;
+            padding-top: 56.25%;
+            height: 0;
+        }
+
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 0.5rem;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+
+        /* Sticky Sidebar */
+        .sticky-sidebar-wrapper {
+            position: sticky;
+            top: 72px;
+            background-color: #fff;
+            border-radius: 0.5rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+        }
+
+        .sidebar-price-difficulty {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sidebar-price-difficulty .price-info p {
+            margin-bottom: 0;
+        }
+
+        .sidebar-price-difficulty .price-label {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .sidebar-price-difficulty .main-price {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .difficulty-score {
+            text-align: center;
+        }
+
+        .difficulty-score-box {
+            background-color: #3b82f6;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.25rem;
+            border-radius: 0.375rem;
+            width: 4rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .difficulty-score p {
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
+
+        .sidebar-button {
+            width: 100%;
+            color: #fff;
+            font-weight: 700;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1.5rem;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            text-align: center;
+            display: block;
+            text-decoration: none;
+        }
+
+        .sidebar-button.book-now {
+            background-color: #3b82f6;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar-button.book-now:hover {
+            background-color: #2563eb;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar-button.enquire-now {
+            background-color: #e5e7eb;
+            color: #1f2937;
+        }
+
+        .sidebar-button.enquire-now:hover {
+            background-color: #d1d5db;
+        }
+
+        .quick-facts-section {
+            margin-top: 2rem;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 1.5rem;
+        }
+
+        .quick-facts-list {
+            margin-top: 1rem;
+        }
+
+        .quick-facts-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: #4b5563;
+        }
+
+        .quick-facts-list li i {
+            width: 1.5rem;
+            text-align: center;
+            color: #3b82f6;
+            margin-right: 0.75rem;
+        }
+
+        .organizer-info {
+            margin-top: 1rem;
+        }
+
+        .organizer-info p {
+            color: #4b5563;
+            margin-bottom: 0.25rem;
+        }
+
+        .organizer-info i {
+            margin-right: 0.5rem;
+        }
+
+        /* Responsive Adjustments (from original prompt's Tailwind) */
+        @media (max-width: 991.98px) {
+            .right-column {
+                margin-top: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading Adora Hospitality Treks</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-primary px-5 d-none d-lg-block">
+        <div class="row gx-0">
+            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
+                        href="https://x.com/Adorabooking/" target="_blank" rel="noopener noreferrer"><i
+                            class="fab fa-twitter fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
+                        href="https://www.facebook.com/adorahospitality" target="_blank" rel="noopener noreferrer"><i
+                            class="fab fa-facebook-f fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
+                        href="https://www.linkedin.com/company/adora-hospitality-solutions/" target="_blank"
+                        rel="noopener noreferrer"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
+                        href="https://www.instagram.com/adorahospitality/" target="_blank"
+                        rel="noopener noreferrer"><i class="fab fa-instagram fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle"
+                        href="https://www.youtube.com/@AdoraHospitality" target="_blank"
+                        rel="noopener noreferrer"><i class="fab fa-youtube fw-normal"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+            <a href="/" class="navbar-brand p-0"> <!-- Link to root index.html -->
+                <img src="/img/logo.png" alt="Adora Treks Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="/" class="nav-item nav-link">Home</a> <!-- Link to root index.html -->
+                    <a href="/packages.html" class="nav-item nav-link active">Trek Packages</a>
+                    <a href="/services.html" class="nav-item nav-link">Other Services</a>
+                    <a href="https://insider.adorahospitality.com/" target="_blank" rel="noopener noreferrer"
+                        class="nav-item nav-link">Blog & Updates</a>
+                    <a href="/contact.html" class="nav-item nav-link">Contact Us</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+    <main class="main-content-section">
+        <div class="content-container text-center">
+            <h1 class="font-poppins hero-title mb-4">Friendship Peak Trek</h1>
+            <p class="mb-4"> 🏔 Thank you for choosing the Friendship Peak Trek. Embark on your sacred journey with confidence!</p>
+            <p class="mb-4"> 🏔 Download your detailed trek booklet here to help you prepare and have full information about the trek </p>
+            <a href="/pdfs/Friendship-Peak-Trek-catalog.pdf" download="Friendship Peak Trek.pdf" class="btn-download">
+                <i class="fas fa-file-download"></i>
+                Download Catalog
+            </a>
+        </div>
+    </main>
+
+    <!-- Testimonial Start -->
+    <div class="container-fluid testimonial py-5">
+        <div class="container py-5">
+            <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+                <h5 class="section-title px-3">Testimonial</h5>
+                <h1 class="mb-0">Our Clients Say!!!</h1>
+            </div>
+            <div class="testimonial-carousel owl-carousel">
+                <div class="testimonial-item text-center rounded pb-4">
+                    <div class="testimonial-comment bg-light rounded p-4">
+                        <p class="text-center mb-5">Every step felt like a conversation with nature; the guides made it
+                            feel safe and meaningful.</p>
+                    </div>
+                    <div class="testimonial-img p-1">
+                        <img src="/img/testimonial-1.jpg" class="img-fluid rounded-circle" alt="Image">
+                    </div>
+                    <div style="margin-top: -35px;">
+                        <h5 class="mb-0">Aisha K</h5>
+                        <p class="mb-0">Goa, India</p>
+                        <div class="d-flex justify-content-center">
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center rounded pb-4">
+                    <div class="testimonial-comment bg-light rounded p-4">
+                        <p class="text-center mb-5">The landscape changed with every mile; it was like walking through a
+                            sacred painting.</p>
+                    </div>
+                    <div class="testimonial-img p-1">
+                        <img src="/img/testimonial-2.jpg" class="img-fluid rounded-circle" alt="Image">
+                    </div>
+                    <div style="margin-top: -35px;">
+                        <h5 class="mb-0">Priya R.</h5>
+                        <p class="mb-0">New Delhi, India</p>
+                        <div class="d-flex justify-content-center">
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center rounded pb-4">
+                    <div class="testimonial-comment bg-light rounded p-4">
+                        <p class="text-center mb-5">Everything from the planning to the campfire stories was handled
+                            with heart.</p>
+                    </div>
+                    <div class="testimonial-img p-1">
+                        <img src="/img/testimonial-3.jpg" class="img-fluid rounded-circle" alt="Image">
+                    </div>
+                    <div style="margin-top: -35px;">
+                        <h5 class="mb-0">Leena S.</h5>
+                        <p class="mb-0">Mumbai, India</p>
+                        <div class="d-flex justify-content-center">
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center rounded pb-4">
+                    <div class="testimonial-comment bg-light rounded p-4">
+                        <p class="text-center mb-5">I’ve done a lot of Himalayan hikes, but this one humbled me — both
+                            in altitude and experience.</p>
+                    </div>
+                    <div class="testimonial-img p-1">
+                        <img src="/img/testimonial-4.jpg" class="img-fluid rounded-circle" alt="Image">
+                    </div>
+                    <div style="margin-top: -35px;">
+                        <h5 class="mb-0">Tenzing D.</h5>
+                        <p class="mb-0">Kasol, India</p>
+                        <div class="d-flex justify-content-center">
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+    <!-- Subscribe Start -->
+    <div class="container-fluid subscribe py-5">
+        <div class="container text-center py-5">
+            <div class="mx-auto text-center" style="max-width: 900px;">
+                <h5 class="subscribe-title px-3">Subscribe</h5>
+                <h1 class="text-white mb-4">Our Newsletter & Blog</h1>
+                <p class="text-white mb-5">Get curated updates on upcoming treks, exclusive discounts, trail tips, and
+                    inspiring stories from the Himalayas. No spam — just the mountains calling. </p>
+                <form action="https://script.google.com/macros/s/AKfycbw2cZ8wdM-f1_Ou_ySYP0nzlbVV9-SXjcSApfxTDTtN9qIrv0eMmVE4tvuMpkyOWwha/exec"
+                    method="POST" class="form-subscribe">
+                    <div class="position-relative mx-auto">
+                        <input class="form-control border-primary rounded-pill w-100 py-3 ps-4 pe-5" type="email"
+                            name="email" placeholder="Your email" required>
+                        <button type="submit"
+                            class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Subscribe End -->
+
+    <!-- Map Start
+    <div class="col-12 mb-5">
+        <div class="rounded map-container">
+            Corrected Google Maps embed URL for Manali, Himachal Pradesh (Adora Hospitality Solutions location based on original coordinates)
+            <iframe class="rounded w-100 h-100"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3424.527144772404!2d77.1772096!3d32.2523446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x428a4b932291fcf1%3A0x1841f8a11913433b!2sAdora%20Hospitality%20Solutions!5e0!3m2!1sen!2sin!4v1718968240000!5m2!1sen!2sin"
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+     Map End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer py-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="mb-4 text-white">Get In Touch</h4>
+                        <a href="#"><i class="fas fa-home me-2"></i> Manali, Old Manali, Manu Temple Road, Himachal
+                            Pradesh,175131</a>
+                        <a href="mailto:info@adorahospitality.com"><i class="fas fa-envelope me-2"></i>
+                            info@adorahospitality.com</a>
+                        <a href="tel:+917807111209"><i class="fas fa-phone me-2"></i> +91 7807111209</a>
+                        <a href="tel:+917807111208"><i class="fas fa-phone me-2"></i> +91 7807111208</a>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-share fa-2x text-white me-2"></i>
+                            <a class="btn-square btn btn-primary rounded-circle mx-1"
+                                href="https://www.facebook.com/adorahospitality" target="_blank"
+                                rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn-square btn btn-primary rounded-circle mx-1"
+                                href="https://x.com/Adorabooking/" target="_blank" rel="noopener noreferrer"><i
+                                    class="fab fa-twitter"></i></a>
+                            <a class="btn-square btn btn-primary rounded-circle mx-1"
+                                href="https://www.instagram.com/adorahospitality/" target="_blank"
+                                rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                            <a class="btn-square btn btn-primary rounded-circle mx-1"
+                                href="https://www.linkedin.com/company/adora-hospitality-solutions/" target="_blank"
+                                rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="mb-4 text-white">Company</h4>
+                        <a href="https://adorahospitality.com/about" target="_blank" rel="noopener noreferrer"><i
+                                class="fas fa-angle-right me-2"></i> About</a>
+                        <a href="https://insider.adorahospitality.com" target="_blank" rel="noopener noreferrer"><i
+                                class="fas fa-angle-right me-2"></i> Blog</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="mb-4 text-white">Support</h4>
+                        <a href="/contact.html"><i class="fas fa-angle-right me-2"></i> Contact</a>
+                        <a href="#"><i class="fas fa-angle-right me-2"></i> Legal Notice</a>
+                        <a href="#"><i class="fas fa-angle-right me-2"></i> Privacy Policy</a>
+                        <a href="#"><i class="fas fa-angle-right me-2"></i> Terms and Conditions</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <h4 class="text-white mb-3">Accepted Payments</h4>
+                    <div class="footer-bank-card">
+                        <a href="#" class="text-white me-2"><i class="fab fa-cc-amex fa-2x"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-cc-visa fa-2x"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fas fa-credit-card fa-2x"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-cc-mastercard fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright text-body py-4">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-6 text-center text-md-end mb-md-0">
+                    <i class="fas fa-copyright me-2"></i>Powered by <a class="text-white"
+                        href="https://adorahospitality.com" target="_blank" rel="noopener noreferrer"> Adora
+                        Hospitality </a> All right reserved 2025.
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/lib/easing/easing.min.js"></script>
+    <script src="/lib/waypoints/waypoints.min.js"></script>
+    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="/js/main.js"></script>
+
+    <!-- Custom JavaScript for this page -->
+    <script>
+        // Spinner
+        var spinner = function () {
+            setTimeout(function () {
+                if ($('#spinner').length > 0) {
+                    $('#spinner').removeClass('show');
+                }
+            }, 1000);
+        };
+        spinner();
+
+
+        // Back to top button
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 300) {
+                $('.back-to-top').fadeIn('slow');
+            } else {
+                $('.back-to-top').fadeOut('slow');
+            }
+        });
+        $('.back-to-top').click(function () {
+            $('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
+            return false;
+        });
+
+        // Testimonials carousel
+        $(".testimonial-carousel").owlCarousel({
+            autoplay: true,
+            smartSpeed: 1000,
+            center: true,
+            dots: true,
+            loop: true,
+            margin: 25,
+            nav: true,
+            navText: [
+                '<i class="bi bi-arrow-left"></i>',
+                '<i class="bi bi-arrow-right"></i>'
+            ],
+            responsive: {
+                0: {
+                    items: 1
+                },
+                576: {
+                    items: 1
+                },
+                768: {
+                    items: 2
+                },
+                992: {
+                    items: 3
+                }
+            }
+        });
+
+        // Path normalization script (removes .html from URL)
+        window.onload = function () {
+            let path = window.location.pathname;
+            if (path.endsWith(".html")) {
+                let newPath = path.replace(".html", "");
+                window.history.replaceState(null, null, newPath + window.location.search + window.location.hash);
+            }
+        };
+
+        // If you had a custom script for tab functionality, it would go here.
+        // For example:
+        // function openTab(event, tabName) {
+        //     var i, tabcontent, tablinks;
+        //     tabcontent = document.getElementsByClassName("tab-content-panel");
+        //     for (i = 0; i < tabcontent.length; i++) {
+        //         tabcontent[i].style.display = "none";
+        //     }
+        //     tablinks = document.getElementsByClassName("tab-button");
+        //     for (i = 0; i < tablinks.length; i++) {
+        //         tablinks[i].className = tablinks[i].className.replace(" active-tab", "");
+        //     }
+        //     document.getElementById(tabName).style.display = "block";
+        //     event.currentTarget.className += " active-tab";
+        // }
+    </script>
+</body>
+
+</html>
