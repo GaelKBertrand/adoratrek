@@ -34,7 +34,9 @@
         /* General */
         .main-content-section {
             padding-top: 8rem; /* Increased padding-top to create more space below the fixed navbar */
-            background: linear-gradient(to right, #f0f8ff, #e6f7ff); /* Very light blue gradient for the background */
+            /* Updated to a darker blue gradient */
+            background: linear-gradient(to right, #1a2a6c, #1f4068, #162a5c);
+            color: #ffffff; /* All text in this section will be white */
         }
 
         .font-poppins {
@@ -90,7 +92,12 @@
             line-height: 2.5rem;
             font-weight: 700;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            color: #0F3460; /* Kept original dark blue for readability on light gradient */
+            color: #ffffff; /* Changed to white for readability on dark gradient */
+        }
+
+        /* Ensure paragraph text is also white in this section */
+        .main-content-section p {
+            color: #ffffff;
         }
 
         .hero-meta {
