@@ -33,7 +33,8 @@
     <style>
         /* General */
         .main-content-section {
-            padding-top: 0;
+            padding-top: 8rem; /* Increased padding-top to create more space below the fixed navbar */
+            background: linear-gradient(to right, #f0f8ff, #e6f7ff); /* Very light blue gradient for the background */
         }
 
         .font-poppins {
@@ -89,7 +90,7 @@
             line-height: 2.5rem;
             font-weight: 700;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            color: #0F3460;
+            color: #0F3460; /* Kept original dark blue for readability on light gradient */
         }
 
         .hero-meta {
@@ -137,7 +138,7 @@
             margin-left: auto;
             margin-right: auto;
             padding: 1rem;
-            margin-top: 2rem; /* Added margin for spacing below navbar */
+            margin-top: 0; /* Removed previous margin-top as it's now handled by .main-content-section's padding-top */
         }
 
         @media (min-width: 768px) {
