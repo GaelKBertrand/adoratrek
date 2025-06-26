@@ -598,7 +598,7 @@
 }
 
 .packages .packages-carousel {
-    position: relative;
+    position: absolute;
 }
 
 .packages .packages-carousel .owl-nav .owl-prev {
