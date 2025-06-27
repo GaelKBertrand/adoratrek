@@ -468,6 +468,971 @@
                 transform: scale(1.03); /* Slight zoom effect on hover */
             }
 
+            /* Custom styles for Lightbox navigation arrows and close button */
+            .lightbox .lb-nav a.lb-prev,
+            .lightbox .lb-nav a.lb-next {
+                /* Make the navigation area (the clickable zone) clearly visible */
+                background-color: rgba(15, 52, 96, 0.6); /* Our dark blue with 60% opacity */
+                width: 70px; /* Make the clickable area wider */
+                height: 100%; /* Cover full height of the image */
+                opacity: 1; /* Always visible */
+                transition: background-color 0.3s ease;
+            }
+
+            .lightbox .lb-nav a.lb-prev:hover,
+            .lightbox .lb-nav a.lb-next:hover {
+                background-color: rgba(15, 52, 96, 0.8); /* Darker blue on hover */
+            }
+
+            /* Apply filter to the background images (arrows) to make them visible against the dark blue background.
+               This filter aims to turn white arrows into a darker, more prominent color.
+               A direct conversion to a specific dark blue via filter is complex and might not be exact,
+               but this will significantly improve visibility.
+            */
+            .lightbox .lb-prev,
+            .lightbox .lb-next {
+                filter: brightness(0) invert(1) grayscale(100%) brightness(50%); /* Makes white arrows black/dark gray */
+            }
+
+            /* Ensure the close button is also visible, if it's white by default */
+            .lightbox .lb-close {
+                filter: brightness(0) invert(1) grayscale(100%); /* Makes white close button black */
+            }
+
+            .lightbox .lb-close:hover {
+                opacity: 0.8; /* Slight fade on hover */
+            }
+
+
+            /* Map Section */
+            .map-container {
+                position: relative;
+                overflow: hidden;
+                padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+                height: 0;
+            }
+            .map-container iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 0.5rem; /* Consistent rounded corners */
+                border: 1px solid #e5e7eb; /* Subtle border */
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            }
+
+
+            /* Sticky Sidebar */
+            .sticky-sidebar-wrapper {
+                position: sticky;
+                top: 72px; /* Adjust based on navbar height */
+                background-color: #fff;
+                border-radius: 0.5rem; /* rounded-lg */
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); /* shadow-xl */
+                padding: 1.5rem; /* p-6 */
+            }
+
+            .sidebar-price-difficulty {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .sidebar-price-difficulty .price-info p {
+                margin-bottom: 0;
+            }
+            .sidebar-price-difficulty .price-label {
+                font-size: 0.875rem; /* text-sm */
+                color: #6b7280; /* text-gray-500 */
+            }
+            .sidebar-price-difficulty .main-price {
+                font-size: 1.875rem; /* text-3xl */
+                font-weight: 700; /* font-bold */
+                color: #1f2937; /* text-gray-800 */
+            }
+            /* .sidebar-price-difficulty .b2b-price { Removed } */
+
+            .difficulty-score {
+                text-align: center;
+            }
+            .difficulty-score-box {
+                background-color: #3b82f6; /* bg-blue-500 */
+                color: #fff;
+                font-weight: 700; /* font-bold */
+                font-size: 1.25rem; /* text-xl */
+                border-radius: 0.375rem; /* rounded-md */
+                width: 4rem; /* w-16 */
+                height: 3rem; /* h-12 */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .difficulty-score p {
+                font-size: 0.75rem; /* text-xs */
+                font-weight: 600; /* font-semibold */
+                margin-top: 0.25rem; /* mt-1 */
+            }
+
+            .sidebar-button {
+                width: 100%;
+                color: #fff;
+                font-weight: 700; /* font-bold */
+                padding: 0.75rem 1rem; /* py-3 */
+                border-radius: 0.5rem; /* rounded-lg */
+                margin-top: 1.5rem; /* mt-6 or mt-3 */
+                transition: background-color 0.3s ease, box-shadow 0.3s ease;
+                border: none;
+                text-align: center;
+                display: block; /* Ensure it takes full width */
+                text-decoration: none;
+            }
+            .sidebar-button.book-now {
+                background-color: #3b82f6; /* bg-blue-500 */
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            }
+            .sidebar-button.book-now:hover {
+                background-color: #2563eb; /* hover:bg-blue-600 */
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); /* hover:shadow-xl */
+            }
+            .sidebar-button.enquire-now {
+                background-color: #e5e7eb; /* bg-gray-200 */
+                color: #1f2937; /* text-gray-800 */
+            }
+            .sidebar-button.enquire-now:hover {
+                background-color: #d1d5db; /* hover:bg-gray-300 */
+            }
+
+            .quick-facts-section {
+                margin-top: 2rem; /* mt-8 */
+                border-top: 1px solid #e5e7eb; /* border-t pt-6 */
+                padding-top: 1.5rem;
+            }
+            .quick-facts-list {
+                margin-top: 1rem; /* mt-4 */
+            }
+            .quick-facts-list li {
+                display: flex;
+                align-items: center;
+                margin-bottom: 1rem; /* space-y-4 */
+                color: #4b5563; /* text-gray-600 */
+            }
+            .quick-facts-list li i {
+                width: 1.5rem; /* w-6 */
+                text-align: center;
+                color: #3b82f6; /* text-blue-500 */
+                margin-right: 0.75rem; /* mr-3 */
+            }
+
+            .organizer-info {
+                margin-top: 1rem; /* mt-4 */
+            }
+            .organizer-info p {
+                color: #4b5563; /* text-gray-600 */
+                margin-bottom: 0.25rem; /* mt-1 */
+            }
+            .organizer-info i {
+                margin-right: 0.5rem; /* mr-2 */
+            }
+
+            /* Responsive Adjustments (from original prompt's Tailwind) */
+            @media (max-width: 991.98px) { /* Equivalent to lg:mt-0 for right column */
+                .right-column {
+                    margin-top: 2rem; /* Default margin-top if not lg */
+                }
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading Adora Hospitality Treks</span>
+            </div>
+        </div>
+        <div class="container-fluid bg-primary px-5 d-none d-lg-block">
+            <div class="row gx-0">
+                <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                    <div class="d-inline-flex align-items-center" style="height: 45px;">
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://x.com/Adorabooking/"  target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter fw-normal"></i></a>
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.facebook.com/adorahospitality"  target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f fw-normal"></i></a>
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.linkedin.com/company/adora-hospitality-solutions/"  target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.instagram.com/adorahospitality/"  target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram fw-normal"></i></a>
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="https://www.youtube.com/@AdoraHospitality"  target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube fw-normal"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center text-lg-end">
+                    <div class="d-inline-flex align-items-center" style="height: 45px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+                <a href="/index.html" class="navbar-brand p-0">
+                    <img src="/img/logo.png" alt="Logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                        <a href="/index.html" class="nav-item nav-link">Home</a>
+                        <a href="/packages.html" class="nav-item nav-link active">Trek Packages</a>
+                        <a href="/services.html" class="nav-item nav-link">Other Services</a>
+                        <a href="https://insider.adorahospitality.com/" target="_blank" rel="noopener noreferrer" class="nav-item nav-link">Blog & Updates</a>
+                        <a href="/contact.html" class="nav-item nav-link">Contact Us</a>
+                    </div>
+                    </div>
+            </nav>
+        </div>
+        <main class="main-content-section">
+            <section class="hero-section" style="background-image: url('/img/packages-4.jpeg');">
+                <video autoplay muted loop playsinline class="background-video" poster="/img/packages-4.jpeg">
+                    <source src="/vids/mahadev.mp4" type="video/mp4">
+                    </video>
+                <div class="hero-content">
+                    <h1 class="hero-title font-poppins">Shrikhand Mahadev Trek</h1>
+                    <div class="hero-meta">
+                        <div><i class="fas fa-tag"></i><span>A challenging high-altitude pilgrimage trek to the sacred Shrikhand Mahadev peak.</span></div>
+                        <div><i class="fas fa-map-marker-alt"></i><span>Himachal Pradesh</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="content-container">
+                <div class="left-column">
+
+                    <div id="tab-nav-container" class="tab-nav-wrapper">
+                        <div class="tab-nav-inner">
+                            <div class="mb-4">
+                                <a href="/packages.html" class="return-button"> Return to list of treks</a>
+                            </div>
+                            <nav id="tabs" class="tab-buttons-nav">
+                                <button data-target="itinerary" class="tab-button active-tab"><i class="fas fa-list-ul mr-2 hidden-md"></i>Itinerary</button>
+                                <button data-target="why-us" class="tab-button"><i class="fas fa-users mr-2 hidden-md"></i>Why with us?</button>
+                                <button data-target="faq" class="tab-button"><i class="fas fa-question-circle mr-2 hidden-md"></i>FAQ</button>
+                                <button data-target="essentials" class="tab-button"><i class="fas fa-briefcase mr-2 hidden-md"></i>Essentials</button>
+                                <button data-target="photos" class="tab-button"><i class="fas fa-camera mr-2 hidden-md"></i>Photos</button>
+                                <button data-target="map" class="tab-button"><i class="fas fa-map-marked-alt mr-2 hidden-md"></i>Map</button>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <div class="tab-content-panel active" id="itinerary">
+                       <div class="space-y-10">
+                            <div class="itinerary-item">
+                                <div class="itinerary-day-number">01</div>
+                                <div class="itinerary-details">
+                                    <h3 class="font-poppins">Arrival at Jaon Village / Drive from Rampur</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> ~1,900 m</div>
+                                    <p class="itinerary-description">Drive from rampur to Jaon village (base camp), then trek to Singhaad.</p>
+                                    <div class="itinerary-highlight">
+                                        <p><strong>Highlights:</strong> Journey to base camp, initial acclimatization, start of the trek.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="itinerary-item">
+                                <div class="itinerary-day-number">02</div>
+                                <div class="itinerary-details">
+                                    <h3 class="font-poppins">Singhaad to Thaachru</h3>
+                                    <div class="itinerary-meta"><strong>Altitude Gain:</strong> From ~2,600 m to ~3,200 m | <strong>Distance:</strong> ~12 km</div>
+                                    <p class="itinerary-description">Trek from Singhaad to Thachru, passing through Barathi Nala.</p>
+                                    <div class="itinerary-highlight">
+                                        <p><strong>Highlights:</strong> Scenic trails, river crossings, gradual ascent.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="itinerary-item">
+                                <div class="itinerary-day-number">03</div>
+                                <div class="itinerary-details">
+                                    <h3 class="font-poppins">Thaachru to Bhimdwar</h3>
+                                    <div class="itinerary-meta"><strong>Altitude Gain:</strong> To ~3,500 m | <strong>Distance:</strong> ~6 km</div>
+                                    <p class="itinerary-description">Trek from Thachru to Kali Ghati, then to Bhimdwar.</p>
+                                    <div class="itinerary-highlight">
+                                        <p><strong>Highlights:</strong> Kali Ghati sacred site, scenic views.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="itinerary-item">
+                                <div class="itinerary-day-number">04</div>
+                                <div class="itinerary-details">
+                                    <h3 class="font-poppins">Bhimdwar to Parvati Bagh and back</h3>
+                                    <div class="itinerary-meta"><strong>Altitude Variable:</strong> Around ~3,300–3,400 m | <strong>Distance:</strong> ~5 km</div>
+                                    <p class="itinerary-description">Trek from Bhimdwar to Parvati Bagh, and potentially to Nain Sarovar (if acclimatized) and back.</p>
+                                    <div class="itinerary-highlight">
+                                        <p><strong>Highlights:</strong> Exploration of Parvati Bagh, optional visit to Nain Sarovar, acclimatization.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="itinerary-item">
+                                <div class="itinerary-day-number">05</div>
+                                <div class="itinerary-details">
+                                    <h3 class="font-poppins">Summit Day: Shrikhand Mahadev Peak (Nain Sarovar & Shivalingam)</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> ~5,227 m (17,150 ft) | <strong>Trek Duration:</strong> 8–10 hours round trip</div>
+                                    <p class="itinerary-description">Trek to Shrikhand Mahadev peak (17,150 ft) and return to Bhimdwar or Parvati Bagh.</p>
+                                    <div class="itinerary-highlight">
+                                        <p><strong>Highlights:</strong> Holy lake dip, Shivalingam worship at summit, panoramic Himalayan views.</p>
+                                    </div>
+                                    <div class="mt-4">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Shrikhand_Mahadev_peak_view.jpg" alt="Shrikhand Mahadev Peak view" class="itinerary-image" onerror="this.style.display='none'">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="itinerary-item">
+                                <div class="itinerary-day-number">06</div>
+                                <div class="itinerary-details">
+                                    <h3 class="font-poppins">Descent from High Camps to Thaachru</h3>
+                                    <div class="itinerary-meta"><strong>Distance:</strong> Long descent</div>
+                                    <p class="itinerary-description">Trek from Bhimdwar/Parvati Bagh back to Thachru.</p>
+                                    <div class="itinerary-highlight">
+                                        <p><strong>Highlights:</strong> Continued descent, experiencing the landscape in reverse.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="itinerary-item">
+                                <div class="itinerary-day-number">07</div>
+                                <div class="itinerary-details">
+                                    <h3 class="font-poppins">Descent to Jaon / Drive to Shimla</h3>
+                                    <div class="itinerary-meta"><strong>Distance:</strong> Final descent | <strong>Altitude:</strong> From high camps down to Jaon</div>
+                                    <p class="itinerary-description">Trek from Thachru to Jaon, then drive back to Shimla.</p>
+                                    <div class="itinerary-highlight">
+                                        <p><strong>Highlights:</strong> Completion of the trek, transfer to Shimla.</p>
+                                    </div>
+                                </div>
+                            </div>
+                       </div>
+                    </div>
+
+                    <div class="tab-content-panel" id="why-us">
+                        <h2 class="text-2xl font-bold mb-4 font-poppins">Why with us?</h2>
+                        <div class="why-us-grid">
+                            <div class="why-us-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <div>
+                                    <h4>Safety & Guidance</h4>
+                                    <p>Certified guides familiar with Shrikhand Mahadev route, with emergency protocols and necessary high-altitude gear.</p>
+                                </div>
+                            </div>
+                            <div class="why-us-item">
+                                <i class="fas fa-users-cog"></i>
+                                <div>
+                                    <h4>Local Expertise</h4>
+                                    <p>Experienced support staff from Himachal region ensuring authentic cultural insights and smooth logistics.</p>
+                                </div>
+                            </div>
+                            <div class="why-us-item">
+                                <i class="fas fa-leaf"></i>
+                                <div>
+                                    <h4>Responsible Trekking</h4>
+                                    <p>We follow Leave No Trace principles and arrange eco-friendly camps; support local communities along the route.</p>
+                                </div>
+                            </div>
+                            <div class="why-us-item">
+                                <i class="fas fa-utensils"></i>
+                                <div>
+                                    <h4>Nutritious Meals</h4>
+                                    <p>Freshly prepared vegetarian and non-vegetarian options where possible, including local Himachali dishes to fuel your pilgrimage.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content-panel" id="faq">
+                         <h2 class="text-2xl font-bold mb-4 font-poppins">Frequently Asked Questions</h2>
+                         <div class="faq-container-list">
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>What is the best time to do this trek?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    The best time to undertake the Shrikhand Mahadev trek is from July to September, when weather conditions are most favorable.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>What kind of accommodation is provided during the trek?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    Accommodation during the trek primarily includes camping and homestay options, providing an authentic experience.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>What is the typical group size for this trek?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    The typical group size for this trek ranges from a minimum of 5 people to a maximum of 20 people per departure.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>Is it safe for solo female travelers?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    We prioritize the safety of all our trekkers. Our experienced guides and support staff ensure a secure environment for everyone, including solo female travelers.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>What is the cancellation policy?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    For detailed information regarding our cancellation policy, please refer to the terms and conditions section on our website or contact us directly.
+                                 </div>
+                             </div>
+                         </div>
+                    </div>
+
+                    <div class="tab-content-panel" id="essentials">
+                        <h2 class="text-2xl font-bold mb-4 font-poppins">Trek Essentials</h2>
+                        <h3 class="text-xl font-bold mb-2 font-poppins">Inclusions</h3>
+                        <ul class="essentials-list">
+                            <li>All trek meals</li>
+                            <li>Camp & homestay accommodation</li>
+                            <li>Experienced guide & porters</li>
+                            <li>Permits</li>
+                            <li>Group transport (Pickup and drop.)</li>
+                        </ul>
+
+                        <h3 class="text-xl font-bold mb-2 font-poppins mt-4">Exclusions</h3>
+                        <ul class="exclusions-list">
+                            <li>Personal gear & insurance</li>
+                            <li>Meals on Road journey</li>
+                            <li>Pre-/post-trek hotel</li>
+                            <li>Any cost arising out of unforeseen circumstances including medical emergencies and act of nature.</li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-content-panel" id="photos">
+                        <h2 class="text-2xl font-bold mb-4 font-poppins">Photo Gallery</h2>
+                        <div class="row g-3">
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="/imgtr/mahadevpic1.jpg" data-lightbox="shrikhand-gallery" data-title="Shrikhand Mahadev Trek View 1">
+                                    <img src="/imgtr/mahadevpic1.jpg" class="img-fluid rounded shadow-sm" alt="Shrikhand Mahadev Trek View 1">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="/imgtr/mahadevpic2.webp" data-lightbox="shrikhand-gallery" data-title="Shrikhand Mahadev Trek View 2">
+                                    <img src="/imgtr/mahadevpic2.webp" class="img-fluid rounded shadow-sm" alt="Shrikhand Mahadev Trek View 2">
+                                &lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;Adora Treks| ShriKhand Mahadev&lt;/title&gt;
+        &lt;link rel=&quot;icon&quot; href=&quot;/img/favicon.png&quot; type=&quot;image/png&quot;&gt;
+        &lt;meta content=&quot;width=device-width, initial-scale=1.0&quot; name=&quot;viewport&quot;&gt;
+        &lt;meta content=&quot;&quot; name=&quot;keywords&quot;&gt;
+        &lt;meta content=&quot;&quot; name=&quot;description&quot;&gt;
+
+        &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
+        &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+        &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Jost:wght@500;600&amp;family=Roboto&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+        &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+
+
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;https://use.fontawesome.com/releases/v5.15.4/css/all.css&quot;/&gt;
+        &lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css&quot; rel=&quot;stylesheet&quot;&gt;
+
+        &lt;link href=&quot;/lib/owlcarousel/assets/owl.carousel.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+        &lt;!-- Re-added Lightbox CSS --&gt;
+        &lt;link href=&quot;/lib/lightbox/css/lightbox.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+
+        &lt;!-- Removed Swiper CSS: &lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/swiper/swiper-bundle.min.css&quot; /&gt; --&gt;
+
+
+        &lt;link href=&quot;/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+
+        &lt;link href=&quot;/css/style.css&quot; rel=&quot;stylesheet&quot;&gt;
+
+        &lt;style&gt;
+            /* General */
+            .main-content-section {
+                padding-top: 0;
+            }
+
+            .font-poppins {
+                font-family: 'Poppins', sans-serif;
+            }
+
+            /* Hero Section */
+            .hero-section {
+                height: 65vh; /* Increased height */
+                display: flex;
+                align-items: flex-end;
+                justify-content: flex-start;
+                position: relative;
+                padding: 1.5rem; /* p-6 */
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                overflow: hidden; /* Important to hide video overflow */
+            }
+
+            .hero-section::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+                z-index: 5;
+            }
+
+            /* Add this new style for the background video */
+            .background-video {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 100%;
+                height: 100%;
+                object-fit: cover; /* Ensures video covers the area without distortion */
+                transform: translate(-50%, -50%); /* Centers the video */
+                z-index: 0; /* Place behind the overlay and content */
+                filter: brightness(0.8); /* Optional: darken the video slightly for better text contrast */
+            }
+
+            .hero-content {
+                position: relative;
+                color: #fff;
+                z-index: 10; /* Ensure text is above overlay */
+                max-width: 48rem; /* max-w-3xl */
+            }
+
+            .hero-title {
+                font-size: 2.25rem; /* text-3xl */
+                line-height: 2.5rem; /* leading-9 */
+                font-weight: 700; /* font-bold */
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* shadow-text */
+                color: #0F3460; /* Deep blue color for the title */
+            }
+
+            .hero-meta {
+                display: flex;
+                align-items: center;
+                margin-top: 0.75rem; /* mt-3 */
+                font-size: 0.875rem; /* text-sm */
+            }
+
+            .hero-meta div {
+                display: flex;
+                align-items: center;
+                margin-right: 1rem; /* space-x-4 */
+            }
+
+            .hero-meta i {
+                margin-right: 0.5rem; /* mr-2 */
+            }
+
+            @media (min-width: 768px) { /* md breakpoint */
+                .hero-section {
+                    padding: 3rem; /* md:p-12 */
+                }
+                .hero-title {
+                    font-size: 3rem; /* md:text-5xl */
+                    line-height: 1;
+                }
+                .hero-meta {
+                    font-size: 1rem; /* md:text-base */
+                }
+            }
+            /* Optional: Responsive adjustments for mobile */
+            @media (max-width: 767px) {
+                .background-video {
+                    display: none; /* Hide video on smaller screens for performance/data usage */
+                }
+                /* You might want a dedicated mobile poster here, or rely on the overall hero-section background */
+            }
+
+
+            /* Main Content Area */
+            .content-container {
+                max-width: 1200px; /* Equivalent to container mx-auto */
+                margin-left: auto;
+                margin-right: auto;
+                padding: 1rem; /* p-4 */
+            }
+            @media (min-width: 768px) { /* md breakpoint */
+                .content-container {
+                    padding: 1.5rem; /* md:p-6 */
+                }
+            }
+            @media (min-width: 992px) { /* lg breakpoint */
+                .content-container {
+                    display: flex;
+                    gap: 2rem; /* lg:space-x-8 */
+                }
+                .left-column {
+                    width: 66.666667%; /* lg:w-2/3 */
+                }
+                .right-column {
+                    width: 33.333333%; /* lg:w-1/3 */
+                    margin-top: 0; /* lg:mt-0 */
+                }
+            }
+
+
+            /* Tab Navigation */
+            .tab-nav-wrapper {
+                position: relative; /* Changed from sticky */
+                top: auto; /* Changed from sticky top-[72px] */
+                background-color: #f3f4f6; /* bg-gray-100 */
+                z-index: 30;
+                padding: 1rem; /* p-4 */
+                border-top-left-radius: 0.5rem; /* rounded-t-lg */
+                border-top-right-radius: 0.5rem; /* rounded-t-lg */
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+            }
+            .tab-nav-inner {
+                 overflow-x: auto;
+            }
+
+            .return-button {
+                display: inline-block;
+                background-color: #3b82f6; /* bg-blue-500 */
+                color: #fff;
+                font-weight: 600; /* font-semibold */
+                padding: 0.5rem 1rem; /* py-2 px-4 */
+                border-radius: 0.5rem; /* rounded-lg */
+                transition: background-color 0.3s ease;
+                margin-bottom: 1rem; /* mb-4 */
+            }
+            .return-button:hover {
+                background-color: #2563eb; /* hover:bg-blue-600 */
+                color: #fff;
+                text-decoration: none;
+            }
+
+            .tab-buttons-nav {
+                display: flex;
+                border-bottom: 1px solid #e5e7eb; /* border-b */
+            }
+
+            .tab-button {
+                flex-shrink: 0;
+                padding: 0.75rem 1rem; /* py-3 px-4 */
+                font-weight: 600; /* font-semibold */
+                color: #4b5563; /* text-gray-600 */
+                transition: color 0.3s ease, background-color 0.3s ease; /* Added background-color for transition */
+                border: none; /* Removed borders */
+                background-color: transparent; /* Default transparent background */
+                border-radius: 0; /* Ensure no sharp corners for active state */
+            }
+            .tab-button:hover {
+                color: #3b82f6; /* hover:text-blue-500 */
+                text-decoration: none;
+                background-color: #e0f2f7; /* Light blue on hover for smooth effect */
+                border-radius: 0.25rem 0.25rem 0 0; /* Subtle rounded top corners on hover */
+            }
+            .tab-button.active-tab {
+                color: #3b82f6; /* Active blue color */
+                background-color: #e6f7ff; /* Lighter background for active tab */
+                border-bottom: 3px solid #3b82f6; /* Keep the blue line for active */
+                border-radius: 0.25rem 0.25rem 0 0; /* Smooth rounded top corners */
+            }
+            .tab-button i {
+                margin-right: 0.5rem; /* mr-2 */
+            }
+            @media (max-width: 767px) { /* hide icons on small screens */
+                .tab-button i.hidden-md {
+                    display: none;
+                }
+            }
+
+
+            /* Tab Content Panels */
+            .tab-content-panel {
+                background-color: #fff;
+                padding: 1rem; /* p-4 */
+                border-bottom-left-radius: 0.5rem; /* rounded-b-lg */
+                border-bottom-right-radius: 0.5rem; /* rounded-b-lg */
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+                min-height: 100vh;
+                display: none; /* Hidden by default */
+            }
+            .tab-content-panel.active {
+                display: block;
+            }
+            @media (min-width: 768px) { /* md breakpoint */
+                .tab-content-panel {
+                    padding: 1.5rem; /* md:p-6 */
+                }
+            }
+
+            /* Itinerary Styling */
+            .itinerary-item {
+                display: flex;
+                margin-bottom: 2.5rem; /* space-y-10 effect */
+            }
+
+            .itinerary-day-number {
+                font-size: 2.5rem;
+                font-weight: bold;
+                color: #e0e0e0;
+                line-height: 1;
+                position: relative;
+                top: -5px;
+                min-width: 40px;
+                text-align: center;
+                flex-shrink: 0; /* Prevent shrinking */
+            }
+
+            .itinerary-details {
+                border-left: 2px dotted #d1d5db; /* border-l-2 border-dotted border-gray-300 */
+                padding-left: 1.5rem; /* pl-6 */
+                flex-grow: 1;
+            }
+
+            .itinerary-details h3 {
+                font-weight: 700; /* font-bold */
+                font-size: 1.25rem; /* text-xl */
+                color: #1f2937; /* text-gray-800 */
+                margin-top: -0.75rem; /* -mt-3 */
+            }
+
+            .itinerary-meta {
+                font-size: 0.875rem; /* text-sm */
+                color: #6b7280; /* text-gray-500 */
+                margin-top: 0.25rem; /* mt-1 */
+            }
+
+            .itinerary-description {
+                margin-top: 1rem; /* mt-4 */
+            }
+
+            .itinerary-highlight {
+                margin-top: 1rem; /* mt-4 */
+                padding: 1rem; /* p-4 */
+                background-color: #eff6ff; /* bg-blue-50 */
+                border-left: 4px solid #60a5fa; /* border-l-4 border-blue-400 */
+                color: #1e40af; /* text-blue-800 */
+                font-size: 0.875rem; /* text-sm */
+                border-top-right-radius: 0.25rem; /* rounded-r-lg */
+                border-bottom-right-radius: 0.25rem; /* rounded-r-lg */
+            }
+
+            .itinerary-image {
+                margin-top: 1rem; /* mt-4 */
+                border-radius: 0.5rem; /* rounded-lg */
+                box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+                width: 100%;
+                height: auto;
+            }
+
+            /* Dates & Cost Table */
+            .table-responsive-custom {
+                overflow-x: auto;
+            }
+            .data-table {
+                width: 100%;
+                text-align: left;
+                border-collapse: collapse;
+            }
+            .data-table thead tr {
+                background-color: #e5e7eb; /* bg-gray-200 */
+            }
+            .data-table th,
+            .data-table td {
+                padding: 0.75rem; /* p-3 */
+                font-weight: 600; /* font-semibold */
+            }
+            .data-table tbody tr {
+                border-bottom: 1px solid #e5e7eb; /* border-b */
+            }
+            .status-tag {
+                padding: 0.25rem 0.5rem; /* px-2 py-1 */
+                border-radius: 9999px; /* rounded-full */
+                font-size: 0.75rem; /* text-xs */
+            }
+            .status-available {
+                background-color: #d1fae5; /* bg-green-100 */
+                color: #10b981; /* text-green-800 */
+            }
+            .status-limited {
+                background-color: #fef9c3; /* bg-yellow-100 */
+                color: #f59e0b; /* text-yellow-800 */
+            }
+            .status-full {
+                background-color: #fee2e2; /* bg-red-100 */
+                color: #dc2626; /* text-red-800 */
+            }
+            .book-button {
+                background-color: #3b82f6; /* bg-blue-500 */
+                color: #fff;
+                padding: 0.5rem 1rem; /* px-4 py-2 */
+                border-radius: 0.5rem; /* rounded-lg */
+                font-size: 0.875rem; /* text-sm */
+                border: none;
+                cursor: pointer;
+            }
+            .book-button:hover {
+                background-color: #2563eb; /* hover:bg-blue-600 */
+            }
+            .book-button.disabled {
+                background-color: #9ca3af; /* bg-gray-400 */
+                cursor: not-allowed;
+            }
+
+            .table-info-text {
+                margin-top: 1rem; /* mt-4 */
+                font-size: 0.875rem; /* text-sm */
+                color: #4b5563; /* text-gray-600 */
+            }
+            .table-info-text + .table-info-text { /* for mt-2 effect */
+                margin-top: 0.5rem;
+            }
+
+            /* Why With Us Section */
+            .why-us-grid {
+                display: grid;
+                gap: 2rem; /* gap-8 */
+            }
+            @media (min-width: 768px) { /* md breakpoint */
+                .why-us-grid {
+                    grid-template-columns: repeat(2, minmax(0, 1fr)); /* md:grid-cols-2 */
+                }
+            }
+
+            .why-us-item {
+                display: flex;
+                align-items: flex-start;
+            }
+            .why-us-item i {
+                font-size: 2rem; /* text-3xl */
+                color: #3b82f6; /* text-blue-500 */
+                margin-top: 0.25rem; /* mt-1 */
+                margin-right: 1rem; /* space-x-4 effect */
+                flex-shrink: 0;
+            }
+            .why-us-item h4 {
+                font-weight: 700; /* font-bold */
+                font-size: 1.125rem; /* text-lg */
+            }
+            .why-us-item p {
+                color: #4b5563; /* text-gray-600 */
+                margin-top: 0.25rem; /* mt-1 */
+            }
+
+            /* FAQ Section */
+            .faq-container-list {
+                margin-top: 1rem; /* space-y-4 */
+            }
+            .faq-item {
+                border: 1px solid #d1d5db; /* border */
+                border-radius: 0.5rem; /* rounded-lg */
+                margin-bottom: 1rem; /* space-y-4 */
+            }
+            .faq-question {
+                padding: 1rem; /* p-4 */
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                cursor: pointer;
+            }
+            .faq-question h4 {
+                font-weight: 600; /* font-semibold */
+            }
+            .faq-icon {
+                transition: transform 0.3s ease-out;
+            }
+            .faq-icon.rotated {
+                transform: rotate(180deg);
+            }
+            .faq-answer {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+                padding-left: 1rem;
+                padding-right: 1rem;
+                border-top: 1px solid #e5e7eb; /* border-t border-gray-200 */
+                color: #4b5563; /* text-gray-600 */
+            }
+            .faq-answer.open {
+                max-height: 300px; /* Adjust as needed */
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+
+            /* Essentials Section */
+            .essentials-list {
+                list-style-type: disc;
+                list-style-position: inside;
+                margin-top: 1.5rem; /* mb-6 */
+            }
+            .essentials-list li {
+                margin-bottom: 0.5rem; /* space-y-2 */
+                color: #4b5563; /* text-gray-600 */
+            }
+            .exclusions-list {
+                list-style-type: disc;
+                list-style-position: inside;
+                margin-top: 1.5rem;
+                color: #4b5563;
+            }
+            .exclusions-list li {
+                margin-bottom: 0.5rem;
+            }
+
+            /* Photos Section (Reverted to Grid with Lightbox) */
+            .photo-grid-item img {
+                width: 100%;
+                height: 200px; /* Fixed height for uniform images in grid */
+                object-fit: cover; /* Ensures images cover the area without distortion */
+                border-radius: 0.5rem;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+                transition: transform 0.2s ease-in-out;
+            }
+
+            .photo-grid-item img:hover {
+                transform: scale(1.03); /* Slight zoom effect on hover */
+            }
+
+            /* Custom styles for Lightbox navigation arrows and close button */
+            .lightbox .lb-nav a.lb-prev,
+            .lightbox .lb-nav a.lb-next {
+                /* Make the navigation area (the clickable zone) clearly visible */
+                background-color: rgba(15, 52, 96, 0.6); /* Our dark blue with 60% opacity */
+                width: 70px; /* Make the clickable area wider */
+                height: 100%; /* Cover full height of the image */
+                opacity: 1; /* Always visible */
+                transition: background-color 0.3s ease;
+            }
+
+            .lightbox .lb-nav a.lb-prev:hover,
+            .lightbox .lb-nav a.lb-next:hover {
+                background-color: rgba(15, 52, 96, 0.8); /* Darker blue on hover */
+            }
+
+            /* Apply filter to the background images (arrows) to make them visible against the dark blue background.
+               This filter aims to turn white arrows into a darker, more prominent color.
+               A direct conversion to a specific dark blue via filter is complex and might not be exact,
+               but this will significantly improve visibility.
+            */
+            .lightbox .lb-prev,
+            .lightbox .lb-next {
+                filter: brightness(0) invert(1) grayscale(100%) brightness(50%); /* Makes white arrows black/dark gray */
+            }
+
+            /* Ensure the close button is also visible, if it's white by default */
+            .lightbox .lb-close {
+                filter: brightness(0) invert(1) grayscale(100%); /* Makes white close button black */
+            }
+
+            .lightbox .lb-close:hover {
+                opacity: 0.8; /* Slight fade on hover */
+            }
+
 
             /* Map Section */
             .map-container {
