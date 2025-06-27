@@ -271,9 +271,6 @@
                 color: #1f2937; /* text-gray-800 */
                 margin-top: -0.75rem; /* -mt-3 */
             }
-            .itinerary-details h3.summit-day {
-                color: #dc2626; /* text-red-600 */
-            }
 
             .itinerary-meta {
                 font-size: 0.875rem; /* text-sm */
@@ -294,11 +291,6 @@
                 font-size: 0.875rem; /* text-sm */
                 border-top-right-radius: 0.25rem; /* rounded-r-lg */
                 border-bottom-right-radius: 0.25rem; /* rounded-r-lg */
-            }
-            .itinerary-highlight.summit-highlight {
-                background-color: #fee2e2; /* bg-red-50 */
-                border-color: #ef4444; /* border-red-500 */
-                color: #991b1b; /* text-red-800 */
             }
 
             .itinerary-image {
@@ -452,6 +444,15 @@
             .essentials-list li {
                 margin-bottom: 0.5rem; /* space-y-2 */
                 color: #4b5563; /* text-gray-600 */
+            }
+            .exclusions-list {
+                list-style-type: disc;
+                list-style-position: inside;
+                margin-top: 1.5rem;
+                color: #4b5563;
+            }
+            .exclusions-list li {
+                margin-bottom: 0.5rem;
             }
 
             /* Photos Section */
@@ -831,29 +832,47 @@
                          <div class="faq-container-list">
                              <div class="faq-item">
                                  <div class="faq-question">
-                                     <h4>What level of fitness is required?</h4>
+                                     <h4>What is the duration of the Kinner Kailash Trek?</h4>
                                      <i class="fas fa-chevron-down faq-icon"></i>
                                  </div>
                                  <div class="faq-answer">
-                                     This is a challenging trek requiring good cardiovascular endurance. Prior high-altitude trekking experience is highly recommended.
+                                    The Kinner Kailash Trek is 3 Days / 2 Nights as per the provided information.
                                  </div>
                              </div>
                              <div class="faq-item">
                                  <div class="faq-question">
-                                     <h4>What is included in the trek package?</h4>
+                                     <h4>What is the difficulty grade of this trek?</h4>
                                      <i class="fas fa-chevron-down faq-icon"></i>
                                  </div>
                                  <div class="faq-answer">
-                                    Inclusions: Transportation (Sharing Cabs), Pick-Up and Drop, All Meals on Trek (Breakfast, Lunch & Dinner), Guide, Personal Porter, Accommodation (Camp, Homestays) on sharing basis, Guide Expenses Food and Stay, Cook & Helper, First Aid Medical Box, All Necessary Permissions Required for the trek.
+                                    The Kinner Kailash Trek is categorized as 'Challenging' in terms of difficulty.
                                  </div>
                              </div>
                              <div class="faq-item">
                                  <div class="faq-question">
-                                     <h4>What is NOT included?</h4>
+                                     <h4>Are meals included during the trek?</h4>
                                      <i class="fas fa-chevron-down faq-icon"></i>
                                  </div>
                                  <div class="faq-answer">
-                                    Exclusions: Any cost arising out of unforeseen circumstances including medical emergencies and act of nature, Anything that is not mentioned in the above list of inclusions, Insurance, Meals on Road journey.
+                                    Yes, all meals on the trek (Breakfast, Lunch & Dinner) are included as per the inclusions list.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>Is a guide provided for the trek?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    Yes, an experienced guide is provided for the trek.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>What are the accommodation types during the trek?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    Accommodation includes Camp and Homestays on a sharing basis.
                                  </div>
                              </div>
                          </div>
@@ -861,14 +880,26 @@
 
                     <div class="tab-content-panel" id="essentials">
                         <h2 class="text-2xl font-bold mb-4 font-poppins">Trek Essentials</h2>
+                        <h3 class="text-xl font-bold mb-2 font-poppins">Inclusions</h3>
                         <ul class="essentials-list">
-                            <li>Warm layers (down jacket, thermal wear) suitable for cold nights.</li>
-                            <li>Sturdy trekking boots and trekking poles.</li>
-                            <li>Daypack with rain cover, water bottles, and hydration system.</li>
-                            <li>Personal medication, first-aid kit, sunscreen, sunglasses.</li>
-                            <li>Headlamp with spare batteries, power bank.</li>
-                            <li>Permits and ID proofs (will be arranged but keep copies).</li>
-                            <li>Minimum 5 people, maximum 20 people per group.</li>
+                            <li>Transportation (Sharing Cabs)</li>
+                            <li>Pick-Up and Drop</li>
+                            <li>All Meals on Trek (Breakfast, Lunch & Dinner)</li>
+                            <li>Guide</li>
+                            <li>Personal Porter</li>
+                            <li>Accommodation (Camp, Homestays) on sharing basis</li>
+                            <li>Guide Expenses Food and Stay</li>
+                            <li>Cook & Helper</li>
+                            <li>First Aid Medical Box</li>
+                            <li>All Necessary Permissions Required for the trek</li>
+                        </ul>
+
+                        <h3 class="text-xl font-bold mb-2 font-poppins mt-4">Exclusions</h3>
+                        <ul class="exclusions-list">
+                            <li>Any cost arising out of unforeseen circumstances including medical emergencies and act of nature</li>
+                            <li>Anything that is not mentioned in the above list of inclusions</li>
+                            <li>Insurance</li>
+                            <li>Meals on Road journey</li>
                         </ul>
                     </div>
 
@@ -879,6 +910,8 @@
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Kinner_Kailash_parikrama_trek.jpg/1280px-Kinner_Kailash_parikrama_trek.jpg" alt="Kinner Kailash Parikrama Trek">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Kinner_Kailash_from_Kalpa.jpg/1280px-Kinner_Kailash_from_Kalpa.jpg" alt="Kinner Kailash from Kalpa">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Kinner_Kailash_Shivling_during_Kinner_Kailash_Parikrama_Trek.jpg/1280px-Kinner_Kailash_Shivling_during_Kinner_Kailash_Parikrama_Trek.jpg" alt="Kinner Kailash Shivling">
+                            <img src="https://source.unsplash.com/featured/?kinner-kailash,himachal-pradesh" alt="Kinner Kailash General View 1">
+                            <img src="https://source.unsplash.com/featured/?kinner-kailash,mountains" alt="Kinner Kailash Mountain View 2">
                         </div>
                     </div>
 
@@ -912,7 +945,7 @@
                                 <p>Challenging</p>
                             </div>
                         </div>
-                        <button href="https://rzp.io/rzp/adoratrek" target="_blank" rel="noopener noreferrer"  class="sidebar-button book-now">Book Now</button>
+                        <a href="https://rzp.io/rzp/adoratrek" target="_blank" rel="noopener noreferrer"  class="sidebar-button book-now">Book Now</a>
                         <a href="/contact.html" class="sidebar-button enquire-now">Enquire Now</a>
 
                         <div class="quick-facts-section">
