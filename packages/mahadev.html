@@ -156,8 +156,8 @@
 
             /* Tab Navigation */
             .tab-nav-wrapper {
-                position: sticky;
-                top: 72px; /* sticky top-[72px] - adjust based on your actual navbar height */
+                position: relative; /* Changed from sticky */
+                top: auto; /* Changed from sticky top-[72px] */
                 background-color: #f3f4f6; /* bg-gray-100 */
                 z-index: 30;
                 padding: 1rem; /* p-4 */
@@ -668,9 +668,7 @@
             <section class="hero-section" style="background-image: url('/img/packages-4.jpeg');">
                 <video autoplay muted loop playsinline class="background-video" poster="/img/packages-4.jpeg">
                     <source src="/vids/mahadev.mp4" type="video/mp4">
-                    <!--<source src="/videos/shrikhand-mahadev-trek.webm" type="video/webm">
-                    Your browser does not support the video tag.-->
-                </video>
+                    </video>
                 <div class="hero-content">
                     <h1 class="hero-title font-poppins">Shrikhand Mahadev Trek</h1>
                     <div class="hero-meta">
@@ -690,7 +688,6 @@
                             </div>
                             <nav id="tabs" class="tab-buttons-nav">
                                 <button data-target="itinerary" class="tab-button active-tab"><i class="fas fa-list-ul mr-2 hidden-md"></i>Itinerary</button>
-                                <button data-target="dates" class="tab-button"><i class="fas fa-calendar-check mr-2 hidden-md"></i>Dates & Cost</button>
                                 <button data-target="why-us" class="tab-button"><i class="fas fa-users mr-2 hidden-md"></i>Why with us?</button>
                                 <button data-target="faq" class="tab-button"><i class="fas fa-question-circle mr-2 hidden-md"></i>FAQ</button>
                                 <button data-target="essentials" class="tab-button"><i class="fas fa-briefcase mr-2 hidden-md"></i>Essentials</button>
@@ -783,55 +780,6 @@
                                 </div>
                             </div>
                        </div>
-                    </div>
-
-                    <div class="tab-content-panel" id="dates">
-                        <h2 class="text-2xl font-bold mb-4 font-poppins">Dates & Cost</h2>
-                        <div class="table-responsive-custom">
-                            <table class="data-table">
-                                <thead>
-                                    <tr>
-                                        <th>Start Date</th>
-                                        <th>End Date</th>
-                                        <th>Cost (Per Person)</th>
-                                        <th>Status</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>01 Jul 2025</td>
-                                        <td>09 Jul 2025</td>
-                                        <td>₹28,800</td>
-                                        <td><span class="status-tag status-available">Available</span></td>
-                                        <td><button class="book-button">Book</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>15 Jul 2025</td>
-                                        <td>23 Jul 2025</td>
-                                        <td>₹28,800</td>
-                                        <td><span class="status-tag status-available">Available</span></td>
-                                        <td><button class="book-button">Book</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>01 Aug 2025</td>
-                                        <td>09 Aug 2025</td>
-                                        <td>₹28,800</td>
-                                        <td><span class="status-tag status-limited">Limited Seats</span></td>
-                                        <td><button class="book-button">Book</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>15 Aug 2025</td>
-                                        <td>23 Aug 2025</td>
-                                        <td>₹28,800</td>
-                                        <td><span class="status-tag status-full">Full</span></td>
-                                        <td><button class="book-button disabled">Full</button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <p class="table-info-text">Minimum 5 people, maximum 20 people per departure.</p>
-                        <p class="table-info-text">Prices subject to change based on customization, logistics, and seasonality.</p>
                     </div>
 
                     <div class="tab-content-panel" id="why-us">
@@ -939,28 +887,22 @@
                         </ul>
                     </div>
 
-                    <!--Trek Images begin -->
                     <div class="tab-content-panel" id="photos">
                         <h2 class="text-2xl font-bold mb-4 font-poppins">Photo Gallery</h2>
                         <div class="photo-gallery-grid">
-                            <img src="/imgtr/mahadevpic1.jpg" alt="Shrikhand Mahadev Trek View">
-                            <img src="/imgtr/mahadevpic2.webp" alt="Shrikhand Mahadev Trek View">
-                            <img src="/imgtr/mahadevpic3.jpeg" alt="Shrikhand Mahadev Trek View">
-                            <img src="/imgtr/mahadevpic4.jpeg" alt="Shrikhand Mahadev Trek View">
-                            <img src="/imgtr/mahadevpic5.jpeg" alt="Shrikhand Mahadev Trek View">
-                            <img src="/imgtr/mahadevpic6.jpeg" alt="Shrikhand Mahadev Trek View">
-                            <img src="/imgtr/mahadevpic7.jpeg" alt="Shrikhand Mahadev Trek View">
-                            <img src="/imgtr/mahadevpic9.jpeg" alt="Shrikhand Mahadev Trek View">
-                            <img src="/imgtr/mahadevpic10.jpg" alt="Shrikhand Mahadev Trek View">
-                            <img src="/imgtr/mahadevpic11.jpg" alt="Shrikhand Mahadev Trek View">
-                            <img src="/imgtr/mahadevpic12.webp" alt="Shrikhand Mahadev Trek View">
+                            <a href="/imgtr/mahadevpic1.jpg" data-lightbox="shrikhand-gallery" data-title="Shrikhand Mahadev Trek View 1"><img src="/imgtr/mahadevpic1.jpg" alt="Shrikhand Mahadev Trek View"></a>
+                            <a href="/imgtr/mahadevpic2.webp" data-lightbox="shrikhand-gallery" data-title="Shrikhand Mahadev Trek View 2"><img src="/imgtr/mahadevpic2.webp" alt="Shrikhand Mahadev Trek View"></a>
+                            <a href="/imgtr/mahadevpic3.jpeg" data-lightbox="shrikhand-gallery" data-title="Shrikhand Mahadev Trek View 3"><img src="/imgtr/mahadevpic3.jpeg" alt="Shrikhand Mahadev Trek View"></a>
+                            <a href="/imgtr/mahadevpic4.jpeg" data-lightbox="shrikhand-gallery" data-title="Shrikhand Mahadev Trek View 4"><img src="/imgtr/mahadevpic4.jpeg" alt="Shrikhand Mahadev Trek View"></a>
+                            <a href="/imgtr/mahadevpic5.jpeg" data-lightbox="shrikhand-gallery" data-title="Shrikhand Mahadev Trek View 5"><img src="/imgtr/mahadevpic5.jpeg" alt="Shrikhand Mahadev Trek View"></a>
+                            <a href="/imgtr/mahadevpic6.jpeg" data-lightbox="shrikhand-gallery" data-title="Shrikhand Mahadev Trek View 6"><img src="/imgtr/mahadevpic6.jpeg" alt="Shrikhand Mahadev Trek View"></a>
+                            <a href="/imgtr/mahadevpic7.jpeg" data-lightbox="shrikhand-gallery" data-title="Shrikhand Mahadev Trek View 7"><img src="/imgtr/mahadevpic7.jpeg" alt="Shrikhand Mahadev Trek View"></a>
+                            <a href="/imgtr/mahadevpic9.jpeg" data-lightbox="shrikhand-gallery" data-title="Shrikhand Mahadev Trek View 8"><img src="/imgtr/mahadevpic9.jpeg" alt="Shrikhand Mahadev Trek View"></a>
+                            <a href="/imgtr/mahadevpic10.jpg" data-lightbox="shrikhand-gallery" data-title="Shrikhand Mahadev Trek View 9"><img src="/imgtr/mahadevpic10.jpg" alt="Shrikhand Mahadev Trek View"></a>
+                            <a href="/imgtr/mahadevpic11.jpg" data-lightbox="shrikhand-gallery" data-title="Shrikhand Mahadev Trek View 10"><img src="/imgtr/mahadevpic11.jpg" alt="Shrikhand Mahadev Trek View"></a>
+                            <a href="/imgtr/mahadevpic12.webp" data-lightbox="shrikhand-gallery" data-title="Shrikhand Mahadev Trek View 11"><img src="/imgtr/mahadevpic12.webp" alt="Shrikhand Mahadev Trek View"></a>
                         </div>
                     </div>
-                    <!--Trek Images ends -->
-
-
-                    <!--Trek Map begin -->
-
                     <div class="tab-content-panel" id="map">
                         <h2 class="text-2xl font-bold mb-4 font-poppins">Trek Map</h2>
                         <div class="map-container">
@@ -977,9 +919,7 @@
                         <p class="table-info-text mt-4">The map shows the approximate location of Shrikhand Mahadev. Detailed trek routes can vary.</p>
                     </div>
 
-                    <!--Trek Map ends -->
-
-                </div>
+                    </div>
 
                 <div class="right-column">
                     <div class="sticky-sidebar-wrapper">
@@ -1022,8 +962,7 @@
                 <div class="mx-auto text-center" style="max-width: 900px;">
                     <h5 class="subscribe-title px-3">Subscribe</h5>
                     <h1 class="text-white mb-4">Our Newsletter</h1>
-                    <p class="text-white mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore nam, architecto doloremque velit explicabo? Voluptate sunt eveniet fuga eligendi! Expedita laudantium fugiat corrupti eum cum repellat a laborum quasi.
-                    </p>
+                    <p class="text-white mb-5">Get curated updates on upcoming treks, exclusive discounts, trail tips, and inspiring stories from the Himalayas. No spam — just the mountains calling. </p>
                     <div class="position-relative mx-auto">
                         <input class="form-control border-primary rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
                         <button type="button" class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Subscribe</button>
@@ -1070,11 +1009,9 @@
                             <h4 class="text-white mb-3">Payments Supported by</h4>
                             <div class="footer-bank-card">
                                 <a href="#" class="text-white me-2">
-                                  <img src="img/razorpay.png" alt="Razorpay" style="height: 32px; width: auto;">
+                                  <img src="/img/razorpay.png" alt="Razorpay" style="height: 32px; width: auto;">
                                 </a>
-                                <!--<a href="#" class="text-white me-2"><i class="fab fa-cc-paypal fa-2x"></i></a>
-                                <a href="#" class="text-white"><i class="fab fa-cc-discover fa-2x"></i></a>-->
-                            </div>
+                                </div>
                         </div>
                     </div>
                 </div>
