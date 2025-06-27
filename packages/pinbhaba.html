@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Adora Treks| Pin Bhaba Pass</title>
+        <title>Adora Treks| Pin Bhaba Pass Trek</title>
         <link rel="icon" href="/img/favicon.png" type="image/png">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
@@ -20,7 +20,6 @@
 
         <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
         <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-
 
         <link href="/css/bootstrap.min.css" rel="stylesheet">
 
@@ -156,8 +155,8 @@
 
             /* Tab Navigation */
             .tab-nav-wrapper {
-                position: sticky;
-                top: 72px; /* sticky top-[72px] - adjust based on your actual navbar height */
+                position: relative; /* Changed from sticky */
+                top: auto; /* Changed from sticky top-[72px] */
                 background-color: #f3f4f6; /* bg-gray-100 */
                 z-index: 30;
                 padding: 1rem; /* p-4 */
@@ -271,9 +270,6 @@
                 color: #1f2937; /* text-gray-800 */
                 margin-top: -0.75rem; /* -mt-3 */
             }
-            .itinerary-details h3.summit-day {
-                color: #dc2626; /* text-red-600 */
-            }
 
             .itinerary-meta {
                 font-size: 0.875rem; /* text-sm */
@@ -294,11 +290,6 @@
                 font-size: 0.875rem; /* text-sm */
                 border-top-right-radius: 0.25rem; /* rounded-r-lg */
                 border-bottom-right-radius: 0.25rem; /* rounded-r-lg */
-            }
-            .itinerary-highlight.summit-highlight {
-                background-color: #fee2e2; /* bg-red-50 */
-                border-color: #ef4444; /* border-red-500 */
-                color: #991b1b; /* text-red-800 */
             }
 
             .itinerary-image {
@@ -463,28 +454,20 @@
                 margin-bottom: 0.5rem;
             }
 
-            /* Photos Section */
-            .photo-gallery-grid {
-                display: grid;
-                grid-template-columns: repeat(2, minmax(0, 1fr)); /* grid-cols-2 */
-                gap: 1rem; /* gap-4 */
-            }
-            @media (min-width: 768px) { /* md breakpoint */
-                .photo-gallery-grid {
-                    grid-template-columns: repeat(3, minmax(0, 1fr)); /* md:grid-cols-3 */
-                }
-            }
-            .photo-gallery-grid img {
-                border-radius: 0.5rem; /* rounded-lg */
-                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
-                transition: opacity 0.3s ease;
-                cursor: pointer;
+            /* Photos Section (Reverted to Grid with Lightbox) */
+            .photo-grid-item img {
                 width: 100%;
-                height: auto;
+                height: 200px; /* Fixed height for uniform images in grid */
+                object-fit: cover; /* Ensures images cover the area without distortion */
+                border-radius: 0.5rem;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+                transition: transform 0.2s ease-in-out;
             }
-            .photo-gallery-grid img:hover {
-                opacity: 0.8;
+
+            .photo-grid-item img:hover {
+                transform: scale(1.03); /* Slight zoom effect on hover */
             }
+
 
             /* Map Section */
             .map-container {
@@ -538,7 +521,7 @@
                 text-align: center;
             }
             .difficulty-score-box {
-                background-color: #f97316; /* bg-orange-500 for Moderate to Challenging */
+                background-color: #3b82f6; /* bg-blue-500 */
                 color: #fff;
                 font-weight: 700; /* font-bold */
                 font-size: 1.25rem; /* text-xl */
@@ -550,7 +533,6 @@
                 justify-content: center;
                 margin-left: auto;
                 margin-right: auto;
-                line-height: 1.2; /* Adjust line height for multi-line text */
             }
             .difficulty-score p {
                 font-size: 0.75rem; /* text-xs */
@@ -642,8 +624,8 @@
                     <div class="d-inline-flex align-items-center" style="height: 45px;">
                         <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://x.com/Adorabooking/"  target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter fw-normal"></i></a>
                         <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.facebook.com/adorahospitality"  target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f fw-normal"></i></a>
-                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.linkedin.com/company/adora-hospitality-solutions/"  target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in fw-normal"></i></a>
-                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.instagram.com/adorahospitality/"  target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram fw-normal"></i></a>
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.linkedin.com/company/adora-hospitality-solutions/"  target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.instagram.com/adorahospitality/"  target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                         <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="https://www.youtube.com/@AdoraHospitality"  target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube fw-normal"></i></a>
                     </div>
                 </div>
@@ -674,16 +656,14 @@
             </nav>
         </div>
         <main class="main-content-section">
-            <section class="hero-section" style="background-image: url('/img/packages-17.jpeg');">
-                <video autoplay muted loop playsinline class="background-video" poster="/img/packages-17.jpeg">
-                    <source src="/vids/pinbhaba.mp4" type="video/mp4">
-                    <!--<source src="/videos/shrikhand-mahadev-trek.webm" type="video/webm">
-                    Your browser does not support the video tag.-->
-                </video>
-            <div class="hero-content">
+            <section class="hero-section" style="background-image: url('/img/packages-4.jpeg');">
+                <video autoplay muted loop playsinline class="background-video" poster="/img/packages-4.jpeg">
+                    <source src="/vids/mahadev.mp4" type="video/mp4">
+                    </video>
+                <div class="hero-content">
                     <h1 class="hero-title font-poppins">Pin Bhaba Pass Trek</h1>
                     <div class="hero-meta">
-                        <div><i class="fas fa-tag"></i><span>Spiti Valley Crossover Trek</span></div>
+                        <div><i class="fas fa-tag"></i><span>A thrilling cross-over trek connecting the lush Bhaba Valley with the stark, arid Pin Valley of Spiti.</span></div>
                         <div><i class="fas fa-map-marker-alt"></i><span>Himachal Pradesh</span></div>
                     </div>
                 </div>
@@ -699,7 +679,6 @@
                             </div>
                             <nav id="tabs" class="tab-buttons-nav">
                                 <button data-target="itinerary" class="tab-button active-tab"><i class="fas fa-list-ul mr-2 hidden-md"></i>Itinerary</button>
-                                <button data-target="dates" class="tab-button"><i class="fas fa-calendar-check mr-2 hidden-md"></i>Dates & Cost</button>
                                 <button data-target="why-us" class="tab-button"><i class="fas fa-users mr-2 hidden-md"></i>Why with us?</button>
                                 <button data-target="faq" class="tab-button"><i class="fas fa-question-circle mr-2 hidden-md"></i>FAQ</button>
                                 <button data-target="essentials" class="tab-button"><i class="fas fa-briefcase mr-2 hidden-md"></i>Essentials</button>
@@ -710,130 +689,88 @@
                     </div>
 
                     <div class="tab-content-panel active" id="itinerary">
-                       <h2 class="text-2xl font-bold mb-4 font-poppins">Detailed Itinerary</h2>
                        <div class="space-y-10">
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">01</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Shimla to Kafnu (2,400m)</h3>
-                                    <div class="itinerary-meta"><strong>Duration:</strong> ~8 hrs drive</div>
-                                    <p class="itinerary-description">Arrive in Shimla and drive to Kafnu, a picturesque village nestled in the Bhaba Valley, which serves as the starting point for the Pin Bhaba Pass Trek. Overnight stay in a homestay or guesthouse.</p>
+                                    <h3 class="font-poppins">Shimla → Kafnu (2,400 m)</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> 2,400 m | <strong>Drive:</strong> ~7-8 hours</div>
+                                    <p class="itinerary-description">Drive from Shimla to Kafnu, a picturesque village in the Bhaba Valley. Overnight stay in a guesthouse or homestay.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Scenic drive through Himachal Pradesh, experiencing local village life, preparation for the trek.</p>
+                                        <p><strong>Highlights:</strong> Scenic drive through Kinnaur, initial acclimatization, introduction to local culture.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">02</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Kafnu to Mulling (3,200m)</h3>
-                                    <div class="itinerary-meta"><strong>Duration:</strong> ~6-7 hrs trek</div>
-                                    <p class="itinerary-description">Begin your trek from Kafnu. The trail is mostly forested with a gradual ascent, winding along the Bhaba River. You'll cross a few wooden bridges and encounter lush green landscapes. Camp overnight at Mulling.</p>
+                                    <h3 class="font-poppins">Kafnu → Mulling (3,100 m)</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> 3,100 m | <strong>Trek Distance:</strong> ~11 km | <strong>Trek Duration:</strong> ~7-8 hours</div>
+                                    <p class="itinerary-description">Begin the trek from Kafnu, following the Bhaba River, through dense forests of pine and cedar. The trail is mostly gradual with some uphill sections.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Forested trails, riverside walk, beautiful camping spot at Mulling.</p>
+                                        <p><strong>Highlights:</strong> Trekking alongside the Bhaba River, lush green forests, crossing small wooden bridges.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">03</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Mulling to Kara (3,600m)</h3>
-                                    <div class="itinerary-meta"><strong>Duration:</strong> ~5 hrs trek</div>
-                                    <p class="itinerary-description">The trail opens up into a lush green meadow valley, offering expansive views. You'll encounter several river crossings over makeshift bridges or by wading. Kara is a vast grazing ground, perfect for camping.</p>
+                                    <h3 class="font-poppins">Mulling → Kara (3,550 m)</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> 3,550 m | <strong>Trek Distance:</strong> ~6 km | <strong>Trek Duration:</strong> ~4-5 hours</div>
+                                    <p class="itinerary-description">A relatively shorter day's trek, mostly through meadows with a gentle ascent. Kara is a beautiful campsite surrounded by alpine flowers (seasonal).</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Open meadows, river crossings, panoramic views of the valley.</p>
+                                        <p><strong>Highlights:</strong> Expansive meadows, views of the Bhaba Valley, perfect for further acclimatization.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">04</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Kara to Phustirang (4,200m)</h3>
-                                    <div class="itinerary-meta"><strong>Duration:</strong> ~5 hrs trek</div>
-                                    <p class="itinerary-description">Today's trek is relatively short but involves a steady climb towards Phustirang, which serves as the base camp for the Pin Bhaba Pass. This day is crucial for acclimatization at high altitude. Camp at the high-altitude meadow of Phustirang.</p>
+                                    <h3 class="font-poppins">Kara → Phutsirang (4,000 m)</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> 4,000 m | <strong>Trek Distance:</strong> ~5 km | <strong>Trek Duration:</strong> ~3-4 hours</div>
+                                    <p class="itinerary-description">Ascend to Phutsirang, a high-altitude campsite that offers the first clear views of the pass. This day involves some steep sections and boulder crossing.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Acclimatization at high altitude, stunning views of the surrounding peaks, preparation for the pass crossing.</p>
+                                        <p><strong>Highlights:</strong> Approaching the glaciated terrain, views of the impressive pass, preparing for the summit day.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">05</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins summit-day">Cross Pin Bhaba Pass (4,915m) to Mangrungse/Mudh side</h3>
-                                    <div class="itinerary-meta"><strong>Duration:</strong> ~9-10 hrs trek</div>
-                                    <p class="itinerary-description">This is the most challenging and rewarding day. Start early to cross the formidable Pin Bhaba Pass. The ascent is steep, often involving snow traverses (seasonal). From the pass, descend into the stark, breathtaking landscapes of the Pin Valley in Spiti. Camp at Mangrungse or proceed towards Mudh depending on conditions.</p>
-                                    <div class="itinerary-highlight summit-highlight">
-                                        <p><strong>Highlights:</strong> Crossing the majestic Pin Bhaba Pass, dramatic change in landscape from green Kinnaur to arid Spiti, stunning high-altitude views.</p>
+                                    <h3 class="font-poppins">Phutsirang → Pin Bhaba Pass (4,900 m) → Mangrungse (4,150 m)</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> Pin Bhaba Pass 4,900 m (16,076 ft), Mangrungse 4,150 m | <strong>Trek Distance:</strong> ~12 km | <strong>Trek Duration:</strong> ~9-10 hours</div>
+                                    <p class="itinerary-description">The challenging summit day! Start early for a steep ascent to Pin Bhaba Pass, traversing snowfields and scree. From the pass, witness a dramatic change in landscape from lush green to arid desert. Descend into Pin Valley to Mangrungse.</p>
+                                    <div class="itinerary-highlight">
+                                        <p><strong>Highlights:</strong> Crossing the majestic Pin Bhaba Pass, breathtaking panoramic views of both valleys, experience the stark beauty of Spiti.</p>
+                                    </div>
+                                    <div class="mt-4">
+                                        <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Pin+Bhaba+Pass+Summit" class="itinerary-image" alt="Pin Bhaba Pass Summit" onerror="this.style.display='none'">
                                     </div>
                                 </div>
                             </div>
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">06</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Trek from Mangrungse to Mudh Village in Pin Valley - Drive to Kaza</h3>
-                                    <div class="itinerary-meta"><strong>Duration:</strong> ~4-5 hrs trek + drive</div>
-                                    <p class="itinerary-description">Descend further into the Pin Valley, reaching Mudh, the last inhabited village in the Pin Valley. From Mudh, a scenic drive will take you to Kaza, the administrative headquarters of Spiti Valley. Overnight stay at a guesthouse/hotel in Kaza.</p>
+                                    <h3 class="font-poppins">Mangrungse → Mudh Village (3,750 m) → Kaza (3,800 m)</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> Mudh 3,750 m, Kaza 3,800 m | <strong>Trek Distance:</strong> ~17 km trek + drive | <strong>Trek Duration:</strong> ~6-7 hours trek + drive</div>
+                                    <p class="itinerary-description">Trek from Mangrungse to Mudh, the last village in Pin Valley. From Mudh, drive to Kaza, the headquarters of Spiti Valley. Celebrate the successful completion of the trek.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Exploring Mudh village, scenic drive through Spiti Valley, reaching Kaza.</p>
+                                        <p><strong>Highlights:</strong> Exploring Mudh village and its unique architecture, experiencing the Buddhist culture of Spiti, comfortable stay in Kaza.</p>
                                     </div>
                                 </div>
                             </div>
-                             <div class="itinerary-item">
+                            <div class="itinerary-item">
                                 <div class="itinerary-day-number">07</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Kaza to Manali</h3>
-                                    <div class="itinerary-meta"><strong>Duration:</strong> ~8-9 hrs drive</div>
-                                    <p class="itinerary-description">After breakfast, embark on a long but scenic drive from Kaza to Manali, crossing some of the highest motorable passes like Kunzum Pass and Rohtang Pass (seasonal). The trek officially concludes upon arrival in Manali.</p>
+                                    <h3 class="font-poppins">Kaza → Manali (Drive)</h3>
+                                    <div class="itinerary-meta"></div>
+                                    <p class="itinerary-description">Drive from Kaza to Manali, traversing the Kunzum Pass and Rohtang Pass (or Atal Tunnel), concluding your journey.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Stunning drive through high Himalayan passes, panoramic views, conclusion of the trek.</p>
+                                        <p><strong>Highlights:</strong> Final scenic drive through the high Himalayas, reflecting on the incredible journey.</p>
                                     </div>
                                 </div>
                             </div>
                        </div>
-                    </div>
-
-                    <div class="tab-content-panel" id="dates">
-                        <h2 class="text-2xl font-bold mb-4 font-poppins">Dates & Cost</h2>
-                        <div class="table-responsive-custom">
-                            <table class="data-table">
-                                <thead>
-                                    <tr>
-                                        <th>Start Date</th>
-                                        <th>End Date</th>
-                                        <th>Cost (Per Person)</th>
-                                        <th>Status</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>01 July 2025</td>
-                                        <td>07 July 2025</td>
-                                        <td>₹24,000</td>
-                                        <td><span class="status-tag status-available">Available</span></td>
-                                        <td><button class="book-button">Book</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>10 July 2025</td>
-                                        <td>16 July 2025</td>
-                                        <td>₹24,000</td>
-                                        <td><span class="status-tag status-limited">Limited Seats</span></td>
-                                        <td><button class="book-button">Book</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>20 July 2025</td>
-                                        <td>26 July 2025</td>
-                                        <td>₹24,000</td>
-                                        <td><span class="status-tag status-full">Full</span></td>
-                                        <td><button class="book-button disabled">Full</button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <p class="table-info-text">Minimum 5 people, maximum 20 people per departure.</p>
-                        <p class="table-info-text">Client Price: ₹24,000/-</p>
-                        <p class="table-info-text">B2B Rate (Shimla to Manali): ₹21,999/-</p>
-                        <p class="table-info-text">Prices subject to change based on customization, logistics, and seasonality.</p>
                     </div>
 
                     <div class="tab-content-panel" id="why-us">
@@ -842,29 +779,29 @@
                             <div class="why-us-item">
                                 <i class="fas fa-shield-alt"></i>
                                 <div>
-                                    <h4>Safety & Guidance</h4>
-                                    <p>Experienced and certified guides, with emergency protocols and necessary gear for high-altitude trekking.</p>
+                                    <h4>Safety First & Expert Guidance</h4>
+                                    <p>Our treks are led by certified and highly experienced mountain guides proficient in high-altitude safety, first-aid, and emergency protocols, ensuring a secure and well-managed expedition across challenging terrain.</p>
                                 </div>
                             </div>
                             <div class="why-us-item">
                                 <i class="fas fa-users-cog"></i>
                                 <div>
-                                    <h4>Local Expertise</h4>
-                                    <p>Our team comprises local experts from Himachal and Spiti, ensuring authentic experiences and smooth operations.</p>
+                                    <h4>Seamless Logistics & High-Quality Gear</h4>
+                                    <p>We provide comprehensive logistical support, including top-notch high-altitude camping equipment, necessary technical climbing gear (ropes, crampons, ice axes as needed), and efficient transportation for a hassle-free experience.</p>
                                 </div>
                             </div>
                             <div class="why-us-item">
                                 <i class="fas fa-leaf"></i>
                                 <div>
-                                    <h4>Responsible Trekking</h4>
-                                    <p>We are committed to eco-friendly practices and support local communities, adhering to Leave No Trace principles.</p>
+                                    <h4>Responsible & Sustainable Trekking</h4>
+                                    <p>Committed to Leave No Trace principles, we meticulously manage waste and practice eco-friendly methods to preserve the pristine Himalayan environment. We also empower local communities through our operations in remote valleys.</p>
                                 </div>
                             </div>
                             <div class="why-us-item">
                                 <i class="fas fa-utensils"></i>
                                 <div>
-                                    <h4>Nutritious Meals</h4>
-                                    <p>Enjoy freshly prepared, hygienic, and nutritious meals throughout your trek to keep you energized.</p>
+                                    <h4>Nutritious & Energizing Meals</h4>
+                                    <p>Our dedicated trek cooks prepare freshly cooked, wholesome, and energy-rich vegetarian meals throughout the trek, designed to fuel your body for the demanding high-altitude climb. Special dietary requirements can be accommodated with prior notice.</p>
                                 </div>
                             </div>
                         </div>
@@ -875,29 +812,110 @@
                          <div class="faq-container-list">
                              <div class="faq-item">
                                  <div class="faq-question">
-                                     <h4>What level of fitness is required for Pin Bhaba Pass Trek?</h4>
+                                     <h4>What is the best time to do the Pin Bhaba Pass Trek?</h4>
                                      <i class="fas fa-chevron-down faq-icon"></i>
                                  </div>
                                  <div class="faq-answer">
-                                     The Pin Bhaba Pass Trek is rated Moderate to Challenging. It requires good physical fitness, endurance, and prior trekking experience, especially at higher altitudes. Regular cardio and strength training are highly recommended.
+                                    The ideal time for the Pin Bhaba Pass Trek is from mid-July to September. This period ensures that the pass is mostly free of heavy snow and weather conditions are relatively stable.
                                  </div>
                              </div>
                              <div class="faq-item">
                                  <div class="faq-question">
-                                     <h4>What is included in the trek package?</h4>
+                                     <h4>What is the difficulty level of the Pin Bhaba Pass Trek?</h4>
                                      <i class="fas fa-chevron-down faq-icon"></i>
                                  </div>
                                  <div class="faq-answer">
-                                    Inclusions: Camping gear, all meals during trek, experienced guide, permits, trek team support, Transport to/from Shimla.
+                                    Pin Bhaba Pass Trek is rated as difficult (8/10). It is a challenging high-altitude cross-over trek involving steep ascents and descents, varied terrain, and demands excellent physical fitness and prior trekking experience.
                                  </div>
                              </div>
                              <div class="faq-item">
                                  <div class="faq-question">
-                                     <h4>What is NOT included?</h4>
+                                     <h4>What kind of accommodation is provided during the trek?</h4>
                                      <i class="fas fa-chevron-down faq-icon"></i>
                                  </div>
                                  <div class="faq-answer">
-                                    Exclusions: Porterage, hotel stays in Shimla or Sangla.
+                                    Accommodation will primarily be in spacious and comfortable alpine tents on a sharing basis at all campsites. In Kafnu and Kaza, guesthouse or homestay accommodation will be provided.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>Is prior high-altitude trekking experience required?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    Yes, prior experience in high-altitude treks (above 4,000m/13,000ft) is highly recommended. Trekkers should be comfortable with multi-day treks, long walking hours, and varied terrain.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>What physical preparation is needed for this trek?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    Intensive cardiovascular training (running, cycling, swimming, stair climbing) for at least 8-10 weeks prior is essential. Include strength training for legs and core, and practice long hikes with a weighted backpack.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>What is the maximum altitude reached on this trek?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    The highest point reached on the Pin Bhaba Pass Trek is the Pin Bhaba Pass itself, at an altitude of approximately 4,900 meters (16,076 feet).
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>Are there proper toilet facilities available on the trek?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    At our campsites, we set up hygienic dry pit toilets with toilet tents for privacy. On the trail, trekkers are expected to follow strict Leave No Trace principles for waste disposal.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>What kind of food will be provided during the trek?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    We provide freshly cooked, nutritious vegetarian meals throughout the trek, specially designed to provide sustained energy for high-altitude activities. We prioritize hygiene and quality.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>What are the emergency protocols in place?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    Our trek leaders are highly experienced in handling high-altitude emergencies. We carry comprehensive first aid kits, oxygen cylinders, and have communication devices (satellite phones in remote areas) for prompt assistance.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>Will there be mobile network connectivity during the trek?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    Mobile network connectivity is generally limited to Kafnu and Kaza. Expect no mobile network for the majority of the trek. Our team will carry satellite phones for emergency communication.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>What about porters/mules for luggage?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    Porters or mules are arranged to carry all common gear, kitchen equipment, and your main luggage. You will only need to carry a small daypack with your essentials for daily trekking.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>Are permits required for the Pin Bhaba Pass Trek?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    Yes, permits are required as the trek traverses sensitive high-altitude regions of Himachal Pradesh. Our team will handle all necessary permits as part of the trek package.
                                  </div>
                              </div>
                          </div>
@@ -907,42 +925,64 @@
                         <h2 class="text-2xl font-bold mb-4 font-poppins">Trek Essentials</h2>
                         <h3 class="text-xl font-bold mb-2 font-poppins">Inclusions</h3>
                         <ul class="essentials-list">
-                            <li>Camping gear (tents, sleeping bags, sleeping mats)</li>
-                            <li>All meals during the trek (Breakfast, Lunch, Dinner, snacks)</li>
-                            <li>Experienced and certified trek leader/guide</li>
-                            <li>Support staff (cooks, porters where necessary)</li>
-                            <li>Forest permits and camping charges</li>
-                            <li>Transportation to and from Shimla (as per itinerary)</li>
+                            <li>All trek meals (vegetarian)</li>
+                            <li>Guesthouse/homestay in Kafnu & Kaza</li>
+                            <li>Tents & sleeping bags (for camping)</li>
+                            <li>Experienced guides & support staff</li>
+                            <li>Permits & camping fees</li>
+                            <li>Transport Shimla–Kafnu & Mudh–Kaza–Manali</li>
                         </ul>
 
                         <h3 class="text-xl font-bold mb-2 font-poppins mt-4">Exclusions</h3>
                         <ul class="exclusions-list">
-                            <li>Personal trekking gear (e.g., trekking poles, headlamp)</li>
-                            <li>Any hotel stays in Shimla before or after the trek</li>
-                            <li>Personal expenses like bottled water, soft drinks, laundry, phone calls</li>
-                            <li>Emergency evacuation or medical expenses</li>
-                            <li>Any costs arising due to unforeseen circumstances like landslides, road blocks, etc.</li>
-                            <li>Tips for the staff</li>
+                            <li>Personal trekking gear (e.g., trekking poles, headlamp, personal warm clothing)</li>
+                            <li>Personal expenses & travel insurance</li>
+                            <li>Any costs arising from unforeseen circumstances (e.g., medical evacuation, road closures, natural calamities)</li>
+                            <li>Meals during road journeys to/from Shimla/Manali</li>
+                            <li>Accommodation in Shimla/Manali before/after the trek</li>
                         </ul>
                     </div>
 
                     <div class="tab-content-panel" id="photos">
                         <h2 class="text-2xl font-bold mb-4 font-poppins">Photo Gallery</h2>
-                        <div class="photo-gallery-grid">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Pin_Bhaba_Pass_%281%29.JPG/1280px-Pin_Bhaba_Pass_%281%29.JPG" alt="Pin Bhaba Pass View 1">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Pin_Bhaba_Pass_%282%29.JPG/1280px-Pin_Bhaba_Pass_%282%29.JPG" alt="Pin Bhaba Pass View 2">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Pin_Bhaba_Pass_%283%29.JPG/1280px-Pin_Bhaba_Pass_%283%29.JPG" alt="Pin Bhaba Pass View 3">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Pin_Bhaba_Pass_%284%29.JPG/1280px-Pin_Bhaba_Pass_%284%29.JPG" alt="Pin Bhaba Pass View 4">
-                            <img src="https://source.unsplash.com/featured/?pinbhabapass,himachal" alt="Pin Bhaba Pass Scenery 1">
-                            <img src="https://source.unsplash.com/featured/?spitivalley,mountains" alt="Pin Bhaba Pass Scenery 2">
+                        <div class="row g-3">
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Pin+Bhaba+1" data-lightbox="pinbhabapass-gallery" data-title="Pin Bhaba Pass Trek View 1">
+                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Pin+Bhaba+1" class="img-fluid rounded shadow-sm" alt="Pin Bhaba Pass Trek View 1">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Pin+Bhaba+2" data-lightbox="pinbhabapass-gallery" data-title="Pin Bhaba Pass Trek View 2">
+                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Pin+Bhaba+2" class="img-fluid rounded shadow-sm" alt="Pin Bhaba Pass Trek View 2">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Pin+Bhaba+3" data-lightbox="pinbhabapass-gallery" data-title="Pin Bhaba Pass Trek View 3">
+                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Pin+Bhaba+3" class="img-fluid rounded shadow-sm" alt="Pin Bhaba Pass Trek View 3">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Pin+Bhaba+4" data-lightbox="pinbhabapass-gallery" data-title="Pin Bhaba Pass Trek View 4">
+                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Pin+Bhaba+4" class="img-fluid rounded shadow-sm" alt="Pin Bhaba Pass Trek View 4">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Pin+Bhaba+5" data-lightbox="pinbhabapass-gallery" data-title="Pin Bhaba Pass Trek View 5">
+                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Pin+Bhaba+5" class="img-fluid rounded shadow-sm" alt="Pin Bhaba Pass Trek View 5">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Pin+Bhaba+6" data-lightbox="pinbhabapass-gallery" data-title="Pin Bhaba Pass Trek View 6">
+                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Pin+Bhaba+6" class="img-fluid rounded shadow-sm" alt="Pin Bhaba Pass Trek View 6">
+                                </a>
+                            </div>
                         </div>
                     </div>
-
                     <div class="tab-content-panel" id="map">
-                        <h2 class="text-2xl font-bold mb-4 font-poppins">Trek Map</h2>
+                        <h2 class="text-2xl font-bold mb-4 font-poppins">Map</h2>
                         <div class="map-container">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13778.07727409249!2d77.8078044747447!3d31.8105747683933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39050d4f3e430c51%3A0xc0f17b2b8e3a2c0c!2sShrikhand%20Mahadev!5e0!3m2!1sen!2sin!4v1719227568585!5m2!1sen!2sin"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13697.550478149257!2d78.07720977475143!3d31.11893346914704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39050d4f3e430c51%3A0xc0f17b2b8e3a2c0c!2sPin%20Bhaba%20Pass!5e0!3m2!1sen!2sin!4v1719321900000!5m2!1sen!2sin"
                                 width="600"
                                 height="450"
                                 style="border:0;"
@@ -954,18 +994,18 @@
                         <p class="table-info-text mt-4">The map shows the approximate location of Pin Bhaba Pass. Detailed trek routes can vary.</p>
                     </div>
 
-                </div>
+                    </div>
 
                 <div class="right-column">
                     <div class="sticky-sidebar-wrapper">
                         <div class="sidebar-price-difficulty">
                             <div class="price-info">
                                 <p class="price-label">Client Price</p>
-                                <p class="main-price font-poppins">₹24,000</p>
+                                <p class="main-price font-poppins">₹18,900</p>
                             </div>
                             <div class="difficulty-score">
-                                <div class="difficulty-score-box">M-C</div>
-                                <p>Mod. to Challenging</p>
+                                <div class="difficulty-score-box">8/10</div>
+                                <p>Difficulty</p>
                             </div>
                         </div>
                         <a href="https://rzp.io/rzp/adoratrek" target="_blank" rel="noopener noreferrer"  class="sidebar-button book-now">Book Now</a>
@@ -974,14 +1014,14 @@
                         <div class="quick-facts-section">
                             <h4 class="font-bold text-lg font-poppins">Quick Facts</h4>
                             <ul class="quick-facts-list">
-                                <li><i class="fas fa-calendar-alt"></i> 7 Days / 6 Nights</li>
-                                <li><i class="fas fa-chart-area"></i> Max Altitude: 4,915m (Pin Bhaba Pass)</li>
-                                <li><i class="fas fa-route"></i> Trek Distance: Not specified in documents</li>
-                                <li><i class="fas fa-tachometer-alt"></i> Grade: Moderate to Challenging</li>
-                                <li><i class="fas fa-users"></i> Group Size: Min 5, Max 20</li>
+                                <li><i class="fas fa-calendar-alt"></i> 7 Days</li>
+                                <li><i class="fas fa-chart-area"></i> Max Altitude: ~4,900 m (16,076 ft)</li>
+                                <li><i class="fas fa-route"></i> Trek Distance: ~60 km (approx)</li>
+                                <li><i class="fas fa-tachometer-alt"></i> Grade: 8/10 (Difficult)</li>
+                                <li><i class="fas fa-users"></i> Group Size: Min 6, Max 20</li>
                             </ul>
                             <div class="organizer-info">
-                                <h4 class="font-bold text-lg font-poppins">Organizer</h4>
+                                <h4 class="font-bold text-lg font-poppins">Trek Guide</h4>
                                 <p>Tribal Routes</p>
                                 <p><i class="fas fa-phone"></i>+91 7807111209</p>
                                 <p><i class="fas fa-envelope"></i>info@adorahospitality.com</p>
@@ -997,8 +1037,7 @@
                 <div class="mx-auto text-center" style="max-width: 900px;">
                     <h5 class="subscribe-title px-3">Subscribe</h5>
                     <h1 class="text-white mb-4">Our Newsletter</h1>
-                    <p class="text-white mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore nam, architecto doloremque velit explicabo? Voluptate sunt eveniet fuga eligendi! Expedita laudantium fugiat corrupti eum cum repellat a laborum quasi.
-                    </p>
+                    <p class="text-white mb-5">Get curated updates on upcoming treks, exclusive discounts, trail tips, and inspiring stories from the Himalayas. No spam — just the mountains calling. </p>
                     <div class="position-relative mx-auto">
                         <input class="form-control border-primary rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
                         <button type="button" class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Subscribe</button>
@@ -1045,11 +1084,9 @@
                             <h4 class="text-white mb-3">Payments Supported by</h4>
                             <div class="footer-bank-card">
                                 <a href="#" class="text-white me-2">
-                                  <img src="img/razorpay.png" alt="Razorpay" style="height: 32px; width: auto;">
+                                  <img src="/img/razorpay.png" alt="Razorpay" style="height: 32px; width: auto;">
                                 </a>
-                                <!--<a href="#" class="text-white me-2"><i class="fab fa-cc-paypal fa-2x"></i></a>
-                                <a href="#" class="text-white"><i class="fab fa-cc-discover fa-2x"></i></a>-->
-                            </div>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -1081,8 +1118,6 @@
         <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
         <script src="/lib/lightbox/js/lightbox.min.js"></script>
 
-        <script src="/js/main.js"></script>
-
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 const tabButtons = document.querySelectorAll('.tab-button');
@@ -1111,19 +1146,22 @@
                         const answer = question.nextElementSibling;
                         const icon = question.querySelector('.faq-icon');
 
-                        // Close other open FAQs
-                        document.querySelectorAll('.faq-answer.open').forEach(openAnswer => {
-                            if (openAnswer !== answer) {
-                                openAnswer.classList.remove('open');
-                                openAnswer.previousElementSibling.querySelector('.faq-icon').classList.remove('rotated');
-                            }
-                        });
-
                         answer.classList.toggle('open');
                         icon.classList.toggle('rotated');
                     });
                 });
+
+                // Lightbox specific configurations (optional, but good to ensure defaults)
+                lightbox.option({
+                    'resizeDuration': 200,
+                    'wrapAround': true, // Allows continuous navigation
+                    'fadeDuration': 200,
+                    'imageFadeDuration': 200
+                    // Other options can be added here as needed
+                });
+
             });
         </script>
     </body>
+
 </html>
