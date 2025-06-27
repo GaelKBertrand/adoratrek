@@ -21,7 +21,6 @@
         <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
         <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
-
         <link href="/css/bootstrap.min.css" rel="stylesheet">
 
         <link href="/css/style.css" rel="stylesheet">
@@ -156,8 +155,8 @@
 
             /* Tab Navigation */
             .tab-nav-wrapper {
-                position: sticky;
-                top: 72px; /* sticky top-[72px] - adjust based on your actual navbar height */
+                position: relative; /* Changed from sticky */
+                top: auto; /* Changed from sticky top-[72px] */
                 background-color: #f3f4f6; /* bg-gray-100 */
                 z-index: 30;
                 padding: 1rem; /* p-4 */
@@ -271,9 +270,6 @@
                 color: #1f2937; /* text-gray-800 */
                 margin-top: -0.75rem; /* -mt-3 */
             }
-            .itinerary-details h3.summit-day {
-                color: #dc2626; /* text-red-600 */
-            }
 
             .itinerary-meta {
                 font-size: 0.875rem; /* text-sm */
@@ -294,11 +290,6 @@
                 font-size: 0.875rem; /* text-sm */
                 border-top-right-radius: 0.25rem; /* rounded-r-lg */
                 border-bottom-right-radius: 0.25rem; /* rounded-r-lg */
-            }
-            .itinerary-highlight.summit-highlight {
-                background-color: #fee2e2; /* bg-red-50 */
-                border-color: #ef4444; /* border-red-500 */
-                color: #991b1b; /* text-red-800 */
             }
 
             .itinerary-image {
@@ -463,28 +454,20 @@
                 margin-bottom: 0.5rem;
             }
 
-            /* Photos Section */
-            .photo-gallery-grid {
-                display: grid;
-                grid-template-columns: repeat(2, minmax(0, 1fr)); /* grid-cols-2 */
-                gap: 1rem; /* gap-4 */
-            }
-            @media (min-width: 768px) { /* md breakpoint */
-                .photo-gallery-grid {
-                    grid-template-columns: repeat(3, minmax(0, 1fr)); /* md:grid-cols-3 */
-                }
-            }
-            .photo-gallery-grid img {
-                border-radius: 0.5rem; /* rounded-lg */
-                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
-                transition: opacity 0.3s ease;
-                cursor: pointer;
+            /* Photos Section (Reverted to Grid with Lightbox) */
+            .photo-grid-item img {
                 width: 100%;
-                height: auto;
+                height: 200px; /* Fixed height for uniform images in grid */
+                object-fit: cover; /* Ensures images cover the area without distortion */
+                border-radius: 0.5rem;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+                transition: transform 0.2s ease-in-out;
             }
-            .photo-gallery-grid img:hover {
-                opacity: 0.8;
+
+            .photo-grid-item img:hover {
+                transform: scale(1.03); /* Slight zoom effect on hover */
             }
+
 
             /* Map Section */
             .map-container {
@@ -673,16 +656,14 @@
             </nav>
         </div>
         <main class="main-content-section">
-             <section class="hero-section" style="background-image: url('/img/packages-11.jpeg');">
-                <video autoplay muted loop playsinline class="background-video" poster="/img/packages-11.jpeg">
-                    <source src="/vids/hampta.mp4" type="video/mp4">
-                    <!--<source src="/videos/shrikhand-mahadev-trek.webm" type="video/webm">
-                    Your browser does not support the video tag.-->
-                </video>
-            <div class="hero-content">
+            <section class="hero-section" style="background-image: url('/img/packages-4.jpeg');">
+                <video autoplay muted loop playsinline class="background-video" poster="/img/packages-4.jpeg">
+                    <source src="/vids/mahadev.mp4" type="video/mp4">
+                    </video>
+                <div class="hero-content">
                     <h1 class="hero-title font-poppins">Hampta Pass Trek</h1>
                     <div class="hero-meta">
-                        <div><i class="fas fa-tag"></i><span>A popular crossover trek in the Pir Panjal range.</span></div>
+                        <div><i class="fas fa-tag"></i><span>A classic 5-day trek from Manali into the Spiti Valley across the scenic Hampta Pass.</span></div>
                         <div><i class="fas fa-map-marker-alt"></i><span>Himachal Pradesh</span></div>
                     </div>
                 </div>
@@ -698,7 +679,6 @@
                             </div>
                             <nav id="tabs" class="tab-buttons-nav">
                                 <button data-target="itinerary" class="tab-button active-tab"><i class="fas fa-list-ul mr-2 hidden-md"></i>Itinerary</button>
-                                <button data-target="dates" class="tab-button"><i class="fas fa-calendar-check mr-2 hidden-md"></i>Dates & Cost</button>
                                 <button data-target="why-us" class="tab-button"><i class="fas fa-users mr-2 hidden-md"></i>Why with us?</button>
                                 <button data-target="faq" class="tab-button"><i class="fas fa-question-circle mr-2 hidden-md"></i>FAQ</button>
                                 <button data-target="essentials" class="tab-button"><i class="fas fa-briefcase mr-2 hidden-md"></i>Essentials</button>
@@ -709,104 +689,69 @@
                     </div>
 
                     <div class="tab-content-panel active" id="itinerary">
-                       <h2 class="text-2xl font-bold mb-4 font-poppins">Detailed Itinerary</h2>
                        <div class="space-y-10">
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">01</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Manali to Jobra, Trek to Chika (3,100m)</h3>
-                                    <div class="itinerary-meta"><strong>Duration:</strong> ~2-3 hrs trek</div>
-                                    <p class="itinerary-description">Your Hampta Pass adventure begins with a scenic drive from Manali to Jobra, the trek's starting point. From Jobra, you'll embark on a relatively easy trek through lush green forests and meadows to reach the first campsite at Chika. The trail offers stunning views of the surrounding valleys and the river.</p>
+                                    <h3 class="font-poppins">Manali → Jobra → trek to Chika (2,960 m)</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> 2,960 m | <strong>Trek Distance:</strong> ~2 km</div>
+                                    <p class="itinerary-description">Arrive in Manali, drive to Jobra, and then begin a short trek to Chika campsite.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Picturesque drive, easy forested trail, first views of the Himlayan landscape.</p>
+                                        <p><strong>Highlights:</strong> Scenic drive, easy initial trek, setup camp by the river.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">02</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Chika to Balu Ka Ghera (3,600m)</h3>
-                                    <div class="itinerary-meta"><strong>Duration:</strong> ~4-5 hrs trek</div>
-                                    <p class="itinerary-description">Today's trek takes you from Chika to Balu Ka Ghera, a beautiful campsite located at the base of the Hampta Pass. The trail is mostly gentle with gradual ascents, passing through vibrant meadows, rocky sections, and clear streams. You'll witness diverse flora and might even spot some local wildlife. Balu Ka Ghera translates to "Heap of Sand," named for the glacial deposits found here.</p>
+                                    <h3 class="font-poppins">Chika → Balu Ka Ghera (3,150 m)</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> 3,150 m | <strong>Trek Distance:</strong> ~6 km</div>
+                                    <p class="itinerary-description">Trek through beautiful meadows and across streams to reach Balu Ka Ghera, the "bear's abode."</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Diverse landscapes, gradual ascent, stunning views of snow-clad peaks.</p>
+                                        <p><strong>Highlights:</strong> Picturesque landscapes, gentle ascent, diverse flora and fauna.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">03</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins summit-day">Balu Ka Ghera to Siagoru via Hampta Pass (4,270m)</h3>
-                                    <div class="itinerary-meta"><strong>Duration:</strong> ~7-8 hrs trek</div>
-                                    <p class="itinerary-description">This is the most challenging and rewarding day of the trek. You'll start early from Balu Ka Ghera for the ascent to Hampta Pass. The climb is strenuous but offers panoramic views of the Lahaul and Spiti valleys. After reaching the pass, a steep descent leads you to Siagoru campsite. The landscape dramatically changes from lush green to barren, rugged terrain.</p>
-                                    <div class="itinerary-highlight summit-highlight">
-                                        <p><strong>Highlights:</strong> Crossing Hampta Pass, panoramic views of Pir Panjal and Spiti ranges, dramatic landscape change.</p>
+                                    <h3 class="font-poppins">Balu Ka Ghera → Hampta Pass (4,270 m) → Shea Goru (3,700 m)</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> Hampta Pass 4,270 m, Shea Goru 3,700 m | <strong>Trek Distance:</strong> ~10 km</div>
+                                    <p class="itinerary-description">The challenging pass crossing day. Ascend to Hampta Pass, enjoy panoramic views, and descend to Shea Goru campsite.</p>
+                                    <div class="itinerary-highlight">
+                                        <p><strong>Highlights:</strong> Crossing Hampta Pass, stunning views of Pir Panjal and Spiti ranges, contrasting landscapes.</p>
+                                    </div>
+                                    <div class="mt-4">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Hampta_Pass_-_Himachal_Pradesh.jpg/800px-Hampta_Pass_-_Himachal_Pradesh.jpg" alt="Hampta Pass View" class="itinerary-image" onerror="this.style.display='none'">
                                     </div>
                                 </div>
                             </div>
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">04</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Siagoru to Chatru (3,300m) and Drive to Manali</h3>
-                                    <div class="itinerary-meta"><strong>Duration:</strong> ~4-5 hrs trek, plus drive</div>
-                                    <p class="itinerary-description">Today, you'll descend from Siagoru to Chatru, the final trekking point. The trail is relatively easy, following the Chandra River. Upon reaching Chatru, you will be met by your vehicle for the scenic drive back to Manali. The drive through the Lahaul Valley is breathtaking, offering views of numerous waterfalls and glaciers.</p>
+                                    <h3 class="font-poppins">Shea Goru → Chatru → drive → Chandratal Lake (4,300 m) (subject to road condition)</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> Chandratal Lake 4,300 m | <strong>Trek Distance:</strong> ~7 km trek + drive</div>
+                                    <p class="itinerary-description">Descend from Shea Goru to Chatru, then take a scenic drive to the mesmerizing Chandratal Lake. If road conditions are unfavorable, return directly to Manali from Chatru.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Easy descent, scenic drive through Lahaul Valley, trek conclusion.</p>
+                                        <p><strong>Highlights:</strong> Descent into Spiti Valley, stunning Chandratal Lake (if accessible), barren landscapes of Lahaul and Spiti.</p>
+                                    </div>
+                                    <div class="mt-4">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Chandratal_Lake.jpg/800px-Chandratal_Lake.jpg" alt="Chandratal Lake View" class="itinerary-image" onerror="this.style.display='none'">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="itinerary-item">
+                                <div class="itinerary-day-number">05</div>
+                                <div class="itinerary-details">
+                                    <h3 class="font-poppins">Chandratal → Chatru → drive → Manali</h3>
+                                    <div class="itinerary-meta"></div>
+                                    <p class="itinerary-description">From Chandratal, drive back to Chatru and then continue the scenic drive to Manali, marking the end of the trek.</p>
+                                    <div class="itinerary-highlight">
+                                        <p><strong>Highlights:</strong> Return journey through the majestic Rohtang Pass (if open), reflecting on the trek's memories.</p>
                                     </div>
                                 </div>
                             </div>
                        </div>
-                    </div>
-
-                    <div class="tab-content-panel" id="dates">
-                        <h2 class="text-2xl font-bold mb-4 font-poppins">Dates & Cost</h2>
-                        <div class="table-responsive-custom">
-                            <table class="data-table">
-                                <thead>
-                                    <tr>
-                                        <th>Start Date</th>
-                                        <th>End Date</th>
-                                        <th>Cost (Per Person)</th>
-                                        <th>Status</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>01 July 2025</td>
-                                        <td>05 July 2025</td>
-                                        <td>₹16,999</td>
-                                        <td><span class="status-tag status-available">Available</span></td>
-                                        <td><button class="book-button">Book</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>15 July 2025</td>
-                                        <td>19 July 2025</td>
-                                        <td>₹16,999</td>
-                                        <td><span class="status-tag status-available">Available</span></td>
-                                        <td><button class="book-button">Book</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>01 Aug 2025</td>
-                                        <td>05 Aug 2025</td>
-                                        <td>₹16,999</td>
-                                        <td><span class="status-tag status-limited">Limited Seats</span></td>
-                                        <td><button class="book-button">Book</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>15 Aug 2025</td>
-                                        <td>19 Aug 2025</td>
-                                        <td>₹16,999</td>
-                                        <td><span class="status-tag status-full">Full</span></td>
-                                        <td><button class="book-button disabled">Full</button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <p class="table-info-text">Minimum 5 people, maximum 20 people per departure.</p>
-                        <p class="table-info-text">Client Price: ₹16,999/-</p>
-                        <p class="table-info-text">B2B Rate (Manali to Manali): ₹14,000/-</p>
-                        <p class="table-info-text">Prices subject to change based on customization, logistics, and seasonality.</p>
                     </div>
 
                     <div class="tab-content-panel" id="why-us">
@@ -816,28 +761,28 @@
                                 <i class="fas fa-shield-alt"></i>
                                 <div>
                                     <h4>Safety & Guidance</h4>
-                                    <p>Experienced and certified guides, with emergency protocols and necessary gear for high-altitude trekking.</p>
+                                    <p>Experienced and certified trek leaders with first-aid certifications and in-depth knowledge of the Hampta Pass route.</p>
                                 </div>
                             </div>
                             <div class="why-us-item">
                                 <i class="fas fa-users-cog"></i>
                                 <div>
-                                    <h4>Local Expertise</h4>
-                                    <p>Our team comprises local experts from Himachal, ensuring authentic experiences and smooth operations.</p>
+                                    <h4>Efficient Logistics</h4>
+                                    <p>Seamless organization from transportation to camping equipment, ensuring a comfortable and hassle-free trekking experience.</p>
                                 </div>
                             </div>
                             <div class="why-us-item">
                                 <i class="fas fa-leaf"></i>
                                 <div>
-                                    <h4>Responsible Trekking</h4>
-                                    <p>We are committed to eco-friendly practices and support local communities, adhering to Leave No Trace principles.</p>
+                                    <h4>Sustainable Practices</h4>
+                                    <p>Commitment to responsible tourism, promoting eco-friendly practices and minimizing environmental impact on the trails.</p>
                                 </div>
                             </div>
                             <div class="why-us-item">
                                 <i class="fas fa-utensils"></i>
                                 <div>
-                                    <h4>Nutritious Meals</h4>
-                                    <p>Enjoy freshly prepared, hygienic, and nutritious meals throughout your trek to keep you energized.</p>
+                                    <h4>Wholesome Meals</h4>
+                                    <p>Nutritious and delicious meals prepared fresh on the trek, catering to dietary needs and providing essential energy for daily activities.</p>
                                 </div>
                             </div>
                         </div>
@@ -848,47 +793,92 @@
                          <div class="faq-container-list">
                              <div class="faq-item">
                                  <div class="faq-question">
-                                     <h4>What is the duration of the Hampta Pass Trek?</h4>
+                                     <h4>What is the best time to do the Hampta Pass Trek?</h4>
                                      <i class="fas fa-chevron-down faq-icon"></i>
                                  </div>
                                  <div class="faq-answer">
-                                    The Hampta Pass Trek is 5 Days / 4 Nights.
+                                    The best time for the Hampta Pass Trek is from mid-June to mid-October. During this period, the weather is generally pleasant, and the pass is open and accessible.
                                  </div>
                              </div>
                              <div class="faq-item">
                                  <div class="faq-question">
-                                     <h4>What is the difficulty grade of this trek?</h4>
+                                     <h4>What is the difficulty level of the Hampta Pass Trek?</h4>
                                      <i class="fas fa-chevron-down faq-icon"></i>
                                  </div>
                                  <div class="faq-answer">
-                                    The Hampta Pass Trek is categorized as 'Moderate' in terms of difficulty.
+                                    The Hampta Pass Trek is rated as moderate (6/10). While it involves some steep ascents and descents, particularly on the pass day, it is manageable for individuals with good physical fitness and some prior trekking experience.
                                  </div>
                              </div>
                              <div class="faq-item">
                                  <div class="faq-question">
-                                     <h4>What is the maximum altitude of Hampta Pass Trek?</h4>
+                                     <h4>What kind of accommodation is provided during the trek?</h4>
                                      <i class="fas fa-chevron-down faq-icon"></i>
                                  </div>
                                  <div class="faq-answer">
-                                    The maximum altitude reached on the Hampta Pass Trek is 4,270m (Hampta Pass).
+                                    During the Hampta Pass trek, accommodation is primarily in tents at campsites, offering an authentic outdoor experience. All camping gear, including sleeping bags and mats, are provided.
                                  </div>
                              </div>
                              <div class="faq-item">
                                  <div class="faq-question">
-                                     <h4>Are meals included during the trek?</h4>
+                                     <h4>Is acclimatization necessary for this trek?</h4>
                                      <i class="fas fa-chevron-down faq-icon"></i>
                                  </div>
                                  <div class="faq-answer">
-                                    Yes, all meals during the trek are included.
+                                    Yes, proper acclimatization is crucial. The itinerary is designed to allow for gradual ascent, helping your body adjust to the increasing altitude. Hydration and listening to your guide are key.
                                  </div>
                              </div>
                              <div class="faq-item">
                                  <div class="faq-question">
-                                     <h4>Is transportation included in the package?</h4>
+                                     <h4>What essentials should I pack for the Hampta Pass Trek?</h4>
                                      <i class="fas fa-chevron-down faq-icon"></i>
                                  </div>
                                  <div class="faq-answer">
-                                    Yes, transport to and from Manali is included in the package.
+                                    You should pack warm layers, waterproof and windproof jackets/pants, sturdy trekking shoes, a headlamp, personal medications, toiletries, sunglasses, and sun protection. A detailed packing list will be provided.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>What is the maximum altitude reached on this trek?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    The highest point on the Hampta Pass Trek is Hampta Pass itself, at an altitude of approximately 4,270 meters (14,010 feet). Chandratal Lake is at around 4,300 meters (14,100 feet).
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>Are there toilet facilities available on the trek?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    At campsites, we set up hygienic dry pit toilets with toilet tents for privacy. It's important to use these facilities to maintain cleanliness on the trail.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>Is it safe to drink stream water during the trek?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    While most mountain streams have clean water, it is always recommended to use a water filter or purification tablets/drops for drinking water to avoid any stomach issues.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>What if there is a medical emergency?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    Our trek leaders are trained in wilderness first aid and carry basic medical kits. In case of serious emergencies, we have protocols for evacuation, which may involve porters or, in severe cases, helicopter rescue (at additional cost).
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>Can I do this trek if I am a beginner?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    While Hampta Pass is considered moderate, beginners with good physical fitness and a commitment to regular pre-trek exercise can complete it. It's an excellent trek for those looking to upgrade from easy to moderate level.
                                  </div>
                              </div>
                          </div>
@@ -898,42 +888,62 @@
                         <h2 class="text-2xl font-bold mb-4 font-poppins">Trek Essentials</h2>
                         <h3 class="text-xl font-bold mb-2 font-poppins">Inclusions</h3>
                         <ul class="essentials-list">
-                            <li>Camping gear (tents, sleeping bags, sleeping mats)</li>
-                            <li>All meals during the trek (Breakfast, Lunch, Dinner, snacks)</li>
-                            <li>Experienced and certified trek leader/guide</li>
-                            <li>Support staff (cooks, porters where necessary)</li>
-                            <li>Forest permits and camping charges</li>
-                            <li>Transportation to and from Manali (as per itinerary)</li>
+                            <li>Camp & tent stay</li>
+                            <li>All trek meals</li>
+                            <li>Guide & porters</li>
+                            <li>Permits</li>
+                            <li>Camping gear</li>
+                            <li>Transport (Manali–Jobra & Chatru–Manali)</li>
                         </ul>
 
                         <h3 class="text-xl font-bold mb-2 font-poppins mt-4">Exclusions</h3>
                         <ul class="exclusions-list">
-                            <li>Personal trekking gear (e.g., trekking poles, headlamp)</li>
-                            <li>Any hotel stays in Manali before or after the trek</li>
-                            <li>Personal expenses like bottled water, soft drinks, laundry, phone calls</li>
-                            <li>Emergency evacuation or medical expenses</li>
-                            <li>Any costs arising due to unforeseen circumstances like landslides, road blocks, etc.</li>
-                            <li>Tips for the staff</li>
+                            <li>Personal expenses & insurance</li>
+                            <li>Pre-/post-trek hotels</li>
+                            <li>Any cost arising out of unforeseen circumstances including medical emergencies and act of nature.</li>
                         </ul>
                     </div>
 
                     <div class="tab-content-panel" id="photos">
                         <h2 class="text-2xl font-bold mb-4 font-poppins">Photo Gallery</h2>
-                        <div class="photo-gallery-grid">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Hampta_Pass_Trek.jpg/1280px-Hampta_Pass_Trek.jpg" alt="Hampta Pass">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Hampta_Pass_Trek_View_towards_Spiti_Valley.jpg/1280px-Hampta_Pass_Trek_View_towards_Spiti_Valley.jpg" alt="View towards Spiti Valley from Hampta Pass">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Balu_Ka_Ghera%2C_Hampta_Pass_Trek.jpg/1280px-Balu_Ka_Ghera%2C_Hampta_Pass_Trek.jpg" alt="Balu Ka Ghera campsite">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Chandra_River_near_Chatru.jpg/1280px-Chandra_River_near_Chatru.jpg" alt="Chandra River near Chatru">
-                            <img src="https://source.unsplash.com/featured/?hampta-pass,himachal" alt="Hampta Pass General View 1">
-                            <img src="https://source.unsplash.com/featured/?hampta-pass,mountain-crossing" alt="Hampta Pass Crossing">
+                        <div class="row g-3">
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Hampta+Pass+1" data-lightbox="hamptapass-gallery" data-title="Hampta Pass Trek View 1">
+                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Hampta+Pass+1" class="img-fluid rounded shadow-sm" alt="Hampta Pass Trek View 1">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Hampta+Pass+2" data-lightbox="hamptapass-gallery" data-title="Hampta Pass Trek View 2">
+                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Hampta+Pass+2" class="img-fluid rounded shadow-sm" alt="Hampta Pass Trek View 2">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Hampta+Pass+3" data-lightbox="hamptapass-gallery" data-title="Hampta Pass Trek View 3">
+                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Hampta+Pass+3" class="img-fluid rounded shadow-sm" alt="Hampta Pass Trek View 3">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Hampta+Pass+4" data-lightbox="hamptapass-gallery" data-title="Hampta Pass Trek View 4">
+                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Hampta+Pass+4" class="img-fluid rounded shadow-sm" alt="Hampta Pass Trek View 4">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Hampta+Pass+5" data-lightbox="hamptapass-gallery" data-title="Hampta Pass Trek View 5">
+                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Hampta+Pass+5" class="img-fluid rounded shadow-sm" alt="Hampta Pass Trek View 5">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Hampta+Pass+6" data-lightbox="hamptapass-gallery" data-title="Hampta Pass Trek View 6">
+                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Hampta+Pass+6" class="img-fluid rounded shadow-sm" alt="Hampta Pass Trek View 6">
+                                </a>
+                            </div>
                         </div>
                     </div>
-
                     <div class="tab-content-panel" id="map">
-                        <h2 class="text-2xl font-bold mb-4 font-poppins">Trek Map</h2>
+                        <h2 class="text-2xl font-bold mb-4 font-poppins">Map</h2>
                         <div class="map-container">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13778.07727409249!2d77.8078044747447!3d31.8105747683933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39050d4f3e430c51%3A0xc0f17b2b8e3a2c0c!2sShrikhand%20Mahadev!5e0!3m2!1sen!2sin!4v1719227568585!5m2!1sen!2sin"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13467.433434691163!2d77.17025265!3d32.2230341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390487441113b2c5%3A0x67a9a6c98f9a941a!2sHampta%20Pass!5e0!3m2!1sen!2sin!4v1719227899478!5m2!1sen!2sin"
                                 width="600"
                                 height="450"
                                 style="border:0;"
@@ -945,18 +955,18 @@
                         <p class="table-info-text mt-4">The map shows the approximate location of Hampta Pass. Detailed trek routes can vary.</p>
                     </div>
 
-                </div>
+                    </div>
 
                 <div class="right-column">
                     <div class="sticky-sidebar-wrapper">
                         <div class="sidebar-price-difficulty">
                             <div class="price-info">
                                 <p class="price-label">Client Price</p>
-                                <p class="main-price font-poppins">₹16,999</p>
+                                <p class="main-price font-poppins">₹8,398.8</p>
                             </div>
                             <div class="difficulty-score">
-                                <div class="difficulty-score-box"></div>
-                                <p>Moderate</p>
+                                <div class="difficulty-score-box">6/10</div>
+                                <p>Difficulty</p>
                             </div>
                         </div>
                         <a href="https://rzp.io/rzp/adoratrek" target="_blank" rel="noopener noreferrer"  class="sidebar-button book-now">Book Now</a>
@@ -965,14 +975,14 @@
                         <div class="quick-facts-section">
                             <h4 class="font-bold text-lg font-poppins">Quick Facts</h4>
                             <ul class="quick-facts-list">
-                                <li><i class="fas fa-calendar-alt"></i> 5 Days / 4 Nights</li>
-                                <li><i class="fas fa-chart-area"></i> Max Altitude: 4,270m (Hampta Pass)</li>
-                                <li><i class="fas fa-route"></i> Trek Distance: Not specified in documents</li>
-                                <li><i class="fas fa-tachometer-alt"></i> Grade: Moderate</li>
+                                <li><i class="fas fa-calendar-alt"></i> 5 Days</li>
+                                <li><i class="fas fa-chart-area"></i> Max Altitude: ~4,300 m (14,100 ft)</li>
+                                <li><i class="fas fa-route"></i> Trek Distance: ~25 km (approx)</li>
+                                <li><i class="fas fa-tachometer-alt"></i> Grade: 6/10 (Moderate)</li>
                                 <li><i class="fas fa-users"></i> Group Size: Min 5, Max 20</li>
                             </ul>
                             <div class="organizer-info">
-                                <h4 class="font-bold text-lg font-poppins">Organizer</h4>
+                                <h4 class="font-bold text-lg font-poppins">Trek Guide</h4>
                                 <p>Tribal Routes</p>
                                 <p><i class="fas fa-phone"></i>+91 7807111209</p>
                                 <p><i class="fas fa-envelope"></i>info@adorahospitality.com</p>
@@ -988,8 +998,7 @@
                 <div class="mx-auto text-center" style="max-width: 900px;">
                     <h5 class="subscribe-title px-3">Subscribe</h5>
                     <h1 class="text-white mb-4">Our Newsletter</h1>
-                    <p class="text-white mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore nam, architecto doloremque velit explicabo? Voluptate sunt eveniet fuga eligendi! Expedita laudantium fugiat corrupti eum cum repellat a laborum quasi.
-                    </p>
+                    <p class="text-white mb-5">Get curated updates on upcoming treks, exclusive discounts, trail tips, and inspiring stories from the Himalayas. No spam — just the mountains calling. </p>
                     <div class="position-relative mx-auto">
                         <input class="form-control border-primary rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
                         <button type="button" class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Subscribe</button>
@@ -1036,11 +1045,9 @@
                             <h4 class="text-white mb-3">Payments Supported by</h4>
                             <div class="footer-bank-card">
                                 <a href="#" class="text-white me-2">
-                                  <img src="img/razorpay.png" alt="Razorpay" style="height: 32px; width: auto;">
+                                  <img src="/img/razorpay.png" alt="Razorpay" style="height: 32px; width: auto;">
                                 </a>
-                                <!--<a href="#" class="text-white me-2"><i class="fab fa-cc-paypal fa-2x"></i></a>
-                                <a href="#" class="text-white"><i class="fab fa-cc-discover fa-2x"></i></a>-->
-                            </div>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -1106,6 +1113,16 @@
                         icon.classList.toggle('rotated');
                     });
                 });
+
+                // Lightbox specific configurations (optional, but good to ensure defaults)
+                lightbox.option({
+                    'resizeDuration': 200,
+                    'wrapAround': true, // Allows continuous navigation
+                    'fadeDuration': 200,
+                    'imageFadeDuration': 200
+                    // Other options can be added here as needed
+                });
+
             });
         </script>
     </body>
