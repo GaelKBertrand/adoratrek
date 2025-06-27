@@ -21,7 +21,6 @@
         <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
         <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
-
         <link href="/css/bootstrap.min.css" rel="stylesheet">
 
         <link href="/css/style.css" rel="stylesheet">
@@ -156,8 +155,8 @@
 
             /* Tab Navigation */
             .tab-nav-wrapper {
-                position: sticky;
-                top: 72px; /* sticky top-[72px] - adjust based on your actual navbar height */
+                position: relative; /* Changed from sticky */
+                top: auto; /* Changed from sticky top-[72px] */
                 background-color: #f3f4f6; /* bg-gray-100 */
                 z-index: 30;
                 padding: 1rem; /* p-4 */
@@ -271,9 +270,6 @@
                 color: #1f2937; /* text-gray-800 */
                 margin-top: -0.75rem; /* -mt-3 */
             }
-            .itinerary-details h3.summit-day {
-                color: #dc2626; /* text-red-600 */
-            }
 
             .itinerary-meta {
                 font-size: 0.875rem; /* text-sm */
@@ -294,11 +290,6 @@
                 font-size: 0.875rem; /* text-sm */
                 border-top-right-radius: 0.25rem; /* rounded-r-lg */
                 border-bottom-right-radius: 0.25rem; /* rounded-r-lg */
-            }
-            .itinerary-highlight.summit-highlight {
-                background-color: #fee2e2; /* bg-red-50 */
-                border-color: #ef4444; /* border-red-500 */
-                color: #991b1b; /* text-red-800 */
             }
 
             .itinerary-image {
@@ -463,28 +454,20 @@
                 margin-bottom: 0.5rem;
             }
 
-            /* Photos Section */
-            .photo-gallery-grid {
-                display: grid;
-                grid-template-columns: repeat(2, minmax(0, 1fr)); /* grid-cols-2 */
-                gap: 1rem; /* gap-4 */
-            }
-            @media (min-width: 768px) { /* md breakpoint */
-                .photo-gallery-grid {
-                    grid-template-columns: repeat(3, minmax(0, 1fr)); /* md:grid-cols-3 */
-                }
-            }
-            .photo-gallery-grid img {
-                border-radius: 0.5rem; /* rounded-lg */
-                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
-                transition: opacity 0.3s ease;
-                cursor: pointer;
+            /* Photos Section (Reverted to Grid with Lightbox) */
+            .photo-grid-item img {
                 width: 100%;
-                height: auto;
+                height: 200px; /* Fixed height for uniform images in grid */
+                object-fit: cover; /* Ensures images cover the area without distortion */
+                border-radius: 0.5rem;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+                transition: transform 0.2s ease-in-out;
             }
-            .photo-gallery-grid img:hover {
-                opacity: 0.8;
+
+            .photo-grid-item img:hover {
+                transform: scale(1.03); /* Slight zoom effect on hover */
             }
+
 
             /* Map Section */
             .map-container {
@@ -641,8 +624,8 @@
                     <div class="d-inline-flex align-items-center" style="height: 45px;">
                         <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://x.com/Adorabooking/"  target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter fw-normal"></i></a>
                         <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.facebook.com/adorahospitality"  target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f fw-normal"></i></a>
-                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.linkedin.com/company/adora-hospitality-solutions/"  target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in fw-normal"></i></a>
-                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.instagram.com/adorahospitality/"  target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram fw-normal"></i></a>
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.linkedin.com/company/adora-hospitality-solutions/"  target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.instagram.com/adorahospitality/"  target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                         <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="https://www.youtube.com/@AdoraHospitality"  target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube fw-normal"></i></a>
                     </div>
                 </div>
@@ -673,16 +656,14 @@
             </nav>
         </div>
         <main class="main-content-section">
-            <section class="hero-section" style="background-image: url('/img/packages-13.jpeg');">
-                <video autoplay muted loop playsinline class="background-video" poster="/img/packages-13.jpeg">
-                    <source src="/vids/burangati.mp4" type="video/mp4">
-                    <!--<source src="/videos/shrikhand-mahadev-trek.webm" type="video/webm">
-                    Your browser does not support the video tag.-->
-                </video>
-            <div class="hero-content">
+            <section class="hero-section" style="background-image: url('/img/packages-4.jpeg');">
+                <video autoplay muted loop playsinline class="background-video" poster="/img/packages-4.jpeg">
+                    <source src="/vids/mahadev.mp4" type="video/mp4">
+                    </video>
+                <div class="hero-content">
                     <h1 class="hero-title font-poppins">Buran Ghati Pass Trek</h1>
                     <div class="hero-meta">
-                        <div><i class="fas fa-tag"></i><span>High altitude pass crossing trek.</span></div>
+                        <div><i class="fas fa-tag"></i><span>A 7-day trek over Buran Pass featuring alpine meadows, glacial lakes, and river crossings.</span></div>
                         <div><i class="fas fa-map-marker-alt"></i><span>Himachal Pradesh</span></div>
                     </div>
                 </div>
@@ -698,7 +679,6 @@
                             </div>
                             <nav id="tabs" class="tab-buttons-nav">
                                 <button data-target="itinerary" class="tab-button active-tab"><i class="fas fa-list-ul mr-2 hidden-md"></i>Itinerary</button>
-                                <button data-target="dates" class="tab-button"><i class="fas fa-calendar-check mr-2 hidden-md"></i>Dates & Cost</button>
                                 <button data-target="why-us" class="tab-button"><i class="fas fa-users mr-2 hidden-md"></i>Why with us?</button>
                                 <button data-target="faq" class="tab-button"><i class="fas fa-question-circle mr-2 hidden-md"></i>FAQ</button>
                                 <button data-target="essentials" class="tab-button"><i class="fas fa-briefcase mr-2 hidden-md"></i>Essentials</button>
@@ -709,130 +689,91 @@
                     </div>
 
                     <div class="tab-content-panel active" id="itinerary">
-                       <h2 class="text-2xl font-bold mb-4 font-poppins">Detailed Itinerary</h2>
                        <div class="space-y-10">
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">01</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Shimla to Janglik (2,800m)</h3>
-                                    <div class="itinerary-meta"><strong>Duration:</strong> Drive</div>
-                                    <p class="itinerary-description">Your adventure begins with a scenic drive from Shimla to Janglik village. Upon arrival, settle into your guest house or homestay, enjoy the local hospitality, and prepare for the trek ahead.</p>
+                                    <h3 class="font-poppins">Shimla → Janglik (2,900 m)</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> 2,900 m | <strong>Drive:</strong> ~6-7 hours</div>
+                                    <p class="itinerary-description">Drive from Shimla to Janglik village, the starting point of the trek. Overnight stay at a guesthouse/camp.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Scenic drive, local village experience, overnight stay in Janglik.</p>
+                                        <p><strong>Highlights:</strong> Scenic drive through rural Himachal, cultural immersion in Janglik.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">02</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Janglik to Dayara Thatch (3,400m)</h3>
-                                    <div class="itinerary-meta"><strong>Duration:</strong> ~5-6 hrs trek</div>
-                                    <p class="itinerary-description">The first trekking day involves a beautiful walk through dense forests, with gradual ascents leading to the vast meadows of Dayara Thatch. The campsite offers stunning views and a tranquil atmosphere.</p>
+                                    <h3 class="font-poppins">Janglik → Dayara (3,950 m)</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> 3,950 m | <strong>Trek Distance:</strong> ~8 km | <strong>Trek Duration:</strong> ~5-6 hours</div>
+                                    <p class="itinerary-description">Begin trekking from Janglik through dense forests and meadows to reach the stunning Dayara Thatch campsite.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Forest trails, panoramic views of the valley, camping in Dayara Thatch.</p>
+                                        <p><strong>Highlights:</strong> Lush green meadows, panoramic views of the Dhauladhar range.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">03</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Dayara Thatch to Litham (3,600m)</h3>
-                                    <div class="itinerary-meta"><strong>Duration:</strong> ~4-5 hrs trek</div>
-                                    <p class="itinerary-description">Today's trek leads you through open pastures and provides first glimpses of the Chandranahan Lake outlet stream. Litham is a beautiful campsite situated by the river, perfect for relaxation.</p>
+                                    <h3 class="font-poppins">Dayara → Litham (4,100 m)</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> 4,100 m | <strong>Trek Distance:</strong> ~6 km | <strong>Trek Duration:</strong> ~3-4 hours</div>
+                                    <p class="itinerary-description">A relatively easy day through beautiful landscapes, leading to Litham campsite near the Chandranahan Lake source.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Gentle walk through meadows, riverside camping, views of Chandranahan Lake outflow.</p>
+                                        <p><strong>Highlights:</strong> Gentle trails, closer views of snow-capped peaks, setting up camp in a serene valley.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">04</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Dhundera Camp (4,000m)</h3>
-                                    <div class="itinerary-meta"><strong>Duration:</strong> ~3-4 hrs trek</div>
-                                    <p class="itinerary-description">A relatively shorter day that brings you closer to the base of Buran Ghati Pass. Dhundera Camp is nestled near the sacred Chandranahan Lake, offering an ideal spot for acclimatization before the pass crossing.</p>
+                                    <h3 class="font-poppins">Litham → acclimatization at Chandrahar Lake (4,400 m)</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> 4,400 m | <strong>Trek Duration:</strong> 3-4 hours (round trip to lake)</div>
+                                    <p class="itinerary-description">Spend the day acclimatizing with a hike to the glacial Chandrahar Lake, returning to Litham camp.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Reaching Chandranahan Lake vicinity, crucial acclimatization day.</p>
+                                        <p><strong>Highlights:</strong> Visit to the sacred Chandrahar Lake, important for acclimatization.</p>
+                                    </div>
+                                    <div class="mt-4">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Chandrahar_Lake_near_Buran_Ghati.jpg/800px-Chandrahar_Lake_near_Buran_Ghati.jpg" alt="Chandrahar Lake View" class="itinerary-image" onerror="this.style.display='none'">
                                     </div>
                                 </div>
                             </div>
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">05</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins summit-day">Buran Ghati Pass (4,572m) and descend to River Camp (3,700m)</h3>
-                                    <div class="itinerary-meta"><strong>Duration:</strong> ~9-10 hrs trek</div>
-                                    <p class="itinerary-description">This is the most challenging and rewarding day of the trek. You will undertake a steep ascent to Buran Ghati Pass, often involving traversing snowfields. From the pass, enjoy breathtaking panoramic views before a steep descent to River Camp on the other side of the pass.</p>
-                                    <div class="itinerary-highlight summit-highlight">
-                                        <p><strong>Highlights:</strong> Crossing Buran Ghati Pass, stunning views, challenging snow sections.</p>
+                                    <h3 class="font-poppins">Litham → Dunda (4,300 m)</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> 4,300 m | <strong>Trek Distance:</strong> ~5 km | <strong>Trek Duration:</strong> ~4-5 hours</div>
+                                    <p class="itinerary-description">Trek from Litham to Dunda, preparing for the pass crossing the next day. This section involves some rocky terrains.</p>
+                                    <div class="itinerary-highlight">
+                                        <p><strong>Highlights:</strong> Approaching the high-altitude zone, stark mountain landscapes.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">06</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">River Camp to Barua Village (2,000m)</h3>
-                                    <div class="itinerary-meta"><strong>Duration:</strong> ~6-7 hrs trek</div>
-                                    <p class="itinerary-description">A long and steep descent awaits, taking you through thick forests and lush meadows into the beautiful Sangla Valley. The trek concludes at the charming Barua village.</p>
+                                    <h3 class="font-poppins">Dunda → Cross Buran Pass (5,160 m) → River Camp (4,250 m)</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> Buran Pass 5,160 m, River Camp 4,250 m | <strong>Trek Distance:</strong> ~12 km | <strong>Trek Duration:</strong> ~8-10 hours</div>
+                                    <p class="itinerary-description">The most challenging day involving a steep ascent to Buran Pass and a thrilling descent into the Pin Valley. Set up camp at River Camp.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Descending into Sangla Valley, diverse landscapes, reaching Barua village.</p>
+                                        <p><strong>Highlights:</strong> Summiting Buran Pass, rappelling down the snowy gully, dramatic landscape change from Kinnaur to Spiti.</p>
+                                    </div>
+                                    <div class="mt-4">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Buran_Ghati_Pass_view.jpg/800px-Buran_Ghati_Pass_view.jpg" alt="Buran Ghati Pass View" class="itinerary-image" onerror="this.style.display='none'">
                                     </div>
                                 </div>
                             </div>
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">07</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Barua to Shimla</h3>
-                                    <div class="itinerary-meta"><strong>Duration:</strong> Drive</div>
-                                    <p class="itinerary-description">After breakfast in Barua, you will be driven back to Shimla, marking the end of your incredible Buran Ghati Pass Trek experience.</p>
+                                    <h3 class="font-poppins">River Camp → Barua (3,400 m) → drive → Shimla</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> 3,400 m | <strong>Trek Distance:</strong> ~10 km trek + drive | <strong>Trek Duration:</strong> ~4-5 hours trek + drive</div>
+                                    <p class="itinerary-description">Descend from River Camp through the villages of Pin Valley to Barua, and then drive back to Shimla.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Concluding journey, return to Shimla.</p>
+                                        <p><strong>Highlights:</strong> Exploring Pin Valley, interacting with local culture, concluding the memorable trek.</p>
                                     </div>
                                 </div>
                             </div>
                        </div>
-                    </div>
-
-                    <div class="tab-content-panel" id="dates">
-                        <h2 class="text-2xl font-bold mb-4 font-poppins">Dates & Cost</h2>
-                        <div class="table-responsive-custom">
-                            <table class="data-table">
-                                <thead>
-                                    <tr>
-                                        <th>Start Date</th>
-                                        <th>End Date</th>
-                                        <th>Cost (Per Person)</th>
-                                        <th>Status</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>05 August 2025</td>
-                                        <td>11 August 2025</td>
-                                        <td>₹14,999</td>
-                                        <td><span class="status-tag status-available">Available</span></td>
-                                        <td><button class="book-button">Book</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>15 August 2025</td>
-                                        <td>21 August 2025</td>
-                                        <td>₹14,999</td>
-                                        <td><span class="status-tag status-limited">Limited Seats</span></td>
-                                        <td><button class="book-button">Book</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>25 August 2025</td>
-                                        <td>31 August 2025</td>
-                                        <td>₹14,999</td>
-                                        <td><span class="status-tag status-full">Full</span></td>
-                                        <td><button class="book-button disabled">Full</button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <p class="table-info-text">Minimum 5 people, maximum 20 people per departure.</p>
-                        <p class="table-info-text">Client Price: ₹14,999/-</p>
-                        <p class="table-info-text">B2B Rate (Shimla to Shimla): ₹12,500/-</p>
-                        <p class="table-info-text">Prices subject to change based on customization, logistics, and seasonality.</p>
                     </div>
 
                     <div class="tab-content-panel" id="why-us">
@@ -842,28 +783,28 @@
                                 <i class="fas fa-shield-alt"></i>
                                 <div>
                                     <h4>Safety & Guidance</h4>
-                                    <p>Experienced and certified guides, with emergency protocols and necessary gear for high-altitude trekking.</p>
+                                    <p>Experienced and certified trek leaders with first-aid certifications and in-depth knowledge of the Buran Ghati route, equipped with safety gear.</p>
                                 </div>
                             </div>
                             <div class="why-us-item">
                                 <i class="fas fa-users-cog"></i>
                                 <div>
-                                    <h4>Local Expertise</h4>
-                                    <p>Our team comprises local experts from Himachal, ensuring authentic experiences and smooth operations.</p>
+                                    <h4>Efficient Logistics</h4>
+                                    <p>Seamless organization from transportation to high-quality camping equipment and technical gear, ensuring a comfortable and well-supported trekking experience.</p>
                                 </div>
                             </div>
                             <div class="why-us-item">
                                 <i class="fas fa-leaf"></i>
                                 <div>
-                                    <h4>Responsible Trekking</h4>
-                                    <p>We are committed to eco-friendly practices and support local communities, adhering to Leave No Trace principles.</p>
+                                    <h4>Sustainable Practices</h4>
+                                    <p>Commitment to responsible tourism, promoting eco-friendly practices and minimizing environmental impact on the sensitive Himalayan trails.</p>
                                 </div>
                             </div>
                             <div class="why-us-item">
                                 <i class="fas fa-utensils"></i>
                                 <div>
-                                    <h4>Nutritious Meals</h4>
-                                    <p>Enjoy freshly prepared, hygienic, and nutritious meals throughout your trek to keep you energized.</p>
+                                    <h4>Wholesome Meals</h4>
+                                    <p>Nutritious and delicious meals prepared fresh on the trek, designed to provide sustained energy for high-altitude trekking, catering to varied dietary needs.</p>
                                 </div>
                             </div>
                         </div>
@@ -874,29 +815,92 @@
                          <div class="faq-container-list">
                              <div class="faq-item">
                                  <div class="faq-question">
-                                     <h4>What level of fitness is required for Buran Ghati Pass Trek?</h4>
+                                     <h4>What is the best time to do the Buran Ghati Pass Trek?</h4>
                                      <i class="fas fa-chevron-down faq-icon"></i>
                                  </div>
                                  <div class="faq-answer">
-                                     The Buran Ghati Pass Trek is rated Moderate to Difficult. It involves significant altitude gain, steep ascents and descents, and often requires traversing snowfields. Participants should have excellent physical fitness, prior trekking experience, and be comfortable with long trekking days and challenging terrain. Intensive cardio and strength training are highly recommended prior to the trek.
+                                    The ideal time to undertake the Buran Ghati Pass Trek is from mid-June to mid-October. Post-monsoon (September-October) offers clearer skies and vibrant landscapes.
                                  </div>
                              </div>
                              <div class="faq-item">
                                  <div class="faq-question">
-                                     <h4>What is included in the trek package?</h4>
+                                     <h4>What is the difficulty level of the Buran Ghati Pass Trek?</h4>
                                      <i class="fas fa-chevron-down faq-icon"></i>
                                  </div>
                                  <div class="faq-answer">
-                                    Inclusions: Camping gear, all meals during trek, experienced guide, permits, trek team support, Transport to/from Shimla.
+                                    The Buran Ghati Pass Trek is rated as difficult (8/10). It involves steep ascents, a technical rappelling section over the pass, and long trekking days, requiring excellent physical fitness and prior high-altitude trekking experience.
                                  </div>
                              </div>
                              <div class="faq-item">
                                  <div class="faq-question">
-                                     <h4>What is NOT included?</h4>
+                                     <h4>What kind of accommodation is provided during the trek?</h4>
                                      <i class="fas fa-chevron-down faq-icon"></i>
                                  </div>
                                  <div class="faq-answer">
-                                    Exclusions: Porterage, hotel stays in Shimla or Barua.
+                                    Accommodation will be in spacious and comfortable tents on a sharing basis at all campsites. Basic guesthouse/homestay accommodation will be provided on the first night in Janglik.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>Is prior technical experience required for the rappelling section?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    No prior rappelling experience is strictly required as our expert guides provide comprehensive instructions and ensure all safety protocols are followed. Necessary technical equipment is provided.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>What physical preparation is needed for this trek?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    Intensive cardiovascular training (running, cycling, swimming) for at least 6-8 weeks prior is essential. Include strength training and long walks/hikes with a weighted backpack to build endurance.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>What is the maximum altitude reached on this trek?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    The highest point reached on the Buran Ghati Pass Trek is Buran Pass itself, at an altitude of approximately 5,160 meters (16,930 feet).
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>Are there toilet facilities available on the trek?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    At all campsites, we set up hygienic dry pit toilets with toilet tents for privacy. It is important to use these designated facilities to maintain cleanliness and hygiene in the pristine environment.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>What kind of food will be provided during the trek?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    We provide freshly cooked, wholesome vegetarian meals that are energy-rich and suitable for high-altitude trekking. This includes breakfast, lunch, dinner, and evening tea with snacks.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>What are the emergency protocols in place?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    Our trek leaders are highly experienced in handling high-altitude emergencies. We carry comprehensive first aid kits, oxygen cylinders, and have communication devices (satellite phones in remote areas) for prompt assistance.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>Will there be mobile network connectivity?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    Mobile network connectivity is limited to the initial and final points of the trek (Janglik, Barua, Shimla). During the high-altitude sections and over the pass, there will be no mobile network.
                                  </div>
                              </div>
                          </div>
@@ -906,42 +910,61 @@
                         <h2 class="text-2xl font-bold mb-4 font-poppins">Trek Essentials</h2>
                         <h3 class="text-xl font-bold mb-2 font-poppins">Inclusions</h3>
                         <ul class="essentials-list">
-                            <li>Camping gear (tents, sleeping bags, sleeping mats)</li>
-                            <li>All meals during the trek (Breakfast, Lunch, Dinner, snacks)</li>
-                            <li>Experienced and certified trek leader/guide</li>
-                            <li>Support staff (cooks, porters where necessary)</li>
-                            <li>Forest permits and camping charges</li>
-                            <li>Transportation to and from Shimla (as per itinerary)</li>
+                            <li>All trek meals</li>
+                            <li>Tents & sleeping bags</li>
+                            <li>Technical climbing gear</li>
+                            <li>High-altitude guides</li>
+                            <li>Permits</li>
+                            <li>Transport Shimla–Janglik & Barua–Shimla</li>
                         </ul>
 
                         <h3 class="text-xl font-bold mb-2 font-poppins mt-4">Exclusions</h3>
                         <ul class="exclusions-list">
-                            <li>Personal trekking gear (e.g., trekking poles, headlamp)</li>
-                            <li>Any hotel stays in Shimla before or after the trek</li>
-                            <li>Personal expenses like bottled water, soft drinks, laundry, phone calls</li>
-                            <li>Emergency evacuation or medical expenses</li>
-                            <li>Any costs arising due to unforeseen circumstances like landslides, road blocks, etc.</li>
-                            <li>Tips for the staff</li>
+                            <li>Personal expenses & insurance</li>
+                            <li>Any cost arising out of unforeseen circumstances including medical emergencies and act of nature.</li>
                         </ul>
                     </div>
 
                     <div class="tab-content-panel" id="photos">
                         <h2 class="text-2xl font-bold mb-4 font-poppins">Photo Gallery</h2>
-                        <div class="photo-gallery-grid">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Buran_Ghati_Pass_Trek.jpg/1280px-Buran_Ghati_Pass_Trek.jpg" alt="Buran Ghati Pass View 1">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Chandranahan_Lake_Path.jpg/1280px-Chandranahan_Lake_Path.jpg" alt="Chandranahan Lake Path">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Chandranahan_Lake.jpg/1280px-Chandranahan_Lake.jpg" alt="Chandranahan Lake">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Dayara_Thatch.jpg/1280px-Dayara_Thatch.jpg" alt="Dayara Thatch Meadows">
-                            <img src="https://source.unsplash.com/featured/?buranghati,pass" alt="Buran Ghati General View 1">
-                            <img src="https://source.unsplash.com/featured/?himachal,trekking" alt="Himachal Trekking Scenery">
+                        <div class="row g-3">
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Buran+Ghati+1" data-lightbox="buranghati-gallery" data-title="Buran Ghati Pass Trek View 1">
+                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Buran+Ghati+1" class="img-fluid rounded shadow-sm" alt="Buran Ghati Pass Trek View 1">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Buran+Ghati+2" data-lightbox="buranghati-gallery" data-title="Buran Ghati Pass Trek View 2">
+                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Buran+Ghati+2" class="img-fluid rounded shadow-sm" alt="Buran Ghati Pass Trek View 2">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Buran+Ghati+3" data-lightbox="buranghati-gallery" data-title="Buran Ghati Pass Trek View 3">
+                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Buran+Ghati+3" class="img-fluid rounded shadow-sm" alt="Buran Ghati Pass Trek View 3">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Buran+Ghati+4" data-lightbox="buranghati-gallery" data-title="Buran Ghati Pass Trek View 4">
+                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Buran+Ghati+4" class="img-fluid rounded shadow-sm" alt="Buran Ghati Pass Trek View 4">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Buran+Ghati+5" data-lightbox="buranghati-gallery" data-title="Buran Ghati Pass Trek View 5">
+                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Buran+Ghati+5" class="img-fluid rounded shadow-sm" alt="Buran Ghati Pass Trek View 5">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Buran+Ghati+6" data-lightbox="buranghati-gallery" data-title="Buran Ghati Pass Trek View 6">
+                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Buran+Ghati+6" class="img-fluid rounded shadow-sm" alt="Buran Ghati Pass Trek View 6">
+                                </a>
+                            </div>
                         </div>
                     </div>
-
                     <div class="tab-content-panel" id="map">
-                        <h2 class="text-2xl font-bold mb-4 font-poppins">Trek Map</h2>
+                        <h2 class="text-2xl font-bold mb-4 font-poppins">Map</h2>
                         <div class="map-container">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13778.07727409249!2d77.8078044747447!3d31.8105747683933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39050d4f3e430c51%3A0xc0f17b2b8e3a2c0c!2sShrikhand%20Mahadev!5e0!3m2!1sen!2sin!4v1719227568585!5m2!1sen!2sin"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13481.574676104868!2d77.199120625!3d32.2223019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39049e0c1f5d6f1b%3A0x63d0c3a2f7c00e62!2sBuran%20Ghati%20Pass!5e0!3m2!1sen!2sin!4v1719228100000!5m2!1sen!2sin"
                                 width="600"
                                 height="450"
                                 style="border:0;"
@@ -950,21 +973,21 @@
                                 referrerpolicy="no-referrer-when-downgrade">
                             </iframe>
                         </div>
-                        <p class="table-info-text mt-4">The map shows the approximate location of Buran Ghati Pass Trek. Detailed trek routes can vary.</p>
+                        <p class="table-info-text mt-4">The map shows the approximate location of Buran Ghati Pass. Detailed trek routes can vary.</p>
                     </div>
 
-                </div>
+                    </div>
 
                 <div class="right-column">
                     <div class="sticky-sidebar-wrapper">
                         <div class="sidebar-price-difficulty">
                             <div class="price-info">
                                 <p class="price-label">Client Price</p>
-                                <p class="main-price font-poppins">₹14,999</p>
+                                <p class="main-price font-poppins">₹19,800</p>
                             </div>
                             <div class="difficulty-score">
-                                <div class="difficulty-score-box"></div>
-                                <p>Mod. to Diff.</p>
+                                <div class="difficulty-score-box">8/10</div>
+                                <p>Difficulty</p>
                             </div>
                         </div>
                         <a href="https://rzp.io/rzp/adoratrek" target="_blank" rel="noopener noreferrer"  class="sidebar-button book-now">Book Now</a>
@@ -973,14 +996,14 @@
                         <div class="quick-facts-section">
                             <h4 class="font-bold text-lg font-poppins">Quick Facts</h4>
                             <ul class="quick-facts-list">
-                                <li><i class="fas fa-calendar-alt"></i> 7 Days / 6 Nights</li>
-                                <li><i class="fas fa-chart-area"></i> Max Altitude: 4,572m (Buran Ghati Pass)</li>
-                                <li><i class="fas fa-route"></i> Trek Distance: Not specified in documents</li>
-                                <li><i class="fas fa-tachometer-alt"></i> Grade: Moderate to Difficult</li>
-                                <li><i class="fas fa-users"></i> Group Size: Min 5, Max 20</li>
+                                <li><i class="fas fa-calendar-alt"></i> 7 Days</li>
+                                <li><i class="fas fa-chart-area"></i> Max Altitude: ~5,160 m (16,930 ft)</li>
+                                <li><i class="fas fa-route"></i> Trek Distance: ~40 km (approx)</li>
+                                <li><i class="fas fa-tachometer-alt"></i> Grade: 8/10 (Difficult)</li>
+                                <li><i class="fas fa-users"></i> Group Size: Min 4, Max 20</li>
                             </ul>
                             <div class="organizer-info">
-                                <h4 class="font-bold text-lg font-poppins">Organizer</h4>
+                                <h4 class="font-bold text-lg font-poppins">Trek Guide</h4>
                                 <p>Tribal Routes</p>
                                 <p><i class="fas fa-phone"></i>+91 7807111209</p>
                                 <p><i class="fas fa-envelope"></i>info@adorahospitality.com</p>
@@ -996,8 +1019,7 @@
                 <div class="mx-auto text-center" style="max-width: 900px;">
                     <h5 class="subscribe-title px-3">Subscribe</h5>
                     <h1 class="text-white mb-4">Our Newsletter</h1>
-                    <p class="text-white mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore nam, architecto doloremque velit explicabo? Voluptate sunt eveniet fuga eligendi! Expedita laudantium fugiat corrupti eum cum repellat a laborum quasi.
-                    </p>
+                    <p class="text-white mb-5">Get curated updates on upcoming treks, exclusive discounts, trail tips, and inspiring stories from the Himalayas. No spam — just the mountains calling. </p>
                     <div class="position-relative mx-auto">
                         <input class="form-control border-primary rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
                         <button type="button" class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Subscribe</button>
@@ -1044,11 +1066,9 @@
                             <h4 class="text-white mb-3">Payments Supported by</h4>
                             <div class="footer-bank-card">
                                 <a href="#" class="text-white me-2">
-                                  <img src="img/razorpay.png" alt="Razorpay" style="height: 32px; width: auto;">
+                                  <img src="/img/razorpay.png" alt="Razorpay" style="height: 32px; width: auto;">
                                 </a>
-                                <!--<a href="#" class="text-white me-2"><i class="fab fa-cc-paypal fa-2x"></i></a>
-                                <a href="#" class="text-white"><i class="fab fa-cc-discover fa-2x"></i></a>-->
-                            </div>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -1110,18 +1130,20 @@
                         const answer = question.nextElementSibling;
                         const icon = question.querySelector('.faq-icon');
 
-                        // Close other open FAQs
-                        document.querySelectorAll('.faq-answer.open').forEach(openAnswer => {
-                            if (openAnswer !== answer) {
-                                openAnswer.classList.remove('open');
-                                openAnswer.previousElementSibling.querySelector('.faq-icon').classList.remove('rotated');
-                            }
-                        });
-
                         answer.classList.toggle('open');
                         icon.classList.toggle('rotated');
                     });
                 });
+
+                // Lightbox specific configurations (optional, but good to ensure defaults)
+                lightbox.option({
+                    'resizeDuration': 200,
+                    'wrapAround': true, // Allows continuous navigation
+                    'fadeDuration': 200,
+                    'imageFadeDuration': 200
+                    // Other options can be added here as needed
+                });
+
             });
         </script>
     </body>
