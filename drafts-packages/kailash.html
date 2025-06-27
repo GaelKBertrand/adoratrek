@@ -21,6 +21,7 @@
         <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
         <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
+
         <link href="/css/bootstrap.min.css" rel="stylesheet">
 
         <link href="/css/style.css" rel="stylesheet">
@@ -155,8 +156,8 @@
 
             /* Tab Navigation */
             .tab-nav-wrapper {
-                position: relative; /* Changed from sticky */
-                top: auto; /* Changed from sticky top-[72px] */
+                position: sticky;
+                top: 72px; /* sticky top-[72px] - adjust based on your actual navbar height */
                 background-color: #f3f4f6; /* bg-gray-100 */
                 z-index: 30;
                 padding: 1rem; /* p-4 */
@@ -454,20 +455,28 @@
                 margin-bottom: 0.5rem;
             }
 
-            /* Photos Section (Reverted to Grid with Lightbox) */
-            .photo-grid-item img {
+            /* Photos Section */
+            .photo-gallery-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr)); /* grid-cols-2 */
+                gap: 1rem; /* gap-4 */
+            }
+            @media (min-width: 768px) { /* md breakpoint */
+                .photo-gallery-grid {
+                    grid-template-columns: repeat(3, minmax(0, 1fr)); /* md:grid-cols-3 */
+                }
+            }
+            .photo-gallery-grid img {
+                border-radius: 0.5rem; /* rounded-lg */
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+                transition: opacity 0.3s ease;
+                cursor: pointer;
                 width: 100%;
-                height: 200px; /* Fixed height for uniform images in grid */
-                object-fit: cover; /* Ensures images cover the area without distortion */
-                border-radius: 0.5rem;
-                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-                transition: transform 0.2s ease-in-out;
+                height: auto;
             }
-
-            .photo-grid-item img:hover {
-                transform: scale(1.03); /* Slight zoom effect on hover */
+            .photo-gallery-grid img:hover {
+                opacity: 0.8;
             }
-
 
             /* Map Section */
             .map-container {
@@ -656,11 +665,13 @@
             </nav>
         </div>
         <main class="main-content-section">
-            <section class="hero-section" style="background-image: url('/img/packages-4.jpeg');">
-                <video autoplay muted loop playsinline class="background-video" poster="/img/packages-4.jpeg">
-                    <source src="/vids/mahadev.mp4" type="video/mp4">
-                    </video>
-                <div class="hero-content">
+             <section class="hero-section" style="background-image: url('/img/packages-2.jpeg');">
+                <video autoplay muted loop playsinline class="background-video" poster="/img/packages-2.jpeg">
+                    <source src="/vids/kailash.mp4" type="video/mp4">
+                    <!--<source src="/videos/shrikhand-mahadev-trek.webm" type="video/webm">
+                    Your browser does not support the video tag.-->
+                </video>
+                  <div class="hero-content">
                     <h1 class="hero-title font-poppins">Kinner Kailash Trek</h1>
                     <div class="hero-meta">
                         <div><i class="fas fa-tag"></i><span>A spiritual circuit trek around the revered Kinner Kailash range in Kinnaur.</span></div>
@@ -679,6 +690,7 @@
                             </div>
                             <nav id="tabs" class="tab-buttons-nav">
                                 <button data-target="itinerary" class="tab-button active-tab"><i class="fas fa-list-ul mr-2 hidden-md"></i>Itinerary</button>
+                                <button data-target="dates" class="tab-button"><i class="fas fa-calendar-check mr-2 hidden-md"></i>Dates & Cost</button>
                                 <button data-target="why-us" class="tab-button"><i class="fas fa-users mr-2 hidden-md"></i>Why with us?</button>
                                 <button data-target="faq" class="tab-button"><i class="fas fa-question-circle mr-2 hidden-md"></i>FAQ</button>
                                 <button data-target="essentials" class="tab-button"><i class="fas fa-briefcase mr-2 hidden-md"></i>Essentials</button>
@@ -689,55 +701,107 @@
                     </div>
 
                     <div class="tab-content-panel active" id="itinerary">
+                       <h2 class="text-2xl font-bold mb-4 font-poppins">Detailed Itinerary</h2>
+                       <p class="table-info-text mb-4">
+                            <strong>Note:</strong> A detailed day-wise itinerary for the Kinner Kailash Trek was not provided in the attached documents. Please contact Tribal Routes for the full itinerary. Below are placeholders to maintain structure.
+                       </p>
                        <div class="space-y-10">
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">01</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Travel from Shimla (or Chandigarh) to Reckong Peo (or Kalpa/Tangling).</h3>
-                                    <div class="itinerary-meta"></div>
-                                    <p class="itinerary-description"></p>
+                                    <h3 class="font-poppins">Trek Day 1</h3>
+                                    <div class="itinerary-meta"><strong>Information:</strong> Not available in provided documents.</div>
+                                    <p class="itinerary-description">Details for Day 1 of the Kinner Kailash Trek are not available in the provided documents. This typically involves reaching the base camp or first campsite.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Journey to the base region of Kinnaur, scenic drive through valleys and mountains.</p>
+                                        <p><strong>Highlights:</strong> Preparations and initial ascent.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">02</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Trek from Tangling to Ganesh Park (7km).</h3>
-                                    <div class="itinerary-meta"><strong>Distance:</strong> ~7 km</div>
-                                    <p class="itinerary-description"></p>
+                                    <h3 class="font-poppins">Trek Day 2</h3>
+                                    <div class="itinerary-meta"><strong>Information:</strong> Not available in provided documents.</div>
+                                    <p class="itinerary-description">Details for Day 2 of the Kinner Kailash Trek are not available in the provided documents. This day usually involves reaching a higher altitude camp or a key point of the trek.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Beginning of the trek, ascending through lush landscapes to Ganesh Park.</p>
+                                        <p><strong>Highlights:</strong> Core trekking and ascent.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">03</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Trek to Kinner Kailash Shivling (Darshan) and back to Ganesh Park.</h3>
-                                    <div class="itinerary-meta"></div>
-                                    <p class="itinerary-description"></p>
+                                    <h3 class="font-poppins">Trek Day 3</h3>
+                                    <div class="itinerary-meta"><strong>Information:</strong> Not available in provided documents.</div>
+                                    <p class="itinerary-description">Details for Day 3 of the Kinner Kailash Trek are not available in the provided documents. This day typically involves moving towards the summit or a significant point.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Summit day, reaching the sacred Kinner Kailash Shivling for Darshan, panoramic views.</p>
-                                    </div>
-                                    <div class="mt-4">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Kinner_Kailash_Shivling.jpg/800px-Kinner_Kailash_Shivling.jpg" alt="Kinner Kailash Shivling view" class="itinerary-image" onerror="this.style.display='none'">
+                                        <p><strong>Highlights:</strong> Further ascent and acclimatization.</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="itinerary-item">
+                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">04</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Trek back to Tangling (or Reckong Peo) and drive to Shimla (or Chandigarh).</h3>
-                                    <div class="itinerary-meta"></div>
-                                    <p class="itinerary-description"></p>
+                                    <h3 class="font-poppins">Trek Day 4</h3>
+                                    <div class="itinerary-meta"><strong>Information:</strong> Not available in provided documents.</div>
+                                    <p class="itinerary-description">Details for Day 4 of the Kinner Kailash Trek are not available in the provided documents. This day typically involves the final descent and departure.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Descent and return journey, reflecting on the pilgrimage experience.</p>
+                                        <p><strong>Highlights:</strong> Final descent and completion of the trek.</p>
                                     </div>
                                 </div>
                             </div>
                        </div>
+                    </div>
+
+                    <div class="tab-content-panel" id="dates">
+                        <h2 class="text-2xl font-bold mb-4 font-poppins">Dates & Cost</h2>
+                        <div class="table-responsive-custom">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        <th>Cost (Per Person)</th>
+                                        <th>Status</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>01 Jul 2025</td>
+                                        <td>03 Jul 2025</td>
+                                        <td>₹26,400</td>
+                                        <td><span class="status-tag status-available">Available</span></td>
+                                        <td><button class="book-button">Book</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>15 Jul 2025</td>
+                                        <td>17 Jul 2025</td>
+                                        <td>₹26,400</td>
+                                        <td><span class="status-tag status-available">Available</span></td>
+                                        <td><button class="book-button">Book</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>01 Aug 2025</td>
+                                        <td>03 Aug 2025</td>
+                                        <td>₹26,400</td>
+                                        <td><span class="status-tag status-limited">Limited Seats</span></td>
+                                        <td><button class="book-button">Book</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>15 Aug 2025</td>
+                                        <td>17 Aug 2025</td>
+                                        <td>₹26,400</td>
+                                        <td><span class="status-tag status-full">Full</span></td>
+                                        <td><button class="book-button disabled">Full</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="table-info-text">Minimum 5 people, maximum 20 people per departure.</p>
+                        <p class="table-info-text">Client Price: ₹26,400/-</p>
+                        <p class="table-info-text">B2B Rate (Chandigarh to Chandigarh): ₹22,000/-</p>
+                        <p class="table-info-text">Prices subject to change based on customization, logistics, and seasonality.</p>
                     </div>
 
                     <div class="tab-content-panel" id="why-us">
@@ -747,14 +811,14 @@
                                 <i class="fas fa-shield-alt"></i>
                                 <div>
                                     <h4>Safety & Guidance</h4>
-                                    <p>Certified guides familiar with Kinner Kailash route, with emergency protocols and necessary high-altitude gear.</p>
+                                    <p>Certified guides familiar with high-altitude routes, with emergency protocols and necessary gear.</p>
                                 </div>
                             </div>
                             <div class="why-us-item">
                                 <i class="fas fa-users-cog"></i>
                                 <div>
                                     <h4>Local Expertise</h4>
-                                    <p>Experienced support staff from Himachal region ensuring authentic cultural insights and smooth logistics.</p>
+                                    <p>Experienced support staff from the Himachal region ensuring authentic cultural insights and smooth logistics.</p>
                                 </div>
                             </div>
                             <div class="why-us-item">
@@ -768,7 +832,7 @@
                                 <i class="fas fa-utensils"></i>
                                 <div>
                                     <h4>Nutritious Meals</h4>
-                                    <p>Freshly prepared vegetarian and non-vegetarian options where possible, including local Himachali dishes to fuel your pilgrimage.</p>
+                                    <p>Freshly prepared meals including local dishes to fuel your trek.</p>
                                 </div>
                             </div>
                         </div>
@@ -779,92 +843,47 @@
                          <div class="faq-container-list">
                              <div class="faq-item">
                                  <div class="faq-question">
-                                     <h4>What is the best time to do the Kinner Kailash Trek?</h4>
+                                     <h4>What is the duration of the Kinner Kailash Trek?</h4>
                                      <i class="fas fa-chevron-down faq-icon"></i>
                                  </div>
                                  <div class="faq-answer">
-                                    The Kinner Kailash Trek is best undertaken during the months of July, August, and September when the weather is relatively stable and the route is accessible.
+                                    The Kinner Kailash Trek is 4 Days / 3 Nights as per the provided information.
                                  </div>
                              </div>
                              <div class="faq-item">
                                  <div class="faq-question">
-                                     <h4>What is the difficulty level of the Kinner Kailash Trek?</h4>
+                                     <h4>What is the difficulty grade of this trek?</h4>
                                      <i class="fas fa-chevron-down faq-icon"></i>
                                  </div>
                                  <div class="faq-answer">
-                                    This trek is considered difficult (9/10). It involves significant altitude gain, rocky terrains, and requires a good level of physical fitness and prior trekking experience.
+                                    The Kinner Kailash Trek is categorized as 'Challenging' in terms of difficulty.
                                  </div>
                              </div>
                              <div class="faq-item">
                                  <div class="faq-question">
-                                     <h4>What kind of accommodation is provided during the trek?</h4>
+                                     <h4>Are meals included during the trek?</h4>
                                      <i class="fas fa-chevron-down faq-icon"></i>
                                  </div>
                                  <div class="faq-answer">
-                                    Accommodation during the Kinner Kailash trek primarily includes camping in tents, offering a true wilderness experience.
+                                    Yes, all meals on the trek (Breakfast, Lunch & Dinner) are included as per the inclusions list.
                                  </div>
                              </div>
                              <div class="faq-item">
                                  <div class="faq-question">
-                                     <h4>Is a guide mandatory for this trek?</h4>
+                                     <h4>Is a guide provided for the trek?</h4>
                                      <i class="fas fa-chevron-down faq-icon"></i>
                                  </div>
                                  <div class="faq-answer">
-                                    Given the challenging nature and high altitude of the Kinner Kailash trek, it is highly recommended to undertake it with an experienced local guide. Our packages include certified high-altitude guides.
+                                    Yes, an experienced guide is provided for the trek.
                                  </div>
                              </div>
                              <div class="faq-item">
                                  <div class="faq-question">
-                                     <h4>What permits are required for the Kinner Kailash Trek?</h4>
+                                     <h4>What are the accommodation types during the trek?</h4>
                                      <i class="fas fa-chevron-down faq-icon"></i>
                                  </div>
                                  <div class="faq-answer">
-                                    Inner Line Permits might be required for certain sections of Kinnaur district, especially for foreign nationals. Our package includes assistance with obtaining necessary permits.
-                                 </div>
-                             </div>
-                             <div class="faq-item">
-                                 <div class="faq-question">
-                                     <h4>What kind of physical preparation is needed?</h4>
-                                     <i class="fas fa-chevron-down faq-icon"></i>
-                                 </div>
-                                 <div class="faq-answer">
-                                    Participants should engage in regular cardiovascular exercises (running, cycling, swimming) for at least 4-6 weeks prior to the trek. Strength training and hiking practice with a backpack are also beneficial.
-                                 </div>
-                             </div>
-                             <div class="faq-item">
-                                 <div class="faq-question">
-                                     <h4>What kind of food will be provided during the trek?</h4>
-                                     <i class="fas fa-chevron-down faq-icon"></i>
-                                 </div>
-                                 <div class="faq-answer">
-                                    We provide freshly prepared, nutritious vegetarian meals suitable for high-altitude trekking. This includes breakfast, lunch, dinner, and evening tea with snacks.
-                                 </div>
-                             </div>
-                             <div class="faq-item">
-                                 <div class="faq-question">
-                                     <h4>What are the emergency protocols in place?</h4>
-                                     <i class="fas fa-chevron-down faq-icon"></i>
-                                 </div>
-                                 <div class="faq-answer">
-                                    Our teams are equipped with first aid kits, oxygen cylinders, and satellite phones for emergencies. Our guides are trained in wilderness first aid and high-altitude rescue procedures.
-                                 </div>
-                             </div>
-                             <div class="faq-item">
-                                 <div class="faq-question">
-                                     <h4>Is there mobile network availability on the trek?</h4>
-                                     <i class="fas fa-chevron-down faq-icon"></i>
-                                 </div>
-                                 <div class="faq-answer">
-                                    Mobile network coverage is sporadic and unreliable beyond Reckong Peo/Kalpa. It is advisable to inform your family about limited connectivity during the trek.
-                                 </div>
-                             </div>
-                             <div class="faq-item">
-                                 <div class="faq-question">
-                                     <h4>What is the group size for this trek?</h4>
-                                     <i class="fas fa-chevron-down faq-icon"></i>
-                                 </div>
-                                 <div class="faq-answer">
-                                    The typical group size for this trek ranges from a minimum of 5 people to a maximum of 20 people per departure, ensuring personalized attention and safety.
+                                    Accommodation includes Camp and Homestays on a sharing basis.
                                  </div>
                              </div>
                          </div>
@@ -874,65 +893,44 @@
                         <h2 class="text-2xl font-bold mb-4 font-poppins">Trek Essentials</h2>
                         <h3 class="text-xl font-bold mb-2 font-poppins">Inclusions</h3>
                         <ul class="essentials-list">
-                            <li>All meals on trek</li>
-                            <li>Camp accommodation</li>
-                            <li>High-altitude guide & porters</li>
-                            <li>Technical rope support</li>
-                            <li>Permits</li>
+                            <li>Transportation (Sharing Cabs)</li>
+                            <li>Pick-Up and Drop</li>
+                            <li>All Meals on Trek (Breakfast, Lunch & Dinner)</li>
+                            <li>Guide</li>
+                            <li>Personal Porter</li>
+                            <li>Accommodation (Camp, Homestays) on sharing basis</li>
+                            <li>Guide Expenses Food and Stay</li>
                             <li>Cook & Helper</li>
-                            <li>First Aid Medical Box.</li>
+                            <li>First Aid Medical Box</li>
+                            <li>All Necessary Permissions Required for the trek</li>
                         </ul>
 
                         <h3 class="text-xl font-bold mb-2 font-poppins mt-4">Exclusions</h3>
                         <ul class="exclusions-list">
-                            <li>Personal climbing gear (harness, helmet)</li>
+                            <li>Any cost arising out of unforeseen circumstances including medical emergencies and act of nature</li>
+                            <li>Anything that is not mentioned in the above list of inclusions</li>
                             <li>Insurance</li>
                             <li>Meals on Road journey</li>
-                            <li>Pre-/post-trek hotel</li>
-                            <li>Any cost arising out of unforeseen circumstances including medical emergencies and act of nature.</li>
                         </ul>
                     </div>
 
                     <div class="tab-content-panel" id="photos">
                         <h2 class="text-2xl font-bold mb-4 font-poppins">Photo Gallery</h2>
-                        <div class="row g-3">
-                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
-                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Kinner+Kailash+1" data-lightbox="kinnerkailash-gallery" data-title="Kinner Kailash Trek View 1">
-                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Kinner+Kailash+1" class="img-fluid rounded shadow-sm" alt="Kinner Kailash Trek View 1">
-                                </a>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
-                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Kinner+Kailash+2" data-lightbox="kinnerkailash-gallery" data-title="Kinner Kailash Trek View 2">
-                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Kinner+Kailash+2" class="img-fluid rounded shadow-sm" alt="Kinner Kailash Trek View 2">
-                                </a>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
-                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Kinner+Kailash+3" data-lightbox="kinnerkailash-gallery" data-title="Kinner Kailash Trek View 3">
-                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Kinner+Kailash+3" class="img-fluid rounded shadow-sm" alt="Kinner Kailash Trek View 3">
-                                </a>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
-                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Kinner+Kailash+4" data-lightbox="kinnerkailash-gallery" data-title="Kinner Kailash Trek View 4">
-                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Kinner+Kailash+4" class="img-fluid rounded shadow-sm" alt="Kinner Kailash Trek View 4">
-                                </a>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
-                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Kinner+Kailash+5" data-lightbox="kinnerkailash-gallery" data-title="Kinner Kailash Trek View 5">
-                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Kinner+Kailash+5" class="img-fluid rounded shadow-sm" alt="Kinner Kailash Trek View 5">
-                                </a>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
-                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Kinner+Kailash+6" data-lightbox="kinnerkailash-gallery" data-title="Kinner Kailash Trek View 6">
-                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Kinner+Kailash+6" class="img-fluid rounded shadow-sm" alt="Kinner Kailash Trek View 6">
-                                </a>
-                            </div>
+                        <div class="photo-gallery-grid">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Kinner_Kailash_Ranges_during_monsoon_from_Reckong_Peo%2C_Kinnaur_District%2C_Himachal_Pradesh.jpg/1280px-Kinner_Kailash_Ranges_during_monsoon_from_Reckong_Peo%2C_Kinnaur_District%2C_Himachal_Pradesh.jpg" alt="Kinner Kailash Range">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Kinner_Kailash_parikrama_trek.jpg/1280px-Kinner_Kailash_parikrama_trek.jpg" alt="Kinner Kailash Parikrama Trek">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Kinner_Kailash_from_Kalpa.jpg/1280px-Kinner_Kailash_from_Kalpa.jpg" alt="Kinner Kailash from Kalpa">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Kinner_Kailash_Shivling_during_Kinner_Kailash_Parikrama_Trek.jpg/1280px-Kinner_Kailash_Shivling_during_Kinner_Kailash_Parikrama_Trek.jpg" alt="Kinner Kailash Shivling">
+                            <img src="https://source.unsplash.com/featured/?kinner-kailash,himachal-pradesh" alt="Kinner Kailash General View 1">
+                            <img src="https://source.unsplash.com/featured/?kinner-kailash,mountains" alt="Kinner Kailash Mountain View 2">
                         </div>
                     </div>
+
                     <div class="tab-content-panel" id="map">
-                        <h2 class="text-2xl font-bold mb-4 font-poppins">Map</h2>
+                        <h2 class="text-2xl font-bold mb-4 font-poppins">Trek Map</h2>
                         <div class="map-container">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13702.433434691163!2d78.33045265!3d31.5459341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39053ac88029a1b9%3A0x7d0e3e29f3d64c05!2sKinner%20Kailash!5e0!3m2!1sen!2sin!4v1719227658763!5m2!1sen!2sin"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13778.07727409249!2d77.8078044747447!3d31.8105747683933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39050d4f3e430c51%3A0xc0f17b2b8e3a2c0c!2sShrikhand%20Mahadev!5e0!3m2!1sen!2sin!4v1719227568585!5m2!1sen!2sin"
                                 width="600"
                                 height="450"
                                 style="border:0;"
@@ -944,7 +942,7 @@
                         <p class="table-info-text mt-4">The map shows the approximate location of Kinner Kailash. Detailed trek routes can vary.</p>
                     </div>
 
-                    </div>
+                </div>
 
                 <div class="right-column">
                     <div class="sticky-sidebar-wrapper">
@@ -954,8 +952,8 @@
                                 <p class="main-price font-poppins">₹26,400</p>
                             </div>
                             <div class="difficulty-score">
-                                <div class="difficulty-score-box">9/10</div>
-                                <p>Difficulty</p>
+                                <div class="difficulty-score-box"></div>
+                                <p>Challenging</p>
                             </div>
                         </div>
                         <a href="https://rzp.io/rzp/adoratrek" target="_blank" rel="noopener noreferrer"  class="sidebar-button book-now">Book Now</a>
@@ -964,14 +962,14 @@
                         <div class="quick-facts-section">
                             <h4 class="font-bold text-lg font-poppins">Quick Facts</h4>
                             <ul class="quick-facts-list">
-                                <li><i class="fas fa-calendar-alt"></i> 3 Days</li>
-                                <li><i class="fas fa-chart-area"></i> Max Altitude: ~4,500 m (14,760 ft)</li>
-                                <li><i class="fas fa-route"></i> Trek Distance: ~20 km (approximate circuit)</li>
-                                <li><i class="fas fa-tachometer-alt"></i> Grade: 9/10 (Extremely Strenuous / Technical)</li>
+                                <li><i class="fas fa-calendar-alt"></i> 4 Days / 3 Nights</li>
+                                <li><i class="fas fa-chart-area"></i> Max Altitude: Not specified in documents</li>
+                                <li><i class="fas fa-route"></i> Trek Distance: Not specified in documents</li>
+                                <li><i class="fas fa-tachometer-alt"></i> Grade: Challenging</li>
                                 <li><i class="fas fa-users"></i> Group Size: Min 5, Max 20</li>
                             </ul>
                             <div class="organizer-info">
-                                <h4 class="font-bold text-lg font-poppins">Trek Guide</h4>
+                                <h4 class="font-bold text-lg font-poppins">Organizer</h4>
                                 <p>Tribal Routes</p>
                                 <p><i class="fas fa-phone"></i>+91 7807111209</p>
                                 <p><i class="fas fa-envelope"></i>info@adorahospitality.com</p>
@@ -987,7 +985,8 @@
                 <div class="mx-auto text-center" style="max-width: 900px;">
                     <h5 class="subscribe-title px-3">Subscribe</h5>
                     <h1 class="text-white mb-4">Our Newsletter</h1>
-                    <p class="text-white mb-5">Get curated updates on upcoming treks, exclusive discounts, trail tips, and inspiring stories from the Himalayas. No spam — just the mountains calling. </p>
+                    <p class="text-white mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore nam, architecto doloremque velit explicabo? Voluptate sunt eveniet fuga eligendi! Expedita laudantium fugiat corrupti eum cum repellat a laborum quasi.
+                    </p>
                     <div class="position-relative mx-auto">
                         <input class="form-control border-primary rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
                         <button type="button" class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Subscribe</button>
@@ -1034,9 +1033,11 @@
                             <h4 class="text-white mb-3">Payments Supported by</h4>
                             <div class="footer-bank-card">
                                 <a href="#" class="text-white me-2">
-                                  <img src="/img/razorpay.png" alt="Razorpay" style="height: 32px; width: auto;">
+                                  <img src="img/razorpay.png" alt="Razorpay" style="height: 32px; width: auto;">
                                 </a>
-                                </div>
+                                <!--<a href="#" class="text-white me-2"><i class="fab fa-cc-paypal fa-2x"></i></a>
+                                <a href="#" class="text-white"><i class="fab fa-cc-discover fa-2x"></i></a>-->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1102,16 +1103,6 @@
                         icon.classList.toggle('rotated');
                     });
                 });
-
-                // Lightbox specific configurations (optional, but good to ensure defaults)
-                lightbox.option({
-                    'resizeDuration': 200,
-                    'wrapAround': true, // Allows continuous navigation
-                    'fadeDuration': 200,
-                    'imageFadeDuration': 200
-                    // Other options can be added here as needed
-                });
-
             });
         </script>
     </body>

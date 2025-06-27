@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Adora Treks| Kinner Kailash Trek</title>
+        <title>Adora Treks| Rupin Pass</title>
         <link rel="icon" href="/img/favicon.png" type="image/png">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
@@ -20,6 +20,7 @@
 
         <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
         <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
 
         <link href="/css/bootstrap.min.css" rel="stylesheet">
 
@@ -155,8 +156,8 @@
 
             /* Tab Navigation */
             .tab-nav-wrapper {
-                position: relative; /* Changed from sticky */
-                top: auto; /* Changed from sticky top-[72px] */
+                position: sticky;
+                top: 72px; /* sticky top-[72px] - adjust based on your actual navbar height */
                 background-color: #f3f4f6; /* bg-gray-100 */
                 z-index: 30;
                 padding: 1rem; /* p-4 */
@@ -270,6 +271,9 @@
                 color: #1f2937; /* text-gray-800 */
                 margin-top: -0.75rem; /* -mt-3 */
             }
+            .itinerary-details h3.summit-day {
+                color: #dc2626; /* text-red-600 */
+            }
 
             .itinerary-meta {
                 font-size: 0.875rem; /* text-sm */
@@ -290,6 +294,11 @@
                 font-size: 0.875rem; /* text-sm */
                 border-top-right-radius: 0.25rem; /* rounded-r-lg */
                 border-bottom-right-radius: 0.25rem; /* rounded-r-lg */
+            }
+            .itinerary-highlight.summit-highlight {
+                background-color: #fee2e2; /* bg-red-50 */
+                border-color: #ef4444; /* border-red-500 */
+                color: #991b1b; /* text-red-800 */
             }
 
             .itinerary-image {
@@ -454,20 +463,28 @@
                 margin-bottom: 0.5rem;
             }
 
-            /* Photos Section (Reverted to Grid with Lightbox) */
-            .photo-grid-item img {
+            /* Photos Section */
+            .photo-gallery-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr)); /* grid-cols-2 */
+                gap: 1rem; /* gap-4 */
+            }
+            @media (min-width: 768px) { /* md breakpoint */
+                .photo-gallery-grid {
+                    grid-template-columns: repeat(3, minmax(0, 1fr)); /* md:grid-cols-3 */
+                }
+            }
+            .photo-gallery-grid img {
+                border-radius: 0.5rem; /* rounded-lg */
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+                transition: opacity 0.3s ease;
+                cursor: pointer;
                 width: 100%;
-                height: 200px; /* Fixed height for uniform images in grid */
-                object-fit: cover; /* Ensures images cover the area without distortion */
-                border-radius: 0.5rem;
-                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-                transition: transform 0.2s ease-in-out;
+                height: auto;
             }
-
-            .photo-grid-item img:hover {
-                transform: scale(1.03); /* Slight zoom effect on hover */
+            .photo-gallery-grid img:hover {
+                opacity: 0.8;
             }
-
 
             /* Map Section */
             .map-container {
@@ -521,7 +538,7 @@
                 text-align: center;
             }
             .difficulty-score-box {
-                background-color: #3b82f6; /* bg-blue-500 */
+                background-color: #ef4444; /* bg-red-500 for difficult */
                 color: #fff;
                 font-weight: 700; /* font-bold */
                 font-size: 1.25rem; /* text-xl */
@@ -656,14 +673,16 @@
             </nav>
         </div>
         <main class="main-content-section">
-            <section class="hero-section" style="background-image: url('/img/packages-4.jpeg');">
-                <video autoplay muted loop playsinline class="background-video" poster="/img/packages-4.jpeg">
-                    <source src="/vids/mahadev.mp4" type="video/mp4">
-                    </video>
-                <div class="hero-content">
-                    <h1 class="hero-title font-poppins">Kinner Kailash Trek</h1>
+            <section class="hero-section" style="background-image: url('/img/packages-178.jpeg');">
+                <video autoplay muted loop playsinline class="background-video" poster="/img/packages-178.jpeg">
+                    <source src="/vids/rupin.mp4" type="video/mp4">
+                    <!--<source src="/videos/shrikhand-mahadev-trek.webm" type="video/webm">
+                    Your browser does not support the video tag.-->
+                </video>
+             <div class="hero-content">
+                    <h1 class="hero-title font-poppins">Rupin Pass Trek</h1>
                     <div class="hero-meta">
-                        <div><i class="fas fa-tag"></i><span>A spiritual circuit trek around the revered Kinner Kailash range in Kinnaur.</span></div>
+                        <div><i class="fas fa-tag"></i><span>Himalayan Crossover Trek</span></div>
                         <div><i class="fas fa-map-marker-alt"></i><span>Himachal Pradesh</span></div>
                     </div>
                 </div>
@@ -679,6 +698,7 @@
                             </div>
                             <nav id="tabs" class="tab-buttons-nav">
                                 <button data-target="itinerary" class="tab-button active-tab"><i class="fas fa-list-ul mr-2 hidden-md"></i>Itinerary</button>
+                                <button data-target="dates" class="tab-button"><i class="fas fa-calendar-check mr-2 hidden-md"></i>Dates & Cost</button>
                                 <button data-target="why-us" class="tab-button"><i class="fas fa-users mr-2 hidden-md"></i>Why with us?</button>
                                 <button data-target="faq" class="tab-button"><i class="fas fa-question-circle mr-2 hidden-md"></i>FAQ</button>
                                 <button data-target="essentials" class="tab-button"><i class="fas fa-briefcase mr-2 hidden-md"></i>Essentials</button>
@@ -689,55 +709,130 @@
                     </div>
 
                     <div class="tab-content-panel active" id="itinerary">
+                       <h2 class="text-2xl font-bold mb-4 font-poppins">Detailed Itinerary</h2>
                        <div class="space-y-10">
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">01</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Travel from Shimla (or Chandigarh) to Reckong Peo (or Kalpa/Tangling).</h3>
-                                    <div class="itinerary-meta"></div>
-                                    <p class="itinerary-description"></p>
+                                    <h3 class="font-poppins">Dehradun to Dhaula (1,550m)</h3>
+                                    <div class="itinerary-meta"><strong>Duration:</strong> ~8-9 hrs drive</div>
+                                    <p class="itinerary-description">Arrive in Dehradun and drive to Dhaula, the starting point of the Rupin Pass Trek. The drive offers scenic views of the Himalayas. Overnight stay at a guesthouse or camp in Dhaula.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Journey to the base region of Kinnaur, scenic drive through valleys and mountains.</p>
+                                        <p><strong>Highlights:</strong> Scenic drive through Uttarakhand, preparation for the trek ahead.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">02</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Trek from Tangling to Ganesh Park (7km).</h3>
-                                    <div class="itinerary-meta"><strong>Distance:</strong> ~7 km</div>
-                                    <p class="itinerary-description"></p>
+                                    <h3 class="font-poppins">Dhaula to Sewa (2,000m)</h3>
+                                    <div class="itinerary-meta"><strong>Duration:</strong> ~7-8 hrs trek</div>
+                                    <p class="itinerary-description">Begin your trek with a gentle ascent, walking alongside the Rupin River. The trail passes through charming villages, offering glimpses into local culture and stunning natural beauty. Camp at Sewa.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Beginning of the trek, ascending through lush landscapes to Ganesh Park.</p>
+                                        <p><strong>Highlights:</strong> Riverside walk, interacting with local villagers, beautiful surroundings.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">03</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Trek to Kinner Kailash Shivling (Darshan) and back to Ganesh Park.</h3>
-                                    <div class="itinerary-meta"></div>
-                                    <p class="itinerary-description"></p>
+                                    <h3 class="font-poppins">Sewa to Bawta (2,400m) to Jakha (2,600m)</h3>
+                                    <div class="itinerary-meta"><strong>Duration:</strong> ~7-8 hrs trek</div>
+                                    <p class="itinerary-description">The day starts with a steep climb, gradually easing into a more moderate ascent. You will enter dense forests, and the trail continues to Bawta before reaching Jakha, a unique hanging village. Camp overnight.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Summit day, reaching the sacred Kinner Kailash Shivling for Darshan, panoramic views.</p>
-                                    </div>
-                                    <div class="mt-4">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Kinner_Kailash_Shivling.jpg/800px-Kinner_Kailash_Shivling.jpg" alt="Kinner Kailash Shivling view" class="itinerary-image" onerror="this.style.display='none'">
+                                        <p><strong>Highlights:</strong> Challenging climbs, dense forest trails, the distinctive architecture of Jakha village.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">04</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Trek back to Tangling (or Reckong Peo) and drive to Shimla (or Chandigarh).</h3>
-                                    <div class="itinerary-meta"></div>
-                                    <p class="itinerary-description"></p>
+                                    <h3 class="font-poppins">Jakha to Saruwas (3,300m) to Dhanderas Thatch (3,500m)</h3>
+                                    <div class="itinerary-meta"><strong>Duration:</strong> ~7-8 hrs trek</div>
+                                    <p class="itinerary-description">Ascend through more forests, eventually reaching the picturesque meadows of Saruwas. Cross thrilling wooden bridges. The trek continues to Dhanderas Thatch, a stunning camping ground. This is an acclimatization day; explore nearby waterfalls and ridges.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Descent and return journey, reflecting on the pilgrimage experience.</p>
+                                        <p><strong>Highlights:</strong> Lush meadows, exhilarating wooden bridges, acclimatization walks, beautiful Dhanderas Thatch.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="itinerary-item">
+                                <div class="itinerary-day-number">05</div>
+                                <div class="itinerary-details">
+                                    <h3 class="font-poppins summit-day">Dhanderas to Rupin Pass (4,650m) to Ronti Gaad (3,700m)</h3>
+                                    <div class="itinerary-meta"><strong>Duration:</strong> ~8-9 hrs trek</div>
+                                    <p class="itinerary-description">This is the most challenging and scenic day of the trek. A steep climb leads you to Rupin Pass. You'll traverse snowfields (seasonal) and witness breathtaking panoramic views. A steep descent brings you to Ronti Gaad, where you will camp for the night.</p>
+                                    <div class="itinerary-highlight summit-highlight">
+                                        <p><strong>Highlights:</strong> Crossing the iconic Rupin Pass, stunning views, thrilling snow traverses, challenging but rewarding experience.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="itinerary-item">
+                                <div class="itinerary-day-number">06</div>
+                                <div class="itinerary-details">
+                                    <h3 class="font-poppins">Ronti Gaad to Sangla (2,600m) - Drive to Shimla</h3>
+                                    <div class="itinerary-meta"><strong>Duration:</strong> ~4-5 hrs descent + drive</div>
+                                    <p class="itinerary-description">Descend from Ronti Gaad to Sangla, a beautiful valley known for its apple orchards and traditional Himachali villages. The trek concludes here. From Sangla, a vehicle will take you to Shimla, where you'll check into a hotel.</p>
+                                    <div class="itinerary-highlight">
+                                        <p><strong>Highlights:</strong> Scenic descent into Sangla Valley, comfortable return to Shimla.</p>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="itinerary-item">
+                                <div class="itinerary-day-number">07</div>
+                                <div class="itinerary-details">
+                                    <h3 class="font-poppins">Shimla - Departure</h3>
+                                    <div class="itinerary-meta"><strong>Duration:</strong> N/A</div>
+                                    <p class="itinerary-description">After breakfast, check out from your hotel. Your Rupin Pass Trek adventure concludes here. Depart from Shimla with unforgettable memories.</p>
+                                    <div class="itinerary-highlight">
+                                        <p><strong>Highlights:</strong> Departure from Shimla.</p>
                                     </div>
                                 </div>
                             </div>
                        </div>
+                    </div>
+
+                    <div class="tab-content-panel" id="dates">
+                        <h2 class="text-2xl font-bold mb-4 font-poppins">Dates & Cost</h2>
+                        <div class="table-responsive-custom">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        <th>Cost (Per Person)</th>
+                                        <th>Status</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>01 June 2025</td>
+                                        <td>07 June 2025</td>
+                                        <td>₹18,500</td>
+                                        <td><span class="status-tag status-available">Available</span></td>
+                                        <td><button class="book-button">Book</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>10 June 2025</td>
+                                        <td>16 June 2025</td>
+                                        <td>₹18,500</td>
+                                        <td><span class="status-tag status-limited">Limited Seats</span></td>
+                                        <td><button class="book-button">Book</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>20 June 2025</td>
+                                        <td>26 June 2025</td>
+                                        <td>₹18,500</td>
+                                        <td><span class="status-tag status-full">Full</span></td>
+                                        <td><button class="book-button disabled">Full</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="table-info-text">Minimum 5 people, maximum 20 people per departure.</p>
+                        <p class="table-info-text">Client Price: ₹18,500/-</p>
+                        <p class="table-info-text">B2B Rate (Dehradun to Shimla): ₹15,500/-</p>
+                        <p class="table-info-text">Prices subject to change based on customization, logistics, and seasonality.</p>
                     </div>
 
                     <div class="tab-content-panel" id="why-us">
@@ -747,28 +842,28 @@
                                 <i class="fas fa-shield-alt"></i>
                                 <div>
                                     <h4>Safety & Guidance</h4>
-                                    <p>Certified guides familiar with Kinner Kailash route, with emergency protocols and necessary high-altitude gear.</p>
+                                    <p>Experienced and certified guides, with emergency protocols and necessary gear for high-altitude trekking.</p>
                                 </div>
                             </div>
                             <div class="why-us-item">
                                 <i class="fas fa-users-cog"></i>
                                 <div>
                                     <h4>Local Expertise</h4>
-                                    <p>Experienced support staff from Himachal region ensuring authentic cultural insights and smooth logistics.</p>
+                                    <p>Our team comprises local experts from Himachal, ensuring authentic experiences and smooth operations.</p>
                                 </div>
                             </div>
                             <div class="why-us-item">
                                 <i class="fas fa-leaf"></i>
                                 <div>
                                     <h4>Responsible Trekking</h4>
-                                    <p>We follow Leave No Trace principles and arrange eco-friendly camps; support local communities along the route.</p>
+                                    <p>We are committed to eco-friendly practices and support local communities, adhering to Leave No Trace principles.</p>
                                 </div>
                             </div>
                             <div class="why-us-item">
                                 <i class="fas fa-utensils"></i>
                                 <div>
                                     <h4>Nutritious Meals</h4>
-                                    <p>Freshly prepared vegetarian and non-vegetarian options where possible, including local Himachali dishes to fuel your pilgrimage.</p>
+                                    <p>Enjoy freshly prepared, hygienic, and nutritious meals throughout your trek to keep you energized.</p>
                                 </div>
                             </div>
                         </div>
@@ -779,92 +874,29 @@
                          <div class="faq-container-list">
                              <div class="faq-item">
                                  <div class="faq-question">
-                                     <h4>What is the best time to do the Kinner Kailash Trek?</h4>
+                                     <h4>What level of fitness is required for Rupin Pass Trek?</h4>
                                      <i class="fas fa-chevron-down faq-icon"></i>
                                  </div>
                                  <div class="faq-answer">
-                                    The Kinner Kailash Trek is best undertaken during the months of July, August, and September when the weather is relatively stable and the route is accessible.
+                                     The Rupin Pass Trek is rated Difficult. It demands excellent physical stamina, prior experience with high-altitude trekking, and good acclimatization. Regular and rigorous physical training, including cardio and strength building, is essential.
                                  </div>
                              </div>
                              <div class="faq-item">
                                  <div class="faq-question">
-                                     <h4>What is the difficulty level of the Kinner Kailash Trek?</h4>
+                                     <h4>What is included in the trek package?</h4>
                                      <i class="fas fa-chevron-down faq-icon"></i>
                                  </div>
                                  <div class="faq-answer">
-                                    This trek is considered difficult (9/10). It involves significant altitude gain, rocky terrains, and requires a good level of physical fitness and prior trekking experience.
+                                    Inclusions: Camping gear, all meals during trek, experienced guide, permits, trek team support, Transport to/from Shimla.
                                  </div>
                              </div>
                              <div class="faq-item">
                                  <div class="faq-question">
-                                     <h4>What kind of accommodation is provided during the trek?</h4>
+                                     <h4>What is NOT included?</h4>
                                      <i class="fas fa-chevron-down faq-icon"></i>
                                  </div>
                                  <div class="faq-answer">
-                                    Accommodation during the Kinner Kailash trek primarily includes camping in tents, offering a true wilderness experience.
-                                 </div>
-                             </div>
-                             <div class="faq-item">
-                                 <div class="faq-question">
-                                     <h4>Is a guide mandatory for this trek?</h4>
-                                     <i class="fas fa-chevron-down faq-icon"></i>
-                                 </div>
-                                 <div class="faq-answer">
-                                    Given the challenging nature and high altitude of the Kinner Kailash trek, it is highly recommended to undertake it with an experienced local guide. Our packages include certified high-altitude guides.
-                                 </div>
-                             </div>
-                             <div class="faq-item">
-                                 <div class="faq-question">
-                                     <h4>What permits are required for the Kinner Kailash Trek?</h4>
-                                     <i class="fas fa-chevron-down faq-icon"></i>
-                                 </div>
-                                 <div class="faq-answer">
-                                    Inner Line Permits might be required for certain sections of Kinnaur district, especially for foreign nationals. Our package includes assistance with obtaining necessary permits.
-                                 </div>
-                             </div>
-                             <div class="faq-item">
-                                 <div class="faq-question">
-                                     <h4>What kind of physical preparation is needed?</h4>
-                                     <i class="fas fa-chevron-down faq-icon"></i>
-                                 </div>
-                                 <div class="faq-answer">
-                                    Participants should engage in regular cardiovascular exercises (running, cycling, swimming) for at least 4-6 weeks prior to the trek. Strength training and hiking practice with a backpack are also beneficial.
-                                 </div>
-                             </div>
-                             <div class="faq-item">
-                                 <div class="faq-question">
-                                     <h4>What kind of food will be provided during the trek?</h4>
-                                     <i class="fas fa-chevron-down faq-icon"></i>
-                                 </div>
-                                 <div class="faq-answer">
-                                    We provide freshly prepared, nutritious vegetarian meals suitable for high-altitude trekking. This includes breakfast, lunch, dinner, and evening tea with snacks.
-                                 </div>
-                             </div>
-                             <div class="faq-item">
-                                 <div class="faq-question">
-                                     <h4>What are the emergency protocols in place?</h4>
-                                     <i class="fas fa-chevron-down faq-icon"></i>
-                                 </div>
-                                 <div class="faq-answer">
-                                    Our teams are equipped with first aid kits, oxygen cylinders, and satellite phones for emergencies. Our guides are trained in wilderness first aid and high-altitude rescue procedures.
-                                 </div>
-                             </div>
-                             <div class="faq-item">
-                                 <div class="faq-question">
-                                     <h4>Is there mobile network availability on the trek?</h4>
-                                     <i class="fas fa-chevron-down faq-icon"></i>
-                                 </div>
-                                 <div class="faq-answer">
-                                    Mobile network coverage is sporadic and unreliable beyond Reckong Peo/Kalpa. It is advisable to inform your family about limited connectivity during the trek.
-                                 </div>
-                             </div>
-                             <div class="faq-item">
-                                 <div class="faq-question">
-                                     <h4>What is the group size for this trek?</h4>
-                                     <i class="fas fa-chevron-down faq-icon"></i>
-                                 </div>
-                                 <div class="faq-answer">
-                                    The typical group size for this trek ranges from a minimum of 5 people to a maximum of 20 people per departure, ensuring personalized attention and safety.
+                                    Exclusions: Porterage, hotel stays in Shimla or Sangla.
                                  </div>
                              </div>
                          </div>
@@ -874,65 +906,42 @@
                         <h2 class="text-2xl font-bold mb-4 font-poppins">Trek Essentials</h2>
                         <h3 class="text-xl font-bold mb-2 font-poppins">Inclusions</h3>
                         <ul class="essentials-list">
-                            <li>All meals on trek</li>
-                            <li>Camp accommodation</li>
-                            <li>High-altitude guide & porters</li>
-                            <li>Technical rope support</li>
-                            <li>Permits</li>
-                            <li>Cook & Helper</li>
-                            <li>First Aid Medical Box.</li>
+                            <li>Camping gear (tents, sleeping bags, sleeping mats)</li>
+                            <li>All meals during the trek (Breakfast, Lunch, Dinner, snacks)</li>
+                            <li>Experienced and certified trek leader/guide</li>
+                            <li>Support staff (cooks, porters where necessary)</li>
+                            <li>Forest permits and camping charges</li>
+                            <li>Transportation to and from Shimla (as per itinerary)</li>
                         </ul>
 
                         <h3 class="text-xl font-bold mb-2 font-poppins mt-4">Exclusions</h3>
                         <ul class="exclusions-list">
-                            <li>Personal climbing gear (harness, helmet)</li>
-                            <li>Insurance</li>
-                            <li>Meals on Road journey</li>
-                            <li>Pre-/post-trek hotel</li>
-                            <li>Any cost arising out of unforeseen circumstances including medical emergencies and act of nature.</li>
+                            <li>Personal trekking gear (e.g., trekking poles, headlamp)</li>
+                            <li>Any hotel stays in Shimla before or after the trek</li>
+                            <li>Personal expenses like bottled water, soft drinks, laundry, phone calls</li>
+                            <li>Emergency evacuation or medical expenses</li>
+                            <li>Any costs arising due to unforeseen circumstances like landslides, road blocks, etc.</li>
+                            <li>Tips for the staff</li>
                         </ul>
                     </div>
 
                     <div class="tab-content-panel" id="photos">
                         <h2 class="text-2xl font-bold mb-4 font-poppins">Photo Gallery</h2>
-                        <div class="row g-3">
-                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
-                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Kinner+Kailash+1" data-lightbox="kinnerkailash-gallery" data-title="Kinner Kailash Trek View 1">
-                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Kinner+Kailash+1" class="img-fluid rounded shadow-sm" alt="Kinner Kailash Trek View 1">
-                                </a>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
-                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Kinner+Kailash+2" data-lightbox="kinnerkailash-gallery" data-title="Kinner Kailash Trek View 2">
-                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Kinner+Kailash+2" class="img-fluid rounded shadow-sm" alt="Kinner Kailash Trek View 2">
-                                </a>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
-                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Kinner+Kailash+3" data-lightbox="kinnerkailash-gallery" data-title="Kinner Kailash Trek View 3">
-                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Kinner+Kailash+3" class="img-fluid rounded shadow-sm" alt="Kinner Kailash Trek View 3">
-                                </a>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
-                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Kinner+Kailash+4" data-lightbox="kinnerkailash-gallery" data-title="Kinner Kailash Trek View 4">
-                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Kinner+Kailash+4" class="img-fluid rounded shadow-sm" alt="Kinner Kailash Trek View 4">
-                                </a>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
-                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Kinner+Kailash+5" data-lightbox="kinnerkailash-gallery" data-title="Kinner Kailash Trek View 5">
-                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Kinner+Kailash+5" class="img-fluid rounded shadow-sm" alt="Kinner Kailash Trek View 5">
-                                </a>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
-                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Kinner+Kailash+6" data-lightbox="kinnerkailash-gallery" data-title="Kinner Kailash Trek View 6">
-                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Kinner+Kailash+6" class="img-fluid rounded shadow-sm" alt="Kinner Kailash Trek View 6">
-                                </a>
-                            </div>
+                        <div class="photo-gallery-grid">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Friendship_Peak_Trek.jpg/1920px-Friendship_Peak_Trek.jpg" alt="Rupin Pass View 1">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Chandranahan_Lake_Path.jpg/1280px-Chandranahan_Lake_Path.jpg" alt="Rupin Pass View 2">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Chandranahan_Lake.jpg/1280px-Chandranahan_Lake.jpg" alt="Rupin Pass View 3">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Dayara_Thatch.jpg/1280px-Dayara_Thatch.jpg" alt="Rupin Pass View 4">
+                            <img src="https://source.unsplash.com/featured/?rupinpass,himachal" alt="Rupin Pass Scenery 1">
+                            <img src="https://source.unsplash.com/featured/?himalaya,pass" alt="Rupin Pass Scenery 2">
                         </div>
                     </div>
+
                     <div class="tab-content-panel" id="map">
-                        <h2 class="text-2xl font-bold mb-4 font-poppins">Map</h2>
+                        <h2 class="text-2xl font-bold mb-4 font-poppins">Trek Map</h2>
                         <div class="map-container">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13702.433434691163!2d78.33045265!3d31.5459341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39053ac88029a1b9%3A0x7d0e3e29f3d64c05!2sKinner%20Kailash!5e0!3m2!1sen!2sin!4v1719227658763!5m2!1sen!2sin"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13778.07727409249!2d77.8078044747447!3d31.8105747683933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39050d4f3e430c51%3A0xc0f17b2b8e3a2c0c!2sShrikhand%20Mahadev!5e0!3m2!1sen!2sin!4v1719227568585!5m2!1sen!2sin"
                                 width="600"
                                 height="450"
                                 style="border:0;"
@@ -941,21 +950,21 @@
                                 referrerpolicy="no-referrer-when-downgrade">
                             </iframe>
                         </div>
-                        <p class="table-info-text mt-4">The map shows the approximate location of Kinner Kailash. Detailed trek routes can vary.</p>
+                        <p class="table-info-text mt-4">The map shows the approximate location of Rupin Pass. Detailed trek routes can vary.</p>
                     </div>
 
-                    </div>
+                </div>
 
                 <div class="right-column">
                     <div class="sticky-sidebar-wrapper">
                         <div class="sidebar-price-difficulty">
                             <div class="price-info">
                                 <p class="price-label">Client Price</p>
-                                <p class="main-price font-poppins">₹26,400</p>
+                                <p class="main-price font-poppins">₹18,500</p>
                             </div>
                             <div class="difficulty-score">
-                                <div class="difficulty-score-box">9/10</div>
-                                <p>Difficulty</p>
+                                <div class="difficulty-score-box"></div>
+                                <p>Difficult</p>
                             </div>
                         </div>
                         <a href="https://rzp.io/rzp/adoratrek" target="_blank" rel="noopener noreferrer"  class="sidebar-button book-now">Book Now</a>
@@ -964,14 +973,14 @@
                         <div class="quick-facts-section">
                             <h4 class="font-bold text-lg font-poppins">Quick Facts</h4>
                             <ul class="quick-facts-list">
-                                <li><i class="fas fa-calendar-alt"></i> 3 Days</li>
-                                <li><i class="fas fa-chart-area"></i> Max Altitude: ~4,500 m (14,760 ft)</li>
-                                <li><i class="fas fa-route"></i> Trek Distance: ~20 km (approximate circuit)</li>
-                                <li><i class="fas fa-tachometer-alt"></i> Grade: 9/10 (Extremely Strenuous / Technical)</li>
+                                <li><i class="fas fa-calendar-alt"></i> 7 Days / 6 Nights</li>
+                                <li><i class="fas fa-chart-area"></i> Max Altitude: 4,650m (Rupin Pass)</li>
+                                <li><i class="fas fa-route"></i> Trek Distance: Not specified in documents</li>
+                                <li><i class="fas fa-tachometer-alt"></i> Grade: Difficult</li>
                                 <li><i class="fas fa-users"></i> Group Size: Min 5, Max 20</li>
                             </ul>
                             <div class="organizer-info">
-                                <h4 class="font-bold text-lg font-poppins">Trek Guide</h4>
+                                <h4 class="font-bold text-lg font-poppins">Organizer</h4>
                                 <p>Tribal Routes</p>
                                 <p><i class="fas fa-phone"></i>+91 7807111209</p>
                                 <p><i class="fas fa-envelope"></i>info@adorahospitality.com</p>
@@ -987,7 +996,8 @@
                 <div class="mx-auto text-center" style="max-width: 900px;">
                     <h5 class="subscribe-title px-3">Subscribe</h5>
                     <h1 class="text-white mb-4">Our Newsletter</h1>
-                    <p class="text-white mb-5">Get curated updates on upcoming treks, exclusive discounts, trail tips, and inspiring stories from the Himalayas. No spam — just the mountains calling. </p>
+                    <p class="text-white mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore nam, architecto doloremque velit explicabo? Voluptate sunt eveniet fuga eligendi! Expedita laudantium fugiat corrupti eum cum repellat a laborum quasi.
+                    </p>
                     <div class="position-relative mx-auto">
                         <input class="form-control border-primary rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
                         <button type="button" class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Subscribe</button>
@@ -1034,9 +1044,11 @@
                             <h4 class="text-white mb-3">Payments Supported by</h4>
                             <div class="footer-bank-card">
                                 <a href="#" class="text-white me-2">
-                                  <img src="/img/razorpay.png" alt="Razorpay" style="height: 32px; width: auto;">
+                                  <img src="img/razorpay.png" alt="Razorpay" style="height: 32px; width: auto;">
                                 </a>
-                                </div>
+                                <!--<a href="#" class="text-white me-2"><i class="fab fa-cc-paypal fa-2x"></i></a>
+                                <a href="#" class="text-white"><i class="fab fa-cc-discover fa-2x"></i></a>-->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1098,20 +1110,18 @@
                         const answer = question.nextElementSibling;
                         const icon = question.querySelector('.faq-icon');
 
+                        // Close other open FAQs
+                        document.querySelectorAll('.faq-answer.open').forEach(openAnswer => {
+                            if (openAnswer !== answer) {
+                                openAnswer.classList.remove('open');
+                                openAnswer.previousElementSibling.querySelector('.faq-icon').classList.remove('rotated');
+                            }
+                        });
+
                         answer.classList.toggle('open');
                         icon.classList.toggle('rotated');
                     });
                 });
-
-                // Lightbox specific configurations (optional, but good to ensure defaults)
-                lightbox.option({
-                    'resizeDuration': 200,
-                    'wrapAround': true, // Allows continuous navigation
-                    'fadeDuration': 200,
-                    'imageFadeDuration': 200
-                    // Other options can be added here as needed
-                });
-
             });
         </script>
     </body>
