@@ -21,7 +21,6 @@
         <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
         <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
-
         <link href="/css/bootstrap.min.css" rel="stylesheet">
 
         <link href="/css/style.css" rel="stylesheet">
@@ -156,8 +155,8 @@
 
             /* Tab Navigation */
             .tab-nav-wrapper {
-                position: sticky;
-                top: 72px; /* sticky top-[72px] - adjust based on your actual navbar height */
+                position: relative; /* Changed from sticky */
+                top: auto; /* Changed from sticky top-[72px] */
                 background-color: #f3f4f6; /* bg-gray-100 */
                 z-index: 30;
                 padding: 1rem; /* p-4 */
@@ -271,9 +270,6 @@
                 color: #1f2937; /* text-gray-800 */
                 margin-top: -0.75rem; /* -mt-3 */
             }
-            .itinerary-details h3.summit-day {
-                color: #dc2626; /* text-red-600 */
-            }
 
             .itinerary-meta {
                 font-size: 0.875rem; /* text-sm */
@@ -294,11 +290,6 @@
                 font-size: 0.875rem; /* text-sm */
                 border-top-right-radius: 0.25rem; /* rounded-r-lg */
                 border-bottom-right-radius: 0.25rem; /* rounded-r-lg */
-            }
-            .itinerary-highlight.summit-highlight {
-                background-color: #fee2e2; /* bg-red-50 */
-                border-color: #ef4444; /* border-red-500 */
-                color: #991b1b; /* text-red-800 */
             }
 
             .itinerary-image {
@@ -463,28 +454,20 @@
                 margin-bottom: 0.5rem;
             }
 
-            /* Photos Section */
-            .photo-gallery-grid {
-                display: grid;
-                grid-template-columns: repeat(2, minmax(0, 1fr)); /* grid-cols-2 */
-                gap: 1rem; /* gap-4 */
-            }
-            @media (min-width: 768px) { /* md breakpoint */
-                .photo-gallery-grid {
-                    grid-template-columns: repeat(3, minmax(0, 1fr)); /* md:grid-cols-3 */
-                }
-            }
-            .photo-gallery-grid img {
-                border-radius: 0.5rem; /* rounded-lg */
-                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
-                transition: opacity 0.3s ease;
-                cursor: pointer;
+            /* Photos Section (Reverted to Grid with Lightbox) */
+            .photo-grid-item img {
                 width: 100%;
-                height: auto;
+                height: 200px; /* Fixed height for uniform images in grid */
+                object-fit: cover; /* Ensures images cover the area without distortion */
+                border-radius: 0.5rem;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+                transition: transform 0.2s ease-in-out;
             }
-            .photo-gallery-grid img:hover {
-                opacity: 0.8;
+
+            .photo-grid-item img:hover {
+                transform: scale(1.03); /* Slight zoom effect on hover */
             }
+
 
             /* Map Section */
             .map-container {
@@ -538,7 +521,7 @@
                 text-align: center;
             }
             .difficulty-score-box {
-                background-color: #dc2626; /* bg-red-600 for challenging */
+                background-color: #3b82f6; /* bg-blue-500 */
                 color: #fff;
                 font-weight: 700; /* font-bold */
                 font-size: 1.25rem; /* text-xl */
@@ -641,8 +624,8 @@
                     <div class="d-inline-flex align-items-center" style="height: 45px;">
                         <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://x.com/Adorabooking/"  target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter fw-normal"></i></a>
                         <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.facebook.com/adorahospitality"  target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f fw-normal"></i></a>
-                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.linkedin.com/company/adora-hospitality-solutions/"  target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in fw-normal"></i></a>
-                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.instagram.com/adorahospitality/"  target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram fw-normal"></i></a>
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.linkedin.com/company/adora-hospitality-solutions/"  target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.instagram.com/adorahospitality/"  target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                         <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="https://www.youtube.com/@AdoraHospitality"  target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube fw-normal"></i></a>
                     </div>
                 </div>
@@ -673,11 +656,14 @@
             </nav>
         </div>
         <main class="main-content-section">
-            <section class="hero-section" style="background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/2b/ef/c7/parangla-trek.jpg?w=1200&h=-1&s=1');">
+            <section class="hero-section" style="background-image: url('/img/packages-4.jpeg');">
+                <video autoplay muted loop playsinline class="background-video" poster="/img/packages-4.jpeg">
+                    <source src="/vids/mahadev.mp4" type="video/mp4">
+                    </video>
                 <div class="hero-content">
                     <h1 class="hero-title font-poppins">Parang La Trek</h1>
                     <div class="hero-meta">
-                        <div><i class="fas fa-tag"></i><span>High altitude desert pass.</span></div>
+                        <div><i class="fas fa-tag"></i><span>A strenuous 10-day high-altitude expedition crossing Parang La to explore Spiti’s remote valleys and Tso Moriri.</span></div>
                         <div><i class="fas fa-map-marker-alt"></i><span>Himachal Pradesh</span></div>
                     </div>
                 </div>
@@ -693,7 +679,6 @@
                             </div>
                             <nav id="tabs" class="tab-buttons-nav">
                                 <button data-target="itinerary" class="tab-button active-tab"><i class="fas fa-list-ul mr-2 hidden-md"></i>Itinerary</button>
-                                <button data-target="dates" class="tab-button"><i class="fas fa-calendar-check mr-2 hidden-md"></i>Dates & Cost</button>
                                 <button data-target="why-us" class="tab-button"><i class="fas fa-users mr-2 hidden-md"></i>Why with us?</button>
                                 <button data-target="faq" class="tab-button"><i class="fas fa-question-circle mr-2 hidden-md"></i>FAQ</button>
                                 <button data-target="essentials" class="tab-button"><i class="fas fa-briefcase mr-2 hidden-md"></i>Essentials</button>
@@ -704,163 +689,124 @@
                     </div>
 
                     <div class="tab-content-panel active" id="itinerary">
-                       <h2 class="text-2xl font-bold mb-4 font-poppins">Detailed Itinerary</h2>
                        <div class="space-y-10">
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">01</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Manali to Kaza</h3>
-                                    <div class="itinerary-meta"><strong>Duration:</strong> Drive</div>
-                                    <p class="itinerary-description">Your journey begins with a scenic drive from Manali to Kaza, the sub-divisional headquarters of Spiti Valley. Upon arrival, check into your hotel and spend the day acclimatizing to the high altitude.</p>
+                                    <h3 class="font-poppins">Kaza (3,800 m) acclimatization</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> 3,800 m</div>
+                                    <p class="itinerary-description">Arrival at Kaza, the sub-divisional headquarters of Spiti Valley. Spend the day acclimatizing to the high altitude.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Scenic drive through high mountain passes (Rohtang Pass/Atal Tunnel, Kunzum Pass), acclimatization in Kaza.</p>
+                                        <p><strong>Highlights:</strong> Explore Kaza, visit local monasteries, gentle walks for acclimatization.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">02</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Kaza to Kibber (4,205m) to Chicham to Get to Langza</h3>
-                                    <div class="itinerary-meta"><strong>Duration:</strong> Acclimatization/Sightseeing</div>
-                                    <p class="itinerary-description">Spend the day exploring Kaza and its surroundings. Visit Key Monastery, Kibber village (one of the highest inhabited villages), Chicham Bridge (Asia's highest suspension bridge), and the fossil village of Langza. This day is crucial for further acclimatization.</p>
+                                    <h3 class="font-poppins">Kaza → Dumla (4,100 m) via Kibber</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> 4,100 m | <strong>Trek Distance:</strong> ~8 km | <strong>Trek Duration:</strong> ~4-5 hours</div>
+                                    <p class="itinerary-description">Drive to Kibber, then begin trekking to Dumla, a beautiful campsite overlooking the Spiti River.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Key Monastery, Kibber, Chicham Bridge, Langza fossil village, crucial acclimatization.</p>
+                                        <p><strong>Highlights:</strong> Visit Kibber, one of the highest villages, scenic initial trek.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">03</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Kaza to Pangmo (4,300m)</h3>
-                                    <div class="itinerary-meta"><strong>Duration:</strong> ~4-5 hrs trek</div>
-                                    <p class="itinerary-description">The first trekking day begins from Kaza. A gradual ascent leads you to the beautiful campsite of Pangmo, offering panoramic views of the Spiti Valley landscape.</p>
+                                    <h3 class="font-poppins">Dumla → Thaltak Meadow (4,700 m)</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> 4,700 m | <strong>Trek Distance:</strong> ~12 km | <strong>Trek Duration:</strong> ~6-7 hours</div>
+                                    <p class="itinerary-description">A challenging day's trek through barren terrain and across a river to reach the vast Thaltak Meadow.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> First day of trekking, scenic Spiti Valley views, camping at Pangmo.</p>
+                                        <p><strong>Highlights:</strong> Crossing the Spiti River (seasonal, may involve bridge), remote wilderness feel.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">04</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Pangmo to Jagtha (4,450m)</h3>
-                                    <div class="itinerary-meta"><strong>Duration:</strong> ~5-6 hrs trek</div>
-                                    <p class="itinerary-description">Today's trek follows the course of the Parilungbi river. The trail is mostly flat with some gradual ascents, taking you deeper into the barren yet beautiful Trans-Himalayan landscape.</p>
+                                    <h3 class="font-poppins">Thaltak → Borochin BC (5,000 m)</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> 5,000 m | <strong>Trek Distance:</strong> ~8 km | <strong>Trek Duration:</strong> ~4-5 hours</div>
+                                    <p class="itinerary-description">Ascend to Borochin Base Camp, a high-altitude camp preparing for the pass crossing. Good for further acclimatization.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Trekking along Parilungbi river, experiencing the desert landscape.</p>
+                                        <p><strong>Highlights:</strong> Approaching the high pass, stunning views of glaciers and peaks.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">05</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Jagtha to Dak Karzong (4,900m)</h3>
-                                    <div class="itinerary-meta"><strong>Duration:</strong> ~6-7 hrs trek</div>
-                                    <p class="itinerary-description">A long day with a gradual but consistent ascent. The landscape becomes even more stark and high-altitude desert-like. Dak Karzong campsite is situated in a remote, high-altitude setting, providing a sense of wilderness.</p>
+                                    <h3 class="font-poppins">BC → Parang La Pass (5,570 m) → Kharsa Gongma (4,800 m)</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> Parang La 5,570 m, Kharsa Gongma 4,800 m | <strong>Trek Distance:</strong> ~14 km | <strong>Trek Duration:</strong> ~9-10 hours</div>
+                                    <p class="itinerary-description">The summit day! Cross the formidable Parang La Pass, offering spectacular views, and then descend into the Changthang region of Ladakh to Kharsa Gongma.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Remote high-altitude camping, stark mountain views.</p>
+                                        <p><strong>Highlights:</strong> Reaching the highest point of the trek, breathtaking vistas, transition into a new landscape.</p>
+                                    </div>
+                                    <div class="mt-4">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Parang_La_Pass_view.jpg/800px-Parang_La_Pass_view.jpg" alt="Parang La Pass View" class="itinerary-image" onerror="this.style.display='none'">
                                     </div>
                                 </div>
                             </div>
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">06</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins summit-day">Dak Karzong to Parang La (5,580m) to Kharsa Gongma (5,150m)</h3>
-                                    <div class="itinerary-meta"><strong>Duration:</strong> ~9-10 hrs trek</div>
-                                    <p class="itinerary-description">This is the summit day and the most challenging part of the trek. A steep and strenuous ascent leads to the high Parang La Pass. From the pass, enjoy breathtaking views before a long and often steep descent, sometimes through snow, to Kharsa Gongma campsite.</p>
-                                    <div class="itinerary-highlight summit-highlight">
-                                        <p><strong>Highlights:</strong> Summiting Parang La, panoramic views of Ladakh and Spiti ranges, challenging descent.</p>
+                                    <h3 class="font-poppins">Kharsa → Norbu Sumdo (4,450 m) via river crossing</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> 4,450 m | <strong>Trek Distance:</strong> ~15 km | <strong>Trek Duration:</strong> ~7-8 hours</div>
+                                    <p class="itinerary-description">A long day trekking along the Pare Chu river bed, involving multiple river crossings. Reach Norbu Sumdo campsite.</p>
+                                    <div class="itinerary-highlight">
+                                        <p><strong>Highlights:</strong> Challenging river crossings, vast open landscapes of Changthang.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">07</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Kharsa Gongma to Tso Moriri (4,593m)</h3>
-                                    <div class="itinerary-meta"><strong>Duration:</strong> ~5-6 hrs trek</div>
-                                    <p class="itinerary-description">Today's trek leads you to the stunning turquoise waters of Tso Moriri, one of the largest high-altitude lakes in India. The trail follows the course of the Pare Chu river, eventually opening up to the majestic lake.</p>
+                                    <h3 class="font-poppins">Norbu → Kiangdom (4,570 m)</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> 4,570 m | <strong>Trek Distance:</strong> ~10 km | <strong>Trek Duration:</strong> ~5-6 hours</div>
+                                    <p class="itinerary-description">Continue trekking along the Pare Chu, nearing Tso Moriri. Camp at Kiangdom, known for Kiangs (wild asses).</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Reaching the beautiful Tso Moriri Lake, scenic riverside trek.</p>
+                                        <p><strong>Highlights:</strong> Wildlife spotting, first glimpses of Tso Moriri's vastness.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">08</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Explore around Tso Moriri</h3>
-                                    <div class="itinerary-meta"><strong>Duration:</strong> Rest/Acclimatization day</div>
-                                    <p class="itinerary-description">A well-deserved rest day to explore the mesmerizing surroundings of Tso Moriri. You can walk along the lake shore, visit the nomadic settlements, and absorb the serene beauty of this remote region. This day also aids further acclimatization.</p>
+                                    <h3 class="font-poppins">Kiangdom rest & day-hikes</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> 4,570 m</div>
+                                    <p class="itinerary-description">Rest day at Kiangdom or explore the surroundings with short day hikes towards Tso Moriri.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Relaxing by Tso Moriri, exploring nomadic culture, birdwatching.</p>
+                                        <p><strong>Highlights:</strong> Relaxation, exploration of the unique Changthang plateau, birdwatching near the lake.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">09</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Tso Moriri to Korzok (4,530m)</h3>
-                                    <div class="itinerary-meta"><strong>Duration:</strong> ~3-4 hrs trek</h3>
-                                    <p class="itinerary-description">A relatively short and pleasant trek along the shores of Tso Moriri leads you to Korzok village, home to the ancient Korzok Monastery and a significant nomadic settlement by the lake.</p>
+                                    <h3 class="font-poppins">Kiangdom → Korzok (4,590 m)</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> 4,590 m | <strong>Trek Distance:</strong> ~7 km | <strong>Trek Duration:</strong> ~3-4 hours</div>
+                                    <p class="itinerary-description">Short trek to Korzok village, situated on the banks of Tso Moriri. Explore the monastery and local life.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Trek along Tso Moriri, visit Korzok village and monastery.</p>
+                                        <p><strong>Highlights:</strong> Reaching Tso Moriri, exploring Korzok village and its monastery, interacting with nomadic communities.</p>
+                                    </div>
+                                    <div class="mt-4">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Tso_Moriri_lake_and_Korzok_monastery.jpg/800px-Tso_Moriri_lake_and_Korzok_monastery.jpg" alt="Tso Moriri and Korzok" class="itinerary-image" onerror="this.style.display='none'">
                                     </div>
                                 </div>
                             </div>
                             <div class="itinerary-item">
                                 <div class="itinerary-day-number">10</div>
                                 <div class="itinerary-details">
-                                    <h3 class="font-poppins">Korzok to Leh</h3>
-                                    <div class="itinerary-meta"><strong>Duration:</strong> Drive</div>
-                                    <p class="itinerary-description">After breakfast in Korzok, embark on a scenic drive to Leh, the capital of Ladakh. The journey will take you through stunning high-altitude desert landscapes, marking the conclusion of your epic Parang La Trek.</p>
+                                    <h3 class="font-poppins">Departure from Korzok</h3>
+                                    <div class="itinerary-meta"></div>
+                                    <p class="itinerary-description">Drive from Korzok to Leh, marking the end of the expedition.</p>
                                     <div class="itinerary-highlight">
-                                        <p><strong>Highlights:</strong> Scenic drive through remote Ladakh, arrival in Leh.</p>
+                                        <p><strong>Highlights:</strong> Scenic drive through Ladakh, journey through diverse landscapes.</p>
                                     </div>
                                 </div>
                             </div>
                        </div>
-                    </div>
-
-                    <div class="tab-content-panel" id="dates">
-                        <h2 class="text-2xl font-bold mb-4 font-poppins">Dates & Cost</h2>
-                        <div class="table-responsive-custom">
-                            <table class="data-table">
-                                <thead>
-                                    <tr>
-                                        <th>Start Date</th>
-                                        <th>End Date</th>
-                                        <th>Cost (Per Person)</th>
-                                        <th>Status</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>01 September 2025</td>
-                                        <td>10 September 2025</td>
-                                        <td>₹29,999</td>
-                                        <td><span class="status-tag status-available">Available</span></td>
-                                        <td><button class="book-button">Book</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>10 September 2025</td>
-                                        <td>19 September 2025</td>
-                                        <td>₹29,999</td>
-                                        <td><span class="status-tag status-limited">Limited Seats</span></td>
-                                        <td><button class="book-button">Book</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>20 September 2025</td>
-                                        <td>29 September 2025</td>
-                                        <td>₹29,999</td>
-                                        <td><span class="status-tag status-full">Full</span></td>
-                                        <td><button class="book-button disabled">Full</button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <p class="table-info-text">Minimum 5 people, maximum 20 people per departure.</p>
-                        <p class="table-info-text">Client Price: ₹29,999/-</p>
-                        <p class="table-info-text">B2B Rate (Manali to Leh): ₹25,000/-</p>
-                        <p class="table-info-text">Prices subject to change based on customization, logistics, and seasonality.</p>
                     </div>
 
                     <div class="tab-content-panel" id="why-us">
@@ -869,29 +815,29 @@
                             <div class="why-us-item">
                                 <i class="fas fa-shield-alt"></i>
                                 <div>
-                                    <h4>Safety & Guidance</h4>
-                                    <p>Experienced and certified guides, with emergency protocols and necessary gear for high-altitude trekking.</p>
+                                    <h4>Safety & High-Altitude Expertise</h4>
+                                    <p>Highly experienced and certified mountaineering guides trained in high-altitude rescue and first-aid, ensuring your safety on this challenging expedition.</p>
                                 </div>
                             </div>
                             <div class="why-us-item">
                                 <i class="fas fa-users-cog"></i>
                                 <div>
-                                    <h4>Local Expertise</h4>
-                                    <p>Our team comprises local experts from Himachal, ensuring authentic experiences and smooth operations.</p>
+                                    <h4>Comprehensive Logistics</h4>
+                                    <p>All-inclusive package covering permits, quality camping gear, technical equipment, and efficient transport, ensuring a seamless and worry-free trek.</p>
                                 </div>
                             </div>
                             <div class="why-us-item">
                                 <i class="fas fa-leaf"></i>
                                 <div>
-                                    <h4>Responsible Trekking</h4>
-                                    <p>We are committed to eco-friendly practices and support local communities, adhering to Leave No Trace principles.</p>
+                                    <h4>Responsible & Sustainable Trekking</h4>
+                                    <p>Committed to Leave No Trace principles, promoting eco-friendly practices, and supporting local communities in the remote Spiti and Ladakh regions.</p>
                                 </div>
                             </div>
                             <div class="why-us-item">
                                 <i class="fas fa-utensils"></i>
                                 <div>
-                                    <h4>Nutritious Meals</h4>
-                                    <p>Enjoy freshly prepared, hygienic, and nutritious meals throughout your trek to keep you energized.</p>
+                                    <h4>Nutritious Expedition Meals</h4>
+                                    <p>Wholesome and energy-rich meals prepared fresh by our dedicated cooks, designed to keep you fueled and healthy during the demanding high-altitude trek.</p>
                                 </div>
                             </div>
                         </div>
@@ -902,29 +848,110 @@
                          <div class="faq-container-list">
                              <div class="faq-item">
                                  <div class="faq-question">
-                                     <h4>What level of fitness is required for Parang La Trek?</h4>
+                                     <h4>What is the best time to do the Parang La Trek?</h4>
                                      <i class="fas fa-chevron-down faq-icon"></i>
                                  </div>
                                  <div class="faq-answer">
-                                     The Parang La Trek is rated Challenging. It involves crossing a very high-altitude pass, long trekking days in remote and barren landscapes, and significant altitude gains. Participants must have excellent physical fitness, prior high-altitude trekking experience, and be well-prepared for extreme conditions. Regular cardio and strength training are essential.
+                                    The best time for the Parang La Trek is from July to September. This window offers relatively stable weather and ensures the pass is free of heavy snow, making it traversable.
                                  </div>
                              </div>
                              <div class="faq-item">
                                  <div class="faq-question">
-                                     <h4>What is included in the trek package?</h4>
+                                     <h4>What is the difficulty level of the Parang La Trek?</h4>
                                      <i class="fas fa-chevron-down faq-icon"></i>
                                  </div>
                                  <div class="faq-answer">
-                                    Inclusions: Camping gear, all meals during trek, experienced guide, permits, trek team support, transport from Manali to Kaza and Korzok to Leh.
+                                    The Parang La Trek is considered strenuous (9/10). It is a high-altitude expedition involving long trekking days, challenging terrain, and significant altitude gain, suitable only for experienced trekkers with excellent physical fitness.
                                  </div>
                              </div>
                              <div class="faq-item">
                                  <div class="faq-question">
-                                     <h4>What is NOT included?</h4>
+                                     <h4>What kind of accommodation is provided during the trek?</h4>
                                      <i class="fas fa-chevron-down faq-icon"></i>
                                  </div>
                                  <div class="faq-answer">
-                                    Exclusions: Porterage, hotel stays in Manali, Kaza, Leh.
+                                    Accommodation will primarily be in high-quality tents on a sharing basis at all campsites. Basic homestay accommodation will be provided in Kaza.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>Is prior high-altitude trekking experience required?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    Yes, prior experience in high-altitude treks (above 4,500m/15,000ft) is essential. Trekkers should be comfortable with multi-day treks, river crossings, and traversing varied terrain.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>What physical preparation is needed for this trek?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    Extensive physical preparation, including intense cardiovascular training (running, cycling, swimming, stair climbing) for at least 2-3 months prior, is crucial. Strength training for legs and core is also highly recommended.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>What is the maximum altitude reached on this trek?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    The highest point reached on the Parang La Trek is the Parang La Pass itself, at an altitude of approximately 5,570 meters (18,274 feet).
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>Are there toilet facilities available on the trek?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    At all campsites, we set up hygienic dry pit toilets with toilet tents for privacy. On the trail, trekkers will need to practice responsible wilderness ethics for waste disposal.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>What kind of food will be provided during the trek?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    We provide freshly cooked, nutritious vegetarian meals throughout the trek, designed to provide adequate energy for high-altitude activities. Special dietary requests can be accommodated with prior notice.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>What are the emergency protocols in place?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    Our expedition is led by highly trained mountaineering guides proficient in high-altitude rescue and first aid. We carry comprehensive medical kits, oxygen cylinders, and have satellite phones for communication in emergencies.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>Will there be mobile network connectivity?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    Mobile network connectivity is extremely limited beyond Kaza. Expect no connectivity for the majority of the trek. Our team will carry satellite phones for emergency communication.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>How are river crossings managed?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    The trek involves several cold river crossings, particularly the Pare Chu. Our guides will assist you, and we recommend waterproof sandals or crocs for these sections. Safety is paramount.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>What about porters/mules for luggage?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    Porters or mules are arranged to carry all common gear, kitchen equipment, and your main luggage. You will only need to carry a small daypack with your essentials.
                                  </div>
                              </div>
                          </div>
@@ -934,42 +961,60 @@
                         <h2 class="text-2xl font-bold mb-4 font-poppins">Trek Essentials</h2>
                         <h3 class="text-xl font-bold mb-2 font-poppins">Inclusions</h3>
                         <ul class="essentials-list">
-                            <li>Camping gear (tents, sleeping bags, sleeping mats)</li>
-                            <li>All meals during the trek (Breakfast, Lunch, Dinner, snacks)</li>
-                            <li>Experienced and certified trek leader/guide</li>
-                            <li>Support staff (cooks, porters where necessary)</li>
-                            <li>Forest permits and camping charges</li>
-                            <li>Transportation to and from Manali (as per itinerary)</li>
+                            <li>All trek meals</li>
+                            <li>Homestays & camping</li>
+                            <li>High-altitude support team</li>
+                            <li>Permits</li>
+                            <li>Transport Manali–Kaza & Korzok–Leh</li>
                         </ul>
 
                         <h3 class="text-xl font-bold mb-2 font-poppins mt-4">Exclusions</h3>
                         <ul class="exclusions-list">
-                            <li>Personal trekking gear (e.g., trekking poles, headlamp)</li>
-                            <li>Any hotel stays in Manali before or after the trek</li>
-                            <li>Personal expenses like bottled water, soft drinks, laundry, phone calls</li>
-                            <li>Emergency evacuation or medical expenses</li>
-                            <li>Any costs arising due to unforeseen circumstances like landslides, road blocks, etc.</li>
-                            <li>Tips for the staff</li>
+                            <li>Personal expenses & insurance</li>
+                            <li>Any cost arising out of unforeseen circumstances including medical emergencies and act of nature.</li>
                         </ul>
                     </div>
 
                     <div class="tab-content-panel" id="photos">
                         <h2 class="text-2xl font-bold mb-4 font-poppins">Photo Gallery</h2>
-                        <div class="photo-gallery-grid">
-                            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/2b/ef/c7/parangla-trek.jpg?w=1200&h=-1&s=1" alt="Parang La View 1">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Chandranahan_Lake_Path.jpg/1280px-Chandranahan_Lake_Path.jpg" alt="Parang La View 2">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Chandranahan_Lake.jpg/1280px-Chandranahan_Lake.jpg" alt="Parang La View 3">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Dayara_Thatch.jpg/1280px-Dayara_Thatch.jpg" alt="Parang La View 4">
-                            <img src="https://source.unsplash.com/featured/?parangla,spiti" alt="Parang La Trek Scenery 1">
-                            <img src="https://source.unsplash.com/featured/?ladakh,mountains" alt="Parang La Trek Scenery 2">
+                        <div class="row g-3">
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Parang+La+1" data-lightbox="parangla-gallery" data-title="Parang La Trek View 1">
+                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Parang+La+1" class="img-fluid rounded shadow-sm" alt="Parang La Trek View 1">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Parang+La+2" data-lightbox="parangla-gallery" data-title="Parang La Trek View 2">
+                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Parang+La+2" class="img-fluid rounded shadow-sm" alt="Parang La Trek View 2">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Parang+La+3" data-lightbox="parangla-gallery" data-title="Parang La Trek View 3">
+                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Parang+La+3" class="img-fluid rounded shadow-sm" alt="Parang La Trek View 3">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Parang+La+4" data-lightbox="parangla-gallery" data-title="Parang La Trek View 4">
+                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Parang+La+4" class="img-fluid rounded shadow-sm" alt="Parang La Trek View 4">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Parang+La+5" data-lightbox="parangla-gallery" data-title="Parang La Trek View 5">
+                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Parang+La+5" class="img-fluid rounded shadow-sm" alt="Parang La Trek View 5">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="https://placehold.co/800x600/BBE0F2/0F3460?text=Parang+La+6" data-lightbox="parangla-gallery" data-title="Parang La Trek View 6">
+                                    <img src="https://placehold.co/800x600/BBE0F2/0F3460?text=Parang+La+6" class="img-fluid rounded shadow-sm" alt="Parang La Trek View 6">
+                                </a>
+                            </div>
                         </div>
                     </div>
-
                     <div class="tab-content-panel" id="map">
-                        <h2 class="text-2xl font-bold mb-4 font-poppins">Trek Map</h2>
+                        <h2 class="text-2xl font-bold mb-4 font-poppins">Map</h2>
                         <div class="map-container">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13778.07727409249!2d77.8078044747447!3d31.8105747683933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39050d4f3e430c51%3A0xc0f17b2b8e3a2c0c!2sShrikhand%20Mahadev!5e0!3m2!1sen!2sin!4v1719227568585!5m2!1sen!2sin"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13778.07727409249!2d77.8078044747447!3d31.8105747683933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39050d4f3e430c51%3A0xc0f17b2b8e3a2c0c!2sParang%20La%20Pass!5e0!3m2!1sen!2sin!4v1719228200000!5m2!1sen!2sin"
                                 width="600"
                                 height="450"
                                 style="border:0;"
@@ -978,21 +1023,21 @@
                                 referrerpolicy="no-referrer-when-downgrade">
                             </iframe>
                         </div>
-                        <p class="table-info-text mt-4">The map shows the approximate location of Parang La Trek. Detailed trek routes can vary.</p>
+                        <p class="table-info-text mt-4">The map shows the approximate location of Parang La Pass and surrounding areas. Detailed trek routes can vary.</p>
                     </div>
 
-                </div>
+                    </div>
 
                 <div class="right-column">
                     <div class="sticky-sidebar-wrapper">
                         <div class="sidebar-price-difficulty">
                             <div class="price-info">
                                 <p class="price-label">Client Price</p>
-                                <p class="main-price font-poppins">₹29,999</p>
+                                <p class="main-price font-poppins">₹66,000</p>
                             </div>
                             <div class="difficulty-score">
-                                <div class="difficulty-score-box"></div>
-                                <p>Challenging</p>
+                                <div class="difficulty-score-box">9/10</div>
+                                <p>Difficulty</p>
                             </div>
                         </div>
                         <a href="https://rzp.io/rzp/adoratrek" target="_blank" rel="noopener noreferrer"  class="sidebar-button book-now">Book Now</a>
@@ -1001,14 +1046,14 @@
                         <div class="quick-facts-section">
                             <h4 class="font-bold text-lg font-poppins">Quick Facts</h4>
                             <ul class="quick-facts-list">
-                                <li><i class="fas fa-calendar-alt"></i> 10 Days / 9 Nights</li>
-                                <li><i class="fas fa-chart-area"></i> Max Altitude: 5,580m (Parang La)</li>
-                                <li><i class="fas fa-route"></i> Trek Distance: Not specified in documents</li>
-                                <li><i class="fas fa-tachometer-alt"></i> Grade: Challenging</li>
-                                <li><i class="fas fa-users"></i> Group Size: Min 5, Max 20</li>
+                                <li><i class="fas fa-calendar-alt"></i> 10 Days</li>
+                                <li><i class="fas fa-chart-area"></i> Max Altitude: ~5,570 m (18,274 ft)</li>
+                                <li><i class="fas fa-route"></i> Trek Distance: ~90-100 km (approx)</li>
+                                <li><i class="fas fa-tachometer-alt"></i> Grade: 9/10 (Strenuous)</li>
+                                <li><i class="fas fa-users"></i> Group Size: Min 8, Max 20</li>
                             </ul>
                             <div class="organizer-info">
-                                <h4 class="font-bold text-lg font-poppins">Organizer</h4>
+                                <h4 class="font-bold text-lg font-poppins">Trek Guide</h4>
                                 <p>Tribal Routes</p>
                                 <p><i class="fas fa-phone"></i>+91 7807111209</p>
                                 <p><i class="fas fa-envelope"></i>info@adorahospitality.com</p>
@@ -1024,8 +1069,7 @@
                 <div class="mx-auto text-center" style="max-width: 900px;">
                     <h5 class="subscribe-title px-3">Subscribe</h5>
                     <h1 class="text-white mb-4">Our Newsletter</h1>
-                    <p class="text-white mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore nam, architecto doloremque velit explicabo? Voluptate sunt eveniet fuga eligendi! Expedita laudantium fugiat corrupti eum cum repellat a laborum quasi.
-                    </p>
+                    <p class="text-white mb-5">Get curated updates on upcoming treks, exclusive discounts, trail tips, and inspiring stories from the Himalayas. No spam — just the mountains calling. </p>
                     <div class="position-relative mx-auto">
                         <input class="form-control border-primary rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
                         <button type="button" class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Subscribe</button>
@@ -1072,11 +1116,9 @@
                             <h4 class="text-white mb-3">Payments Supported by</h4>
                             <div class="footer-bank-card">
                                 <a href="#" class="text-white me-2">
-                                  <img src="img/razorpay.png" alt="Razorpay" style="height: 32px; width: auto;">
+                                  <img src="/img/razorpay.png" alt="Razorpay" style="height: 32px; width: auto;">
                                 </a>
-                                <!--<a href="#" class="text-white me-2"><i class="fab fa-cc-paypal fa-2x"></i></a>
-                                <a href="#" class="text-white"><i class="fab fa-cc-discover fa-2x"></i></a>-->
-                            </div>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -1108,6 +1150,8 @@
         <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
         <script src="/lib/lightbox/js/lightbox.min.js"></script>
 
+        <script src="/js/main.js"></script>
+
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 const tabButtons = document.querySelectorAll('.tab-button');
@@ -1136,18 +1180,20 @@
                         const answer = question.nextElementSibling;
                         const icon = question.querySelector('.faq-icon');
 
-                        // Close other open FAQs
-                        document.querySelectorAll('.faq-answer.open').forEach(openAnswer => {
-                            if (openAnswer !== answer) {
-                                openAnswer.classList.remove('open');
-                                openAnswer.previousElementSibling.querySelector('.faq-icon').classList.remove('rotated');
-                            }
-                        });
-
                         answer.classList.toggle('open');
                         icon.classList.toggle('rotated');
                     });
                 });
+
+                // Lightbox specific configurations (optional, but good to ensure defaults)
+                lightbox.option({
+                    'resizeDuration': 200,
+                    'wrapAround': true, // Allows continuous navigation
+                    'fadeDuration': 200,
+                    'imageFadeDuration': 200
+                    // Other options can be added here as needed
+                });
+
             });
         </script>
     </body>
