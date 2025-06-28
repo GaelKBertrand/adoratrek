@@ -1245,3 +1245,36 @@
     background: var(--bs-dark) !important;
 }
 /*** copyright end ***/
+
+
+
+.packages-carousel .owl-stage {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.packages-carousel .owl-item {
+    display: flex;
+    flex: 0 0 auto;
+}
+
+.packages-item {
+    width: 100%;
+    max-width: 100%;
+    height: 600px; /* 🔁 Set the exact fixed height you want */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.packages-img {
+    height: 250px; /* 🔁 Fix image container height */
+    overflow: hidden;
+}
+
+.packages-img img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
