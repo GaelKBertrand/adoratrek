@@ -774,13 +774,17 @@
         </script>
 
         <!-- JavaScript Libraries -->
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                fetch('allpackageslist.html')
-                    .then(response => response.text())
-                    .then(html => document.getElementById('packagesListContainer').innerHTML = html)
-                    .catch(error => console.error('Error loading packages list:', error));
-            });
+       <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('allpackageslist.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('packagesListContainer').innerHTML = html;
+                })
+                .catch(error => {
+                    console.error('Error loading packages list:', error);
+                });
+        });
         </script>
 
 
