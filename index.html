@@ -219,6 +219,38 @@
         </div>
         <!-- About End -->
 
+                <!-- Packages Section will be loaded dynamically -->
+        <div id="popular-packagesslots-section"></div>
+        <script>
+          // Load packages section dynamically from packagesbyslot.html
+          fetch('packagesbyslot.html')
+            .then(res => res.text())
+            .then(html => {
+              document.getElementById('popular-packagesslots-section').innerHTML = html;
+
+              // Wait for DOM insertion then initialize Owl Carousel
+              if (typeof $ !== 'undefined' && typeof $.fn.owlCarousel !== 'undefined') {
+                $('.packages-carousel').owlCarousel({
+                  loop: true,
+                  margin: 30,
+                  nav: true,
+                  items: 3,
+                  autoplay: true,
+                  autoplayTimeout: 5000,
+                  responsive: {
+                    0: { items: 1 },
+                    576: { items: 2 },
+                    992: { items: 3 }
+                  }
+                });
+              }
+            })
+            .catch(err => {
+              console.error('Failed to load packages section:', err);
+              document.getElementById('popular-packagesslots-section').innerHTML = '<p class=\"text-center\">Packages failed to load.</p>';
+            });
+        </script>
+
         <!-- Packages Section will be loaded dynamically -->
         <div id="packages-section"></div>
         <script>
