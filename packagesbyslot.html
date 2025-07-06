@@ -1,4 +1,144 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popular Treks</title>
+    <!-- Tailwind CSS CDN for general utility classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa; /* Light background consistent with common web designs */
+        }
+        /* Custom styles to match the original design's section-title and btn-hover */
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding: 0 15px;
+            text-transform: uppercase;
+            color: #007bff; /* Primary color for section title */
+            font-weight: 600;
+        }
+        .section-title::before,
+        .section-title::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: #007bff; /* Primary color for section title lines */
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .section-title::before {
+            left: -100%;
+        }
+        .section-title::after {
+            right: -100%;
+        }
+        .btn-hover {
+            transition: all 0.3s ease;
+            background-color: #007bff; /* Primary color for buttons */
+            border: 1px solid #007bff;
+        }
+        .btn-hover:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+            border-color: #0056b3;
+            color: #fff;
+        }
+        .packages-item {
+            border-radius: 0.5rem; /* Consistent rounded corners */
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            transition: transform 0.3s ease;
+            margin: 1rem; /* Space between carousel items */
+        }
+        .packages-item:hover {
+            transform: translateY(-5px); /* Slight lift on hover */
+        }
+        .packages-img {
+            position: relative;
+        }
+        .packages-img img {
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+            object-fit: cover; /* Ensure images cover the area */
+            height: 200px; /* Fixed height for consistency */
+        }
+        .packages-info {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-top: 1px solid #dee2e6;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .packages-price {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: #007bff; /* Primary color for price tag */
+            color: white;
+            border-radius: 0.5rem;
+            font-weight: bold;
+        }
+        .packages-content {
+            background-color: #ffffff;
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+        }
+        .fa-star {
+            color: #ffc107; /* Gold color for stars */
+        }
+        /* Styling for slot buttons */
+        .slot-button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px; /* Fully rounded */
+            background-color: #e2e8f0; /* Light gray */
+            color: #4a5568; /* Dark gray text */
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            border: 2px solid transparent;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 150px;
+        }
+        .slot-button:hover {
+            background-color: #cbd5e0; /* Slightly darker gray on hover */
+            color: #2d3748;
+        }
+        .slot-button.active {
+            background-color: #007bff; /* Primary color when active */
+            color: white;
+            border-color: #007bff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .slot-button.active:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .slot-header-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        /* Important: Remove display: none here, JS will handle appending */
+        .packages-item {
+            /* display: none; Removed, as JS will manage visibility by appending */
+        }
+        /* No need for .owl-carousel .owl-item.active .packages-item anymore, Owl Carousel handles visibility */
+    </style>
+</head>
+<body>
 
 <!-- Packages Start -->
 <div class="container-fluid packages py-5">
@@ -9,387 +149,377 @@
             <h1 class="mb-0">Popular Treks</h1>
         </div>
 
-        <!-- Slot 1: 3-Day Treks -->
-        <div class="text-center mb-4 mt-5 flex items-center justify-center space-x-4">
-            <h3 class="text-2xl font-semibold text-gray-800">Slot 1: 3-Day Treks (3 Treks)</h3>
-            <a href="https://rzp.io/rzp/adoratrek" target="_blank" rel="noopener noreferrer" class="btn-hover btn text-white py-2 px-4 rounded-md shadow-md">Book Now for 3-Day Treks</a>
-        </div>
-        <div class="row g-4 justify-content-center">
-            <!-- Shrikhand Mahadev Trek -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="packages-item rounded-xl overflow-hidden shadow-lg">
-                    <div class="packages-img relative">
-                        <img src="img/packages-4.jpeg" class="img-fluid w-full rounded-t-xl object-cover h-48" alt="Shrikhand Mahadev Trek" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
-                        <div class="packages-info flex border border-l-0 border-r-0 absolute bottom-0 left-0 w-full z-10 bg-white bg-opacity-90">
-                            <small class="flex-fill text-center border-r py-2"><i class="fa fa-map-marker-alt me-2"></i>Manali - India</small>
-                            <small class="flex-fill text-center border-r py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
-                        </div>
-                        <div class="packages-price absolute top-4 right-4 py-2 px-4 bg-blue-500 text-white rounded-md font-bold">₹28,800</div>
-                    </div>
-                    <div class="packages-content bg-white p-4 rounded-b-xl">
-                        <div class="pb-0">
-                            <h5 class="mb-0 text-lg font-semibold">Shrikhand Mahadev Trek</h5>
-                            <small class="text-uppercase text-gray-600">Description</small>
-                            <div class="mb-3">
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                            </div>
-                            <p class="mb-4 text-gray-700">A challenging high‑altitude pilgrimage trek to the sacred Shrikhand Mahadev peak.</p>
-                        </div>
-                        <div class="row bg-blue-500 rounded-b-xl mx-0">
-                            <div class="col-12 text-center px-0">
-                                <a href="packages/mahadev.html" class="btn-hover btn text-white py-2 px-4 w-full block">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <!-- Slot Selection Buttons -->
+        <div class="slot-header-container">
+            <div class="slot-button active" data-slot="3-day-a">
+                3-Day Treks (Part A) (2)
             </div>
-            <!-- Kinner Kailash Trek -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="packages-item rounded-xl overflow-hidden shadow-lg">
-                    <div class="packages-img relative">
-                        <img src="img/packages-2.jpeg" class="img-fluid w-full rounded-t-xl object-cover h-48" alt="Kinner Kailash Trek" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
-                        <div class="packages-info flex border border-l-0 border-r-0 absolute bottom-0 left-0 w-full z-10 bg-white bg-opacity-90">
-                            <small class="flex-fill text-center border-r py-2"><i class="fa fa-map-marker-alt me-2"></i>Manali - India</small>
-                            <small class="flex-fill text-center border-r py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
-                        </div>
-                        <div class="packages-price absolute top-4 right-4 py-2 px-4 bg-blue-500 text-white rounded-md font-bold">₹26,400</div>
-                    </div>
-                    <div class="packages-content bg-white p-4 rounded-b-xl">
-                        <div class="pb-0">
-                            <h5 class="mb-0 text-lg font-semibold">Kinner Kailash Trek</h5>
-                            <small class="text-uppercase text-gray-600">Description</small>
-                            <div class="mb-3">
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                            </div>
-                            <p class="mb-4 text-gray-700">A spiritual circuit trek around the revered Kinner Kailash range in Kinnaur.</p>
-                        </div>
-                        <div class="row bg-blue-500 rounded-b-xl mx-0">
-                            <div class="col-12 text-center px-0">
-                                <a href="packages/kailash.html" class="btn-hover btn text-white py-2 px-4 w-full block">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="slot-button" data-slot="3-day-b">
+                3-Day Treks (Part B) (2)
             </div>
-            <!-- Mani Mahesh Trek -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="packages-item rounded-xl overflow-hidden shadow-lg">
-                    <div class="packages-img relative">
-                        <img src="img/packages-3.jpeg" class="img-fluid w-full rounded-t-xl object-cover h-48" alt="Mani Mahesh Trek" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
-                        <div class="packages-info flex border border-l-0 border-r-0 absolute bottom-0 left-0 w-full z-10 bg-white bg-opacity-90">
-                            <small class="flex-fill text-center border-r py-2"><i class="fa fa-map-marker-alt me-2"></i>Manali - India</small>
-                            <small class="flex-fill text-center border-r py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
-                        </div>
-                        <div class="packages-price absolute top-4 right-4 py-2 px-4 bg-blue-500 text-white rounded-md font-bold">₹18,600</div>
-                    </div>
-                    <div class="packages-content bg-white p-4 rounded-b-xl">
-                        <div class="pb-0">
-                            <h5 class="mb-0 text-lg font-semibold">Mani Mahesh Trek</h5>
-                            <small class="text-uppercase text-gray-600">Description</small>
-                            <div class="mb-3">
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                            </div>
-                            <p class="mb-4 text-gray-700">A moderate pilgrimage trek from Amritsar to the holy Mani Mahesh lake nestled in the Himalayas.</p>
-                        </div>
-                        <div class="row bg-blue-500 rounded-b-xl mx-0">
-                            <div class="col-12 text-center px-0">
-                                <a href="packages/mahesh.html" class="btn-hover btn text-white py-2 px-4 w-full block">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="slot-button" data-slot="5-day">
+                5-Day Treks (2)
+            </div>
+            <div class="slot-button" data-slot="6-day">
+                6-Day Treks (1)
+            </div>
+            <div class="slot-button" data-slot="7-day">
+                7-Day Treks (2)
+            </div>
+            <div class="slot-button" data-slot="8-day">
+                8-Day Treks (1)
+            </div>
+            <div class="slot-button" data-slot="10-day">
+                10-Day Treks (1)
             </div>
         </div>
 
-        <!-- Slot 2: 3-6 Day Treks -->
-        <div class="text-center mb-4 mt-5 flex items-center justify-center space-x-4">
-            <h3 class="text-2xl font-semibold text-gray-800">Slot 2: 3-6 Day Treks (4 Treks)</h3>
-            <a href="https://rzp.io/rzp/adoratrek" target="_blank" rel="noopener noreferrer" class="btn-hover btn text-white py-2 px-4 rounded-md shadow-md">Book Now for 3-6 Day Treks</a>
-        </div>
-        <div class="row g-4 justify-content-center">
-            <!-- Bhrigu Lake Trek -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="packages-item rounded-xl overflow-hidden shadow-lg">
-                    <div class="packages-img relative">
-                        <img src="img/packages-12.jpeg" class="img-fluid w-full rounded-t-xl object-cover h-48" alt="Bhrigu Lake Trek" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
-                        <div class="packages-info flex border border-l-0 border-r-0 absolute bottom-0 left-0 w-full z-10 bg-white bg-opacity-90">
-                            <small class="flex-fill text-center border-r py-2"><i class="fa fa-map-marker-alt me-2"></i>Himachal Pradesh, India</small>
-                            <small class="flex-fill text-center border-r py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>People: min 6, max 20</small>
-                        </div>
-                        <div class="packages-price absolute top-4 right-4 py-2 px-4 bg-blue-500 text-white rounded-md font-bold">₹6,000</div>
-                    </div>
-                    <div class="packages-content bg-white p-4 rounded-b-xl">
-                        <div class="pb-0">
-                            <h5 class="mb-0 text-lg font-semibold">Bhrigu Lake Trek</h5>
-                            <small class="text-uppercase text-gray-600">Description</small>
-                            <div class="mb-3">
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                            </div>
-                            <p class="mb-4 text-gray-700">A 3‑day moderate trek from Manali to the alpine Bhrigu Lake known for its panoramic views.</p>
-                        </div>
-                        <div class="row bg-blue-500 rounded-b-xl mx-0">
-                            <div class="col-12 text-center px-0">
-                                <a href="packages/bhrigu.html" class="btn-hover btn text-white py-2 px-4 w-full block">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Hampta Pass Trek -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="packages-item rounded-xl overflow-hidden shadow-lg">
-                    <div class="packages-img relative">
-                        <img src="img/packages-11.jpg" class="img-fluid w-full rounded-t-xl object-cover h-48" alt="Hampta Pass Trek" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
-                        <div class="packages-info flex border border-l-0 border-r-0 absolute bottom-0 left-0 w-full z-10 bg-white bg-opacity-90">
-                            <small class="flex-fill text-center border-r py-2"><i class="fa fa-map-marker-alt me-2"></i>Manali, India</small>
-                            <small class="flex-fill text-center border-r py-2"><i class="fa fa-calendar-alt me-2"></i>5 days</small>
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>People: min 6, max 20</small>
-                        </div>
-                        <div class="packages-price absolute top-4 right-4 py-2 px-4 bg-blue-500 text-white rounded-md font-bold">₹8,399</div>
-                    </div>
-                    <div class="packages-content bg-white p-4 rounded-b-xl">
-                        <div class="pb-0">
-                            <h5 class="mb-0 text-lg font-semibold">Hampta Pass Trek</h5>
-                            <small class="text-uppercase text-gray-600">Description</small>
-                            <div class="mb-3">
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                            </div>
-                            <p class="mb-4 text-gray-700">A very classic and enjoyful 5‑day trek from Manali into the Spiti Valley across the scenic and beautiful Hampta Pass. Best for groups and couples. </p>
-                        </div>
-                        <div class="row bg-blue-500 rounded-b-xl mx-0">
-                            <div class="col-12 text-center px-0">
-                                <a href="packages/hampta.html" class="btn-hover btn text-white py-2 px-4 w-full block">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Kanamo Peak Trek -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="packages-item rounded-xl overflow-hidden shadow-lg">
-                    <div class="packages-img relative">
-                        <img src="img/packages-15.jpeg" class="img-fluid w-full rounded-t-xl object-cover h-48" alt="Kanamo Peak Trek" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
-                        <div class="packages-info flex border border-l-0 border-r-0 absolute bottom-0 left-0 w-full z-10 bg-white bg-opacity-90">
-                            <small class="flex-fill text-center border-r py-2"><i class="fa fa-map-marker-alt me-2"></i>Himachal Pradesh, India</small>
-                            <small class="flex-fill text-center border-r py-2"><i class="fa fa-calendar-alt me-2"></i>5 days</small>
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>People: min 5, max 20</small>
-                        </div>
-                        <div class="packages-price absolute top-4 right-4 py-2 px-4 bg-blue-500 text-white rounded-md font-bold">₹22,800</div>
-                    </div>
-                    <div class="packages-content bg-white p-4 rounded-b-xl">
-                        <div class="pb-0">
-                            <h5 class="mb-0 text-lg font-semibold">Kanamo Peak Trek</h5>
-                            <small class="text-uppercase text-gray-600">Description</small>
-                            <div class="mb-3">
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                            </div>
-                            <p class="mb-4 text-gray-700">A 5‑day moderate ascent to summit Kanamo Peak with views of the Pin and Pare valleys.</p>
-                        </div>
-                        <div class="row bg-blue-500 rounded-b-xl mx-0">
-                            <div class="col-12 text-center px-0">
-                                <a href="packages/kanamo.html" class="btn-hover btn text-white py-2 px-4 w-full block">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Friendship Peak Trek -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="packages-item rounded-xl overflow-hidden shadow-lg">
-                    <div class="packages-img relative">
-                        <img src="img/packages-16.jpeg" class="img-fluid w-full rounded-t-xl object-cover h-48" alt="Friendship Peak Trek" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
-                        <div class="packages-info flex border border-l-0 border-r-0 absolute bottom-0 left-0 w-full z-10 bg-white bg-opacity-90">
-                            <small class="flex-fill text-center border-r py-2"><i class="fa fa-map-marker-alt me-2"></i>Himchal Pradesh, India</small>
-                            <small class="flex-fill text-center border-r py-2"><i class="fa fa-calendar-alt me-2"></i>6 days</small>
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>People: min 5, max 20</small>
-                        </div>
-                        <div class="packages-price absolute top-4 right-4 py-2 px-4 bg-blue-500 text-white rounded-md font-bold">₹37,200</div>
-                    </div>
-                    <div class="packages-content bg-white p-4 rounded-b-xl">
-                        <div class="pb-0">
-                            <h5 class="mb-0 text-lg font-semibold">Friendship Peak Trek</h5>
-                            <small class="text-uppercase text-gray-600">Description</small>
-                            <div class="mb-3">
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                            </div>
-                            <p class="mb-4 text-gray-700">A technical 6‑day snow‑and‑ice climb to Friendship Peak above Solang Valley.</p>
-                        </div>
-                        <div class="row bg-blue-500 rounded-b-xl mx-0">
-                            <div class="col-12 text-center px-0">
-                                <a href="packages/friendship.html" class="btn-hover btn text-white py-2 px-4 w-full block">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Single "Book Now" button for the selected slot -->
+        <div class="text-center mb-8">
+            <a id="slotBookButton" href="https://rzp.io/rzp/adoratrek" target="_blank" rel="noopener noreferrer" class="btn-hover btn text-white py-3 px-8 rounded-full text-lg shadow-xl">Book Now for Selected Treks</a>
         </div>
 
-        <!-- Slot 3: 7-10 Day Treks -->
-        <div class="text-center mb-4 mt-5 flex items-center justify-center space-x-4">
-            <h3 class="text-2xl font-semibold text-gray-800">Slot 3: 7-10 Day Treks (4 Treks)</h3>
-            <a href="https://rzp.io/rzp/adoratrek" target="_blank" rel="noopener noreferrer" class="btn-hover btn text-white py-2 px-4 rounded-md shadow-md">Book Now for 7-10 Day Treks</a>
-        </div>
-        <div class="row g-4 justify-content-center">
-            <!-- Buran Ghati Pass Trek -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="packages-item rounded-xl overflow-hidden shadow-lg">
-                    <div class="packages-img relative">
-                        <img src="img/packages-13.jpeg" class="img-fluid w-full rounded-t-xl object-cover h-48" alt="Buran Ghati Pass Trek" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
-                        <div class="packages-info flex border border-l-0 border-r-0 absolute bottom-0 left-0 w-full z-10 bg-white bg-opacity-90">
-                            <small class="flex-fill text-center border-r py-2"><i class="fa fa-map-marker-alt me-2"></i>Himachal Pradesh, India</small>
-                            <small class="flex-fill text-center border-r py-2"><i class="fa fa-calendar-alt me-2"></i>7 days</small>
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>People: min 4, max 20</small>
-                        </div>
-                        <div class="packages-price absolute top-4 right-4 py-2 px-4 bg-blue-500 text-white rounded-md font-bold">₹19,800</div>
+
+        <div class="packages-carousel owl-carousel">
+            <!-- Shrikhand Mahadev Trek (3 days) -->
+            <div class="packages-item" data-slot="3-day-a" data-days="3">
+                <div class="packages-img">
+                    <img src="img/packages-4.jpeg" class="img-fluid w-100 rounded-t-xl" alt="Shrikhand Mahadev Trek" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
+                    <div class="packages-info d-flex border border-l-0 border-r-0 absolute bottom-0 left-0 w-full z-10 bg-white bg-opacity-90">
+                        <small class="flex-fill text-center border-r py-2"><i class="fa fa-map-marker-alt me-2"></i>Manali - India</small>
+                        <small class="flex-fill text-center border-r py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
+                        <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
                     </div>
-                    <div class="packages-content bg-white p-4 rounded-b-xl">
-                        <div class="pb-0">
-                            <h5 class="mb-0 text-lg font-semibold">Buran Ghati Pass Trek</h5>
-                            <small class="text-uppercase text-gray-600">Description</small>
-                            <div class="mb-3">
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                            </div>
-                            <p class="mb-4 text-gray-700">A 7‑day trek over Buran Pass featuring alpine meadows, glacial lakes, and river crossings.</p>
+                    <div class="packages-price py-2 px-4">₹28,800</div>
+                </div>
+                <div class="packages-content bg-white p-4 rounded-b-xl">
+                    <div class="pb-0">
+                        <h5 class="mb-0 text-lg font-semibold">Shrikhand Mahadev Trek</h5>
+                        <small class="text-uppercase text-gray-600">Description</small>
+                        <div class="mb-3">
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
                         </div>
-                        <div class="row bg-blue-500 rounded-b-xl mx-0">
-                            <div class="col-12 text-center px-0">
-                                <a href="packages/burangati.html" class="btn-hover btn text-white py-2 px-4 w-full block">Read More</a>
-                            </div>
+                        <p class="mb-4 text-gray-700">A challenging high‑altitude pilgrimage trek to the sacred Shrikhand Mahadev peak.</p>
+                    </div>
+                    <div class="row bg-blue-500 rounded-b-xl mx-0">
+                        <div class="col-12 text-center px-0">
+                            <a href="packages/mahadev.html" class="btn-hover btn text-white py-2 px-4 w-full block">Read More</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Pin Bhaba Pass Trek -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="packages-item rounded-xl overflow-hidden shadow-lg">
-                    <div class="packages-img relative">
-                        <img src="img/packages-17.jpeg" class="img-fluid w-full rounded-t-xl object-cover h-48" alt="Pin Bhaba Pass Trek" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
-                        <div class="packages-info flex border border-l-0 border-r-0 absolute bottom-0 left-0 w-full z-10 bg-white bg-opacity-90">
-                            <small class="flex-fill text-center border-r py-2"><i class="fa fa-map-marker-alt me-2"></i>Himachal Pradesh, India</small>
-                            <small class="flex-fill text-center border-r py-2"><i class="fa fa-calendar-alt me-2"></i>7 days</small>
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>People: min 5, max 20</small>
-                        </div>
-                        <div class="packages-price absolute top-4 right-4 py-2 px-4 bg-blue-500 text-white rounded-md font-bold">₹26,399</div>
+            <!-- Kinner Kailash Trek (3 days) -->
+            <div class="packages-item" data-slot="3-day-a" data-days="3">
+                <div class="packages-img">
+                    <img src="img/packages-2.jpeg" class="img-fluid w-100 rounded-t-xl" alt="Kinner Kailash Trek" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
+                    <div class="packages-info d-flex border border-l-0 border-r-0 absolute bottom-0 left-0 w-full z-10 bg-white bg-opacity-90">
+                        <small class="flex-fill text-center border-r py-2"><i class="fa fa-map-marker-alt me-2"></i>Manali - India</small>
+                        <small class="flex-fill text-center border-r py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
+                        <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
                     </div>
-                    <div class="packages-content bg-white p-4 rounded-b-xl">
-                        <div class="pb-0">
-                            <h5 class="mb-0 text-lg font-semibold">Pin Bhaba Pass Trek</h5>
-                            <small class="text-uppercase text-gray-600">Description</small>
-                            <div class="mb-3">
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                            </div>
-                            <p class="mb-4 text-gray-700">A 7‑day traverse of Pin Bhaba Pass linking the lush Bhaba valley to the cold desert of Spiti.</p>
+                    <div class="packages-price py-2 px-4">₹26,400</div>
+                </div>
+                <div class="packages-content bg-white p-4 rounded-b-xl">
+                    <div class="pb-0">
+                        <h5 class="mb-0 text-lg font-semibold">Kinner Kailash Trek</h5>
+                        <small class="text-uppercase text-gray-600">Description</small>
+                        <div class="mb-3">
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
                         </div>
-                        <div class="row bg-blue-500 rounded-b-xl mx-0">
-                            <div class="col-12 text-center px-0">
-                                <a href="packages/pinbhaba.html" class="btn-hover btn text-white py-2 px-4 w-full block">Read More</a>
-                            </div>
+                        <p class="mb-4 text-gray-700">A spiritual circuit trek around the revered Kinner Kailash range in Kinnaur.</p>
+                    </div>
+                    <div class="row bg-blue-500 rounded-b-xl mx-0">
+                        <div class="col-12 text-center px-0">
+                            <a href="packages/kailash.html" class="btn-hover btn text-white py-2 px-4 w-full block">Read More</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Rupin Pass Trek -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="packages-item rounded-xl overflow-hidden shadow-lg">
-                    <div class="packages-img relative">
-                        <img src="img/packages-178.jpeg" class="img-fluid w-full rounded-t-xl object-cover h-48" alt="Rupin Pass Trek" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
-                        <div class="packages-info flex border border-l-0 border-r-0 absolute bottom-0 left-0 w-full z-10 bg-white bg-opacity-90">
-                            <small class="flex-fill text-center border-r py-2"><i class="fa fa-map-marker-alt me-2"></i>Himachal Pradesh, India</small>
-                            <small class="flex-fill text-center border-r py-2"><i class="fa fa-calendar-alt me-2"></i>8 days</small>
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>People: min 5, max 20</small>
-                        </div>
-                        <div class="packages-price absolute top-4 right-4 py-2 px-4 bg-blue-500 text-white rounded-md font-bold">₹26,999</div>
+            <!-- Mani Mahesh Trek (3 days) -->
+            <div class="packages-item" data-slot="3-day-b" data-days="3">
+                <div class="packages-img">
+                    <img src="img/packages-3.jpeg" class="img-fluid w-100 rounded-t-xl" alt="Mani Mahesh Trek" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
+                    <div class="packages-info d-flex border border-l-0 border-r-0 absolute bottom-0 left-0 w-full z-10 bg-white bg-opacity-90">
+                        <small class="flex-fill text-center border-r py-2"><i class="fa fa-map-marker-alt me-2"></i>Manali - India</small>
+                        <small class="flex-fill text-center border-r py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
+                        <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
                     </div>
-                    <div class="packages-content bg-white p-4 rounded-b-xl">
-                        <div class="pb-0">
-                            <h5 class="mb-0 text-lg font-semibold">Rupin Pass Trek</h5>
-                            <small class="text-uppercase text-gray-600">Description</small>
-                            <div class="mb-3">
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                            </div>
-                            <p class="mb-4 text-gray-700">8-day trek from Shimla through ridges, waterfalls, and alpine meadows into the Rupin Valley.</p>
+                    <div class="packages-price py-2 px-4">₹18,600</div>
+                </div>
+                <div class="packages-content bg-white p-4 rounded-b-xl">
+                    <div class="pb-0">
+                        <h5 class="mb-0 text-lg font-semibold">Mani Mahesh Trek</h5>
+                        <small class="text-uppercase text-gray-600">Description</small>
+                        <div class="mb-3">
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
                         </div>
-                        <div class="row bg-blue-500 rounded-b-xl mx-0">
-                            <div class="col-12 text-center px-0">
-                                <a href="packages/rupin.html" class="btn-hover btn text-white py-2 px-4 w-full block">Read More</a>
-                            </div>
+                        <p class="mb-4 text-gray-700">A moderate pilgrimage trek from Amritsar to the holy Mani Mahesh lake nestled in the Himalayas.</p>
+                    </div>
+                    <div class="row bg-blue-500 rounded-b-xl mx-0">
+                        <div class="col-12 text-center px-0">
+                            <a href="packages/mahesh.html" class="btn-hover btn text-white py-2 px-4 w-full block">Read More</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Parang La Trek -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="packages-item rounded-xl overflow-hidden shadow-lg">
-                    <div class="packages-img relative">
-                        <img src="img/packages-14.jpeg" class="img-fluid w-full rounded-t-xl object-cover h-48" alt="Parang La Trek" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
-                        <div class="packages-info flex border border-l-0 border-r-0 absolute bottom-0 left-0 w-full z-10 bg-white bg-opacity-90">
-                            <small class="flex-fill text-center border-r py-2"><i class="fa fa-map-marker-alt me-2"></i>Himachal Pradesh, India</small>
-                            <small class="flex-fill text-center border-r py-2"><i class="fa fa-calendar-alt me-2"></i>10 days</small>
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>People: min 8, max 20</small>
-                        </div>
-                        <div class="packages-price absolute top-4 right-4 py-2 px-4 bg-blue-500 text-white rounded-md font-bold">₹66,000</div>
+            <!-- Bhrigu Lake Trek (3 days) -->
+            <div class="packages-item" data-slot="3-day-b" data-days="3">
+                <div class="packages-img">
+                    <img src="img/packages-12.jpeg" class="img-fluid w-100 rounded-t-xl" alt="Bhrigu Lake Trek" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
+                    <div class="packages-info d-flex border border-l-0 border-r-0 absolute bottom-0 left-0 w-full z-10 bg-white bg-opacity-90">
+                        <small class="flex-fill text-center border-r py-2"><i class="fa fa-map-marker-alt me-2"></i>Himachal Pradesh, India</small>
+                        <small class="flex-fill text-center border-r py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
+                        <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>People: min 6, max 20</small>
                     </div>
-                    <div class="packages-content bg-white p-4 rounded-b-xl">
-                        <div class="pb-0">
-                            <h5 class="mb-0 text-lg font-semibold">Parang La Trek</h5>
-                            <small class="text-uppercase text-gray-600">Description</small>
-                            <div class="mb-3">
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                                <small class="fa fa-star text-yellow-500"></small>
-                            </div>
-                            <p class="mb-4 text-gray-700">A 10‑day high‑altitude expedition crossing Parang La to explore Spiti’s remote valleys and Tso Moriri.</p>
+                    <div class="packages-price py-2 px-4">₹6,000</div>
+                </div>
+                <div class="packages-content bg-white p-4 rounded-b-xl">
+                    <div class="pb-0">
+                        <h5 class="mb-0 text-lg font-semibold">Bhrigu Lake Trek</h5>
+                        <small class="text-uppercase text-gray-600">Description</small>
+                        <div class="mb-3">
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
                         </div>
-                        <div class="row bg-blue-500 rounded-b-xl mx-0">
-                            <div class="col-12 text-center px-0">
-                                <a href="packages/parang.html" class="btn-hover btn text-white py-2 px-4 w-full block">Read More</a>
-                            </div>
+                        <p class="mb-4 text-gray-700">A 3‑day moderate trek from Manali to the alpine Bhrigu Lake known for its panoramic views.</p>
+                    </div>
+                    <div class="row bg-blue-500 rounded-b-xl mx-0">
+                        <div class="col-12 text-center px-0">
+                            <a href="packages/bhrigu.html" class="btn-hover btn text-white py-2 px-4 w-full block">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hampta Pass Trek (5 days) -->
+            <div class="packages-item" data-slot="5-day" data-days="5">
+                <div class="packages-img">
+                    <img src="img/packages-11.jpg" class="img-fluid w-100 rounded-t-xl" alt="Hampta Pass Trek" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
+                    <div class="packages-info d-flex border border-l-0 border-r-0 absolute bottom-0 left-0 w-full z-10 bg-white bg-opacity-90">
+                        <small class="flex-fill text-center border-r py-2"><i class="fa fa-map-marker-alt me-2"></i>Manali, India</small>
+                        <small class="flex-fill text-center border-r py-2"><i class="fa fa-calendar-alt me-2"></i>5 days</small>
+                        <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>People: min 6, max 20</small>
+                    </div>
+                    <div class="packages-price py-2 px-4">₹8,399</div>
+                </div>
+                <div class="packages-content bg-white p-4 rounded-b-xl">
+                    <div class="pb-0">
+                        <h5 class="mb-0 text-lg font-semibold">Hampta Pass Trek</h5>
+                        <small class="text-uppercase text-gray-600">Description</small>
+                        <div class="mb-3">
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                        </div>
+                        <p class="mb-4 text-gray-700">A very classic and enjoyful 5‑day trek from Manali into the Spiti Valley across the scenic and beautiful Hampta Pass. Best for groups and couples. </p>
+                    </div>
+                    <div class="row bg-blue-500 rounded-b-xl mx-0">
+                        <div class="col-12 text-center px-0">
+                            <a href="packages/hampta.html" class="btn-hover btn text-white py-2 px-4 w-full block">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Kanamo Peak Trek (5 days) -->
+            <div class="packages-item" data-slot="5-day" data-days="5">
+                <div class="packages-img">
+                    <img src="img/packages-15.jpeg" class="img-fluid w-100 rounded-t-xl" alt="Kanamo Peak Trek" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
+                    <div class="packages-info d-flex border border-l-0 border-r-0 absolute bottom-0 left-0 w-full z-10 bg-white bg-opacity-90">
+                        <small class="flex-fill text-center border-r py-2"><i class="fa fa-map-marker-alt me-2"></i>Himachal Pradesh, India</small>
+                        <small class="flex-fill text-center border-r py-2"><i class="fa fa-calendar-alt me-2"></i>5 days</small>
+                        <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>People: min 5, max 20</small>
+                    </div>
+                    <div class="packages-price py-2 px-4">₹22,800</div>
+                </div>
+                <div class="packages-content bg-white p-4 rounded-b-xl">
+                    <div class="pb-0">
+                        <h5 class="mb-0 text-lg font-semibold">Kanamo Peak Trek</h5>
+                        <small class="text-uppercase text-gray-600">Description</small>
+                        <div class="mb-3">
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                        </div>
+                        <p class="mb-4 text-gray-700">A 5‑day moderate ascent to summit Kanamo Peak with views of the Pin and Pare valleys.</p>
+                    </div>
+                    <div class="row bg-blue-500 rounded-b-xl mx-0">
+                        <div class="col-12 text-center px-0">
+                            <a href="packages/kanamo.html" class="btn-hover btn text-white py-2 px-4 w-full block">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Friendship Peak Trek (6 days) -->
+            <div class="packages-item" data-slot="6-day" data-days="6">
+                <div class="packages-img">
+                    <img src="img/packages-16.jpeg" class="img-fluid w-100 rounded-t-xl" alt="Friendship Peak Trek" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
+                    <div class="packages-info d-flex border border-l-0 border-r-0 absolute bottom-0 left-0 w-full z-10 bg-white bg-opacity-90">
+                        <small class="flex-fill text-center border-r py-2"><i class="fa fa-map-marker-alt me-2"></i>Himchal Pradesh, India</small>
+                        <small class="flex-fill text-center border-r py-2"><i class="fa fa-calendar-alt me-2"></i>6 days</small>
+                        <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>People: min 5, max 20</small>
+                    </div>
+                    <div class="packages-price py-2 px-4">₹37,200</div>
+                </div>
+                <div class="packages-content bg-white p-4 rounded-b-xl">
+                    <div class="pb-0">
+                        <h5 class="mb-0 text-lg font-semibold">Friendship Peak Trek</h5>
+                        <small class="text-uppercase text-gray-600">Description</small>
+                        <div class="mb-3">
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                        </div>
+                        <p class="mb-4 text-gray-700">A technical 6‑day snow‑and‑ice climb to Friendship Peak above Solang Valley.</p>
+                    </div>
+                    <div class="row bg-blue-500 rounded-b-xl mx-0">
+                        <div class="col-12 text-center px-0">
+                            <a href="packages/friendship.html" class="btn-hover btn text-white py-2 px-4 w-full block">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Buran Ghati Pass Trek (7 days) -->
+            <div class="packages-item" data-slot="7-day" data-days="7">
+                <div class="packages-img">
+                    <img src="img/packages-13.jpeg" class="img-fluid w-100 rounded-t-xl" alt="Buran Ghati Pass Trek" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
+                    <div class="packages-info d-flex border border-l-0 border-r-0 absolute bottom-0 left-0 w-full z-10 bg-white bg-opacity-90">
+                        <small class="flex-fill text-center border-r py-2"><i class="fa fa-map-marker-alt me-2"></i>Himachal Pradesh, India</small>
+                        <small class="flex-fill text-center border-r py-2"><i class="fa fa-calendar-alt me-2"></i>7 days</small>
+                        <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>People: min 4, max 20</small>
+                    </div>
+                    <div class="packages-price py-2 px-4">₹19,800</div>
+                </div>
+                <div class="packages-content bg-white p-4 rounded-b-xl">
+                    <div class="pb-0">
+                        <h5 class="mb-0 text-lg font-semibold">Buran Ghati Pass Trek</h5>
+                        <small class="text-uppercase text-gray-600">Description</small>
+                        <div class="mb-3">
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                        </div>
+                        <p class="mb-4 text-gray-700">A 7‑day trek over Buran Pass featuring alpine meadows, glacial lakes, and river crossings.</p>
+                    </div>
+                    <div class="row bg-blue-500 rounded-b-xl mx-0">
+                        <div class="col-12 text-center px-0">
+                            <a href="packages/burangati.html" class="btn-hover btn text-white py-2 px-4 w-full block">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Pin Bhaba Pass Trek (7 days) -->
+            <div class="packages-item" data-slot="7-day" data-days="7">
+                <div class="packages-img">
+                    <img src="img/packages-17.jpeg" class="img-fluid w-100 rounded-t-xl" alt="Pin Bhaba Pass Trek" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
+                    <div class="packages-info d-flex border border-l-0 border-r-0 absolute bottom-0 left-0 w-full z-10 bg-white bg-opacity-90">
+                        <small class="flex-fill text-center border-r py-2"><i class="fa fa-map-marker-alt me-2"></i>Himachal Pradesh, India</small>
+                        <small class="flex-fill text-center border-r py-2"><i class="fa fa-calendar-alt me-2"></i>7 days</small>
+                        <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>People: min 5, max 20</small>
+                    </div>
+                    <div class="packages-price py-2 px-4">₹26,399</div>
+                </div>
+                <div class="packages-content bg-white p-4 rounded-b-xl">
+                    <div class="pb-0">
+                        <h5 class="mb-0 text-lg font-semibold">Pin Bhaba Pass Trek</h5>
+                        <small class="text-uppercase text-gray-600">Description</small>
+                        <div class="mb-3">
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                        </div>
+                        <p class="mb-4 text-gray-700">A 7‑day traverse of Pin Bhaba Pass linking the lush Bhaba valley to the cold desert of Spiti.</p>
+                    </div>
+                    <div class="row bg-blue-500 rounded-b-xl mx-0">
+                        <div class="col-12 text-center px-0">
+                            <a href="packages/pinbhaba.html" class="btn-hover btn text-white py-2 px-4 w-full block">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Rupin Pass Trek (8 days) -->
+            <div class="packages-item" data-slot="8-day" data-days="8">
+                <div class="packages-img">
+                    <img src="img/packages-178.jpeg" class="img-fluid w-100 rounded-t-xl" alt="Rupin Pass Trek" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
+                    <div class="packages-info d-flex border border-l-0 border-r-0 absolute bottom-0 left-0 w-full z-10 bg-white bg-opacity-90">
+                        <small class="flex-fill text-center border-r py-2"><i class="fa fa-map-marker-alt me-2"></i>Himachal Pradesh, India</small>
+                        <small class="flex-fill text-center border-r py-2"><i class="fa fa-calendar-alt me-2"></i>8 days</small>
+                        <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>People: min 5, max 20</small>
+                    </div>
+                    <div class="packages-price py-2 px-4">₹26,999</div>
+                </div>
+                <div class="packages-content bg-white p-4 rounded-b-xl">
+                    <div class="pb-0">
+                        <h5 class="mb-0 text-lg font-semibold">Rupin Pass Trek</h5>
+                        <small class="text-uppercase text-gray-600">Description</small>
+                        <div class="mb-3">
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                        </div>
+                        <p class="mb-4 text-gray-700">8-day trek from Shimla through ridges, waterfalls, and alpine meadows into the Rupin Valley.</p>
+                    </div>
+                    <div class="row bg-blue-500 rounded-b-xl mx-0">
+                        <div class="col-12 text-center px-0">
+                            <a href="packages/rupin.html" class="btn-hover btn text-white py-2 px-4 w-full block">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Parang La Trek (10 days) -->
+            <div class="packages-item" data-slot="10-day" data-days="10">
+                <div class="packages-img">
+                    <img src="img/packages-14.jpeg" class="img-fluid w-100 rounded-t-xl" alt="Parang La Trek" onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
+                    <div class="packages-info d-flex border border-l-0 border-r-0 absolute bottom-0 left-0 w-full z-10 bg-white bg-opacity-90">
+                        <small class="flex-fill text-center border-r py-2"><i class="fa fa-map-marker-alt me-2"></i>Himachal Pradesh, India</small>
+                        <small class="flex-fill text-center border-r py-2"><i class="fa fa-calendar-alt me-2"></i>10 days</small>
+                        <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>People: min 8, max 20</small>
+                    </div>
+                    <div class="packages-price py-2 px-4">₹66,000</div>
+                </div>
+                <div class="packages-content bg-white p-4 rounded-b-xl">
+                    <div class="pb-0">
+                        <h5 class="mb-0 text-lg font-semibold">Parang La Trek</h5>
+                        <small class="text-uppercase text-gray-600">Description</small>
+                        <div class="mb-3">
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                            <small class="fa fa-star text-yellow-500"></small>
+                        </div>
+                        <p class="mb-4 text-gray-700">A 10‑day high‑altitude expedition crossing Parang La to explore Spiti’s remote valleys and Tso Moriri.</p>
+                    </div>
+                    <div class="row bg-blue-500 rounded-b-xl mx-0">
+                        <div class="col-12 text-center px-0">
+                            <a href="packages/parang.html" class="btn-hover btn text-white py-2 px-4 w-full block">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -398,3 +528,69 @@
     </div>
 </div>
 <!-- Packages End -->
+
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- Owl Carousel JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // Store all original packages items for filtering
+        var allPackagesItems = $('.packages-carousel .packages-item').clone();
+        var $carouselContainer = $('.packages-carousel');
+        var $owlCarouselInstance;
+
+        // Function to initialize/re-initialize Owl Carousel
+        function initializeOwlCarousel() {
+            if ($owlCarouselInstance) {
+                $owlCarouselInstance.owlCarousel('destroy');
+            }
+            $owlCarouselInstance = $carouselContainer.owlCarousel({
+                loop: false,
+                margin: 20,
+                nav: true,
+                dots: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    768: {
+                        items: 2
+                    },
+                    992: {
+                        items: 3
+                    }
+                }
+            });
+        }
+
+        // Function to filter carousel items
+        function filterCarousel(slot) {
+            // Clear the current carousel content
+            $carouselContainer.empty();
+
+            // Append only the relevant items
+            allPackagesItems.filter(`[data-slot="${slot}"]`).appendTo($carouselContainer);
+
+            // Re-initialize Owl Carousel with the new content
+            initializeOwlCarousel();
+        }
+
+        // Click event for slot buttons
+        $('.slot-button').on('click', function() {
+            $('.slot-button').removeClass('active'); // Remove active from all
+            $(this).addClass('active'); // Add active to clicked button
+
+            var selectedSlot = $(this).data('slot');
+            filterCarousel(selectedSlot);
+        });
+
+        // Initial filter to show the first slot (3-Day Treks Part A) on page load
+        filterCarousel('3-day-a');
+    });
+</script>
+
+</body>
+</html>
+
