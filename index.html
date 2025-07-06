@@ -250,6 +250,71 @@
               document.getElementById('popular-packagesslots-section').innerHTML = '<p class=\"text-center\">Packages failed to load.</p>';
             });
         </script>
+                <script>
+            $(document).ready(function() {
+                // Store all original packages items for filtering
+                // We clone the items from the DOM, so they are not removed when we empty the carousel
+                var allPackagesItems = $('.packages-carousel .packages-item').clone();
+                var $carouselContainer = $('.packages-carousel');
+                var $owlCarouselInstance;
+
+                // Function to initialize/re-initialize Owl Carousel
+                function initializeOwlCarousel() {
+                    // Destroy existing Owl Carousel instance if it exists
+                    if ($owlCarouselInstance) {
+                        $owlCarouselInstance.owlCarousel('destroy');
+                    }
+                    // Initialize Owl Carousel with the current content
+                    $owlCarouselInstance = $carouselContainer.owlCarousel({
+                        loop: false, // Set to false so we can control which items are shown
+                        margin: 20,
+                        nav: true,
+                        dots: true,
+                        responsive: {
+                            0: {
+                                items: 1
+                            },
+                            768: {
+                                items: 2
+                            },
+                            992: {
+                                items: 3
+                            }
+                        }
+                    });
+                }
+
+                // Function to filter carousel items based on the selected slot
+                function filterCarousel(slot) {
+                    // Clear the current carousel content
+                    $carouselContainer.empty();
+
+                    // Append only the relevant items from the stored 'allPackagesItems'
+                    // Using .clone(true) to ensure event handlers (like 'Read More' clicks) are copied
+                    allPackagesItems.filter(`[data-slot="${slot}"]`).clone(true).appendTo($carouselContainer);
+
+                    // Re-initialize Owl Carousel with the new filtered content
+                    initializeOwlCarousel();
+                }
+
+                // Click event for slot buttons
+                $('.slot-button').on('click', function() {
+                    // Remove 'active' class from all slot buttons
+                    $('.slot-button').removeClass('active');
+                    // Add 'active' class to the clicked button
+                    $(this).addClass('active');
+
+                    // Get the data-slot value from the clicked button
+                    var selectedSlot = $(this).data('slot');
+                    // Filter the carousel based on the selected slot
+                    filterCarousel(selectedSlot);
+                });
+
+                // Initial filter to show the first slot (3-Day Treks Part A) on page load
+                filterCarousel('3-day-a');
+            });
+        </script>
+
 
         <!-- Packages Section will be loaded dynamically -->
         <div id="packages-section"></div>
