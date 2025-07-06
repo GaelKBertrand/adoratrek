@@ -219,7 +219,14 @@
         </div>
         <!-- About End -->
 
-        <div id="packagesListContainer"></div>
+        <div id="packages-section"></div>
+        <script>
+          fetch('allpackageslist.html')
+            .then(response => response.text())
+            .then(html => {
+              document.getElementById('packages-section').innerHTML = html;
+            });
+        </script>
 
 
         <!-- Gallery Start
@@ -775,23 +782,6 @@
         </script>
 
         <!-- JavaScript Libraries -->
-
-        <script>
-          document.addEventListener('DOMContentLoaded', () => {
-            fetch('allpackageslist.html')
-              .then(res => {
-                console.log('Fetch status:', res.status);
-                return res.text();
-              })
-              .then(html => {
-                document.getElementById('packagesListContainer').innerHTML = html;
-                console.log('Packages loaded');
-              })
-              .catch(err => console.error('Fetch error:', err));
-          });
-        </script>
-
-
         <script>
           var wa_btnSetting = {"btnColor":"#2216c0","ctaText":"Talk to Us on Whatsapp","cornerRadius":40,"marginBottom":20,"marginLeft":20,"marginRight":20,"btnPosition":"right","whatsAppNumber":"917807111209","welcomeMessage":"What is your name:\n\nYour vacation or trip destination:\n\nEstimated budget range:\n\nAny extra activities needed (example: hiking, fishing, skydiving, etc,...): \n\n","zIndex":999999,"btnColorScheme":"light"};
           window.onload = () => {
