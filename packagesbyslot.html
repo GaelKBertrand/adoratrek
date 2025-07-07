@@ -1,167 +1,144 @@
-<!-- Slot Filter Buttons -->
-<div class="row mb-3">
-  <div class="col text-center">
-    <button type="button" class="btn btn-outline-primary slot-btn active" data-slot="1">Jan 1 – Mar 15</button>
-    <button type="button" class="btn btn-outline-primary slot-btn" data-slot="2">Mar 16 – May 31</button>
-    <button type="button" class="btn btn-outline-primary slot-btn" data-slot="3">Jun 1 – Aug 15</button>
-    <button type="button" class="btn btn-outline-primary slot-btn" data-slot="4">Aug 16 – Oct 31</button>
-    <button type="button" class="btn btn-outline-primary slot-btn" data-slot="5">Nov 1 – Dec 31</button>
-  </div>
-</div>
-
-<!-- Batch dates info line -->
-<div id="batch-info" class="text-center mb-3 fw-bold"></div>
-
-<!-- Existing carousel structure (do not alter inner items beyond adding slot info) -->
-<div class="packages-carousel owl-carousel">
-  <!-- Slot 1 items -->
-  <div class="packages-item" data-slot="1">
-    <img src="images/kilimanjaro.jpg" alt="Mount Kilimanjaro" class="img-fluid">
-    <div class="p-3">
-      <h5>Mount Kilimanjaro – Lemosho Route (Tanzania)</h5>
-      <p class="mb-1">7 days / 6 nights</p>
-      <p>Price: $2,200</p>
-      <div class="batch-dates" style="display:none;">Jan 10–17</div>
-    </div>
-  </div>
-  <div class="packages-item" data-slot="1">
-    <img src="images/everest_view.jpg" alt="Everest View Trek" class="img-fluid">
-    <div class="p-3">
-      <h5>Everest View Trek (Nepal)</h5>
-      <p class="mb-1">5 days / 4 nights</p>
-      <p>Price: $800</p>
-      <div class="batch-dates" style="display:none;">Mar 1–5</div>
-    </div>
-  </div>
-
-  <!-- Slot 2 items -->
-  <div class="packages-item" data-slot="2">
-    <img src="images/everest_base_camp.jpg" alt="Everest Base Camp" class="img-fluid">
-    <div class="p-3">
-      <h5>Everest Base Camp Trek (Nepal)</h5>
-      <p class="mb-1">16 days / 15 nights</p>
-      <p>Price: $3,000</p>
-      <div class="batch-dates" style="display:none;">Apr 10–25</div>
-    </div>
-  </div>
-  <div class="packages-item" data-slot="2">
-    <img src="images/mont_blanc.jpg" alt="Tour du Mont Blanc" class="img-fluid">
-    <div class="p-3">
-      <h5>Tour du Mont Blanc (Europe)</h5>
-      <p class="mb-1">8 days / 7 nights</p>
-      <p>Price: $1,900</p>
-      <div class="batch-dates" style="display:none;">May 10–20</div>
-    </div>
-  </div>
-
-  <!-- Slot 3 items -->
-  <div class="packages-item" data-slot="3">
-    <img src="images/annapurna_circuit.jpg" alt="Annapurna Circuit Trek" class="img-fluid">
-    <div class="p-3">
-      <h5>Annapurna Circuit Trek (Nepal)</h5>
-      <p class="mb-1">14 days / 13 nights</p>
-      <p>Price: $1,500</p>
-      <div class="batch-dates" style="display:none;">Jun 5–20</div>
-    </div>
-  </div>
-  <div class="packages-item" data-slot="3">
-    <img src="images/dolomites.jpg" alt="Dolomites Alta Via 1" class="img-fluid">
-    <div class="p-3">
-      <h5>Dolomites Alta Via 1 (Italy)</h5>
-      <p class="mb-1">13 days / 12 nights</p>
-      <p>Price: $1,600</p>
-      <div class="batch-dates" style="display:none;">Jul 1–15</div>
-    </div>
-  </div>
-
-  <!-- Slot 4 items -->
-  <div class="packages-item" data-slot="4">
-    <img src="images/langtang_valley.jpg" alt="Langtang Valley Trek" class="img-fluid">
-    <div class="p-3">
-      <h5>Langtang Valley Trek (Nepal)</h5>
-      <p class="mb-1">7 days / 6 nights</p>
-      <p>Price: $700</p>
-      <div class="batch-dates" style="display:none;">Sep 10–25</div>
-    </div>
-  </div>
-  <div class="packages-item" data-slot="4">
-    <img src="images/inca_trail.jpg" alt="Inca Trail" class="img-fluid">
-    <div class="p-3">
-      <h5>Inca Trail to Machu Picchu (Peru)</h5>
-      <p class="mb-1">12 days / 11 nights</p>
-      <p>Price: $2,500</p>
-      <div class="batch-dates" style="display:none;">Aug 20–Sep 4</div>
-    </div>
-  </div>
-
-  <!-- Slot 5 items -->
-  <div class="packages-item" data-slot="5">
-    <img src="images/poon_hill.jpg" alt="Poon Hill Trek" class="img-fluid">
-    <div class="p-3">
-      <h5>Poon Hill Trek (Nepal)</h5>
-      <p class="mb-1">5 days / 4 nights</p>
-      <p>Price: $400</p>
-      <div class="batch-dates" style="display:none;">Nov 15–20</div>
-    </div>
-  </div>
-  <div class="packages-item" data-slot="5">
-    <img src="images/machu_picchu.jpg" alt="Machu Picchu Trek" class="img-fluid">
-    <div class="p-3">
-      <h5>Machu Picchu Luxury Trek (Peru)</h5>
-      <p class="mb-1">8 days / 7 nights</p>
-      <p>Price: $2,200</p>
-      <div class="batch-dates" style="display:none;">Dec 5–15</div>
-    </div>
-  </div>
-</div>
-
-<!-- JavaScript (jQuery) -->
-<script>
-$(document).ready(function(){
-  // Initialize Owl Carousel
-  var owl = $('.packages-carousel').owlCarousel({
-    loop: true,
-    margin: 10,
-    nav: true,
-    responsive: { 0:{items:1}, 600:{items:2}, 1000:{items:3} }
-  });
-
-  // Function to filter items by slot
-  function filterSlot(slot) {
-    // Show/Hide carousel items
-    owl.find('.owl-item').each(function(){
-      var $slide = $(this);
-      var $item = $slide.find('.packages-item');
-      if ($item.data('slot') == slot) {
-        $slide.show();
-      } else {
-        $slide.hide();
-      }
-    });
-    // Refresh carousel layout (important):contentReference[oaicite:3]{index=3}
-    owl.trigger('refresh.owl.carousel');
-
-    // Update batch dates line
-    var batchTexts = [];
-    $('.packages-item[data-slot="' + slot + '"] .batch-dates').each(function(){
-      batchTexts.push($(this).text());
-    });
-    if(batchTexts.length) {
-      $('#batch-info').text('Batches: ' + batchTexts.join(', '));
-    } else {
-      $('#batch-info').empty();
-    }
-  }
-
-  // Initial filter (slot 1) on page load
-  filterSlot(1);
-
-  // Click handler for filter buttons
-  $('.slot-btn').on('click', function(){
-    var slot = $(this).data('slot');
-    $('.slot-btn').removeClass('active');
-    $(this).addClass('active');
-    filterSlot(slot);
-  });
-});
-</script>
+        <!-- Packages Start -->
+        <div class="container-fluid packages py-5">
+            <div class="container py-5">
+                <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+                    <h5 class="section-title px-3">Packages</h5>
+                    <h1 class="mb-0">Awesome Packages</h1>
+                </div>
+                <div class="packages-carousel owl-carousel">
+                    <div class="packages-item">
+                        <div class="packages-img">
+                            <img src="img/packages-4.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                            <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
+                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Venice - Italy</small>
+                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
+                                <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
+                            </div>
+                            <div class="packages-price py-2 px-4">$349.00</div>
+                        </div>
+                        <div class="packages-content bg-light">
+                            <div class="p-4 pb-0">
+                                <h5 class="mb-0">Venice - Italy</h5>
+                                <small class="text-uppercase">Hotel Deals</small>
+                                <div class="mb-3">
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                </div>
+                                <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt nemo quia quae illum aperiam fugiat voluptatem repellat</p>
+                            </div>
+                            <div class="row bg-primary rounded-bottom mx-0">
+                                <div class="col-6 text-start px-0">
+                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Read More</a>
+                                </div>
+                                <div class="col-6 text-end px-0">
+                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="packages-item">
+                        <div class="packages-img">
+                            <img src="img/packages-2.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                            <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
+                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Venice - Italy</small>
+                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
+                                <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
+                            </div>
+                            <div class="packages-price py-2 px-4">$449.00</div>
+                        </div>
+                        <div class="packages-content bg-light">
+                            <div class="p-4 pb-0">
+                                <h5 class="mb-0">The New California</h5>
+                                <small class="text-uppercase">Hotel Deals</small>
+                                <div class="mb-3">
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                </div>
+                                <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt nemo quia quae illum aperiam fugiat voluptatem repellat</p>
+                            </div>
+                            <div class="row bg-primary rounded-bottom mx-0">
+                                <div class="col-6 text-start px-0">
+                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Read More</a>
+                                </div>
+                                <div class="col-6 text-end px-0">
+                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="packages-item">
+                        <div class="packages-img">
+                            <img src="img/packages-3.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                            <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
+                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Venice - Italy</small>
+                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
+                                <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
+                            </div>
+                            <div class="packages-price py-2 px-4">$549.00</div>
+                        </div>
+                        <div class="packages-content bg-light">
+                            <div class="p-4 pb-0">
+                                <h5 class="mb-0">Discover Japan</h5>
+                                <small class="text-uppercase">Hotel Deals</small>
+                                <div class="mb-3">
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                </div>
+                                <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt nemo quia quae illum aperiam fugiat voluptatem repellat</p>
+                            </div>
+                            <div class="row bg-primary rounded-bottom mx-0">
+                                <div class="col-6 text-start px-0">
+                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Read More</a>
+                                </div>
+                                <div class="col-6 text-end px-0">
+                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="packages-item">
+                        <div class="packages-img">
+                            <img src="img/packages-1.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                            <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
+                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Thayland</small>
+                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
+                                <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
+                            </div>
+                            <div class="packages-price py-2 px-4">$649.00</div>
+                        </div>
+                        <div class="packages-content bg-light">
+                            <div class="p-4 pb-0">
+                                <h5 class="mb-0">Thayland Trip</h5>
+                                <small class="text-uppercase">Hotel Deals</small>
+                                <div class="mb-3">
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                </div>
+                                <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt nemo quia quae illum aperiam fugiat voluptatem repellat</p>
+                            </div>
+                            <div class="row bg-primary rounded-bottom mx-0">
+                                <div class="col-6 text-start px-0">
+                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Read More</a>
+                                </div>
+                                <div class="col-6 text-end px-0">
+                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Packages End -->
