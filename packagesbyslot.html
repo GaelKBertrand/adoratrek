@@ -132,12 +132,14 @@ $(document).ready(function () {
   function initCarousel(items) {
     const $carousel = $(".packages-carousel");
 
+    // Proper Owl Carousel destroy
     if ($carousel.hasClass("owl-loaded")) {
-      $carousel.trigger("destroy.owl.carousel").removeClass("owl-loaded").find(".owl-stage-outer").children().unwrap();
+      $carousel.trigger("destroy.owl.carousel");
+      $carousel.html("");
     }
 
-    $carousel.empty().append(items);
-
+    // Append and reinitialize
+    $carousel.append(items);
     $carousel.owlCarousel({
       loop: true,
       margin: 30,
@@ -151,23 +153,23 @@ $(document).ready(function () {
     });
   }
 
-  $(".slot-button").on("click", function () {
-    const slot = $(this).data("slot");
-
-    $(".slot-button").removeClass("active");
-    $(this).addClass("active");
-
+  function showSlot(slot) {
     const $items = $(".all-packages .package-item").filter(function () {
       return $(this).data("slot") === slot;
     });
-
     initCarousel($items.clone());
+  }
+
+  // Click handler
+  $(".slot-button").on("click", function () {
+    const slot = $(this).data("slot");
+    $(".slot-button").removeClass("active");
+    $(this).addClass("active");
+    showSlot(slot);
   });
 
-  const $defaultItems = $(".all-packages .package-item").filter(function () {
-    return $(this).data("slot") === "3-day-a";
-  });
-
-  initCarousel($defaultItems.clone());
+  // Initial load: first slot active
+  showSlot("3-day-a");
 });
+
 </script>
