@@ -1,137 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trek Packages</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Custom styles for the packages section to mimic the original look with Tailwind */
-        .packages-item {
-            border-radius: 0.5rem; /* rounded-lg */
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
-            transition: transform 0.3s ease-in-out;
-        }
+    <meta charset="utf-8">
+    <title>Adora Treks - Packages by Slot</title>
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
 
-        .packages-item:hover {
-            transform: translateY(-5px);
-        }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet">
 
-        .packages-img {
-            position: relative;
-            height: 250px; /* Fixed height for images */
-            overflow: hidden;
-        }
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-        .packages-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Ensure images cover the area */
-        }
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
-        .packages-info {
-            background: rgba(255, 255, 255, 0.9);
-            border-top: 1px solid #ddd;
-            border-bottom: 1px solid #ddd;
-        }
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-        .packages-price {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: #00B98E; /* primary color */
-            color: white;
-            border-radius: 0.5rem;
-            font-weight: bold;
-        }
-
-        .btn-hover {
-            transition: background-color 0.3s ease-in-out;
-        }
-
-        .btn-hover:hover {
-            background-color: #009673; /* Slightly darker primary for hover */
-        }
-
-        .slot-button {
-            background-color: #f0f0f0;
-            color: #333;
-            padding: 0.75rem 1.5rem;
-            border-radius: 9999px; /* rounded-full */
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid #ccc;
-            width: 100%; /* Make buttons full width in their column */
-            text-align: left; /* Align text to left */
-        }
-
-        .slot-button:hover {
-            background-color: #e0e0e0;
-        }
-
-        .slot-button.active {
-            background-color: #00B98E; /* primary color */
-            color: white;
-            border-color: #00B98E;
-        }
-
-        .batches-section {
-            background-color: #f8f9fa; /* light background */
-            padding: 2rem;
-            border-radius: 0.5rem;
-            margin-top: 2rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-
-        .batch-card {
-            background-color: white;
-            border: 1px solid #eee;
-            border-radius: 0.5rem;
-            padding: 1rem;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-        }
-    </style>
+    <link href="css/style.css" rel="stylesheet">
 </head>
-<body class="font-sans antialiased bg-gray-100">
 
-    <!-- Packages Start -->
-    <div class="container-fluid packages py-5">
-        <div class="container py-5">
-            <div class="mx-auto text-center mb-5" style="max-width: 900px;">
-                <h5 class="section-title px-3">Packages</h5>
-                <h1 class="mb-0">Awesome Treks</h1>
-            </div>
-
-            <!-- Main Content Area: Filters on Left, Treks on Right -->
-            <div class="flex flex-col lg:flex-row gap-8">
-                <!-- Slot Buttons (Left Column) -->
-                <div id="slot-buttons" class="flex flex-col gap-4 w-full lg:w-1/4 p-4 bg-white rounded-lg shadow-md h-fit">
-                    <h3 class="text-2xl font-semibold mb-2 text-gray-800">Filter Treks by Month</h3>
-                    <!-- Buttons will be injected here by JavaScript -->
+<body>
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Left Side: Slot List -->
+            <div class="col-lg-3 mb-4">
+                <div class="list-group" id="slotList">
+                    <a class="list-group-item list-group-item-action active" data-slot="slot1">Jan 10 - Mar 10</a>
+                    <a class="list-group-item list-group-item-action" data-slot="slot2">Apr 10 - Jun 10</a>
+                    <a class="list-group-item list-group-item-action" data-slot="slot3">Jul 10 - Sep 10</a>
+                    <a class="list-group-item list-group-item-action" data-slot="slot4">Oct 10 - Dec 10</a>
                 </div>
-
-                <!-- Treks Display Area and Batches (Right Column) -->
-                <div class="flex-1 w-full lg:w-3/4">
-                    <!-- The original packages-carousel div is now our display container -->
-                    <div id="treks-display" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <!-- Original packages-item divs go here.
-                             Each packages-item now has a 'data-batches' attribute. -->
-                        <div class="packages-item" data-batches="2025-07-15,2025-08-01,2025-09-10">
+            </div>
+            <!-- Right Side: Carousels for Each Slot -->
+            <div class="col-lg-9">
+                <!-- Slot 1 Content (Jan10 - Mar10) -->
+                <div id="slot1" class="slot-content">
+                    <div class="packagesbyslot-carousel owl-carousel">
+                        <div class="packages-item">
                             <div class="packages-img">
-                                <img src="img/packages-4.jpeg" class="img-fluid w-100 rounded-top" alt="Image" onerror="this.onerror=null;this.src='https://placehold.co/400x250/E0E0E0/333333?text=Image+Not+Found';">
+                                <img src="img/packages-4.jpeg" class="img-fluid w-100 rounded-top" alt="Image">
                                 <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Manali - India</small>
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
-                                    <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
+                                    <small class="flex-fill text-center border-end py-2">
+                                        <i class="fa fa-map-marker-alt me-2"></i>Manali - India
+                                    </small>
+                                    <small class="flex-fill text-center border-end py-2">
+                                        <i class="fa fa-calendar-alt me-2"></i>3 days
+                                    </small>
+                                    <small class="flex-fill text-center py-2">
+                                        <i class="fa fa-user me-2"></i>2 Person
+                                    </small>
                                 </div>
                                 <div class="packages-price py-2 px-4">₹28,800</div>
                             </div>
                             <div class="packages-content bg-light">
                                 <div class="p-4 pb-0">
+                                    <div class="mb-3">
+                                        <small class="badge bg-primary text-white rounded-pill me-2">Jan 15 - Jan 20</small>
+                                        <small class="badge bg-primary text-white rounded-pill">Feb 10 - Feb 15</small>
+                                    </div>
                                     <h5 class="mb-0">Shrikhand Mahadev Trek</h5>
                                     <small class="text-uppercase">Description</small>
                                     <div class="mb-3">
@@ -153,18 +84,28 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="packages-item" data-batches="2025-07-20,2025-08-05,2025-09-15">
+                        <div class="packages-item">
                             <div class="packages-img">
-                                <img src="img/packages-2.jpeg" class="img-fluid w-100 rounded-top" alt="Image" onerror="this.onerror=null;this.src='https://placehold.co/400x250/E0E0E0/333333?text=Image+Not+Found';">
+                                <img src="img/packages-2.jpeg" class="img-fluid w-100 rounded-top" alt="Image">
                                 <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Manali - India</small>
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
-                                    <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
+                                    <small class="flex-fill text-center border-end py-2">
+                                        <i class="fa fa-map-marker-alt me-2"></i>Manali - India
+                                    </small>
+                                    <small class="flex-fill text-center border-end py-2">
+                                        <i class="fa fa-calendar-alt me-2"></i>3 days
+                                    </small>
+                                    <small class="flex-fill text-center py-2">
+                                        <i class="fa fa-user me-2"></i>2 Person
+                                    </small>
                                 </div>
                                 <div class="packages-price py-2 px-4">₹26,400</div>
                             </div>
                             <div class="packages-content bg-light">
                                 <div class="p-4 pb-0">
+                                    <div class="mb-3">
+                                        <small class="badge bg-primary text-white rounded-pill me-2">Jan 20 - Jan 27</small>
+                                        <small class="badge bg-primary text-white rounded-pill">Feb 15 - Feb 22</small>
+                                    </div>
                                     <h5 class="mb-0">Kinner Kailash Trek</h5>
                                     <small class="text-uppercase">Description</small>
                                     <div class="mb-3">
@@ -186,18 +127,28 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="packages-item" data-batches="2025-07-25,2025-08-10,2025-09-20">
+                        <div class="packages-item">
                             <div class="packages-img">
-                                <img src="img/packages-3.jpeg" class="img-fluid w-100 rounded-top" alt="Image" onerror="this.onerror=null;this.src='https://placehold.co/400x250/E0E0E0/333333?text=Image+Not+Found';">
+                                <img src="img/packages-3.jpeg" class="img-fluid w-100 rounded-top" alt="Image">
                                 <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Manali - India</small>
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
-                                    <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
+                                    <small class="flex-fill text-center border-end py-2">
+                                        <i class="fa fa-map-marker-alt me-2"></i>Manali - India
+                                    </small>
+                                    <small class="flex-fill text-center border-end py-2">
+                                        <i class="fa fa-calendar-alt me-2"></i>3 days
+                                    </small>
+                                    <small class="flex-fill text-center py-2">
+                                        <i class="fa fa-user me-2"></i>2 Person
+                                    </small>
                                 </div>
                                 <div class="packages-price py-2 px-4">₹18,600</div>
                             </div>
                             <div class="packages-content bg-light">
                                 <div class="p-4 pb-0">
+                                    <div class="mb-3">
+                                        <small class="badge bg-primary text-white rounded-pill me-2">Feb 20 - Feb 23</small>
+                                        <small class="badge bg-primary text-white rounded-pill">Mar 5 - Mar 8</small>
+                                    </div>
                                     <h5 class="mb-0">Mani Mahesh Trek</h5>
                                     <small class="text-uppercase">Description</small>
                                     <div class="mb-3">
@@ -219,52 +170,33 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="packages-item" data-batches="2025-07-01,2025-08-15,2025-10-01">
+                    </div>
+                </div>
+                <!-- Slot 2 Content (Apr10 - Jun10) -->
+                <div id="slot2" class="slot-content d-none">
+                    <div class="packagesbyslot-carousel owl-carousel">
+                        <div class="packages-item">
                             <div class="packages-img">
-                                <img src="img/packages-11.jpg" class="img-fluid w-100 rounded-top" alt="Image" onerror="this.onerror=null;this.src='https://placehold.co/400x250/E0E0E0/333333?text=Image+Not+Found';">
+                                <img src="img/packages-12.jpeg" class="img-fluid w-100 rounded-top" alt="Image">
                                 <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Manali, India</small>
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>5 days</small>
-                                    <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>People: min 6, max 20</small>
-                                </div>
-                                <div class="packages-price py-2 px-4">₹8,399</div>
-                            </div>
-                            <div class="packages-content bg-light">
-                                <div class="p-4 pb-0">
-                                    <h5 class="mb-0">Hampta Pass Trek</h5>
-                                    <small class="text-uppercase">Description</small>
-                                    <div class="mb-3">
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                    </div>
-                                    <p class="mb-4">A very classic and enjoyful 5‑day trek from Manali into the Spiti Valley across the scenic and beautiful Hampta Pass. Best for groups and couples. </p>
-                                </div>
-                                <div class="row bg-primary rounded-bottom mx-0">
-                                    <div class="col-6 text-start px-0">
-                                        <a href="packages/hampta.html" class="btn-hover btn text-white py-2 px-4">Read More</a>
-                                    </div>
-                                    <div class="col-6 text-end px-0">
-                                        <a href="https://rzp.io/rzp/adoratrek" target="_blank" rel="noopener noreferrer" class="btn-hover btn text-white py-2 px-4">Book Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="packages-item" data-batches="2025-08-01,2025-09-05,2025-10-10">
-                            <div class="packages-img">
-                                <img src="img/packages-12.jpeg" class="img-fluid w-100 rounded-top" alt="Image" onerror="this.onerror=null;this.src='https://placehold.co/400x250/E0E0E0/333333?text=Image+Not+Found';">
-                                <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Himachal Pradesh, India</small>
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
-                                    <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>People: min 6, max 20</small>
+                                    <small class="flex-fill text-center border-end py-2">
+                                        <i class="fa fa-map-marker-alt me-2"></i>Himachal Pradesh, India
+                                    </small>
+                                    <small class="flex-fill text-center border-end py-2">
+                                        <i class="fa fa-calendar-alt me-2"></i>3 days
+                                    </small>
+                                    <small class="flex-fill text-center py-2">
+                                        <i class="fa fa-user me-2"></i>People: min 6, max 20
+                                    </small>
                                 </div>
                                 <div class="packages-price py-2 px-4">₹6,000</div>
                             </div>
                             <div class="packages-content bg-light">
                                 <div class="p-4 pb-0">
+                                    <div class="mb-3">
+                                        <small class="badge bg-primary text-white rounded-pill me-2">Apr 10 - Apr 12</small>
+                                        <small class="badge bg-primary text-white rounded-pill">May 5 - May 7</small>
+                                    </div>
                                     <h5 class="mb-0">Bhrigu Lake Trek</h5>
                                     <small class="text-uppercase">Description</small>
                                     <div class="mb-3">
@@ -286,20 +218,28 @@
                                 </div>
                             </div>
                         </div>
-
-
-                         <div class="packages-item" data-batches="2025-08-20,2025-09-25,2025-10-15">
+                        <div class="packages-item">
                             <div class="packages-img">
-                                <img src="img/packages-13.jpeg" class="img-fluid w-100 rounded-top" alt="Image" onerror="this.onerror=null;this.src='https://placehold.co/400x250/E0E0E0/333333?text=Image+Not+Found';">
+                                <img src="img/packages-13.jpeg" class="img-fluid w-100 rounded-top" alt="Image">
                                 <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Himachal Pradesh, India</small>
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>7 days</small>
-                                    <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>People: min 4, max 20</small>
+                                    <small class="flex-fill text-center border-end py-2">
+                                        <i class="fa fa-map-marker-alt me-2"></i>Himachal Pradesh, India
+                                    </small>
+                                    <small class="flex-fill text-center border-end py-2">
+                                        <i class="fa fa-calendar-alt me-2"></i>7 days
+                                    </small>
+                                    <small class="flex-fill text-center py-2">
+                                        <i class="fa fa-user me-2"></i>People: min 4, max 20
+                                    </small>
                                 </div>
                                 <div class="packages-price py-2 px-4">₹19,800</div>
                             </div>
                             <div class="packages-content bg-light">
                                 <div class="p-4 pb-0">
+                                    <div class="mb-3">
+                                        <small class="badge bg-primary text-white rounded-pill me-2">Apr 15 - Apr 21</small>
+                                        <small class="badge bg-primary text-white rounded-pill">May 10 - May 16</small>
+                                    </div>
                                     <h5 class="mb-0">Buran Ghati Pass Trek</h5>
                                     <small class="text-uppercase">Description</small>
                                     <div class="mb-3">
@@ -321,19 +261,28 @@
                                 </div>
                             </div>
                         </div>
-
-                         <div class="packages-item" data-batches="2025-09-01,2025-10-05">
+                        <div class="packages-item">
                             <div class="packages-img">
-                                <img src="img/packages-14.jpeg" class="img-fluid w-100 rounded-top" alt="Image" onerror="this.onerror=null;this.src='https://placehold.co/400x250/E0E0E0/333333?text=Image+Not+Found';">
+                                <img src="img/packages-14.jpeg" class="img-fluid w-100 rounded-top" alt="Image">
                                 <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Himachal Pradesh, India</small>
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>10 days</small>
-                                    <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>People: min 8, max 20</small>
+                                    <small class="flex-fill text-center border-end py-2">
+                                        <i class="fa fa-map-marker-alt me-2"></i>Himachal Pradesh, India
+                                    </small>
+                                    <small class="flex-fill text-center border-end py-2">
+                                        <i class="fa fa-calendar-alt me-2"></i>10 days
+                                    </small>
+                                    <small class="flex-fill text-center py-2">
+                                        <i class="fa fa-user me-2"></i>People: min 8, max 20
+                                    </small>
                                 </div>
                                 <div class="packages-price py-2 px-4">₹66,000</div>
                             </div>
                             <div class="packages-content bg-light">
                                 <div class="p-4 pb-0">
+                                    <div class="mb-3">
+                                        <small class="badge bg-primary text-white rounded-pill me-2">May 20 - May 29</small>
+                                        <small class="badge bg-primary text-white rounded-pill">Jun 1 - Jun 10</small>
+                                    </div>
                                     <h5 class="mb-0">Parang La Trek</h5>
                                     <small class="text-uppercase">Description</small>
                                     <div class="mb-3">
@@ -355,20 +304,76 @@
                                 </div>
                             </div>
                         </div>
-
-
-                         <div class="packages-item" data-batches="2025-09-10,2025-10-20">
+                    </div>
+                </div>
+                <!-- Slot 3 Content (Jul10 - Sep10) -->
+                <div id="slot3" class="slot-content d-none">
+                    <div class="packagesbyslot-carousel owl-carousel">
+                        <div class="packages-item">
                             <div class="packages-img">
-                                <img src="img/packages-15.jpeg" class="img-fluid w-100 rounded-top" alt="Image" onerror="this.onerror=null;this.src='https://placehold.co/400x250/E0E0E0/333333?text=Image+Not+Found';">
+                                <img src="img/packages-11.jpg" class="img-fluid w-100 rounded-top" alt="Image">
                                 <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Himachal Pradesh, India</small>
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>5 days</small>
-                                    <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>People: min 5, max 20</small>
+                                    <small class="flex-fill text-center border-end py-2">
+                                        <i class="fa fa-map-marker-alt me-2"></i>Manali, India
+                                    </small>
+                                    <small class="flex-fill text-center border-end py-2">
+                                        <i class="fa fa-calendar-alt me-2"></i>5 days
+                                    </small>
+                                    <small class="flex-fill text-center py-2">
+                                        <i class="fa fa-user me-2"></i>People: min 6, max 20
+                                    </small>
+                                </div>
+                                <div class="packages-price py-2 px-4">₹8,399</div>
+                            </div>
+                            <div class="packages-content bg-light">
+                                <div class="p-4 pb-0">
+                                    <div class="mb-3">
+                                        <small class="badge bg-primary text-white rounded-pill me-2">Jul 10 - Jul 15</small>
+                                        <small class="badge bg-primary text-white rounded-pill">Jul 15 - Jul 20</small>
+                                    </div>
+                                    <h5 class="mb-0">Hampta Pass Trek</h5>
+                                    <small class="text-uppercase">Description</small>
+                                    <div class="mb-3">
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                    </div>
+                                    <p class="mb-4">A very classic and enjoyable 5‑day trek from Manali into the Spiti Valley across the scenic and beautiful Hampta Pass. Best for groups and couples.</p>
+                                </div>
+                                <div class="row bg-primary rounded-bottom mx-0">
+                                    <div class="col-6 text-start px-0">
+                                        <a href="packages/hampta.html" class="btn-hover btn text-white py-2 px-4">Read More</a>
+                                    </div>
+                                    <div class="col-6 text-end px-0">
+                                        <a href="https://rzp.io/rzp/adoratrek" target="_blank" rel="noopener noreferrer" class="btn-hover btn text-white py-2 px-4">Book Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="packages-item">
+                            <div class="packages-img">
+                                <img src="img/packages-15.jpeg" class="img-fluid w-100 rounded-top" alt="Image">
+                                <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
+                                    <small class="flex-fill text-center border-end py-2">
+                                        <i class="fa fa-map-marker-alt me-2"></i>Himachal Pradesh, India
+                                    </small>
+                                    <small class="flex-fill text-center border-end py-2">
+                                        <i class="fa fa-calendar-alt me-2"></i>5 days
+                                    </small>
+                                    <small class="flex-fill text-center py-2">
+                                        <i class="fa fa-user me-2"></i>People: min 5, max 20
+                                    </small>
                                 </div>
                                 <div class="packages-price py-2 px-4">₹22,800</div>
                             </div>
                             <div class="packages-content bg-light">
                                 <div class="p-4 pb-0">
+                                    <div class="mb-3">
+                                        <small class="badge bg-primary text-white rounded-pill me-2">Aug 1 - Aug 6</small>
+                                        <small class="badge bg-primary text-white rounded-pill">Aug 10 - Aug 15</small>
+                                    </div>
                                     <h5 class="mb-0">Kanamo Peak Trek</h5>
                                     <small class="text-uppercase">Description</small>
                                     <div class="mb-3">
@@ -390,54 +395,28 @@
                                 </div>
                             </div>
                         </div>
-
-
-                         <div class="packages-item" data-batches="2025-07-05,2025-08-25,2025-11-01">
+                        <div class="packages-item">
                             <div class="packages-img">
-                                <img src="img/packages-16.jpeg" class="img-fluid w-100 rounded-top" alt="Image" onerror="this.onerror=null;this.src='https://placehold.co/400x250/E0E0E0/333333?text=Image+Not+Found';">
+                                <img src="img/packages-178.jpeg" class="img-fluid w-100 rounded-top" alt="Image">
                                 <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Himchal Pradesh, India</small>
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>6 days</small>
-                                    <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>People: min 5, max 20</small>
-                                </div>
-                                <div class="packages-price py-2 px-4">₹37,200</div>
-                            </div>
-                            <div class="packages-content bg-light">
-                                <div class="p-4 pb-0">
-                                    <h5 class="mb-0">Friendship Peak Trek</h5>
-                                    <small class="text-uppercase">Description</small>
-                                    <div class="mb-3">
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                    </div>
-                                    <p class="mb-4">A technical 6‑day snow‑and‑ice climb to Friendship Peak above Solang Valley.</p>
-                                </div>
-                                <div class="row bg-primary rounded-bottom mx-0">
-                                    <div class="col-6 text-start px-0">
-                                        <a href="packages/friendship.html" class="btn-hover btn text-white py-2 px-4">Read More</a>
-                                    </div>
-                                    <div class="col-6 text-end px-0">
-                                        <a href="https://rzp.io/rzp/adoratrek" target="_blank" rel="noopener noreferrer" class="btn-hover btn text-white py-2 px-4">Book Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                         <div class="packages-item" data-batches="2025-07-10,2025-09-01,2025-11-15">
-                            <div class="packages-img">
-                                <img src="img/packages-178.jpeg" class="img-fluid w-100 rounded-top" alt="Image" onerror="this.onerror=null;this.src='https://placehold.co/400x250/E0E0E0/333333?text=Image+Not+Found';">
-                                <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Himachal Pradesh, India</small>
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>8 days</small>
-                                    <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>People: min 5, max 20</small>
+                                    <small class="flex-fill text-center border-end py-2">
+                                        <i class="fa fa-map-marker-alt me-2"></i>Himachal Pradesh, India
+                                    </small>
+                                    <small class="flex-fill text-center border-end py-2">
+                                        <i class="fa fa-calendar-alt me-2"></i>8 days
+                                    </small>
+                                    <small class="flex-fill text-center py-2">
+                                        <i class="fa fa-user me-2"></i>People: min 5, max 20
+                                    </small>
                                 </div>
                                 <div class="packages-price py-2 px-4">₹26,999</div>
                             </div>
                             <div class="packages-content bg-light">
                                 <div class="p-4 pb-0">
+                                    <div class="mb-3">
+                                        <small class="badge bg-primary text-white rounded-pill me-2">Aug 20 - Aug 27</small>
+                                        <small class="badge bg-primary text-white rounded-pill">Sep 1 - Sep 8</small>
+                                    </div>
                                     <h5 class="mb-0">Rupin Pass Trek</h5>
                                     <small class="text-uppercase">Description</small>
                                     <div class="mb-3">
@@ -459,19 +438,76 @@
                                 </div>
                             </div>
                         </div>
-
-                         <div class="packages-item" data-batches="2025-08-05,2025-10-01,2025-11-20">
+                    </div>
+                </div>
+                <!-- Slot 4 Content (Oct10 - Dec10) -->
+                <div id="slot4" class="slot-content d-none">
+                    <div class="packagesbyslot-carousel owl-carousel">
+                        <div class="packages-item">
                             <div class="packages-img">
-                                <img src="img/packages-17.jpeg" class="img-fluid w-100 rounded-top" alt="Image" onerror="this.onerror=null;this.src='https://placehold.co/400x250/E0E0E0/333333?text=Image+Not+Found';">
+                                <img src="img/packages-16.jpeg" class="img-fluid w-100 rounded-top" alt="Image">
                                 <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Himachal Pradesh, India</small>
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>7 days</small>
-                                    <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>People: min 5, max 20</small>
+                                    <small class="flex-fill text-center border-end py-2">
+                                        <i class="fa fa-map-marker-alt me-2"></i>Himachal Pradesh, India
+                                    </small>
+                                    <small class="flex-fill text-center border-end py-2">
+                                        <i class="fa fa-calendar-alt me-2"></i>6 days
+                                    </small>
+                                    <small class="flex-fill text-center py-2">
+                                        <i class="fa fa-user me-2"></i>People: min 5, max 20
+                                    </small>
+                                </div>
+                                <div class="packages-price py-2 px-4">₹37,200</div>
+                            </div>
+                            <div class="packages-content bg-light">
+                                <div class="p-4 pb-0">
+                                    <div class="mb-3">
+                                        <small class="badge bg-primary text-white rounded-pill me-2">Oct 10 - Oct 16</small>
+                                        <small class="badge bg-primary text-white rounded-pill">Nov 1 - Nov 7</small>
+                                    </div>
+                                    <h5 class="mb-0">Friendship Peak Trek</h5>
+                                    <small class="text-uppercase">Description</small>
+                                    <div class="mb-3">
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                    </div>
+                                    <p class="mb-4">A technical 6‑day snow‑and‑ice climb to Friendship Peak above Solang Valley.</p>
+                                </div>
+                                <div class="row bg-primary rounded-bottom mx-0">
+                                    <div class="col-6 text-start px-0">
+                                        <a href="packages/friendship.html" class="btn-hover btn text-white py-2 px-4">Read More</a>
+                                    </div>
+                                    <div class="col-6 text-end px-0">
+                                        <a href="https://rzp.io/rzp/adoratrek" target="_blank" rel="noopener noreferrer" class="btn-hover btn text-white py-2 px-4">Book Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="packages-item">
+                            <div class="packages-img">
+                                <img src="img/packages-17.jpeg" class="img-fluid w-100 rounded-top" alt="Image">
+                                <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
+                                    <small class="flex-fill text-center border-end py-2">
+                                        <i class="fa fa-map-marker-alt me-2"></i>Himachal Pradesh, India
+                                    </small>
+                                    <small class="flex-fill text-center border-end py-2">
+                                        <i class="fa fa-calendar-alt me-2"></i>7 days
+                                    </small>
+                                    <small class="flex-fill text-center py-2">
+                                        <i class="fa fa-user me-2"></i>People: min 5, max 20
+                                    </small>
                                 </div>
                                 <div class="packages-price py-2 px-4">₹26,399</div>
                             </div>
                             <div class="packages-content bg-light">
                                 <div class="p-4 pb-0">
+                                    <div class="mb-3">
+                                        <small class="badge bg-primary text-white rounded-pill me-2">Oct 20 - Oct 26</small>
+                                        <small class="badge bg-primary text-white rounded-pill">Nov 15 - Nov 21</small>
+                                    </div>
                                     <h5 class="mb-0">Pin Bhaba Pass Trek</h5>
                                     <small class="text-uppercase">Description</small>
                                     <div class="mb-3">
@@ -494,154 +530,62 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Batches Section -->
-                    <div id="batches-section" class="batches-section hidden">
-                        <h2 class="text-3xl font-bold mb-4 text-center">Batches</h2>
-                        <div id="batches-display" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                            <!-- Batches will be injected here by JavaScript -->
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Packages End -->
+      </div>
+</div>
 
-    <script>
-        // Get DOM elements
-        const slotButtonsContainer = document.getElementById('slot-buttons');
-        const treksDisplayContainer = document.getElementById('treks-display');
-        const batchesSection = document.getElementById('batches-section');
-        const batchesDisplayContainer = document.getElementById('batches-display');
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="lib/lightbox/js/lightbox.min.js"></script>
+<script src="js/main.js"></script>
 
-        /**
-         * Displays/hides trek cards based on the selected month and updates the batches section.
-         * @param {string} filterType - 'all' or a month name (e.g., 'July 2025 Treks').
-         * @param {number} [month] - 0-indexed month (0 for Jan, 11 for Dec). Required if filterType is not 'all'.
-         * @param {number} [year] - Full year (e.g., 2025). Required if filterType is not 'all'.
-         */
-        function displayTreksAndBatches(filterType, month, year) {
-            const allTrekItems = document.querySelectorAll('#treks-display .packages-item');
-            const visibleTreksData = []; // To collect batch data from visible treks
-
-            allTrekItems.forEach(trekItem => {
-                const batchesDataAttr = trekItem.dataset.batches; // Get batches from data attribute
-                const trekBatches = batchesDataAttr ? batchesDataAttr.split(',') : [];
-
-                let isVisible = false;
-                if (filterType === 'all') {
-                    isVisible = true;
-                } else {
-                    // Check if any batch date for this trek falls within the selected month/year
-                    isVisible = trekBatches.some(batchDateString => {
-                        const batchDate = new Date(batchDateString);
-                        // Check if the month and year match
-                        return batchDate.getMonth() === month && batchDate.getFullYear() === year;
-                    });
-                }
-
-                if (isVisible) {
-                    trekItem.style.display = 'block'; // Show the trek card
-                    visibleTreksData.push({ batches: trekBatches }); // Collect batches from visible treks
-                } else {
-                    trekItem.style.display = 'none'; // Hide the trek card
-                }
-            });
-
-            // Update batches section based on currently visible treks
-            if (filterType === 'all') {
-                batchesSection.classList.add('hidden'); // Hide batches for "All Treks"
-            } else {
-                displayBatches(visibleTreksData); // Display batches relevant to the filtered treks
-            }
+<script>
+$(document).ready(function() {
+    // Initialize all slot carousels
+    $('.packagesbyslot-carousel').owlCarousel({
+        autoplay: true,
+        smartSpeed: 1000,
+        margin: 45,
+        loop: true,
+        center: true,
+        dots: true,
+        nav: true,
+        navText: [
+            '<i class="bi bi-chevron-left"></i>',
+            '<i class="bi bi-chevron-right"></i>'
+        ],
+        responsive:{
+            0:{items:1},
+            576:{items:2},
+            768:{items:3},
+            992:{items:3}
         }
+    });
 
-        /**
-         * Displays specific batch dates for the currently visible treks.
-         * @param {Array} treksWithBatches - An array of objects, each containing a 'batches' array.
-         */
-        function displayBatches(treksWithBatches) {
-            batchesDisplayContainer.innerHTML = ''; // Clear previous batches
-            batchesSection.classList.remove('hidden'); // Show the batches section
+    // Slot click event
+    $('#slotList a').click(function(){
+        var slotId = $(this).data('slot');
+        // Activate the clicked slot
+        $('#slotList a').removeClass('active');
+        $(this).addClass('active');
+        // Show the corresponding slot content
+        $('.slot-content').addClass('d-none');
+        $('#' + slotId).removeClass('d-none');
+        // Refresh carousel in shown slot
+        $('#' + slotId).find('.packagesbyslot-carousel').trigger('refresh.owl.carousel');
+    });
 
-            const uniqueBatchDates = new Set();
-            treksWithBatches.forEach(trek => {
-                trek.batches.forEach(batchDate => {
-                    uniqueBatchDates.add(batchDate);
-                });
-            });
+    // Show first slot by default
+    $('.slot-content').addClass('d-none');
+    $('#slot1').removeClass('d-none');
+    $('#slot1').find('.packagesbyslot-carousel').trigger('refresh.owl.carousel');
+});
+</script>
 
-            if (uniqueBatchDates.size === 0) {
-                batchesDisplayContainer.innerHTML = '<p class="text-center text-gray-600 col-span-full">No upcoming batches for these treks in this selection.</p>';
-                return;
-            }
-
-            // Sort dates chronologically
-            const sortedDates = Array.from(uniqueBatchDates).sort((a, b) => new Date(a) - new Date(b));
-
-            sortedDates.forEach(dateString => {
-                const startDate = new Date(dateString);
-                const endDate = new Date(startDate);
-                endDate.setDate(startDate.getDate() + 4); // 5 days each batch
-
-                const formatOptions = { day: 'numeric', month: 'short', year: 'numeric' };
-                const formattedStartDate = startDate.toLocaleDateString('en-US', formatOptions);
-                const formattedEndDate = endDate.toLocaleDateString('en-US', { day: 'numeric', month: 'short' });
-
-                const batchCard = `
-                    <div class="batch-card text-center">
-                        <p class="font-semibold text-lg">${formattedStartDate} - ${formattedEndDate}</p>
-                    </div>
-                `;
-                batchesDisplayContainer.innerHTML += batchCard;
-            });
-        }
-
-        /**
-         * Defines the date-based slots and sets up their click handlers.
-         */
-        function setupSlotButtons() {
-            // Define date-based slots for the next few months
-            // Months are 0-indexed (0 for Jan, 11 for Dec)
-            const dateSlots = [
-                { name: 'All Treks', filter: 'all' },
-                { name: 'July 2025 Treks', month: 6, year: 2025 },
-                { name: 'August 2025 Treks', month: 7, year: 2025 },
-                { name: 'September 2025 Treks', month: 8, year: 2025 },
-                { name: 'October 2025 Treks', month: 9, year: 2025 },
-                { name: 'November 2025 Treks', month: 10, year: 2025 },
-                { name: 'December 2025 Treks', month: 11, year: 2025 }
-            ];
-
-            dateSlots.forEach((slot) => {
-                const button = document.createElement('button');
-                button.textContent = slot.name;
-                button.classList.add('slot-button');
-
-                // Set 'All Treks' as active initially
-                if (slot.filter === 'all') {
-                    button.classList.add('active');
-                }
-
-                button.addEventListener('click', () => {
-                    // Remove active class from all buttons
-                    document.querySelectorAll('.slot-button').forEach(btn => btn.classList.remove('active'));
-                    // Add active class to the clicked button
-                    button.classList.add('active');
-
-                    displayTreksAndBatches(slot.filter, slot.month, slot.year);
-                });
-                slotButtonsContainer.appendChild(button);
-            });
-        }
-
-        // Initialize the page
-        document.addEventListener('DOMContentLoaded', () => {
-            setupSlotButtons();
-            // Initially display all treks and hide batches
-            displayTreksAndBatches('all');
-        });
-    </script>
 </body>
 </html>
