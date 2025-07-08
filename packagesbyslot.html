@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>Adora Treks - Awesome Packages</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta content="Adora Treks, trekking, Himalayas, adventure travel, India treks, Himachal Pradesh, Uttrakhand, Ladakh, treks for beginners, challenging treks, trek packages, Shrikhand Mahadev, Kinner Kailash, Hampta Pass, Bhrigu Lake, Buran Ghati, Parang La, Kanamo Peak, Friendship Peak, Rupin Pass, Pin Bhaba Pass" name="keywords">
+    <meta content="Explore the majestic Himalayas with Adora Treks. We offer exhilarating trekking experiences in Himachal Pradesh, Uttrakhand, and Ladakh, catering to all adventure levels. Discover our awesome trek packages and book your next unforgettable journey." name="description">
 
     <link href="img/favicon.ico" rel="icon">
 
@@ -29,10 +30,10 @@
         .packages .tab-class .nav-pills .nav-item .nav-link.active {
             background-color: var(--bs-primary) !important; /* Set blue background */
             border-color: var(--bs-primary) !important;   /* Ensure border is also blue */
-            color: var(--bs-white) !important;             /* Set text to white directly on the link */
+            /* Do NOT set 'color' directly on .nav-link.active here if span handles it, or ensure consistency */
         }
 
-        /* Ensure the span inside the active link also gets white text */
+        /* Ensure the span inside the active link gets white text */
         .packages .tab-class .nav-pills .nav-item .nav-link.active span {
             color: var(--bs-white) !important;
         }
@@ -41,28 +42,122 @@
         .packages .tab-class .nav-pills .nav-item .nav-link:not(.active) {
             background-color: var(--bs-light) !important; /* Light background for inactive */
             border-color: var(--bs-primary) !important;   /* Primary border for inactive */
-            color: var(--bs-dark) !important;             /* Dark text for inactive */
+            /* Do NOT set 'color' directly on .nav-link:not(.active) here if span handles it */
         }
 
-        /* Ensure the span inside the inactive link also gets dark text */
+        /* Ensure the span inside the inactive link gets dark text */
         .packages .tab-class .nav-pills .nav-item .nav-link:not(.active) span {
             color: var(--bs-dark) !important;
         }
 
-        /* Hover effect for all tab buttons */
+        /* Hover effect for all tab buttons (both active and inactive on hover) */
         .packages .tab-class .nav-pills .nav-item .nav-link:hover {
             background-color: var(--bs-primary) !important; /* Blue background on hover */
-            color: var(--bs-white) !important;             /* White text on hover */
             border-color: var(--bs-primary) !important;   /* Blue border on hover */
+            /* Do NOT set 'color' directly on .nav-link:hover here if span handles it */
         }
         /* Ensure span also gets white text on hover */
         .packages .tab-class .nav-pills .nav-item .nav-link:hover span {
              color: var(--bs-white) !important;
         }
     </style>
-</head>
+    </head>
 
 <body>
+    <div class="container-fluid bg-primary text-white-50 px-0 pb-3 pb-lg-0 wow fadeIn" data-wow-delay="0.1s">
+        <div class="row align-items-center">
+            <div class="col-lg-8 text-center text-lg-start mb-lg-0">
+                <div class="d-flex flex-wrap m-n1">
+                    <a href="mailto:info@adoratreks.com" class="btn btn-sm-square btn-outline-white border-white m-1"><i class="fa fa-envelope text-primary"></i></a>
+                    <a href="tel:+919876543210" class="btn btn-sm-square btn-outline-white border-white m-1"><i class="fa fa-phone-alt text-primary"></i></a>
+                    <a href="https://www.instagram.com/adoratreks/" class="btn btn-sm-square btn-outline-white border-white m-1"><i class="fab fa-instagram text-primary"></i></a>
+                    <a href="https://wa.me/919876543210" class="btn btn-sm-square btn-outline-white border-white m-1"><i class="fab fa-whatsapp text-primary"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a href="#" class="btn btn-sm-square btn-outline-white border-white me-2"><i class="fa fa-user text-primary"></i></a>
+                    <a href="#" class="btn btn-sm-square btn-outline-white border-white"><i class="fa fa-power-off text-primary"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+            <a href="index.html" class="navbar-brand p-0">
+                <h1 class="m-0"><i class="fa fa-map-marker-alt me-3"></i>Adora Treks</h1>
+                </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="packages.html" class="nav-item nav-link">Packages</a>
+                    <a href="blog.html" class="nav-item nav-link">Blog</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="service.html" class="dropdown-item">Services</a>
+                            <a href="guide.html" class="dropdown-item">Tour Guide</a>
+                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                            <a href="404.html" class="dropdown-item">404 Page</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+                <a href="packages.html" class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Book Now</a>
+            </div>
+        </nav>
+
+        <div class="container-fluid bg-primary hero-header">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7 px-5">
+                        <h1 class="mb-3 animated slideInDown">Explore The Beautiful World With Us</h1>
+                        <p class="animated slideInDown">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <a href="#" class="btn btn-dark rounded-pill py-2 px-4 animated slideInDown">Discover More</a>
+                    </div>
+                    <div class="col-lg-5">
+                        <img class="img-fluid animated zoomIn" src="img/hero.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid about py-5">
+        <div class="container py-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="about-img">
+                        <img src="img/about-img.jpg" class="img-fluid rounded" alt="About Image">
+                    </div>
+                </div>
+                <div class="col-lg-7 wow fadeIn" data-wow-delay="0.5s">
+                    <h5 class="section-title px-3">About Us</h5>
+                    <h1 class="mb-4">Welcome to Adora Treks!</h1>
+                    <p class="mb-4">Adora Treks is your premier partner for unforgettable trekking adventures across the majestic Himalayas. We specialize in crafting exceptional journeys through the breathtaking landscapes of Himachal Pradesh, Uttrakhand, and Ladakh. Whether you're a seasoned mountaineer seeking a challenging expedition or a beginner looking to experience the thrill of the mountains, we have the perfect trek for you.</p>
+                    <p class="mb-4">Our mission is to provide safe, sustainable, and truly immersive trekking experiences. We pride ourselves on our experienced guides, high-quality equipment, and commitment to local communities and environmental preservation. Join us and discover the hidden gems and spiritual heights of the Indian Himalayas.</p>
+                    <div class="row g-4 mb-4">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center">
+                                <i class="fa fa-plane fa-3x text-primary me-3"></i>
+                                <h5 class="mb-0">Best Trekking Routes</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center">
+                                <i class="fa fa-hotel fa-3x text-primary me-3"></i>
+                                <h5 class="mb-0">Top-tier Safety</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container-fluid packages py-5">
         <div class="container py-5">
             <div class="mx-auto text-center mb-5" style="max-width: 900px;">
@@ -501,6 +596,154 @@
             </div>
         </div>
     </div>
+    <div class="container-xxl py-5 testimonial wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+                <h5 class="section-title px-3">Testimonial</h5>
+                <h1 class="mb-0">Our Clients Say!!!</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel">
+                <div class="testimonial-item text-center mb-5">
+                    <div class="testimonial-img p-1">
+                        <img src="img/testimonial-1.jpg" class="img-fluid rounded-circle" alt="">
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <h4>Client Name</h4>
+                        <span class="text-primary">Profession</span>
+                        <div class="d-flex justify-content-center">
+                            <i class="fa fa-star text-primary"></i>
+                            <i class="fa fa-star text-primary"></i>
+                            <i class="fa fa-star text-primary"></i>
+                            <i class="fa fa-star text-primary"></i>
+                            <i class="fa fa-star text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center mb-5">
+                    <div class="testimonial-img p-1">
+                        <img src="img/testimonial-2.jpg" class="img-fluid rounded-circle" alt="">
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <h4>Client Name</h4>
+                        <span class="text-primary">Profession</span>
+                        <div class="d-flex justify-content-center">
+                            <i class="fa fa-star text-primary"></i>
+                            <i class="fa fa-star text-primary"></i>
+                            <i class="fa fa-star text-primary"></i>
+                            <i class="fa fa-star text-primary"></i>
+                            <i class="fa fa-star text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center mb-5">
+                    <div class="testimonial-img p-1">
+                        <img src="img/testimonial-3.jpg" class="img-fluid rounded-circle" alt="">
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <h4>Client Name</h4>
+                        <span class="text-primary">Profession</span>
+                        <div class="d-flex justify-content-center">
+                            <i class="fa fa-star text-primary"></i>
+                            <i class="fa fa-star text-primary"></i>
+                            <i class="fa fa-star text-primary"></i>
+                            <i class="fa fa-star text-primary"></i>
+                            <i class="fa fa-star text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center mb-5">
+                    <div class="testimonial-img p-1">
+                        <img src="img/testimonial-4.jpg" class="img-fluid rounded-circle" alt="">
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <h4>Client Name</h4>
+                        <span class="text-primary">Profession</span>
+                        <div class="d-flex justify-content-center">
+                            <i class="fa fa-star text-primary"></i>
+                            <i class="fa fa-star text-primary"></i>
+                            <i class="fa fa-star text-primary"></i>
+                            <i class="fa fa-star text-primary"></i>
+                            <i class="fa fa-star text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item">
+                        <h4 class="mb-4">Adora Treks</h4>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York, USA</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-2"></i>+012 345 67890</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-2"></i>info@example.com</p>
+                        <div class="d-flex align-items-center">
+                            <a class="btn btn-icon btn-outline-white border-white me-2" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-icon btn-outline-white border-white me-2" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-icon btn-outline-white border-white me-2" href=""><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-icon btn-outline-white border-white me-2" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item">
+                        <h4 class="mb-4">Company</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="">About Us</a></li>
+                            <li><a href="">Contact Us</a></li>
+                            <li><a href="">Privacy Policy</a></li>
+                            <li><a href="">Terms & Condition</a></li>
+                            <li><a href="">Refund Policy</a></li>
+                            <li><a href="">Help</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item">
+                        <h4 class="mb-4">Support</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="">Account</a></li>
+                            <li><a href="">FAQs</a></li>
+                            <li><a href="">Legal</a></li>
+                            <li><a href="">Contact</a></li>
+                            <li><a href="">Refund Policy</a></li>
+                            <li><a href="">Payment</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item">
+                        <h4 class="mb-4">Contact Us</h4>
+                        <p class="mb-4">Subscribe to our newsletter to receive latest news and updates.</p>
+                        <div class="position-relative mx-auto" style="max-width: 400px;">
+                            <input class="form-control w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                            <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid copyright text-body py-4">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    &copy; <a class="fw-bold text-primary" href="#">Adora Treks</a> All Right Reserved.
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    Designed By <a class="fw-bold text-primary" href="https://htmlcodex.com">HTML Codex</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="btn btn-primary btn-md-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
@@ -510,4 +753,5 @@
 
     <script src="js/main.js"></script>
 </body>
+
 </html>
