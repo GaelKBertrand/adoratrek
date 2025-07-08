@@ -1,12 +1,36 @@
 <div class="container-fluid packages py-5">
     <style>
+        /* Styles for the active tab button */
         .nav-pills .nav-link.active {
-            background-color: #0d6efd !important;
+            background-color: #0d6efd !important; /* Bootstrap's primary blue */
+            color: white !important;
+            border-color: #0d6efd !important; /* Ensure border also changes */
+        }
+
+        /* Ensure the span inside the active link gets white text */
+        .nav-pills .nav-link.active span {
             color: white !important;
         }
 
-        .nav-pills .nav-link.active span {
-            color: white !important;
+        /* Styles for inactive tab buttons */
+        .nav-pills .nav-item .nav-link:not(.active) {
+            background-color: var(--bs-light) !important; /* Light background for inactive */
+            border-color: var(--bs-primary) !important;   /* Primary border for inactive */
+        }
+
+        /* Ensure the span inside the inactive link gets dark text */
+        .nav-pills .nav-item .nav-link:not(.active) span {
+            color: var(--bs-dark) !important;
+        }
+
+        /* Hover effect for all tab buttons (both active and inactive on hover) */
+        .nav-pills .nav-item .nav-link:hover {
+            background-color: var(--bs-primary) !important; /* Blue background on hover */
+            border-color: var(--bs-primary) !important;   /* Blue border on hover */
+        }
+        /* Ensure span also gets white text on hover */
+        .nav-pills .nav-item .nav-link:hover span {
+             color: var(--bs-white) !important;
         }
     </style>
     <div class="container py-5">
@@ -33,36 +57,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link d-flex mx-3 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-january-march">
-                        <span class="text-dark" style="width: 150px;">Jan - March</span>
-                    </a>
-                </li>
-            </ul>
-            <div class="tab-content">
-<div class="container-fluid packages py-5">
-    <div class="container py-5">
-        <div class="mx-auto text-center mb-5" style="max-width: 900px;">
-            <h5 class="section-title px-3">Packages</h5>
-            <h1 class="mb-0">Awesome Packages</h1>
-        </div>
-        <div class="tab-class text-center">
-            <ul class="nav nav-pills d-inline-flex justify-content-center mb-5">
-                <li class="nav-item">
-                    <a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill active" data-bs-toggle="pill" href="#tab-april-june">
-                        <span class="text-dark" style="width: 150px;">April - June</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="d-flex py-2 mx-3 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-july-september">
-                        <span class="text-dark" style="width: 150px;">July - Sept</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-october-december">
-                        <span class="text-dark" style="width: 150px;">Oct - Dec</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-january-march">
                         <span class="text-dark" style="width: 150px;">Jan - March</span>
                     </a>
                 </li>
@@ -177,7 +171,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div id="tab-july-september" class="tab-pane fade show p-0">
                     <div class="row g-4 justify-content-center">
                         <div class="col-lg-4 col-md-6">
@@ -287,7 +280,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div id="tab-october-december" class="tab-pane fade show p-0">
                     <div class="row g-4 justify-content-center">
                         <div class="col-lg-4 col-md-6">
@@ -397,7 +389,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div id="tab-january-march" class="tab-pane fade show p-0">
                     <div class="row g-4 justify-content-center">
                         <div class="col-lg-4 col-md-6">
@@ -472,11 +463,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-
             </div>
         </div>
     </div>
