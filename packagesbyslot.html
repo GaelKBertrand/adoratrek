@@ -436,3 +436,31 @@
         </div>
     </div>
 </div>
+
+
+/* Custom styles for active tab button in Packages section */
+<script>
+.packages .tab-class .nav-pills .nav-item .nav-link.active {
+    background-color: var(--bs-primary) !important; /* Use Bootstrap's primary color variable */
+    color: var(--bs-white) !important; /* Use Bootstrap's white color variable */
+    border-color: var(--bs-primary) !important; /* Ensure border is also primary color */
+}
+
+/* Ensure text color within the span is white for the active tab */
+.packages .tab-class .nav-pills .nav-item .nav-link.active span {
+    color: var(--bs-white) !important;
+}
+
+/* Optional: Adjust hover state if needed, though Bootstrap usually handles this well */
+.packages .tab-class .nav-pills .nav-item .nav-link:hover {
+    background-color: var(--bs-primary) !important;
+    color: var(--bs-white) !important;
+    border-color: var(--bs-primary) !important;
+}
+
+/* Revert text color for inactive tabs */
+.packages .tab-class .nav-pills .nav-item .nav-link:not(.active) span {
+    color: var(--bs-dark) !important; /* Assuming --bs-dark is your dark text color */
+}
+
+</script>
