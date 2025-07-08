@@ -25,28 +25,39 @@
     <link href="css/style.css" rel="stylesheet">
 
     <style>
-        /* Custom styles for active tab button in Packages section */
+        /* Styles for the active tab button */
         .packages .tab-class .nav-pills .nav-item .nav-link.active {
-            background-color: var(--bs-primary) !important; /* Use Bootstrap's primary color variable */
-            color: var(--bs-white) !important; /* Use Bootstrap's white color variable */
-            border-color: var(--bs-primary) !important; /* Ensure border is also primary color */
+            background-color: var(--bs-primary) !important; /* Set blue background */
+            border-color: var(--bs-primary) !important;   /* Ensure border is also blue */
+            color: var(--bs-white) !important;             /* Set text to white directly on the link */
         }
 
-        /* Ensure text color within the span is white for the active tab */
+        /* Ensure the span inside the active link also gets white text */
         .packages .tab-class .nav-pills .nav-item .nav-link.active span {
             color: var(--bs-white) !important;
         }
 
-        /* Optional: Adjust hover state if needed, though Bootstrap usually handles this well */
-        .packages .tab-class .nav-pills .nav-item .nav-link:hover {
-            background-color: var(--bs-primary) !important;
-            color: var(--bs-white) !important;
-            border-color: var(--bs-primary) !important;
+        /* Styles for inactive tab buttons */
+        .packages .tab-class .nav-pills .nav-item .nav-link:not(.active) {
+            background-color: var(--bs-light) !important; /* Light background for inactive */
+            border-color: var(--bs-primary) !important;   /* Primary border for inactive */
+            color: var(--bs-dark) !important;             /* Dark text for inactive */
         }
 
-        /* Revert text color for inactive tabs */
+        /* Ensure the span inside the inactive link also gets dark text */
         .packages .tab-class .nav-pills .nav-item .nav-link:not(.active) span {
-            color: var(--bs-dark) !important; /* Assuming --bs-dark is your dark text color */
+            color: var(--bs-dark) !important;
+        }
+
+        /* Hover effect for all tab buttons */
+        .packages .tab-class .nav-pills .nav-item .nav-link:hover {
+            background-color: var(--bs-primary) !important; /* Blue background on hover */
+            color: var(--bs-white) !important;             /* White text on hover */
+            border-color: var(--bs-primary) !important;   /* Blue border on hover */
+        }
+        /* Ensure span also gets white text on hover */
+        .packages .tab-class .nav-pills .nav-item .nav-link:hover span {
+             color: var(--bs-white) !important;
         }
     </style>
 </head>
@@ -69,7 +80,6 @@
                         <a class="d-flex py-2 mx-3 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-july-september">
                             <span class="text-dark" style="width: 150px;">July - Sept</span>
                         </a>
-                    </a>
                     </li>
                     <li class="nav-item">
                         <a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-october-december">
