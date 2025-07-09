@@ -101,7 +101,7 @@
                         <a href="contact.html" class="nav-item nav-link">Contact Us</a>
                     </div>
 
-                    <a href="https://adorahospitality.com/booking-app/index.html" class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Book Adventures Now</a>
+                    <a href="https://adorahospitality.com/booking-app/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Get The App</a>
 
                 </div>
             </nav>
@@ -192,7 +192,6 @@
             </div>
             <!-- Carousel End -->
         </div>
-
         <!-- Navbar & Hero End -->
 
         <!-- About Start -->
@@ -208,7 +207,7 @@
                         <h5 class="section-about-title pe-3">About Us</h5>
                         <h1 class="mb-4">Welcome to <span class="text-primary">Adora Treks</span> powered by Adora Hospitality</h1>
                         <p class="mb-4 text-dark">At Adora Treks, we don’t just offer treks — we curate unforgettable mountain experiences. Rooted in Himachal Pradesh and inspired by the raw beauty of the Himalayas, Adora Treks is your dedicated trekking wing under Adora Hospitality, focused solely on delivering safe, soulful, and sustainable Himalayan adventures.</p>
-                        <p class="mb-4 text-dark">Whether you're chasing the sunrise on Shrikhand Mahadev, crossing alpine meadows on Hamta Pass, or discovering hidden village trails, our treks are designed for nature lovers, thrill seekers, and mindful explorers alike. With expert local guides, reliable support staff, and seamless logistics, we ensure every journey is immersive, hassle-free, and deeply connected to the land.</p>
+                        <!--<p class="mb-4 text-dark">Whether you're chasing the sunrise on Shrikhand Mahadev, crossing alpine meadows on Hamta Pass, or discovering hidden village trails, our treks are designed for nature lovers, thrill seekers, and mindful explorers alike. With expert local guides, reliable support staff, and seamless logistics, we ensure every journey is immersive, hassle-free, and deeply connected to the land.</p>-->
                         <div class="row gy-2 gx-4 mb-4 text-dark">
                             <div class="col-sm-6">
                                 <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>🗻 Authentic Himalayan Treks – From beginner-friendly trails to high-altitude challenges</p>
@@ -236,7 +235,7 @@
         </div>
         <!-- About End -->
 
-        <!-- Packages Slots Section will be loaded dynamically -->
+        <!-- Popular Packages Slots Section -->
         <div id="popular-packagesslots-section"></div>
         <script>
           // Load packages section dynamically from packagesbyslot.html
@@ -267,7 +266,7 @@
               document.getElementById('popular-packagesslots-section').innerHTML = '<p class=\"text-center\">Packages failed to load.</p>';
             });
         </script>
-                <script>
+        <script>
             $(document).ready(function() {
                 // Store all original packages items for filtering
                 // We clone the items from the DOM, so they are not removed when we empty the carousel
@@ -331,9 +330,9 @@
                 filterCarousel('3-day-a');
             });
         </script>
+        <!-- Packages Slots Section end -->
 
-
-        <!-- Packages Section will be loaded dynamically -->
+        <!-- All year rond Packages Section will be loaded dynamically -->
         <div id="packages-section"></div>
         <script>
           // Load packages section dynamically from allpackageslist.html
@@ -364,8 +363,7 @@
               document.getElementById('packages-section').innerHTML = '<p class=\"text-center\">Packages failed to load.</p>';
             });
         </script>
-
-
+        <!-- Packages Section end -->
 
         <!-- Gallery Start
         <div class="container-fluid gallery py-5 my-5">
@@ -804,7 +802,7 @@
                     <form action="https://script.google.com/macros/s/AKfycbw2cZ8wdM-f1_Ou_ySYP0nzlbVV9-SXjcSApfxTDTtN9qIrv0eMmVE4tvuMpkyOWwha/exec" method="POST" class="form-subscribe">
                     <div class="position-relative mx-auto">
                         <input class="form-control border-primary rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                        <button type="button" class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Subscribe</button>
+                        <button type="submit" class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Subscribe</button>
                     </div>
                 </div>
             </div>
