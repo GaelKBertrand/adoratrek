@@ -1,0 +1,112 @@
+<!-- Fully Functional Lead Generation Form for Adora Hospitality -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plan Your Himalayan Adventure | Adora Hospitality</title>
+
+  <!-- Social Media Preview Metadata -->
+  <meta property="og:title" content="Plan Your Himalayan Adventure with Adora Hospitality" />
+  <meta property="og:description" content="Get exclusive trek tips and special room booking offers. Download the free Summit‑Ready Guide now!" />
+  <meta property="og:image" content="https://trek.adorahospitality.com/assets/preview.jpg" />
+  <meta property="og:url" content="https://trek.adorahospitality.com/leadform.html" />
+
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f2f5; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+    .lead-form { background: #ffffff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
+    .lead-form h2 { margin: 0 0 20px; font-size: 24px; color: #333; text-align: center; }
+    .lead-form label { display: block; margin: 10px 0 5px; color: #555; }
+    .lead-form input, .lead-form select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px; }
+    .lead-form button { width: 100%; padding: 12px; background: #007bff; color: #fff; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 20px; }
+    .lead-form button:hover { background: #0056b3; }
+    .referral { margin-top: 20px; background: #e7f9ed; padding: 15px; border-radius: 5px; color: #2e7d32; text-align: center; font-size: 14px; display: none; }
+    .social-share { margin-top: 20px; text-align: center; }
+    .social-share img { width: 36px; margin: 0 8px; cursor: pointer; }
+    .success-msg { margin-top: 20px; color: #155724; background: #d4edda; padding: 12px; border-radius: 5px; display: none; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <div class="lead-form">
+    <h2>Plan Your Himalayan Adventure</h2>
+    <form id="leadForm">
+      <label for="name">Full Name*</label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+      <label for="email">Email Address*</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+      <label for="phone">Phone Number*</label>
+      <input type="tel" id="phone" name="phone" placeholder="+91 12345 67890" pattern="\+?[0-9\-\s]{7,15}" required>
+
+      <label for="interest">Interested In*</label>
+      <select id="interest" name="interest" required>
+        <option value="" disabled selected>-- Choose --</option>
+        <option value="trek">Trekking Packages</option>
+        <option value="rooms">Room Bookings</option>
+        <option value="both">Both</option>
+      </select>
+
+      <label for="date">Preferred Date</label>
+      <input type="date" id="date" name="date" min="2025-07-11">
+
+      <button type="submit">Get Free Summit‑Ready Guide</button>
+    </form>
+
+    <div class="success-msg" id="successMsg">
+      Thanks for signing up! Check your email for the Summit‑Ready Guide.<br>
+      Share your referral link for 10% off:<br>
+      <a href="#" id="refLink"></a>
+    </div>
+
+    <div class="social-share">
+      <img src="https://trek.adorahospitality.com/assets/facebook.png" alt="Share on Facebook" onclick="share('facebook')">
+      <img src="https://trek.adorahospitality.com/assets/twitter.png" alt="Share on Twitter" onclick="share('twitter')">
+      <img src="https://trek.adorahospitality.com/assets/whatsapp.png" alt="Share on WhatsApp" onclick="share('whatsapp')">
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('leadForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = {
+        name: form.name.value.trim(),
+        email: form.email.value.trim(),
+        phone: form.phone.value.trim(),
+        interest: form.interest.value,
+        date: form.date.value
+      };
+      try {
+        const response = await fetch('https://trek.adorahospitality.com/api/submitLead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        if (!response.ok) throw new Error('Network response was not ok');
+        // Generate referral code
+        const code = btoa(data.email + Date.now()).substring(0, 8);
+        const refUrl = `${location.origin}${location.pathname}?ref=${code}`;
+        document.getElementById('refLink').textContent = refUrl;
+        document.getElementById('refLink').href = refUrl;
+        document.getElementById('successMsg').style.display = 'block';
+        form.reset();
+      } catch (err) {
+        alert('Submission failed: ' + err.message);
+      }
+    });
+
+    function share(platform) {
+      const refParam = new URLSearchParams(window.location.search).get('ref');
+      const url = encodeURIComponent(window.location.origin + window.location.pathname + (refParam ? '?ref=' + refParam : ''));
+      let shareUrl = '';
+      switch(platform) {
+        case 'facebook': shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`; break;
+        case 'twitter': shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=Plan%20Your%20Himalayan%20Adventure%20with%20Adora!`; break;
+        case 'whatsapp': shareUrl = `https://api.whatsapp.com/send?text=Plan%20Your%20Himalayan%20Adventure:%20${url}`; break;
+      }
+      window.open(shareUrl, '_blank');
+    }
+  </script>
+</body>
+</html>
