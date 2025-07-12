@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plan Your Himalayan Road Trip With Us| Adora Hospitality</title>
+  <link rel="icon" href="/img/favicon.png" type="image/png">
+
+  <!-- Social Media Preview Metadata -->
+  <meta property="og:title" content="Plan Your Himalayan Trek & Stay with Adora Hospitality" />
+  <meta property="og:description" content="Get exclusive trek tips and special room booking offers. Connect with us now!" />
+  <meta property="og:image" content="https://trek.adorahospitality.com/assets/preview.jpg" />
+  <meta property="og:url" content="https://trek.adorahospitality.com/leadform.html" />
+
+  <!-- Google Fonts: Inter for a modern, clean look -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap Icons for social media (for Facebook, Instagram, LinkedIn) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Font Awesome for X (Twitter) icon and copyright icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* General body and container styling */
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f0f2f5 0%, #e0e5ec 100%); /* Subtle gradient background */
+      margin: 0;
+      padding: 20px; /* Add some padding for smaller screens */
+      display: flex;
+      flex-direction: column; /* Allow content to stack vertically */
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    /* Main form container */
+    .lead-form {
+      background: #ffffff;
+      padding: 40px; /* Increased padding */
+      border-radius: 15px; /* More rounded corners */
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* Enhanced shadow for depth */
+      width: 100%;
+      max-width: 450px; /* Slightly wider form */
+      box-sizing: border-box; /* Include padding in width calculation */
+      border: 1px solid #e0e0e0; /* Subtle border */
+      margin-bottom: 30px; /* Space between form and copyright */
+    }
+
+    /* Logo styling */
+    .lead-form .logo {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .lead-form .logo img {
+      max-width: 150px; /* Adjust logo size */
+      height: auto;
+      border-radius: 8px; /* Rounded logo */
+    }
+    .lead-form .logo h1 {
+      font-size: 28px;
+      color: #004080; /* Adora primary color */
+      margin-top: 10px;
+      font-weight: 700;
+    }
+
+    /* Heading styling */
+    .lead-form h2 {
+      margin: 0 0 25px;
+      font-size: 28px; /* Larger heading */
+      color: #004080; /* Adora primary color */
+      text-align: center;
+      font-weight: 600;
+    }
+
+    /* Label styling */
+    .lead-form label {
+      display: block;
+      margin: 15px 0 8px; /* More spacing */
+      color: #555;
+      font-weight: 500;
+      font-size: 15px;
+    }
+
+    /* Input and select styling */
+    .lead-form input,
+    .lead-form select {
+      width: 100%;
+      padding: 12px 15px; /* More padding inside inputs */
+      border: 1px solid #d0d0d0;
+      border-radius: 8px; /* Rounded inputs */
+      font-size: 16px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      box-sizing: border-box; /* Include padding in width */
+    }
+    .lead-form input:focus,
+    .lead-form select:focus {
+      border-color: #007bff; /* Highlight on focus */
+      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Subtle glow */
+      outline: none;
+    }
+
+    /* Button styling */
+    .lead-form button {
+      width: 100%;
+      padding: 14px; /* Larger button */
+      background: #004080; /* Dark blue primary button color */
+      color: #fff;
+      border: none;
+      border-radius: 8px; /* Rounded button */
+      font-size: 18px; /* Larger text */
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 30px; /* More space above button */
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 10px rgba(0, 64, 128, 0.3); /* Button shadow matching new color */
+    }
+    .lead-form button:hover {
+      background: #003060; /* Darker blue on hover */
+      transform: translateY(-2px); /* Slight lift effect */
+      box-shadow: 0 6px 15px rgba(0, 64, 128, 0.4);
+    }
+    .lead-form button:active {
+      transform: translateY(0); /* Press effect */
+    }
+    .lead-form button:disabled {
+      background: #cccccc;
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
+    }
+
+    /* Success message styling */
+    .success-msg {
+      margin-top: 25px;
+      color: #155724;
+      background: #d4edda;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 15px;
+      text-align: center;
+      line-height: 1.5;
+      border: 1px solid #c3e6cb;
+      display: none; /* Hidden by default */
+    }
+    .success-msg a {
+      color: #0056b3;
+      font-weight: 600;
+      word-break: break-all; /* Ensure long links wrap */
+    }
+
+    /* Error message styling */
+    .error-msg {
+      margin-top: 15px;
+      color: #721c24;
+      background: #f8d7da;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      text-align: center;
+      border: 1px solid #f5c6cb;
+      display: none; /* Hidden by default */
+    }
+
+    /* Contact Info Styling */
+    .contact-info {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+      text-align: center;
+      font-size: 15px;
+      color: #666;
+    }
+    .contact-info p {
+      margin-bottom: 8px;
+    }
+    .contact-info a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* Social share styling */
+    .social-share {
+      margin-top: 20px; /* Reduced margin as contact info is now above */
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid #eee; /* Separator line */
+    }
+    .social-share a { /* Apply styles to the anchor tag for icons */
+      display: inline-block;
+      width: 40px; /* Slightly larger icons */
+      height: 40px;
+      line-height: 40px; /* Center icon vertically */
+      margin: 0 10px;
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+      border-radius: 50%; /* Make icons round */
+      background-color: #f0f2f5; /* Light background for icons */
+      color: #004080; /* Icon color */
+      font-size: 20px; /* Size of the icon itself */
+      text-decoration: none; /* Remove underline */
+    }
+    .social-share a:hover {
+      transform: scale(1.1); /* Pop effect on hover */
+      background-color: #e0e5ec; /* Slightly darker on hover */
+      color: #007bff; /* Highlight color on hover */
+    }
+
+    /* Loading spinner for button */
+    .spinner {
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-top: 3px solid #fff;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      animation: spin 1s linear infinite;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Copyright Section Styling */
+    .copyright-section {
+        width: 100%;
+        max-width: 450px; /* Match form width */
+        text-align: center;
+        padding: 15px 20px;
+        margin-top: 20px; /* Space above copyright */
+        font-size: 14px;
+        color: #666; /* Softer text color */
+        font-family: 'Inter', sans-serif;
+        box-sizing: border-box;
+    }
+    .copyright-section a {
+        color: #004080; /* Link color matching Adora blue */
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+    .copyright-section a:hover {
+        color: #007bff; /* Lighter blue on hover */
+        text-decoration: underline;
+    }
+    .copyright-section .fas.fa-copyright {
+        margin-right: 5px;
+        color: #888; /* Icon color */
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 500px) {
+      .lead-form {
+        padding: 25px;
+      }
+      .lead-form h2 {
+        font-size: 24px;
+      }
+      .lead-form button {
+        font-size: 16px;
+      }
+      .copyright-section {
+        padding: 10px 15px;
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="lead-form">
+    <div class="logo">
+      <!-- Using a relative path assuming the logo is in assets/img/ relative to the root -->
+      <img src="/img/logo.png" alt="Adora Hospitality Logo">
+      <!-- If image fails, consider a text fallback or a simpler SVG logo -->
+      <!-- <h1>Adora Hospitality</h1> -->
+    </div>
+    <h2>Plan Your Himalayan Road Trip With Us</h2>
+    <form id="leadForm">
+      <label for="name">Full Name*</label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com"> <!-- 'required' removed -->
+
+      <label for="phone">Phone Number*</label>
+      <input type="tel" id="phone" name="phone" placeholder="+91 12345 67890" pattern="\+?[0-9\-\s]{7,15}" required>
+
+      <label for="interest">Interested In*</label>
+      <select id="interest" name="interest" required>
+        <option value="" disabled selected>-- Choose --</option>
+        <optgroup label="Trekking Packages">
+          <option value="Spiti Valley Road Trip ">Spiti Valley Road Trip </option>
+        </optgroup>
+        <optgroup label="Accommodation & Other">
+          <option value="rooms">Room Bookings During Road Trip</option>
+          <option value="both">Both (Road Trip & Stay)</option>
+          <option value="other">Other Inquiry</option>
+        </optgroup>
+      </select>
+
+      <label for="date">Preferred Date (Optional)</label>
+      <input type="date" id="date" name="date">
+
+      <button type="submit" id="submitBtn">
+        <span id="buttonText">Get a Call Back in 1 Minute</span>
+        <span id="loadingSpinner" style="display:none;" class="spinner"></span>
+      </button>
+    </form>
+
+    <div class="error-msg" id="errorMsg">
+      There was an error submitting your request. Please try again.
+    </div>
+
+    <div class="success-msg" id="successMsg">
+      Thank you! An Adora expert will call you back in 1 minute.<br>
+      Redirecting to our main trek page in 5 seconds...
+      <!-- Referral link removed as per redirection request, but kept for potential future use if needed -->
+      <!-- <a href="https://insider.adorahospitality.com" id="refLink"></a> -->
+    </div>
+
+    <div class="contact-info">
+      <p>Or reach us directly:</p>
+      <p>Phone: <a href="tel:+917807111209">+91 7807111209</a>, <a href="tel:+917807111208">+91 7807111208</a></p>
+      <p>Email: <a href="mailto:info@adorahospitality.com">info@adorahospitality.com</a></p>
+    </div>
+
+    <div class="social-share">
+      <a href="https://facebook.com/adorahospitality" target="_blank" aria-label="Share on Facebook"><i class="bi bi-facebook"></i></a>
+      <a href="https://x.com/Adorabooking/" target="_blank" aria-label="Share on X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://www.instagram.com/adorahospitality/" target="_blank" aria-label="Share on Instagram"><i class="bi bi-instagram"></i></a>
+      <a href="https://www.linkedin.com/company/adora-hospitality-solutions/" target="_blank" aria-label="Share on LinkedIn"><i class="bi bi-linkedin"></i></a>
+    </div>
+  </div>
+
+  <!-- Copyright Start -->
+  <div class="copyright-section">
+      <i class="fas fa-copyright me-2"></i>
+      Powered by
+      <a href="https://adorahospitality.com" target="_blank" rel="noopener noreferrer">
+          Adora Hospitality.
+      </a>
+       | All rights reserved <span id="currentYear"></span>.
+  </div>
+  <!-- Copyright End -->
+
+
+  <script>
+    // Set min date for preferred date input to today
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const today = new Date();
+      const yyyy = today.getFullYear();
+      const mm = String(today.getMonth() + 1).padStart(2, '0'); // Months start at 0!
+      const dd = String(today.getDate()).padStart(2, '0');
+      document.getElementById('date').min = `${yyyy}-${mm}-${dd}`;
+
+      // Set current year dynamically for copyright
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+      // Script to cut .html from the URL when the page loads
+      const currentUrl = window.location.href;
+      const cleanUrl = currentUrl.replace(/\.html(\?.*)?(#.*)?$/, '$1$2'); // Regex to remove .html but keep query string and hash
+
+      if (currentUrl !== cleanUrl) {
+        window.history.replaceState({}, document.title, cleanUrl);
+      }
+    });
+
+    // IMPORTANT: This is the deployed Google Apps Script Web App URL you got after deployment.
+    const GOOGLE_APPS_SCRIPT_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwitzOofpc2mWLud7ESLShQ4Q1YA8ilzKaXMS8EJE96ZbaQFFT7xgvVBzYUBL-soYtc/exec';
+
+    document.getElementById('leadForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const submitBtn = document.getElementById('submitBtn');
+      const buttonText = document.getElementById('buttonText');
+      const loadingSpinner = document.getElementById('loadingSpinner');
+      const successMsg = document.getElementById('successMsg');
+      const errorMsg = document.getElementById('errorMsg');
+
+      // Hide messages
+      successMsg.style.display = 'none';
+      errorMsg.style.display = 'none';
+
+      // Basic client-side validation for required fields
+      if (!form.name.value.trim() || !form.phone.value.trim() || !form.interest.value) {
+        errorMsg.textContent = 'Please fill in all required fields (Name, Phone, Interest).';
+        errorMsg.style.display = 'block';
+        return; // Stop submission
+      }
+
+      // Show loading state
+      submitBtn.disabled = true;
+      buttonText.textContent = 'Sending...';
+      loadingSpinner.style.display = 'inline-block';
+
+      const data = {
+        name: form.name.value.trim(),
+        email: form.email.value.trim(), // Email is now optional
+        phone: form.phone.value.trim(),
+        interest: form.interest.value,
+        date: form.date.value || null, // Send null if date is empty
+        // Add a timestamp for the Google Sheet
+        timestamp: new Date().toLocaleString(),
+        // Hidden fields for tracking sources
+        source: new URLSearchParams(window.location.search).get('source') || 'direct',
+        campaign: new URLSearchParams(window.location.search).get('campaign') || 'none',
+        medium: new URLSearchParams(window.location.search).get('medium') || 'none'
+      };
+
+      try {
+        // Use URLSearchParams to correctly format data for application/x-www-form-urlencoded
+        const formData = new URLSearchParams(data).toString();
+
+        const response = await fetch(GOOGLE_APPS_SCRIPT_WEB_APP_URL, {
+          method: 'POST',
+          mode: 'no-cors', // Important for Google Apps Script to avoid CORS preflight issues
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded', // Required for Apps Script doPost
+          },
+          body: formData
+        });
+
+        // For 'no-cors' mode, response.ok is always true, and you can't read response body.
+        // We assume success if the fetch call itself doesn't throw a network error.
+        // The actual success/failure will be determined by whether data appears in the sheet.
+
+        // Display success message
+        successMsg.style.display = 'block';
+        form.reset(); // Clear form after successful submission
+
+        // Redirect after a delay
+        setTimeout(() => {
+          window.location.href = 'https://trek.adorahospitality.com';
+        }, 5000); // 5-second delay
+
+      } catch (err) {
+        errorMsg.textContent = 'Submission failed: ' + err.message + '. Please ensure the Apps Script URL is correct and deployed with "Anyone" access.';
+        errorMsg.style.display = 'block';
+      } finally {
+        // Reset button state (will be reset before redirect, but good practice)
+        submitBtn.disabled = false;
+        buttonText.textContent = 'Get a Call Back in 1 Minute';
+        loadingSpinner.style.display = 'none';
+      }
+    });
+
+    function share(platform) {
+      const refParam = new URLSearchParams(window.location.search).get('ref');
+      const url = encodeURIComponent(window.location.origin + window.location.pathname + (refParam ? '?ref=' + refParam : ''));
+      let shareUrl = '';
+      const shareText = encodeURIComponent("Planning a Himalayan adventure? Get exclusive tips and offers from Adora Hospitality!");
+
+      switch(platform) {
+        case 'facebook': shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`; break;
+        case 'twitter': shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${shareText}`; break;
+        case 'whatsapp': shareUrl = `https://api.whatsapp.com/send?text=${shareText}%20${url}`; break;
+      }
+      window.open(shareUrl, '_blank', 'width=600,height=400'); // Open in a new, smaller window
+    }
+  </script>
+
+
+</body>
+</html>
