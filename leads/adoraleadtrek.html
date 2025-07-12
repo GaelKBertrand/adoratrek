@@ -305,7 +305,7 @@
           <option value="kanamo-peak">Kanamo Peak Trek</option>
           <option value="friendship-peak">Friendship Peak Trek</option>
           <option value="rupin-pass">Rupin Pass Trek</option>
-          <option value="pin-bhabha">Pin Bhabha Pass Trek</option>
+          <option value="pin-bhabha">Pin Bhaba Pass Trek</option>
           <option value="yula-kanda">Yula Kanda Trek</option>
         </optgroup>
         <optgroup label="Accommodation & Other">
@@ -329,7 +329,8 @@
     </div>
 
     <div class="success-msg" id="successMsg">
-      Thank you! An Adora expert will call you back in 1 minute.<br><br>
+      Thank you! An Adora expert will call you back in 1 minute.<br>
+      Redirecting to our main trek page in 3 seconds...
       <!-- Referral link removed as per redirection request, but kept for potential future use if needed -->
       <!-- <a href="https://insider.adorahospitality.com" id="refLink"></a> -->
     </div>
@@ -440,14 +441,20 @@
         // We assume success if the fetch call itself doesn't throw a network error.
         // The actual success/failure will be determined by whether data appears in the sheet.
 
-        // Redirect to the main trek page after successful submission
-        window.location.href = 'https://trek.adorahospitality.com';
+        // Display success message
+        successMsg.style.display = 'block';
+        form.reset(); // Clear form after successful submission
+
+        // Redirect after a delay
+        setTimeout(() => {
+          window.location.href = 'https://trek.adorahospitality.com';
+        }, 3000); // 3-second delay
 
       } catch (err) {
         errorMsg.textContent = 'Submission failed: ' + err.message + '. Please ensure the Apps Script URL is correct and deployed with "Anyone" access.';
         errorMsg.style.display = 'block';
       } finally {
-        // Reset button state (though not strictly necessary if redirecting immediately)
+        // Reset button state (will be reset before redirect, but good practice)
         submitBtn.disabled = false;
         buttonText.textContent = 'Get a Call Back in 1 Minute';
         loadingSpinner.style.display = 'none';
