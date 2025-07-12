@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <!-- Bootstrap Icons for social media (for Facebook, Instagram, LinkedIn) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
-  <!-- Font Awesome for X (Twitter) icon -->
+  <!-- Font Awesome for X (Twitter) icon and copyright icon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
@@ -27,6 +27,7 @@
       margin: 0;
       padding: 20px; /* Add some padding for smaller screens */
       display: flex;
+      flex-direction: column; /* Allow content to stack vertically */
       justify-content: center;
       align-items: center;
       min-height: 100vh;
@@ -43,6 +44,7 @@
       max-width: 450px; /* Slightly wider form */
       box-sizing: border-box; /* Include padding in width calculation */
       border: 1px solid #e0e0e0; /* Subtle border */
+      margin-bottom: 30px; /* Space between form and copyright */
     }
 
     /* Logo styling */
@@ -224,12 +226,56 @@
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
+
+    /* Copyright Section Styling */
+    .copyright-section {
+        width: 100%;
+        max-width: 450px; /* Match form width */
+        text-align: center;
+        padding: 15px 20px;
+        margin-top: 20px; /* Space above copyright */
+        font-size: 14px;
+        color: #666; /* Softer text color */
+        font-family: 'Inter', sans-serif;
+        box-sizing: border-box;
+    }
+    .copyright-section a {
+        color: #004080; /* Link color matching Adora blue */
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+    .copyright-section a:hover {
+        color: #007bff; /* Lighter blue on hover */
+        text-decoration: underline;
+    }
+    .copyright-section .fas.fa-copyright {
+        margin-right: 5px;
+        color: #888; /* Icon color */
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 500px) {
+      .lead-form {
+        padding: 25px;
+      }
+      .lead-form h2 {
+        font-size: 24px;
+      }
+      .lead-form button {
+        font-size: 16px;
+      }
+      .copyright-section {
+        padding: 10px 15px;
+        font-size: 13px;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="lead-form">
     <div class="logo">
-      <!-- Using a placeholder logo from Adora's main site for consistency -->
+      <!-- Using a relative path assuming the logo is in assets/img/ relative to the root -->
       <img src="/img/logo.png" alt="Adora Hospitality Logo">
       <!-- If image fails, consider a text fallback or a simpler SVG logo -->
       <!-- <h1>Adora Hospitality</h1> -->
@@ -259,7 +305,7 @@
           <option value="kanamo-peak">Kanamo Peak Trek</option>
           <option value="friendship-peak">Friendship Peak Trek</option>
           <option value="rupin-pass">Rupin Pass Trek</option>
-          <option value="pin-bhabha">Pin Bhaba Pass Trek</option>
+          <option value="pin-bhabha">Pin Bhabha Pass Trek</option>
           <option value="yula-kanda">Yula Kanda Trek</option>
         </optgroup>
         <optgroup label="Accommodation & Other">
@@ -284,7 +330,8 @@
 
     <div class="success-msg" id="successMsg">
       Thank you! An Adora expert will call you back in 1 minute.<br><br>
-      <a href="https://insider.adorahospitality.com" id="refLink"></a>
+      <!-- Referral link removed as per redirection request, but kept for potential future use if needed -->
+      <!-- <a href="https://insider.adorahospitality.com" id="refLink"></a> -->
     </div>
 
     <div class="contact-info">
@@ -314,17 +361,6 @@
 
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const currentUrl = window.location.href;
-      const cleanUrl = currentUrl.replace(/\.html(\?.*)?(#.*)?$/, '$1$2'); // Regex to remove .html but keep query string and hash
-
-      if (currentUrl !== cleanUrl) {
-        window.history.replaceState({}, document.title, cleanUrl);
-      }
-    });
-  </script>
-
-  <script>
     // Set min date for preferred date input to today
     document.addEventListener('DOMContentLoaded', (event) => {
       const today = new Date();
@@ -332,6 +368,17 @@
       const mm = String(today.getMonth() + 1).padStart(2, '0'); // Months start at 0!
       const dd = String(today.getDate()).padStart(2, '0');
       document.getElementById('date').min = `${yyyy}-${mm}-${dd}`;
+
+      // Set current year dynamically for copyright
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+      // Script to cut .html from the URL when the page loads
+      const currentUrl = window.location.href;
+      const cleanUrl = currentUrl.replace(/\.html(\?.*)?(#.*)?$/, '$1$2'); // Regex to remove .html but keep query string and hash
+
+      if (currentUrl !== cleanUrl) {
+        window.history.replaceState({}, document.title, cleanUrl);
+      }
     });
 
     // IMPORTANT: This is the deployed Google Apps Script Web App URL you got after deployment.
@@ -369,7 +416,11 @@
         interest: form.interest.value,
         date: form.date.value || null, // Send null if date is empty
         // Add a timestamp for the Google Sheet
-        timestamp: new Date().toLocaleString()
+        timestamp: new Date().toLocaleString(),
+        // Hidden fields for tracking sources
+        source: new URLSearchParams(window.location.search).get('source') || 'direct',
+        campaign: new URLSearchParams(window.location.search).get('campaign') || 'none',
+        medium: new URLSearchParams(window.location.search).get('medium') || 'none'
       };
 
       try {
@@ -389,19 +440,14 @@
         // We assume success if the fetch call itself doesn't throw a network error.
         // The actual success/failure will be determined by whether data appears in the sheet.
 
-        // Generate referral code (this part remains client-side)
-        const code = btoa(data.email + Date.now()).substring(0, 8); // Simple base64 encode for a unique code
-        const refUrl = `${location.origin}${location.pathname}?ref=${code}`;
-        document.getElementById('refLink').textContent = refUrl;
-        document.getElementById('refLink').href = refUrl;
+        // Redirect to the main trek page after successful submission
+        window.location.href = 'https://trek.adorahospitality.com';
 
-        successMsg.style.display = 'block';
-        form.reset(); // Clear form after successful submission
       } catch (err) {
         errorMsg.textContent = 'Submission failed: ' + err.message + '. Please ensure the Apps Script URL is correct and deployed with "Anyone" access.';
         errorMsg.style.display = 'block';
       } finally {
-        // Reset button state
+        // Reset button state (though not strictly necessary if redirecting immediately)
         submitBtn.disabled = false;
         buttonText.textContent = 'Get a Call Back in 1 Minute';
         loadingSpinner.style.display = 'none';
