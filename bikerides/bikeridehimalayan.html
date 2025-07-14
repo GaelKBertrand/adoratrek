@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ECXHETQ002"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-ECXHETQ002');
+        </script>
+        <meta charset="utf-8">
+        <title>Adora Roadtrips | Manali to Spiti Valley Bike Trip</title>
+        <link rel="icon" href="/img/favicon.png" type="image/png">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Manali to Spiti Valley Bike Trip, Himalayan bike trip, Spiti motorcycle tour, high altitude bike ride, Key Monastery, Chandertal Lake, Kunzum Pass" name="keywords">
+        <meta content="Embark on the ultimate Manali to Spiti Valley Bike Trip. Throttle through wild Himalayan roads, surreal valleys, and ancient monasteries for a high-altitude ride of a lifetime!" name="description">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="/css/style.css" rel="stylesheet">
+
+        <style>
+            /* General */
+            .main-content-section {
+                padding-top: 0;
+            }
+
+            .font-poppins {
+                font-family: 'Poppins', sans-serif;
+            }
+
+            /* Hero Section */
+            .hero-section {
+                height: 65vh; /* Increased height */
+                display: flex;
+                align-items: flex-end;
+                justify-content: flex-start;
+                position: relative;
+                padding: 1.5rem; /* p-6 */
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                overflow: hidden; /* Important to hide video overflow */
+            }
+
+            .hero-section::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+                z-index: 5;
+            }
+
+            /* Add this new style for the background video */
+            .background-video {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 100%;
+                height: 100%;
+                object-fit: cover; /* Ensures video covers the area without distortion */
+                transform: translate(-50%, -50%); /* Centers the video */
+                z-index: 0; /* Place behind the overlay and content */
+                filter: brightness(0.8); /* Optional: darken the video slightly for better text contrast */
+            }
+
+            .hero-content {
+                position: relative;
+                color: #fff;
+                z-index: 10; /* Ensure text is above overlay */
+                max-width: 48rem; /* max-w-3xl */
+            }
+
+            .hero-title {
+                font-size: 2.25rem; /* text-3xl */
+                line-height: 2.5rem; /* leading-9 */
+                font-weight: 700; /* font-bold */
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* shadow-text */
+                color: #0F3460; /* Deep blue color for the title */
+            }
+
+            .hero-meta {
+                display: flex;
+                align-items: center;
+                margin-top: 0.75rem; /* mt-3 */
+                font-size: 0.875rem; /* text-sm */
+            }
+
+            .hero-meta div {
+                display: flex;
+                align-items: center;
+                margin-right: 1rem; /* space-x-4 */
+            }
+
+            .hero-meta i {
+                margin-right: 0.5rem; /* mr-2 */
+            }
+
+            @media (min-width: 768px) { /* md breakpoint */
+                .hero-section {
+                    padding: 3rem; /* md:p-12 */
+                }
+                .hero-title {
+                    font-size: 3rem; /* md:text-5xl */
+                    line-height: 1;
+                }
+                .hero-meta {
+                    font-size: 1rem; /* md:text-base */
+                }
+            }
+            /* Optional: Responsive adjustments for mobile */
+            @media (max-width: 767px) {
+                .background-video {
+                    display: none; /* Hide video on smaller screens for performance/data usage */
+                }
+                /* You might want a dedicated mobile poster here, or rely on the overall hero-section background */
+            }
+
+
+            /* Main Content Area */
+            .content-container {
+                max-width: 1200px; /* Equivalent to container mx-auto */
+                margin-left: auto;
+                margin-right: auto;
+                padding: 1rem; /* p-4 */
+            }
+            @media (min-width: 768px) { /* md breakpoint */
+                .content-container {
+                    padding: 1.5rem; /* md:p-6 */
+                }
+            }
+            @media (min-width: 992px) { /* lg breakpoint */
+                .content-container {
+                    display: flex;
+                    gap: 2rem; /* lg:space-x-8 */
+                }
+                .left-column {
+                    width: 66.666667%; /* lg:w-2/3 */
+                }
+                .right-column {
+                    width: 33.333333%; /* lg:w-1/3 */
+                    margin-top: 0; /* lg:mt-0 */
+                }
+            }
+
+
+            /* Tab Navigation */
+            .tab-nav-wrapper {
+                position: relative; /* Changed from sticky */
+                top: auto; /* Changed from sticky top-[72px] */
+                background-color: #f3f4f6; /* bg-gray-100 */
+                z-index: 30;
+                padding: 1rem; /* p-4 */
+                border-top-left-radius: 0.5rem; /* rounded-t-lg */
+                border-top-right-radius: 0.5rem; /* rounded-t-lg */
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+            }
+            .tab-nav-inner {
+                 overflow-x: auto;
+            }
+
+            .return-button {
+                display: inline-block;
+                background-color: #3b82f6; /* bg-blue-500 */
+                color: #fff;
+                font-weight: 600; /* font-semibold */
+                padding: 0.5rem 1rem; /* py-2 px-4 */
+                border-radius: 0.5rem; /* rounded-lg */
+                transition: background-color 0.3s ease;
+                margin-bottom: 1rem; /* mb-4 */
+            }
+            .return-button:hover {
+                background-color: #2563eb; /* hover:bg-blue-600 */
+                color: #fff;
+                text-decoration: none;
+            }
+
+            .tab-buttons-nav {
+                display: flex;
+                border-bottom: 1px solid #e5e7eb; /* border-b */
+            }
+
+            .tab-button {
+                flex-shrink: 0;
+                padding: 0.75rem 1rem; /* py-3 px-4 */
+                font-weight: 600; /* font-semibold */
+                color: #4b5563; /* text-gray-600 */
+                transition: color 0.3s ease, background-color 0.3s ease; /* Added background-color for transition */
+                border: none; /* Removed borders */
+                background-color: transparent; /* Default transparent background */
+                border-radius: 0; /* Ensure no sharp corners for active state */
+            }
+            .tab-button:hover {
+                color: #3b82f6; /* hover:text-blue-500 */
+                text-decoration: none;
+                background-color: #e0f2f7; /* Light blue on hover for smooth effect */
+                border-radius: 0.25rem 0.25rem 0 0; /* Subtle rounded top corners on hover */
+            }
+            .tab-button.active-tab {
+                color: #3b82f6; /* Active blue color */
+                background-color: #e6f7ff; /* Lighter background for active tab */
+                border-bottom: 3px solid #3b82f6; /* Keep the blue line for active */
+                border-radius: 0.25rem 0.25rem 0 0; /* Smooth rounded top corners */
+            }
+            .tab-button i {
+                margin-right: 0.5rem; /* mr-2 */
+            }
+            @media (max-width: 767px) { /* hide icons on small screens */
+                .tab-button i.hidden-md {
+                    display: none;
+                }
+            }
+
+
+            /* Tab Content Panels */
+            .tab-content-panel {
+                background-color: #fff;
+                padding: 1rem; /* p-4 */
+                border-bottom-left-radius: 0.5rem; /* rounded-b-lg */
+                border-bottom-right-radius: 0.5rem; /* rounded-b-lg */
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+                min-height: 100vh;
+                display: none; /* Hidden by default */
+            }
+            .tab-content-panel.active {
+                display: block;
+            }
+            @media (min-width: 768px) { /* md breakpoint */
+                .tab-content-panel {
+                    padding: 1.5rem; /* md:p-6 */
+                }
+            }
+
+            /* Itinerary Styling */
+            .itinerary-item {
+                display: flex;
+                margin-bottom: 2.5rem; /* space-y-10 effect */
+            }
+
+            .itinerary-day-number {
+                font-size: 2.5rem;
+                font-weight: bold;
+                color: #e0e0e0;
+                line-height: 1;
+                position: relative;
+                top: -5px;
+                min-width: 40px;
+                text-align: center;
+                flex-shrink: 0; /* Prevent shrinking */
+            }
+
+            .itinerary-details {
+                border-left: 2px dotted #d1d5db; /* border-l-2 border-dotted border-gray-300 */
+                padding-left: 1.5rem; /* pl-6 */
+                flex-grow: 1;
+            }
+
+            .itinerary-details h3 {
+                font-weight: 700; /* font-bold */
+                font-size: 1.25rem; /* text-xl */
+                color: #1f2937; /* text-gray-800 */
+                margin-top: -0.75rem; /* -mt-3 */
+            }
+
+            .itinerary-meta {
+                font-size: 0.875rem; /* text-sm */
+                color: #6b7280; /* text-gray-500 */
+                margin-top: 0.25rem; /* mt-1 */
+            }
+
+            .itinerary-description {
+                margin-top: 1rem; /* mt-4 */
+            }
+
+            .itinerary-highlight {
+                margin-top: 1rem; /* mt-4 */
+                padding: 1rem; /* p-4 */
+                background-color: #eff6ff; /* bg-blue-50 */
+                border-left: 4px solid #60a5fa; /* border-l-4 border-blue-400 */
+                color: #1e40af; /* text-blue-800 */
+                font-size: 0.875rem; /* text-sm */
+                border-top-right-radius: 0.25rem; /* rounded-r-lg */
+                border-bottom-right-radius: 0.25rem; /* rounded-r-lg */
+            }
+
+            .itinerary-image {
+                margin-top: 1rem; /* mt-4 */
+                border-radius: 0.5rem; /* rounded-lg */
+                box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+                width: 100%;
+                height: auto;
+            }
+
+            /* Dates & Cost Table */
+            .table-responsive-custom {
+                overflow-x: auto;
+            }
+            .data-table {
+                width: 100%;
+                text-align: left;
+                border-collapse: collapse;
+            }
+            .data-table thead tr {
+                background-color: #e5e7eb; /* bg-gray-200 */
+            }
+            .data-table th,
+            .data-table td {
+                padding: 0.75rem; /* p-3 */
+                font-weight: 600; /* font-semibold */
+            }
+            .data-table tbody tr {
+                border-bottom: 1px solid #e5e7eb; /* border-b */
+            }
+            .status-tag {
+                padding: 0.25rem 0.5rem; /* px-2 py-1 */
+                border-radius: 9999px; /* rounded-full */
+                font-size: 0.75rem; /* text-xs */
+            }
+            .status-available {
+                background-color: #d1fae5; /* bg-green-100 */
+                color: #10b981; /* text-green-800 */
+            }
+            .status-limited {
+                background-color: #fef9c3; /* bg-yellow-100 */
+                color: #f59e0b; /* text-yellow-800 */
+            }
+            .status-full {
+                background-color: #fee2e2; /* bg-red-100 */
+                color: #dc2626; /* text-red-800 */
+            }
+            .book-button {
+                background-color: #3b82f6; /* bg-blue-500 */
+                color: #fff;
+                padding: 0.5rem 1rem; /* px-4 py-2 */
+                border-radius: 0.5rem; /* rounded-lg */
+                font-size: 0.875rem; /* text-sm */
+                border: none;
+                cursor: pointer;
+            }
+            .book-button:hover {
+                background-color: #2563eb; /* hover:bg-blue-600 */
+            }
+            .book-button.disabled {
+                background-color: #9ca3af; /* bg-gray-400 */
+                cursor: not-allowed;
+            }
+
+            .table-info-text {
+                margin-top: 1rem; /* mt-4 */
+                font-size: 0.875rem; /* text-sm */
+                color: #4b5563; /* text-gray-600 */
+            }
+            .table-info-text + .table-info-text { /* for mt-2 effect */
+                margin-top: 0.5rem;
+            }
+
+            /* Why With Us Section */
+            .why-us-grid {
+                display: grid;
+                gap: 2rem; /* gap-8 */
+            }
+            @media (min-width: 768px) { /* md breakpoint */
+                .why-us-grid {
+                    grid-template-columns: repeat(2, minmax(0, 1fr)); /* md:grid-cols-2 */
+                }
+            }
+
+            .why-us-item {
+                display: flex;
+                align-items: flex-start;
+            }
+            .why-us-item i {
+                font-size: 2rem; /* text-3xl */
+                color: #3b82f6; /* text-blue-500 */
+                margin-top: 0.25rem; /* mt-1 */
+                margin-right: 1rem; /* space-x-4 effect */
+                flex-shrink: 0;
+            }
+            .why-us-item h4 {
+                font-weight: 700; /* font-bold */
+                font-size: 1.125rem; /* text-lg */
+            }
+            .why-us-item p {
+                color: #4b5563; /* text-gray-600 */
+                margin-top: 0.25rem; /* mt-1 */
+            }
+
+            /* FAQ Section */
+            .faq-container-list {
+                margin-top: 1rem; /* space-y-4 */
+            }
+            .faq-item {
+                border: 1px solid #d1d5db; /* border */
+                border-radius: 0.5rem; /* rounded-lg */
+                margin-bottom: 1rem; /* space-y-4 */
+            }
+            .faq-question {
+                padding: 1rem; /* p-4 */
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                cursor: pointer;
+            }
+            .faq-question h4 {
+                font-weight: 600; /* font-semibold */
+            }
+            .faq-icon {
+                transition: transform 0.3s ease-out;
+            }
+            .faq-icon.rotated {
+                transform: rotate(180deg);
+            }
+            .faq-answer {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+                padding-left: 1rem;
+                padding-right: 1rem;
+                border-top: 1px solid #e5e7eb; /* border-t border-gray-200 */
+                color: #4b5563; /* text-gray-600 */
+            }
+            .faq-answer.open {
+                max-height: 300px; /* Adjust as needed */
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+
+            /* Essentials Section */
+            .essentials-list {
+                list-style-type: disc;
+                list-style-position: inside;
+                margin-top: 1.5rem; /* mb-6 */
+            }
+            .essentials-list li {
+                margin-bottom: 0.5rem; /* space-y-2 */
+                color: #4b5563; /* text-gray-600 */
+            }
+            .exclusions-list {
+                list-style-type: disc;
+                list-style-position: inside;
+                margin-top: 1.5rem;
+                color: #4b5563;
+            }
+            .exclusions-list li {
+                margin-bottom: 0.5rem;
+            }
+
+            /* Photos Section (Reverted to Grid with Lightbox) */
+            .photo-grid-item img {
+                width: 100%;
+                height: 200px; /* Fixed height for uniform images in grid */
+                object-fit: cover; /* Ensures images cover the area without distortion */
+                border-radius: 0.5rem;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+                transition: transform 0.2s ease-in-out;
+            }
+
+            .photo-grid-item img:hover {
+                transform: scale(1.03); /* Slight zoom effect on hover */
+            }
+
+
+            /* Map Section */
+            .map-container {
+                position: relative;
+                overflow: hidden;
+                padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+                height: 0;
+            }
+            .map-container iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 0.5rem; /* Consistent rounded corners */
+                border: 1px solid #e5e7eb; /* Subtle border */
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            }
+
+
+            /* Sticky Sidebar */
+            .sticky-sidebar-wrapper {
+                position: sticky;
+                top: 72px; /* Adjust based on navbar height */
+                background-color: #fff;
+                border-radius: 0.5rem; /* rounded-lg */
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); /* shadow-xl */
+                padding: 1.5rem; /* p-6 */
+            }
+
+            .sidebar-price-difficulty {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .sidebar-price-difficulty .price-info p {
+                margin-bottom: 0;
+            }
+            .sidebar-price-difficulty .price-label {
+                font-size: 0.875rem; /* text-sm */
+                color: #6b7280; /* text-gray-500 */
+            }
+            .sidebar-price-difficulty .main-price {
+                font-size: 1.875rem; /* text-3xl */
+                font-weight: 700; /* font-bold */
+                color: #1f2937; /* text-gray-800 */
+            }
+            /* .sidebar-price-difficulty .b2b-price { Removed } */
+
+            .difficulty-score {
+                text-align: center;
+            }
+            .difficulty-score-box {
+                background-color: #3b82f6; /* bg-blue-500 */
+                color: #fff;
+                font-weight: 700; /* font-bold */
+                font-size: 1.25rem; /* text-xl */
+                border-radius: 0.375rem; /* rounded-md */
+                width: 4rem; /* w-16 */
+                height: 3rem; /* h-12 */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .difficulty-score p {
+                font-size: 0.75rem; /* text-xs */
+                font-weight: 600; /* font-semibold */
+                margin-top: 0.25rem; /* mt-1 */
+            }
+
+            .sidebar-button {
+                width: 100%;
+                color: #fff;
+                font-weight: 700; /* font-bold */
+                padding: 0.75rem 1rem; /* py-3 */
+                border-radius: 0.5rem; /* rounded-lg */
+                margin-top: 1.5rem; /* mt-6 or mt-3 */
+                transition: background-color 0.3s ease, box-shadow 0.3s ease;
+                border: none;
+                text-align: center;
+                display: block; /* Ensure it takes full width */
+                text-decoration: none;
+            }
+            .sidebar-button.book-now {
+                background-color: #3b82f6; /* bg-blue-500 */
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            }
+            .sidebar-button.book-now:hover {
+                background-color: #2563eb; /* hover:bg-blue-600 */
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); /* hover:shadow-xl */
+            }
+            .sidebar-button.enquire-now {
+                background-color: #e5e7eb; /* bg-gray-200 */
+                color: #1f2937; /* text-gray-800 */
+            }
+            .sidebar-button.enquire-now:hover {
+                background-color: #d1d5db; /* hover:bg-gray-300 */
+            }
+
+            .quick-facts-section {
+                margin-top: 2rem; /* mt-8 */
+                border-top: 1px solid #e5e7eb; /* border-t pt-6 */
+                padding-top: 1.5rem;
+            }
+            .quick-facts-list {
+                margin-top: 1rem; /* mt-4 */
+            }
+            .quick-facts-list li {
+                display: flex;
+                align-items: center;
+                margin-bottom: 1rem; /* space-y-4 */
+                color: #4b5563; /* text-gray-600 */
+            }
+            .quick-facts-list li i {
+                width: 1.5rem; /* w-6 */
+                text-align: center;
+                color: #3b82f6; /* text-blue-500 */
+                margin-right: 0.75rem; /* mr-3 */
+            }
+
+            .organizer-info {
+                margin-top: 1rem; /* mt-4 */
+            }
+            .organizer-info p {
+                color: #4b5563; /* text-gray-600 */
+                margin-bottom: 0.25rem; /* mt-1 */
+            }
+            .organizer-info i {
+                margin-right: 0.5rem; /* mr-2 */
+            }
+
+            /* Responsive Adjustments (from original prompt's Tailwind) */
+            @media (max-width: 991.98px) { /* Equivalent to lg:mt-0 for right column */
+                .right-column {
+                    margin-top: 2rem; /* Default margin-top if not lg */
+                }
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading Adora Hospitality Roadtrips</span>
+            </div>
+        </div>
+        <div class="container-fluid bg-primary px-5 d-none d-lg-block">
+            <div class="row gx-0">
+                <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                    <div class="d-inline-flex align-items-center" style="height: 45px;">
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2 d-flex align-items-center justify-content-center"
+                           href="https://x.com/Adorabooking/"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           style="width: 32px; height: 32px;">
+                            <img src="/img/twitter.png" alt="Twitter" style="width: 16px; height: 16px;">
+                        </a>
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.facebook.com/adorahospitality"  target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f fw-normal"></i></a>
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.linkedin.com/company/adora-hospitality-solutions/"  target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.instagram.com/adorahospitality/"  target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="https://www.youtube.com/@AdoraHospitality"  target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube fw-normal"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center text-lg-end">
+                    <div class="d-inline-flex align-items-center" style="height: 45px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+                <a href="/index.html" class="navbar-brand p-0">
+                    <img src="/img/logo.png" alt="Logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                        <a href="/index.html" class="nav-item nav-link">Home</a>
+                        <a href="/roadtrips.html" class="nav-item nav-link active">Roadtrip Packages</a>
+                        <a href="/services.html" class="nav-item nav-link">Other Services</a>
+                        <a href="https://insider.adorahospitality.com/" target="_blank" rel="noopener noreferrer" class="nav-item nav-link">Blog & Updates</a>
+                        <a href="/contact.html" class="nav-item nav-link">Contact Us</a>
+                    </div>
+                    </div>
+            </nav>
+        </div>
+        <main class="main-content-section">
+            <section class="hero-section" style="background-image: url('/img/spiti.jpg');">
+                <div class="hero-content">
+                    <h1 class="hero-title font-poppins">Manali to Spiti Valley Bike Trip – 7 Nights / 8 Days</h1>
+                    <div class="hero-meta">
+                        <div><i class="fas fa-tag"></i><span>Throttle through wild Himalayan roads, surreal valleys, and ancient monasteries — the ultimate high-altitude ride of a lifetime!</span></div>
+                        </div>
+                </div>
+            </section>
+
+            <div class="content-container">
+                <div class="left-column">
+
+                    <div id="tab-nav-container" class="tab-nav-wrapper">
+                        <div class="tab-nav-inner">
+                            <div class="mb-4">
+                                <a href="https://trek.adorahospitality.com/roadtrips.html" class="return-button"> Return to list of road trips</a>
+                            </div>
+                            <nav id="tabs" class="tab-buttons-nav">
+                                <button data-target="itinerary" class="tab-button active-tab"><i class="fas fa-list-ul mr-2 hidden-md"></i>Itinerary</button>
+                                <button data-target="essentials" class="tab-button"><i class="fas fa-briefcase mr-2 hidden-md"></i>Essentials</button>
+                                <button data-target="photos" class="tab-button"><i class="fas fa-camera mr-2 hidden-md"></i>Photos</button>
+                                <button data-target="map" class="tab-button"><i class="fas fa-map-marked-alt mr-2 hidden-md"></i>Map</button>
+                                <button data-target="why-us" class="tab-button"><i class="fas fa-users mr-2 hidden-md"></i>Why with us?</button>
+                                <button data-target="faq" class="tab-button"><i class="fas fa-question-circle mr-2 hidden-md"></i>FAQ</button>
+
+                            </nav>
+                        </div>
+                    </div>
+
+                    <div class="tab-content-panel active" id="itinerary">
+                       <div class="space-y-10">
+                            <div class="itinerary-item">
+                                <div class="itinerary-day-number">01</div>
+                                <div class="itinerary-details">
+                                    <h3 class="font-poppins">Day 1: Arrival in Manali (Bike Check & Acclimatization)</h3>
+                                    <div class="itinerary-meta"><strong>Altitude:</strong> 2,050 m</div>
+                                    <p class="itinerary-description">Arrive and check-in to hotel. Test ride and bike briefing. Acclimatization ride to Solang or Old Manali. Explore Mall Road, local cafes. Overnight: Manali.</p>
+                                    <div class="itinerary-highlight">
+                                        <p><strong>Activities:</strong> Test ride, bike briefing, acclimatization ride, local exploration.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="itinerary-item">
+                                <div class="itinerary-day-number">02</div>
+                                <div class="itinerary-details">
+                                    <h3 class="font-poppins">Day 2: Manali to Batal / Chandratal</h3>
+                                    <div class="itinerary-meta"><strong>Distance:</strong> 130–140 km | <strong>Ride Time:</strong> 6–8 hrs</div>
+                                    <p class="itinerary-description">Ride through Atal Tunnel (9 km) into raw terrain with waterfalls and river crossings. Optional detour to Chandratal Lake. Camping at Batal or near Chandratal Lake (closed if early season). Overnight: Batal or Chandratal Camp.</p>
+                                    <div class="itinerary-highlight">
+                                        <p><strong>Route:</strong> Atal Tunnel ➝ Gramphu ➝ Chhatru ➝ Batal ➝ Optional detour to Chandratal.</p>
+                                    </div>
+                                    <div class="mt-4">
+                                        <img src="/imgtr/spiti-chitkul.webp" alt="Atal Tunnel and Chandratal Lake" class="itinerary-image" onerror="this.style.display='none'">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="itinerary-item">
+                                <div class="itinerary-day-number">03</div>
+                                <div class="itinerary-details">
+                                    <h3 class="font-poppins">Day 3: Batal to Kaza via Kunzum Pass</h3>
+                                    <div class="itinerary-meta"><strong>Distance:</strong> 100 km | <strong>Ride Time:</strong> 5–6 hrs | <strong>Altitude:</strong> Kaza – 3,800 m</div>
+                                    <p class="itinerary-description">Conquer Kunzum La (4,551 m) and arrive in Spiti’s heart – Kaza. Evening free to explore cafes and the local market. Overnight: Kaza.</p>
+                                    <div class="itinerary-highlight">
+                                        <p><strong>Route:</strong> Kunzum Pass ➝ Losar ➝ Kaza.</p>
+                                    </div>
+                                     <div class="mt-4">
+                                        <img src="/imgtr/spiti-kalpa.webp" alt="Kunzum Pass and Kaza" class="itinerary-image" onerror="this.style.display='none'">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="itinerary-item">
+                                <div class="itinerary-day-number">04</div>
+                                <div class="itinerary-details">
+                                    <h3 class="font-poppins">Day 4: Kaza – Key – Kibber – Hikkim – Komic – Langza – Kaza (High Altitude Villages)</h3>
+                                    <div class="itinerary-meta"><strong>Distance:</strong> 80 km (round trip) | <strong>Ride Time:</strong> 5–6 hrs | <strong>Altitude:</strong> Komic – 4,587 m | Hikkim – 4,440 m | Langza – 4,400 m</div>
+                                    <p class="itinerary-description">Today’s circuit covers Spiti’s iconic high-altitude villages: Key Monastery, Kibber Village (world’s highest motorable village), Hikkim (world’s highest post office), and Langza (famous for fossils and the giant Buddha statue). Return to Kaza in the evening. Overnight: Kaza.</p>
+                                    <div class="itinerary-highlight">
+                                        <p><strong>Highlights:</strong> Key Monastery, Kibber Village, Hikkim Post Office, Langza Buddha statue.</p>
+                                    </div>
+                                     <div class="mt-4">
+                                        <img src="/imgtr/spiti-giu-tabo.webp" alt="Key Monastery and High Altitude Villages" class="itinerary-image" onerror="this.style.display='none'">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="itinerary-item">
+                                <div class="itinerary-day-number">05</div>
+                                <div class="itinerary-details">
+                                    <h3 class="font-poppins">Day 5: Kaza to Pin Valley via Dhankar & Tabo</h3>
+                                    <div class="itinerary-meta"><strong>Distance:</strong> 130 km | <strong>Ride Time:</strong> 6–8 hrs</div>
+                                    <p class="itinerary-description">Visit Dhankar Monastery, dramatically perched on a cliff. Continue to Tabo, home to the 1,000-year-old Tabo Monastery. Stop at Gue village to see the ancient mummy. Enter the green and lush Pin Valley (Mud village). Overnight: Mudh (Pin Valley).</p>
+                                    <div class="itinerary-highlight">
+                                        <p><strong>Highlights:</strong> Dhankar Monastery, Tabo Monastery, Gue village ancient mummy, Mudh village.</p>
+                                    </div>
+                                     <div class="mt-4">
+                                        <img src="/imgtr/spiti-dhankar-kaza.webp" alt="Dhankar Monastery and Pin Valley" class="itinerary-image" onerror="this.style.display='none'">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="itinerary-item">
+                                <div class="itinerary-day-number">06</div>
+                                <div class="itinerary-details">
+                                    <h3 class="font-poppins">Day 6: Pin Valley to Kalpa via Nako Lake</h3>
+                                    <div class="itinerary-meta"><strong>Distance:</strong> 200 km | <strong>Ride Time:</strong> 7–8 hrs</div>
+                                    <p class="itinerary-description">Ride along the Sutlej River. Visit Nako Lake. Arrive in Kalpa, a tranquil village with breathtaking views of the Kinnaur Kailash range. Overnight: Kalpa.</p>
+                                    <div class="itinerary-highlight">
+                                        <p><strong>Route:</strong> Mudh ➝ Nako ➝ Pooh ➝ Kalpa.</p>
+                                    </div>
+                                     <div class="mt-4">
+                                        <img src="/imgtr/spiti-komic-hikkim-langza.webp" alt="Nako Lake and Kalpa" class="itinerary-image" onerror="this.style.display='none'">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="itinerary-item">
+                                <div class="itinerary-day-number">07</div>
+                                <div class="itinerary-details">
+                                    <h3 class="font-poppins">Day 7: Kalpa to Narkanda</h3>
+                                    <div class="itinerary-meta"><strong>Distance:</strong> 160 km | <strong>Ride Time:</strong> 6–7 hrs</div>
+                                    <p class="itinerary-description">Ride via NH-5 (Hindustan-Tibet Road) through apple orchards and pine forests. Experience less harsh terrain and winding mountain roads. Overnight: Narkanda.</p>
+                                    <div class="itinerary-highlight">
+                                        <p><strong>Route:</strong> Via NH-5 (Hindustan-Tibet Road).</p>
+                                    </div>
+                                     <div class="mt-4">
+                                        <img src="/imgtr/spiti-key-monastery.webp" alt="Narkanda Apple Orchards" class="itinerary-image" onerror="this.style.display='none'">
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="itinerary-item">
+                                <div class="itinerary-day-number">08</div>
+                                <div class="itinerary-details">
+                                    <h3 class="font-poppins">Day 8: Departure from Narkanda / Narkanda to Manali (via Kullu)</h3>
+                                    <div class="itinerary-meta"></div>
+                                    <p class="itinerary-description">Your Spiti Valley Bike Trip concludes today. Option A: Ride to Shimla (65 km), explore, end trip. Option B: Ride back to Manali (250 km) via Kullu – long ride (~8–9 hrs). Option C: End trip at Shimla, transport bikes back to Manali/Delhi.</p>
+                                    <div class="itinerary-highlight">
+                                        <p><strong>Journey concludes with unforgettable memories.</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                       </div>
+                    </div>
+
+                    <div class="tab-content-panel" id="why-us">
+                        <h2 class="text-2xl font-bold mb-4 font-poppins">Why choose Adora Bike Trip?</h2>
+                        <div class="why-us-grid">
+                            <div class="why-us-item">
+                                <i class="fas fa-motorcycle"></i>
+                                <div>
+                                    <h4>Ride Royal Enfield Himalayans/Bullets</h4>
+                                    <p>Experience the Himalayas on reliable Royal Enfield Himalayan 410cc or Bullet Classic bikes, known for their performance in challenging terrains.</p>
+                                </div>
+                            </div>
+                            <div class="why-us-item">
+                                <i class="fas fa-tools"></i>
+                                <div>
+                                    <h4>Full Support Crew</h4>
+                                    <p>Our trips include an experienced tour leader, a backup vehicle for luggage and emergencies, and a dedicated bike mechanic to ensure a smooth journey.</p>
+                                </div>
+                            </div>
+                            <div class="why-us-item">
+                                <i class="fas fa-heartbeat"></i>
+                                <div>
+                                    <h4>Acclimatization Focused Itinerary</h4>
+                                    <p>Our itinerary incorporates gradual altitude gain and sufficient rest days to help you acclimatize, minimizing the risk of altitude sickness.</p>
+                                </div>
+                            </div>
+                            <div class="why-us-item">
+                                <i class="fas fa-hands-helping"></i>
+                                <div>
+                                    <h4>Experienced Tour Leaders</h4>
+                                    <p>Our knowledgeable and friendly tour leaders ensure smooth logistics, provide insights into local culture, and are there for any assistance you need.</p>
+                                </div>
+                            </div>
+                             <div class="why-us-item">
+                                <i class="fas fa-campground"></i>
+                                <div>
+                                    <h4>Quality Accommodations & Meals</h4>
+                                    <p>Enjoy comfortable stays in handpicked hotels, guesthouses, and unique campsites (like Chandertal), with breakfast and dinner included.</p>
+                                </div>
+                            </div>
+                             <div class="why-us-item">
+                                <i class="fas fa-leaf"></i>
+                                <div>
+                                    <h4>Sustainable & Responsible Tourism</h4>
+                                    <p>We are committed to preserving the pristine environment and supporting local communities through responsible tourism practices.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content-panel" id="faq">
+                         <h2 class="text-2xl font-bold mb-4 font-poppins">Frequently Asked Questions</h2>
+                         <div class="faq-container-list">
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>What is the best time to do the Spiti Valley Bike Trip?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    The best time for the Manali to Spiti Valley Bike Trip is from June to October. This is when both Kunzum Pass and Rohtang Pass are open, allowing for the complete circuit.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>What is the difficulty level of this bike trip?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    The Spiti Valley Bike Trip is rated as 7/10 (Moderate to Challenging) due to the high altitudes, long riding hours, and challenging road conditions in certain sections. Prior experience with high-altitude riding is recommended.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>What kind of accommodation is provided during the bike trip?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    Accommodation will be in comfortable hotels/camps as per the itinerary. At places like Chandratal, you will stay in alpine tents or luxury camps.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>Do I need prior experience for this bike trip?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    Yes, prior experience in riding motorcycles, especially in varied terrains, is highly recommended for the Spiti Valley Bike Trip due to the challenging mountain roads. A valid driving license for motorcycles is mandatory.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>What is the maximum altitude reached on this bike trip?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    The highest point reached on the Spiti Valley Bike Trip is Kunzum Pass, at an altitude of approximately 4,551 meters (14,931 feet), followed closely by Komic village at 4,587 meters (15,049 feet).
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>What kind of food will be provided during the bike trip?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    Our package includes breakfast and dinner throughout the trip. Meals will be a mix of local Himachali and Indian cuisine, provided at your accommodations. Lunch is usually at local eateries along the way (self-paid).
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>What if I face altitude sickness?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    Our tour leaders are trained to recognize and manage symptoms of acute mountain sickness (AMS). We carry basic first aid and oxygen cylinders for emergencies. The itinerary is designed for gradual acclimatization, but it's crucial to inform your guide immediately if you feel unwell.
+                                 </div>
+                             </div>
+                             <div class="faq-item">
+                                 <div class="faq-question">
+                                     <h4>What is the typical group size for the Spiti Valley Bike Trip?</h4>
+                                     <i class="fas fa-chevron-down faq-icon"></i>
+                                 </div>
+                                 <div class="faq-answer">
+                                    The typical group size for this bike trip ranges from a minimum of 10 people to a maximum of 30 people per departure, ensuring a dynamic group riding experience.
+                                 </div>
+                             </div>
+                         </div>
+                    </div>
+
+                    <div class="tab-content-panel" id="essentials">
+                        <h2 class="text-2xl font-bold mb-4 font-poppins">Bike Trip Essentials</h2>
+                        <h3 class="text-xl font-bold mb-2 font-poppins">Inclusions</h3>
+                        <ul class="essentials-list">
+                            <li>Bikes: Himalayan 410cc or Bullet Classic</li>
+                            <li>Bike Fuel (As per itinerary)</li>
+                            <li>Accommodation: Hotels/Camps (as per itinerary)</li>
+                            <li>Food: Breakfast and Dinner daily</li>
+                            <li>Volvo Tickets: From Delhi to Manali (both sides)</li>
+                            <li>Tour Leader</li>
+                            <li>Backup Vehicle</li>
+                            <li>Bike Mechanic</li>
+                            <li>Permit: For foreigners, Inner Line Permit required (can be arranged in Manali/Kaza)</li>
+                        </ul>
+
+                        <h3 class="text-xl font-bold mb-2 font-poppins mt-4">Exclusions</h3>
+                        <ul class="exclusions-list">
+                            <li>Personal expenses (laundry, phone calls, tips, etc.)</li>
+                            <li>Any kind of travel insurance or medical costs</li>
+                            <li>Entry fees at monasteries, museums, or sightseeing spots</li>
+                            <li>Lunches</li>
+                            <li>Cost of rescue or evacuation in case of emergencies</li>
+                            <li>Optional activities or extended stays</li>
+                            <li>Cost of bike damage done while on the trip.</li>
+                            <li>Any increase in cost due to unforeseen circumstances like roadblocks, natural calamities.</li>
+                            <li>Bike Gear: Riding gloves, jackets, knee guards, spare parts, tool kit (riders need to bring their own)</li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-content-panel" id="photos">
+                        <h2 class="text-2xl font-bold mb-4 font-poppins">Photo Gallery</h2>
+                        <div class="row g-3">
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="/imgtr/spitiroad1.jpeg" data-lightbox="spiti-roadtrip-gallery" data-title="Spiti Valley Bike Trip View 1">
+                                    <img src="/imgtr/spitiroad1.jpeg" class="img-fluid rounded shadow-sm" alt="Spiti Valley Bike Trip View 1">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="/imgtr/spitiroad2.jpeg" data-lightbox="spiti-roadtrip-gallery" data-title="Spiti Valley Bike Trip View 2">
+                                    <img src="/imgtr/spitiroad2.jpeg" class="img-fluid rounded shadow-sm" alt="Spiti Valley Bike Trip View 2">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="/imgtr/spitiroad3.jpeg" data-lightbox="spiti-roadtrip-gallery" data-title="Spiti Valley Bike Trip View 3">
+                                    <img src="/imgtr/spitiroad3.jpeg" class="img-fluid rounded shadow-sm" alt="Spiti Valley Bike Trip View 3">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="/imgtr/spitiroad4.jpeg" data-lightbox="spiti-roadtrip-gallery" data-title="Spiti Valley Bike Trip View 4">
+                                    <img src="/imgtr/spitiroad4.jpeg" class="img-fluid rounded shadow-sm" alt="Spiti Valley Bike Trip View 4">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="/imgtr/spitiroad5.jpeg" data-lightbox="spiti-roadtrip-gallery" data-title="Spiti Valley Bike Trip View 5">
+                                    <img src="/imgtr/spitiroad5.jpeg" class="img-fluid rounded shadow-sm" alt="Spiti Valley Bike Trip View 5">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="/imgtr/spitiroad6.jpeg" data-lightbox="spiti-roadtrip-gallery" data-title="Spiti Valley Bike Trip View 6">
+                                    <img src="/imgtr/spitiroad6.jpeg" class="img-fluid rounded shadow-sm" alt="Spiti Valley Bike Trip View 6">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="/imgtr/spitiroad7.jpeg" data-lightbox="spiti-roadtrip-gallery" data-title="Spiti Valley Bike Trip View 7">
+                                    <img src="/imgtr/spitiroad7.jpeg" class="img-fluid rounded shadow-sm" alt="Spiti Valley Bike Trip View 7">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="/imgtr/spitiroad8.jpeg" data-lightbox="spiti-roadtrip-gallery" data-title="Spiti Valley Bike Trip View 8">
+                                    <img src="/imgtr/spitiroad8.jpeg" class="img-fluid rounded shadow-sm" alt="Spiti Valley Bike Trip View 8">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="/imgtr/spitiroad9.jpeg" data-lightbox="spiti-roadtrip-gallery" data-title="Spiti Valley Bike Trip View 9">
+                                    <img src="/imgtr/spitiroad9.jpeg" class="img-fluid rounded shadow-sm" alt="Spiti Valley Bike Trip View 9">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="/imgtr/spitiroad10.jpeg" data-lightbox="spiti-roadtrip-gallery" data-title="Spiti Valley Bike Trip View 10">
+                                    <img src="/imgtr/spitiroad10.jpeg" class="img-fluid rounded shadow-sm" alt="Spiti Valley Bike Trip View 10">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="/imgtr/spitiroad11.jpeg" data-lightbox="spiti-roadtrip-gallery" data-title="Spiti Valley Bike Trip View 10">
+                                    <img src="/imgtr/spitiroad11.jpeg" class="img-fluid rounded shadow-sm" alt="Spiti Valley Bike Trip View 10">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="/imgtr/spitiroad12.jpeg" data-lightbox="spiti-roadtrip-gallery" data-title="Spiti Valley Bike Trip View 10">
+                                    <img src="/imgtr/spitiroad12.jpeg" class="img-fluid rounded shadow-sm" alt="Spiti Valley Bike Trip View 10">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 photo-grid-item">
+                                <a href="/imgtr/spitiroad13.jpeg" data-lightbox="spiti-roadtrip-gallery" data-title="Spiti Valley Bike Trip View 10">
+                                    <img src="/imgtr/spitiroad13.jpeg" class="img-fluid rounded shadow-sm" alt="Spiti Valley Bike Trip View 10">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content-panel" id="map">
+                        <h2 class="text-2xl font-bold mb-4 font-poppins">Map</h2>
+                        <div class="map-container">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110190.50508542918!2d77.89315053429215!3d31.81775791334863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390547d6360c79f3%3A0xc47e3a9c7923769c!2sSpiti%20Valley%2C%20Himachal%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                                width="600"
+                                height="450"
+                                style="border:0;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                        <p class="table-info-text mt-4">The map shows the approximate route through Spiti Valley. Actual travel routes and stops may vary due to road conditions or local circumstances.</p>
+                    </div>
+
+                    </div>
+
+                <div class="right-column">
+                    <div class="sticky-sidebar-wrapper">
+                        <div class="sidebar-price-difficulty">
+                            <div class="price-info">
+                                <p class="price-label">Client Price (starting from)</p>
+                                <p class="main-price font-poppins">₹30,000 <s style="font-size: 0.6em; color: #6b7280;">₹35,000</s></p>
+                            </div>
+                            <div class="difficulty-score">
+                                <div class="difficulty-score-box">7/10</div>
+                                <p>Difficulty</p>
+                            </div>
+                        </div>
+                        <a href="https://rzp.io/rzp/3eMy8Qf" target="_blank" rel="noopener noreferrer"  class="sidebar-button book-now">Book Now</a>
+                        <a href="/contact.html" class="sidebar-button enquire-now">Enquire Now</a>
+
+                        <div class="quick-facts-section">
+                            <h4 class="font-bold text-lg font-poppins">Quick Facts</h4>
+                            <ul class="quick-facts-list">
+                                <li><i class="fas fa-calendar-alt"></i> 7 Nights / 8 Days</li>
+                                <li><i class="fas fa-chart-area"></i> Max Altitude: ~4,587 m (15,049 ft)</li>
+                                <li><i class="fas fa-route"></i> Route: Manali - Kaza - Kalpa - Narkanda - Manali</li>
+                                <li><i class="fas fa-tachometer-alt"></i> Grade: 7/10 (Moderate to Challenging)</li>
+                                <li><i class="fas fa-users"></i> Group Size: Min 10, Max 30</li>
+                            </ul>
+                            <div class="organizer-info">
+                                <h4 class="font-bold text-lg font-poppins">Bike Trip Organizer</h4>
+                                <p>Adora Treks</p>
+                                <p><i class="fas fa-phone"></i>+91 7807111209</p>
+                                <p><i class="fas fa-phone"></i>+91 7807111208</p>
+                                <p><i class="fas fa-envelope"></i>info@adorahospitality.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="container-fluid subscribe py-5">
+            <div class="container text-center py-5">
+                <div class="mx-auto text-center" style="max-width: 900px;">
+                    <h5 class="subscribe-title px-3">Subscribe</h5>
+                    <h1 class="text-white mb-4">Our Newsletter</h1>
+                    <p class="text-white mb-5">Get curated updates on upcoming bike trips, exclusive discounts, travel tips, and inspiring stories from the Himalayas. No spam — just adventure calling. </p>
+                    <div class="position-relative mx-auto">
+                        <input class="form-control border-primary rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                        <button type="button" class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid footer py-5">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="mb-4 text-white">Get In Touch</h4>
+                            <a><i class="fas fa-home me-2"></i> Manali, Old Manali, Manu Temple Road, Himachal Pradesh,175131</a>
+                            <a href="mailto:info@adorahospitality.com"><i class="fas fa-envelope me-2"></i> info@adorahospitality.com</a>
+                            <a href="tel:+917807111209"><i class="fas fa-phone me-2"></i> +91 7807111209</a>
+                            <a href="tel:+917807111208"><i class="fas fa-phone me-2"></i> +91 7807111208</a>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-share fa-2x text-white me-2"></i>
+                                <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://www.facebook.com/adorahospitality"  target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                                 <a class="btn-square btn btn-primary rounded-circle mx-1 d-flex align-items-center justify-content-center"
+                                   href="https://x.com/Adorabooking/"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   style="width: 38px; height: 38px;">
+                                   <img src="/img/twitter.png" alt="Twitter" style="width: 16px; height: 16px;">
+                                </a>
+                                <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://www.instagram.com/adorahospitality/"  target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                                <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://www.linkedin.com/company/adora-hospitality-solutions/"  target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="mb-4 text-white">Company</h4>
+                            <a href="https://adorahospitality.com/about" target="_blank" rel="noopener noreferrer"><i class="fas fa-angle-right me-2"></i> About</a>
+                            <a href="https://insider.adorahospitality.com" target="_blank" rel="noopener noreferrer"><i class="fas fa-angle-right me-2"></i> Blog</a>
+                            </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="mb-4 text-white">Support</h4>
+                            <a href="contact.html"><i class="fas fa-angle-right me-2"></i> Contact</a>
+                            </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                            <h4 class="text-white mb-3">Payments Supported by</h4>
+                            <div class="footer-bank-card">
+                                <a href="#" class="text-white me-2">
+                                  <img src="/img/razorpay.png" alt="Razorpay" style="height: 32px; width: auto;">
+                                </a>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid copyright text-body py-4">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-12 text-center">
+                        <i class="fas fa-copyright me-2"></i>
+                        Powered by
+                        <a class="text-white" href="https://adorahospitality.com" target="_blank" rel="noopener noreferrer">
+                            Adora Hospitality
+                        </a>
+                        All rights reserved <span id="currentYear"></span>.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Set current year dynamically
+            document.getElementById("currentYear").textContent = new Date().getFullYear();
+        </script>
+
+        <a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+        <script>
+            // Smooth scroll to top when the button is clicked
+            document.querySelector('.back-to-top').addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        </script>
+
+
+        <script>
+            let path = window.location.pathname;
+            if (path.endsWith(".html")) {
+              let newPath = path.replace(".html", "");
+              window.history.replaceState(null, null, newPath + window.location.search + window.location.hash);
+            }
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/lib/easing/easing.min.js"></script>
+        <script src="/lib/waypoints/waypoints.min.js"></script>
+        <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="/lib/lightbox/js/lightbox.min.js"></script>
+
+        <script src="/js/main.js"></script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const tabButtons = document.querySelectorAll('.tab-button');
+                const tabContents = document.querySelectorAll('.tab-content-panel');
+
+                tabButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        // Remove active class from all buttons and hide all content
+                        tabButtons.forEach(btn => btn.classList.remove('active-tab'));
+                        tabContents.forEach(content => content.classList.remove('active'));
+
+                        // Add active class to the clicked button
+                        button.classList.add('active-tab');
+
+                        // Show the corresponding content
+                        const targetId = button.dataset.target;
+                        document.getElementById(targetId).classList.add('active');
+                    });
+                });
+
+                // FAQ Accordion functionality
+                const faqQuestions = document.querySelectorAll('.faq-question');
+
+                faqQuestions.forEach(question => {
+                    question.addEventListener('click', () => {
+                        const answer = question.nextElementSibling;
+                        const icon = question.querySelector('.faq-icon');
+
+                        answer.classList.toggle('open');
+                        icon.classList.toggle('rotated');
+                    });
+                });
+
+                // Lightbox specific configurations (optional, but good to ensure defaults)
+                lightbox.option({
+                    'resizeDuration': 200,
+                    'wrapAround': true, // Allows continuous navigation
+                    'fadeDuration': 200,
+                    'imageFadeDuration': 200
+                    // Other options can be added here as needed
+                });
+
+            });
+        </script>
+    </body>
+
+</html>
