@@ -89,7 +89,7 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
                         <a href="index.html" class="nav-item nav-link">Home</a>
-                        <a href="packages.html" class="nav-item nav-link active">Trek Packages</a>
+                        <a href="packages.html" class="nav-item nav-link active">Packages</a>
                         <a href="roadtrips.html" class="nav-item nav-link"> Road Trips</a>
                         <a href="services.html" class="nav-item nav-link">Other Services</a>
                         <a href="https://insider.adorahospitality.com/" target="_blank" rel="noopener noreferrer" class="nav-item nav-link">Blog & Updates</a>
@@ -106,10 +106,10 @@
         <!-- Header Start -->
         <div class="container-fluid bg-breadcrumb">
             <div class="container text-center py-5" style="max-width: 900px;">
-                <h3 class="text-white display-3 mb-4">Trek Packages</h3>
+                <h3 class="text-white display-3 mb-4">Packages</h3>
                 <ol class="breadcrumb justify-content-center mb-0">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active text-white">Trek Packages</li>
+                    <li class="breadcrumb-item active text-white">Packages</li>
                 </ol>    
             </div>
         </div>
@@ -123,8 +123,8 @@
         <!-- Packages Slots Section will be loaded dynamically -->
         <div id="popular-packagesslots-section"></div>
         <script>
-          // Load packages section dynamically from packagesbyslot.html
-          fetch('packagesbyslot.html')
+          // Load packages section dynamically from packageswinter.html
+          fetch('packageswinter.html')
             .then(res => res.text())
             .then(html => {
               document.getElementById('popular-packagesslots-section').innerHTML = html;
