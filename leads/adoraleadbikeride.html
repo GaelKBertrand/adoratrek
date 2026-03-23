@@ -441,7 +441,7 @@
       errorMsg.style.display = 'none';
 
       // Basic client-side validation for required fields
-      if (!form.name.value.trim() || !form.phone.value.trim() || !form.interest.value) {
+      if (!form.name.value.trim() || !form.phone.value.trim() || !form.trek_interest.value || !form.bike_interest.value || !form.stay_interest.value) {
         errorMsg.textContent = 'Please fill in all required fields (Name, Phone, Interest).';
         errorMsg.style.display = 'block';
         return; // Stop submission
@@ -453,11 +453,14 @@
       loadingSpinner.style.display = 'inline-block';
 
       const data = {
+        const data = {
         name: form.name.value.trim(),
-        email: form.email.value.trim(), // Email is now optional
+        email: form.email.value.trim(),
         phone: form.phone.value.trim(),
-        interest: form.interest.value,
-        date: form.date.value || null, // Send null if date is empty
+        trekking: form.trek_interest.value,   // Grabs the Trek choice
+        bike_ride: form.bike_interest.value,  // Grabs the Bike choice
+        staying_at: form.stay_interest.value, // Grabs the Stay choice
+        date: form.date.value || null,
         // Add a timestamp for the Google Sheet
         timestamp: new Date().toLocaleString(),
         // Hidden fields for tracking sources
